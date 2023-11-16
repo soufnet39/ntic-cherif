@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- sn_sales.product inherit tree view -->
+     <record id="albelt_product_tree_inherited" model="ir.ui.view">
+        <field name="name">sn_sales.product.inherit.view.tree</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.ntic_products_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_price']" position="replace">  
+                <field name="displayed_tags" />
+            </xpath>
+
+        </field>
+    </record> 
+
+
+
+    <!-- sn_sales.product inherit form view -->
+    <record id="cherif_product_form_inherited" model="ir.ui.view">
+        <field name="name">sn_sales.product.inherit.view.form</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.ntic_product_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//label[@for='code']" position="replace"> </xpath>
+            <xpath expr="//field[@name='code']" position="replace"></xpath>
+            <xpath expr="//label[@for='code_supplier']" position="replace"> </xpath>
+            <xpath expr="//field[@name='code_supplier']" position="replace"></xpath>
+
+            <xpath expr="//h3[@id='vente_separation']" position="replace"></xpath>
+            <xpath expr="//div[@id='vente_block']" position="replace"></xpath>
+            <xpath expr="//h3[@id='label_achat']" position="replace"></xpath>
+            <xpath expr="//div[@id='achat_block']" position="replace"></xpath>
+            <!-- <xpath expr="//label[@for='default_price']" position="replace"></xpath> -->
+
+            
+            
+            <xpath expr="//label[@for='categories_ids']" position="replace">                
+            </xpath>
+             <xpath expr="//field[@name='categories_ids']" position="replace">
+                <!-- <field name="price_by_company_ids">                
+                <tree string="Caption" create="true" delete="true" edit="true" editable="bottom">
+                    
+                    <field name="company_id" string="Wilaya" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True }"/>
+                    <field name="price" string="Prix" />
+                    
+                </tree>                
+                </field> -->
+                <!-- attrs="{'invisible':['|',('sale_methode','=','unified')]}" -->
+                <span>
+                    Liste des prix
+                </span>
+                <field name="pricelist_item_ids">
+                                <tree editable="bottom">
+                                    <field name="pricelist_id"
+                                        options="{'no_quick_create':True,'no_create_edit':True,'no_open':True }"/>
+                                    <field name="fixed_price"/>
+                                </tree>
+                </field>
+                <label for="product_categ_id"></label>
+                <div>
+                <field name="product_categ_id" />
+                </div>
+
+            </xpath>
+            
+        </field>
+    </record>
+</odoo>

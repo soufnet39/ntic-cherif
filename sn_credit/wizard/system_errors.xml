@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- model.name form view -->
+    <record id="sn_credit_system_errors_view_form" model="ir.ui.view">
+        <field name="name">sn_credit_system_errors.form</field>
+        <field name="model">sn_credit.system_errors</field>
+        <field name="arch" type="xml">
+            <form string="Erreurs Système">
+                <sheet>
+                    <div class='text-center'>
+                        <h1 class="text-danger">Vérification des erreurs Système</h1>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span class="title1">Prélèvements à vérifier</span>
+                            <field name="prelevement_ids">
+                                <tree string="Caption" create="true" delete="true" edit="false" editable="bottom">
+                                    <field name="name" string="Période" />
+                                </tree>
+                            </field>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <button name="do_it" string="Appeler les Erreurs Système"
+                                type="object"
+                                class="btn-success btn-lg"/>
+
+                        </div>
+                    </div>
+                    <field name="hala" invisible='1' />
+                    <div class="row">
+                        <div class="col-md-12 text-center text-danger" attrs="{ 'invisible': [('hala','not in',('done'))]  }">
+                            <h1 class="text-success">
+                                Opération términée avec succés.
+                            </h1>
+                        </div>
+                        <div class="col-md-12 text-center text-danger" attrs="{ 'invisible': [('hala','not in',('waiting'))]  }">
+                            <h1 class="text-warning">
+                                Veuillez determiner les prélevements à vérifier
+                                <br/>
+                                Ensuite Appuyez sur le bouton en question
+                            </h1>
+                        </div>
+                        <div class="col-md-12 text-center" attrs="{ 'invisible': [('hala','not in',('clear'))]  }">
+                            <h1>Il parait qu'il n'existe aucune erreur système basé sur les prèlevement selectionnées</h1>
+                        </div>
+                        <div class="col-md-12" attrs="{ 'invisible': [('hala','not in',('exist'))]  }">
+                            <h1>Des erreurs système ont été détectées</h1>
+
+                                    <div class="row">
+                                      <div class="col-md-4 text-right">A Reporter avec un décalage de: </div>
+                                      <div class="col-md-4">
+                                            <field name="decalage" />
+                                      </div>
+                                      <div class="col-md-4 text-center">
+                                        <button name="trait_all" string="Traiter la liste"
+                                            type="object"
+                                            class="btn-success btn-lg"/>
+                                      </div>
+                                    </div>
+                                    <field name="commandes_ids">
+                                    <tree string="Caption" create="false" delete="true" edit="false" editable="bottom">
+                                        <field name="name" string="N˚" readonly="1"/>
+                                        <field name="display_date" readonly="1"/>
+                                        <field name="date_start" readonly="1" />
+                                        <field name="partner_id" string="Client" readonly="1"/>
+                                        <field name="amount_ttc" readonly="1"/>
+                                    </tree>
+                                    </field>
+
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ACTIONS* -->
+    <record model="ir.actions.act_window" id="sys_err_form">
+        <field name="name">Erreurs Système</field>
+        <field name="res_model">sn_credit.system_errors</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+    <record model="ir.actions.act_window.view" id="csys_err_form_action_form">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="sn_credit_system_errors_view_form"/>
+        <field name="act_window_id" ref="sys_err_form"/>
+    </record>
+    <!--Menu-->
+    <menuitem id="menu_sys_err_form"
+        action="sys_err_form"
+        name="Erreurs Système"
+        parent="menu_credit"
+        groups="sn_credit_boss"
+        sequence="4"/>
+</odoo>

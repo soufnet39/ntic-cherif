@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- *TREE* -->
+    <record model="ir.ui.view" id="eval_stocks_tree">
+        <field name="name">eval_stocks tree</field>
+        <field name="model">sn_stocks.eval_stocks</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Etat de stocks" create="false">
+                <field name="product_id"  invisible="1" />
+                <field name="name"/>
+                <field name="qty_calc" />
+                <field name="price_avg" />
+                <field name="montant" sum="Total" />
+                <field name="company_id" string="Unité" optional="hide" />
+            </tree>
+        </field>
+    </record>
+
+      <!--Search-->
+    <record id="sn_stock_eval_stocks_search_view" model="ir.ui.view">
+        <field name="name">sn_stocks.eval_stocks.search</field>
+        <field name="model">sn_stocks.eval_stocks</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <field name="name"/>                
+                <field name="qty_calc"/>                               
+                <filter name="qty_eq_zero" string="Quantité nulle" domain="[('qty_calc','=', 0)]"/>
+                <filter name="qty_gt_zero" string="Quantité non nulle" domain="[('qty_calc','>', 0)]"/>
+                <group expand="0" name="group_by" string="Group By">
+                     <filter name="group_unity" string="Par Unité" context="{'group_by': 'company_id'}"/>
+                     <filter name="group_product" string="Par Produit" context="{'group_by': 'product_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Graph -->
+    <record id="sn_stock_eval_stocks_graph" model="ir.ui.view">
+        <field name="name">sn_stocks.eval_stocks.graph</field>
+        <field name="model">sn_stocks.eval_stocks</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="product_id" type="col"/>
+                <field name="montant" type="row"/>
+                <field name="qty_calc" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!--PIVOT-->
+
+    <record model="ir.ui.view" id="sn_stock_eval_stocks_pivot">
+        <field name="name">sn_stocks.eval_stocks.pivot</field>
+        <field name="model">sn_stocks.eval_stocks</field>
+        <field name="arch" type="xml">
+            <pivot string="Opérations" >
+                 <field name="product_id" type="row"/>
+                 <field name="montant" type="col"/>
+                 <field name="qty_calc" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!--Action-->
+    <record id="eval_stocks_action" model="ir.actions.act_window">
+        <field name="name">Evaluation de stocks</field>
+        <field name="res_model">sn_stocks.eval_stocks</field>
+        <field name="view_mode">tree,graph,pivot</field>
+        <field name="view_id" ref="eval_stocks_tree"/>
+        <field name="search_view_id" ref="sn_stock_eval_stocks_search_view"/>       
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Pas de résultats!!.. Verifiez bien les entrées.
+            </p>
+        </field>
+    </record>
+    <!--,'search_default_group_stock': 1-->
+    <!--  <field name="search_view_id" ref="sn_sales_product_template_search_view"/> -->
+
+        <!--Menu etat de stock-->
+    <menuitem action="eval_stocks_action"
+              id="menu_all_product2"
+              name="Evaluation de Stocks"
+              parent="sn_base.menu_halat"              
+              groups="sn_stocks_boss"       
+              sequence="3"/>
+</odoo>

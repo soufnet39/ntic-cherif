@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <data>
+
+
+        <!-- Client Action For Menu HRHomepage -->
+        <record id="action_sn_homepage2" model="ir.actions.client">
+            <field name="name">Homepage</field>
+            <field name="tag">sn_homepage.homepage</field>
+        </record>
+
+        <!-- Menu Dashbaord -->
+        <menuitem id="menu_sn_homepage"
+                  name="Page d'Acceuil"
+                  parent="sn_base.menu_home"
+                  action="action_sn_homepage2"
+                  sequence="1"/>
+
+        <!-- HR Homepage Assests. We are making changes on assets backend -->
+        <template id="assets_backend4" name="Hr assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/sn_homepage/static/src/js/homepage.js"/>
+                <!--<script type="text/javascript" src="/homepage/static/lib/charts/Chart.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/charts/Chart.bundle.min.js"/>-->
+                <!--&lt;!&ndash; Datatable scripts &ndash;&gt;-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/datatables.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/dataTables.buttons.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/buttons.flash.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/buttons.html5.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/buttons.print.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/pdfmake.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/vfs_fonts.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/jszip.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/buttons.bootstrap.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/buttons.bootstrap4.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/dataTables/buttons.colVis.min.js"/>-->
+                <!--&lt;!&ndash; Scripts to export html to pdf &ndash;&gt;-->
+                <!--<script type="text/javascript" src="/hr_homepage/static/lib/jsPdf/jspdf.min.js"/>-->
+                <!--<script type="text/javascript" src="/hr_homepage/static/lib/jsPdf/jspdf.debug.js"/>-->
+                <!--&lt;!&ndash; Css scripts for homepage view and table &ndash;&gt;-->
+                <!--<link rel="stylesheet" href="/hr_homepage/static/src/css/homepage.css"/>-->
+                <!--<link rel="stylesheet" href="/hr_homepage/static/lib/dataTables/datatables.min.css"/>-->
+                <!--<link rel="stylesheet" href="/hr_homepage/static/lib/dataTables/buttons.dataTables.min.css"/>-->
+            </xpath>
+        </template>
+    </data>
+</odoo>
+
+
+
+
+
+        <!-- HR Homepage Assests. We are making changes on assets backend -->
+<!--        <template id="assets_backend_homepage2" name="Assets" inherit_id="web.assets_backend">-->
+<!--            <xpath expr="." position="inside">-->
+<!--                <script type="text/javascript" src="/sn_homepage/static/src/js/homepage.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/charts/Chart.min.js"/>-->
+                <!--<script type="text/javascript" src="/homepage/static/lib/charts/Chart.bundle.min.js"/>-->
+                <!--&lt;!&ndash; Datatable scripts &ndash;&gt;-->
+                <!--<script type="text/javascript" src="/hr_homepage/static/lib/jsPdf/jspdf.min.js"/>-->
+                <!--<script type="text/javascript" src="/hr_homepage/static/lib/jsPdf/jspdf.debug.js"/>-->
+                <!--&lt;!&ndash; Css scripts for homepage view and table &ndash;&gt;-->
+                <!--<link rel="stylesheet" href="/hr_homepage/static/src/css/homepage.css"/>-->
+                <!--<link rel="stylesheet" href="/hr_homepage/static/lib/dataTables/datatables.min.css"/>-->
+                <!--<link rel="stylesheet" href="/hr_homepage/static/lib/dataTables/buttons.dataTables.min.css"/>-->
+<!--            </xpath>-->
+<!--        </template>-->
+
+<!--</odoo>-->

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Tree-->
+    <record id="sn_purchases_supplier_tree" model="ir.ui.view">
+        <field name="name">Fournisseurs</field>
+        <field name="model">sn_purchases.suppliers</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Search  -->
+    <record id="view_ntic_supplier_filter" model="ir.ui.view">
+        <field name="name">res supplier search</field>
+        <field name="model">sn_purchases.suppliers</field>
+        <field name="arch" type="xml">
+            <search string="Search Partner">
+                <field name="name"/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group expand="0" name="group_by" string="Group By">
+                    <!--                    <filter name="group_tasnif" string="Catégorie" context="{'group_by': 'tasnif'}"/>-->
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Form-->
+    <record id="sn_purchases_supplier_form" model="ir.ui.view">
+        <field name="name">Fourniseurs Form</field>
+        <field name="model">sn_purchases.suppliers</field>
+        <field name="arch" type="xml">
+            <form string="Fourniseurs">
+                <sheet>
+                    <div class="row">
+                        <div class="col-md-12 text-right oe_button_box0" name="button_box">
+                            <!--                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">-->
+                            <!--                                <field name="active" widget="boolean_button"-->
+                            <!--                                       options="{&quot;terminology&quot;: &quot;archive&quot;}"/>-->
+                            <!--                            </button>-->
+                        </div>
+                    </div>
+                    <br/>
+                    <field name="id" invisible="1"/>
+                    <div class="text-center text-danger">
+                        <h1>
+                            <span attrs="{'invisible':[('id', '!=', False)]}">Création</span>
+                            <span class="oe_edit_only" attrs="{'invisible':[('id', '=', False)]}">Edition</span>
+                            <span class="oe_read_only">Présentation</span>
+                            Fournisseur
+                        </h1>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <field name="image_512" widget="image" class="oe_avatar"
+                                   options="{'preview_image': 'image_512'}"/>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="row form-group" id="nom">
+                                <div class="col-md-3 offset-md-1 text-right ">
+                                    <span class="title1">Nom:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <field class="form-control" name="name"/>
+                                </div>
+                            </div>
+                            <div class="row form-group" id="street">
+                                <div class="col-md-3 offset-md-1 text-right ">
+                                    <span class="title1">Adresse:</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <field class="form-control" name="street"/>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-3 offset-md-1 text-right ">
+                                    <label class="title1" for="phone"/>:
+                                </div>
+                                <div class="col-md-7">
+                                    <field class="form-control" name="phone"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3 offset-md-1 text-right ">
+                                    <label class="title1" for="mobile"/>:
+                                </div>
+                                <div class="col-md-6">
+                                    <field class="form-control" name="mobile"/>
+                                </div>
+                                <div class="col-md-1 " style="padding-left:0;">
+                                    <button class="btn-link btn-lg fa fa-envelope-o"
+                                            style="color: mediumpurple;padding-left:0; font-size: 20px; padding-top: 0px;"
+                                            aria-label="Envoi SMS" title="Envoyer SMS"
+                                            attrs="{'invisible':[('mobile', '=', False)]}"
+                                            context="{'field_name': 'mobile'}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3 offset-md-1 text-right ">
+                                    <label class="title1" for="email"/>:
+                                </div>
+                                <div class="col-md-7">
+                                    <field class="form-control" name="email"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3 offset-md-1 text-right ">
+                                    <span class="title1">Web:</span>
+                                </div>
+                                <div class="col-md-7">
+                                    <field class="form-control" name="website"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                            <div class="col-md-3 offset-md-1 text-right "><label class="title1" for="user_ids"/>
+                                    :
+                                </div>
+                                <div class="col-md-8">
+                                    <field class="my-form-control" name="user_ids"  widget="many2many_tags" options="{'no_open':True}"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3 offset-md-1 text-right ">
+                                    <label class="title1" for="categories_ids"/>:
+                                </div>
+                                <div class="col-md-8">
+                                    <field name="categories_ids" widget="one2many" context="{'show_attribute': False}">
+                                        <tree string="Taxonomies" editable="bottom">
+                                            <field name="taxo_id" attrs="{'readonly': [('id', '!=', False)]}"/>
+                                            <field name="items_ids" widget="many2many_tags"
+                                                   options="{'no_create_edit': True}"
+                                                   context="{'default_taxo_id': taxo_id, 'show_attribute': False}"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3 offset-md-1 text-right ">
+                                    <label class="title1" for="lang"/>:
+                                </div>
+                                <div class="col-md-7">
+                                    <field class="my-form-control" name="lang"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Action-->
+    <record id="menu_ntic_suppliers_action" model="ir.actions.act_window">
+        <field name="name">Liste des Fournisseurs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sn_purchases.suppliers</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Veuillez ajouter votre premier fournisseur
+            </p>
+            <p>
+                <strong>nTIC</strong>
+                vous aide à suivre tous les activitiés en relation avec chacun de vos fourniseurs.
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

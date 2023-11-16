@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <!-- THIS IS ON PURPOSE IN DOUBLE FIRST to make it readonly for all; seconde to allow only cherif_boss -->
+<!-- <record id="view_commande_form_cherif1" model="ir.ui.view">
+        <field name="name">commandes</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="20" />
+        <field name="inherit_id" ref="sn_sales.view_commande_form"/>
+        <field name="groups_id" eval="[(6,0,[ref('cherif.cherif_special_user')])]" />
+        <field name="arch" type="xml">
+		<xpath expr="//div[@id='add_article']//field[@name='price_unit']" position="attributes">
+			<attribute name="readonly">1</attribute>
+		</xpath>
+	</field>
+</record> -->
+  <record id="view_commande_form_cherif" model="ir.ui.view">
+        <field name="name">commandes</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="20" />
+        <field name="inherit_id" ref="sn_sales.view_commande_form"/>
+	    <!-- <field name="groups_id" eval="[(6,0,[ref('cherif.cherif_boss')])]" /> -->
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='month_number']" position="before">
+             <div  class="row">
+                        <div class="col-md-6 text-right">
+                            <label class="text-danger" for="month_number"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="pricelist_id" required="1" options='{"no_open": True, "no_create": True}' 
+                                attrs="{'readonly':[('aksats_adad','>',0)]}"/>
+                        </div>
+                    </div>
+            </xpath>
+            <xpath expr="//div[@id='month_number']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <!-- <xpath expr="//div[@id='adding_article_first']" position="after">
+            </xpath> -->
+	    </field>
+</record>
+
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="FancyTemplate">
+ 
+        <a class="fancybox" data-fancybox="" rel="group" t-att-href="widget.url()" >
+           <img t-att-src="widget.url()"  t-att-name="widget.name"  width="200px"/>
+        </a>
+
+     
+    </t>
+</templates>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree view -->
+    <record id="view_sn_uom_uom_tree" model="ir.ui.view">
+        <field name="name">Unités de mesure</field>
+        <field name="model">sn_uom.uom</field>
+        <field name="type">tree</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+
+            <tree string="Caption" create="true" delete="true" edit="true">
+                <field name="name" />
+                <field name="complete_name" />
+                <field name="uom_category_id" />
+                <field name="type_unit" />
+                <field name="ratio" />
+            </tree>
+        </field>
+
+    </record>
+
+    <!-- Form view for "sn_uom.uom" -->
+    <record id="view_sn_uom_uom_form" model="ir.ui.view">
+        <field name="name">view.sn_uom.uom.form</field>
+        <field name="model">sn_uom.uom</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="uom form" create="true" delete="true" edit="true">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" class="oe_inline" placeholder="name" />
+                        </h1>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2 text-right">
+                            <label for="complete_name" />
+                        </div>
+                        <div class="col-md-5">
+                            <field name="complete_name" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 text-right">
+                            <label for="uom_category_id" />
+                        </div>
+                        <div class="col-md-5">
+                            <field name="uom_category_id"                            
+                            options="{'no_create_edit': True, 'no_open': True}"
+                            />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 text-right">
+                            <label for="type_unit" />
+                        </div>
+                        <div class="col-md-5">
+                            <field name="type_unit" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 text-right">
+                            <label for="ratio" />
+                        </div>
+                        <div class="col-md-5">
+                            <field name="ratio"  attrs="{ 'readonly': [('type_unit','=','one_unit')]  }" />
+                        </div>
+                    </div>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search view for "sn_uom.uom" -->
+    <record id="view_sn_uom_uom_search" model="ir.ui.view">
+        <field name="name">view.sn_uom.uom.search</field>
+        <field name="model">sn_uom.uom</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="model_search">
+                <field name="name" />
+
+            </search>
+        </field>
+    </record>
+
+    <!-- Main window action for "sn_uom.uom" -->
+    <record id="action_sn_uom_uom_act_window" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Catégories d'unités</field>
+        <field name="res_model">sn_uom.uom</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_sn_uom_uom_search" />
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Ajouter votre première Unité de mesure
+            </p>
+        </field>
+    </record>
+
+    <!-- Main menu for "sn_uom.uom" -->
+    <menuitem action="action_sn_uom_uom_act_window"
+              id="menu_sn_uom_unites"
+              name="Unités de mesure"
+              parent="menu_sn_uom_mesure"
+              sequence="2" />
+
+</odoo>

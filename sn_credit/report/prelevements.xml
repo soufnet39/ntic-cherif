@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <template id="report_prelevements">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sn_credit.report_prelevements_document" />
+                </t>
+            </t>
+        </template>
+        <template id="report_prelevements_document">
+            <t t-call="web.external_layout">
+                <!--<t t-set="doc" t-value="doc.with_context({'lang':user.lang})"/>-->
+                <h2 class="text-center mt32 mb32">
+                    <span t-field="doc.name"/>
+                </h2>
+                
+
+                <table class="table table-sm" style="margin-bottom:0">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee; font-size:11pt">
+                            <th>CompteA</th>
+                            <th class="text-center">CleA</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>MontantVo</th>
+                            <th>CompteB</th>
+                            <th class="text-center">CleB</th>
+                            <th>DateCreation</th>
+                            <th>DateDebut</th>
+                            <th>DateFin</th>
+                            <th>N.Mois</th>
+                            <th class="text-center">Jour</th>
+                            <th class="text-center">Réference</th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.aksats_lines" t-as="line">
+                            <tr style="border-bottom:1px solid #AAA;">
+
+                                <td> <span t-field="line.client_ccp_numero"/> </td>
+                                <td class="text-center"> <span t-field="line.client_ccp_cle"/> </td>
+
+                                <td> <span t-field="line.client_nom"/> </td>
+                                <td> <span t-field="line.client_prenom"/> </td>
+
+                                <td> <span t-field="line.amount"/> </td>
+
+
+                                <td> <span t-field="line.contrat_ccp_numero"/> </td>
+                                <td class="text-center"> <span t-field="line.contrat_ccp_cle"/> </td>
+
+                                <td> <span t-field="line.date_creation"/> </td>
+                                <td> <span t-field="line.date_start"/> </td>
+                                <td> <span t-field="line.date_end"/> </td>
+
+
+                                <td class="text-center"> <span t-field="line.nbr_echeance"/> </td>
+                                <td class="text-center"> <span t-field="line.jour_prelevement"/> </td>
+
+                                <td><span t-field="line.name"/> </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--main menu boxes-->
+    <menuitem id="menu_sn_boxes"
+              name="Trésorerie"
+              parent="sn_base.sn_menu_root"
+              sequence="5"
+              web_icon="sn_boxes,static/description/icon.png"/>
+
+    <!--menu boxes/operations-->
+    <menuitem id="menu_boxes_operations"
+              name="Opérations"
+              parent="menu_sn_boxes"
+              sequence="4"
+    />
+
+    <!--Search-->
+    <record id="sn_boxes_boxes_search_view" model="ir.ui.view">
+        <field name="name">sn_boxes.boxes.search</field>
+        <field name="model">sn_boxes.boxes</field>
+        <field name="arch" type="xml">
+            <search string="Caisses">
+                <field name="name"/>
+
+                <filter name="filter_boxes_sold" string="Espèce" domain="[('boxe_type','=','sold')]"/>
+                <filter name="filter_boxes_bank" string="Banques" domain="[('boxe_type','=','bank')]"/>
+                <filter name="filter_boxes_other" string="Solde Initial" domain="[('boxe_type','=','other')]"/>
+
+                <separator/>
+                <!--<separator/>-->
+                <!--<field name="category_id" string="Tag" filter_domain="[('category_id','ilike', self)]"/>-->
+                <!--<field name="user_id"/>-->
+                <!--<field name="phone" filter_domain="['|',('phone','ilike',self),('mobile','=',self)]"/>-->
+
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="group_boxe_type" string="Par Type" context="{'group_by': 'boxe_type'}"/>
+                    <filter name="group_wilaya" string="Par Wilaya" context="{'group_by': 'wilaya_id'}"/>
+                    <filter name="group_region" string="Par Région" context="{'group_by': 'region'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Form-->
+    <record id="sn_boxes_boxes_form_view" model="ir.ui.view">
+        <field name="name">sn_boxes.boxes.form</field>
+        <field name="model">sn_boxes.boxes</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="sold_boxe_function" type="object" class="oe_stat_button" icon="fa-money">
+                            <field name="sold_boxe"/>
+                        </button>
+
+                    </div>
+                    <br/>
+                    <field name="id" invisible="1"/>
+
+                    <div class="row form-group">
+                        <div class="col-md-8 offset-md-3 h2 text-danger">
+                            <span class="oe_edit_only" attrs="{'invisible':[('id', '=', False)]}" >
+                                Edition
+                            </span>
+                            <span attrs="{'invisible':[('id', '!=', False)]}">
+                                Création
+                            </span>
+                            <span class="oe_read_only">
+                               Présentation
+                            </span>
+                            <span>
+                                de Compte trésorerie
+                            </span>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row form-group">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="name"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control h2" name="name" placeholder="ex: Caisse El-Oued"/>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="boxe_type"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control" name="boxe_type"/>
+                        </div>
+                    </div>
+                     <div class="row form-group" attrs="{'invisible':[('boxe_type','!=','other')]}">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="other"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control" name="other"/>
+                        </div>
+                    </div>
+
+                    <div class="row form-group" attrs="{'invisible':[('boxe_type','!=','bank')]}">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="bank"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control" name="bank"/>
+                        </div>
+                    </div>
+                    <div class="row form-group" attrs="{'invisible':[('boxe_type','!=','bank')]}">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="agence"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control" name="agence"/>
+                        </div>
+                    </div>
+                    <div class="row form-group" attrs="{'invisible':[('boxe_type','!=','bank')]}">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="rib"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control" name="rib"/>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="wilaya_id"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control" name="wilaya_id" options="{'no_open': True}"/>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="user_ids"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control" name="user_ids"
+                                   widget="many2many_tags" options="{'no_create': True}"/>
+                        </div>
+                    </div>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree simple-->
+    <record id="sn_boxes_boxes_tree" model="ir.ui.view">
+        <field name="name">sn_boxes.boxes.list</field>
+        <field name="model">sn_boxes.boxes</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Comptes">
+                <field name="name"/>
+                <field name="boxe_type"/>
+                <field name="user_ids" widget="many2many_tags" string="Responsables"/>
+                <field name="wilaya_id" optional='hide'/>
+            </tree>
+        </field>
+    </record>
+
+    <!--PIVOT-->
+
+    <record id="sn_boxes_pivot" model="ir.ui.view">
+        <field name="name">sn_boxes.boxes.pivot</field>
+        <field name="model">sn_boxes.boxes</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="name" type="row"/>
+                <field name="sold_boxe" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!--Graph -->
+
+    <record id="sn_boxes_graph" model="ir.ui.view">
+        <field name="name">sn_boxes.boxes.graph</field>
+        <field name="model">sn_boxes.boxes</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="name" type="row"/>
+                <field name="sold_boxe" type="measure"/>
+            </graph>
+
+        </field>
+    </record>
+
+    <!--Action-->
+
+    <record id="sn_boxes_boxes_action" model="ir.actions.act_window">
+        <field name="name">Liste des Comptes</field>
+        <field name="res_model">sn_boxes.boxes</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="view_id" ref="sn_boxes_boxes_tree"/>
+        <field name="search_view_id" ref="sn_boxes_boxes_search_view"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Ajouter votre première compte
+            </p>
+        </field>
+    </record>
+
+    <!--Menu-->
+    <menuitem action="sn_boxes_boxes_action"
+              id="menu_boxes"
+              name="Liste des Comptes"
+              parent="menu_sn_boxes"
+              groups="sn_boxes_manager"
+              sequence="3"/>
+
+
+    <!--Tree boxes with sold-->
+    <record id="sn_boxes_boxes_tree_with_sold" model="ir.ui.view">
+        <field name="name">sn_boxes.boxes.list</field>
+        <field name="model">sn_boxes.boxes</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Comptes" create="false" >
+                <field name="name"/>
+                <field name="boxe_type" optional='hide'/>
+                <field name="user_ids" widget="many2many_tags" string="Responsables" optional='hide'/>
+                <field name="wilaya_id" optional='hide'/>
+                <field name="region" optional='hide'/>
+                <field name="sold_boxe" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <!--Action boxes with sold-->
+    <record id="sn_boxes_boxes_list_action" model="ir.actions.act_window">
+        <field name="name">Etat des Comptes</field>
+        <field name="res_model">sn_boxes.boxes</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="sn_boxes_boxes_tree_with_sold"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Ajouter votre premier compte
+            </p>
+        </field>
+    </record>
+
+
+
+
+    <!-- Menu -->
+    <menuitem action="sn_boxes_boxes_list_action"
+              id="menu_boxes_state"
+              name="Etat des Comptes"
+              parent="sn_base.menu_halat"
+              groups="sn_boxes_manager"
+              sequence="3"/>
+
+</odoo>

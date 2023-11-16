@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Tree-->
+    <record id="sn_credit_cuts_tree" model="ir.ui.view">
+        <field name="name">Enlèvements Tree</field>
+        <field name="model">sn_credit.cuts</field>
+        <field name="arch" type="xml">
+            <tree string="Enlèvements">
+                <field name="sequence" widget="handle"/>
+                <field name="name" string="Intitulé"/>
+                <field name="nbr_lines" />
+                <field name="mta_pay" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Form-->
+    <record id="sn_credit_cuts_form" model="ir.ui.view">
+        <field name="name">Enlèvements Form</field>
+        <field name="model">sn_credit.cuts</field>
+        <field name="arch" type="xml">
+            <form string="Enlèvements">
+                <header>
+                    <button name="print_cuts" string="Imprimer" type="object"
+                        class="oe_highlight btn-print" icon="fa-print"
+                        attrs="{'invisible':[('name','=','/'),('nbr_lines','=',0)]}" />
+
+                </header>
+                <sheet style="width:94%!important" class="cuts">
+
+                    <field name="nbr_cuts_tempo_lot" invisible="1" />
+
+                    <div class="row" attrs="{'invisible': ['|',('nbr_lines','>',0),('nbr_cuts_tempo_lot','>',0)]}">
+                        <div class="col-md-9" style="padding:5px 30px">
+                            <h1>
+                                <span class="muted">
+                                    <label for="name" />
+                                </span>
+                                <br/>
+                                <field name="name" />
+                            </h1>
+                        </div>
+                        <div class="col-md-3" style="padding-top: 44px;">
+                            <field name="filename" invisible="1"/>
+                            <field name="files"   filename="filename" />
+                        </div>
+                    </div>
+
+                    <div style="padding:5px 30px" attrs="{'invisible': [('nbr_lines','=',0),('nbr_cuts_tempo_lot','=',0)]}">
+                        <h1>
+                            <span class="muted">
+                                <label for="name" />
+                            </span>
+                            <br/>
+                            <field name="name" />
+                        </h1>
+                    </div>
+
+                    <!-- <div class="cuts_head" attrs="{'invisible':[('nbr_lines','>',0)]}" >
+                        <div class="row">
+                            <div class="col-md-3 offset-md-6 text-right">
+                                <label for="c_month"/>:
+                            </div>
+                            <div class="col-md-2">
+                                <field class="my-form-control" name="c_month"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 offset-md-6 text-right">
+                                <label for="c_year"/>:
+                            </div>
+                            <div class="col-md-2">
+                                <field class="my-form-control" name="c_year"/>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="row" >
+                        <div class="col-md-2 offset-md-8 text-center">
+                            <button name="recalcule_reel_month" string="calcule reel mois" type="object" class="oe_highlight"/>
+                        </div>
+                    </div> -->
+
+                    <div class="row" attrs="{'invisible':[('nbr_lines','=',0)]}">
+                        <div class="col-md-1 offset-md-7 text-right">
+                            <span class="text-danger font-weight-bold">Nbrs.</span>
+                        </div>
+                        <div class="col-md-2 marginleft5px text-center">
+                            <span class="text-danger font-weight-bold">Montants</span>
+                        </div>
+                    </div>
+
+                    <div class="row" attrs="{'invisible':[('count_pay','=',0)]}">
+                        <div class="col-md-3 offset-md-4 text-right">
+                            <span class="title1">Payés :</span>
+                        </div>
+                        <div class="col-md-1 text-right hawet">
+                            <field name="count_pay"/>
+                        </div>
+                        <div class="col-md-2 marginleft5px text-right hawet">
+                            <field name="mta_pay"/>
+                        </div>
+
+                    </div>
+                    <div class="row" attrs="{'invisible':[('count_imp','=',0)]}">
+                        <div class="col-md-3 offset-md-4 text-right">
+                            <span class="title1">Impayés :</span>
+                        </div>
+                        <div class="col-md-1 text-right hawet">
+                            <field name="count_imp"/>
+                        </div>
+
+
+                    </div>
+                    <div class="row" attrs="{'invisible':[('count_blo','=',0)]}">
+                        <div class="col-md-3 offset-md-4 text-right">
+                            <span class="title1">Bloqués :</span>
+                        </div>
+                        <div class="col-md-1 text-right hawet">
+                            <field name="count_blo"/>
+                        </div>
+
+
+                    </div>
+                    <div class="row" attrs="{'invisible':[('count_clo','=',0)]}">
+                        <div class="col-md-3 offset-md-4 text-right">
+                            <span class="title1">Cloturés :</span>
+                        </div>
+                        <div class="col-md-1 text-right hawet">
+                            <field name="count_clo"/>
+                        </div>
+
+
+                    </div>
+                    <div class="row" attrs="{'invisible':[('count_ind','=',0)]}">
+                        <div class="col-md-3 offset-md-4 text-right">
+                            <span class="title1">Indéfinis :</span>
+                        </div>
+                        <div class="col-md-1 text-right hawet">
+                            <field name="count_ind"/>
+                        </div>
+
+                    </div>
+                    <div class="row" attrs="{'invisible':[('nbr_lines','=',0)]}">
+                        <div class="col-md-3 offset-md-4 text-right">
+                            <span class="title1">Total :</span>
+                        </div>
+                        <div class="col-md-1 text-right hawet">
+                            <field name="nbr_lines"/>
+                        </div>
+
+                    </div>
+
+                    <notebook>
+
+                      <page string="Groupes de lignes" >
+                           <field name="cuts_tempo_lot_ids" class="contour01"    >
+
+                                <tree string="Lots"  editable="bottom" create="false" delete="false"
+                                    decoration-bf="True" >
+
+                                     <field name="done"   invisible="1" />
+                                     <field name="lot"  force_save="1" invisible="1" />
+                                    <field name="lot_title" readonly="1" force_save="1"   />
+
+                                      <button name="convert_lot" string="Transfer"
+                                      type="object" context="{'selected_lot': lot,'selected_id':id }"
+
+                                      attrs="{ 'invisible': [('done','=',True)]  }"
+
+                                      class="oe_button oe_highlight"  >
+
+                                      </button>
+
+
+                                    </tree>
+                         </field>
+                      </page>
+
+                        <page string="lignes listing">
+                            <div class="text-center tab_infos" attrs="{'invisible': [('name','!=','/')]}">
+                                <br/>
+                                Veuillez déterminer le mois et l'année, ensuite sauvgardez..
+                            </div>
+
+                            <field name="cuts_lines" class="contour01">
+                                <tree string="Enlèvements Lines" edit="false" create="false" delete="false"
+                                    decoration-bf="True" decoration-danger="c_etat!='0'" decoration-success="c_etat=='0'">
+                                    <field name="aksat_line_id" invisible="1" />
+                                    <field name="name" />
+                                    <field name="c_nom" />
+                                    <field name="c_ccp" />
+                                    <field name="p_ccp" />
+                                    <field name="c_date" />
+                                    <field name="c_montant" sum="Total" />
+                                    <field name="c_etat" />
+                                    <field name="c_mois" force_save="1" invisible='1' />
+                                    <field name="c_annee" force_save="1" invisible='1' />
+                                    <!-- <field name="mois_reel" readonly="0" />
+                                    <field name="annee_reel" readonly="0" /> -->
+                                    <field name="commande_aksat_line_id" force_save="1" invisible='1' />
+
+                                </tree>
+                                <form create="false" edit="false">
+                                    <group>
+                                        <field name="commande_aksat_line_id" readonly="1" />
+                                        <field name="name" readonly="1" />
+                                        <field name="c_mois" readonly="1" />
+                                        <field name="c_annee" readonly="1" />
+                                        <field name="c_date" readonly="1" />
+                                        <field name="c_montant" readonly="1" />
+                                        <field name="c_etat" readonly="0" />
+
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Contrôle">
+                         
+
+                          <br></br>
+                          <br></br>
+                          <br></br>
+                          <div class="row">
+                            <div class="col-md-4 text-center">
+                                <button name="control_duplicates" string="Controler les cas doublés"
+                                      type="object" 
+                                      class="oe_button btn-lg oe_highlight"  >
+                                 </button>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <button name="remove_duplicates" string="Supprimer les cas doublés  "
+                                      type="object" 
+                                      class="oe_button btn-lg oe_highlight"  >
+                                </button>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <button name="calculator" string="Calcul Global"
+                                      type="object" 
+                                      class="oe_button btn-lg btn-danger bt- oe_highlight"  >
+                                </button>
+                            </div>
+                          </div>
+                         
+                        </page>
+                    </notebook>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTIONS* -->
+    <record model="ir.actions.act_window" id="cuts_tree_action">
+        <field name="name">Enlèvements</field>
+        <field name="res_model">sn_credit.cuts</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Veuillez Ajouter votre premier Enlèvement
+            </p>
+        </field>
+    </record>
+
+    <!--Menu-->
+    <menuitem id="menu_cuts_tree"
+        action="cuts_tree_action"
+        name="Enlèvements"
+        parent="menu_credit"
+        groups="sn_credit_boss"
+        sequence="3"/>
+
+</odoo>

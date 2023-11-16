@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <!-- model.name form view -->
+        <record id="sn_credit_retard_view_form" model="ir.ui.view">
+            <field name="name">sn_credit_cas retard form</field>
+            <field name="model">sn_credit.wiz_tardations</field>
+            <field name="arch" type="xml">
+                <form string="Erreurs Système">
+                    <sheet>
+                        <div class='text-center'>
+                           <h1 class="text-danger">Traitement de Retard</h1>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <br/><br/>
+                                <button name="fetch_retards" string="Trouver les cas en Retards"
+                                type="object"
+                                class="btn-success btn-lg"/>
+                                <button name="print_retards" string="Imprimer" style="margin: 0 10px"
+                                type="object"
+                                class="btn-primary btn-lg"/>
+                            </div>
+                        </div>
+                       
+
+                            <notebook>
+
+                                <page string="Cas en Retard" >
+                                  <field name="retards_ids" >
+                                  <tree string="Caption" 
+                                   default_order="command_name"
+
+                                   create="false" delete="false" edit="true" editable="bottom" >
+
+                                    <field name="command_id" invisible="1"/>
+                                    <field name="contrat" invisible="1"/>
+                                    <field name="command_name" />
+                                    <field name="partner_id" invisible="1" />
+                                    <field name="partner_name" />
+                                    <!-- <field name="addad_monthes" /> -->
+                                    <field name="amount_rest"  sum="Total"/>
+                                    <button name="traite_retard" string="Retard"
+                                      type="object" context="{
+                                      'selected_cmd_id': command_id ,
+                                      'selected_contrat': contrat ,
+                                      'selected_cmd_name': command_name ,
+                                      'selected_partner_id': partner_id ,
+                                      'selected_montant': amount_rest }"
+                                      class="oe_button oe_highlight"  >
+
+                                      </button>
+                                  </tree>
+                                </field>
+                                </page>
+
+                            </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+   <!-- ACTIONS* -->
+    <record model="ir.actions.act_window" id="retard_form">
+        <field name="name">Cas en retard</field>
+        <field name="res_model">sn_credit.wiz_tardations</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+
+
+
+<!--Menu-->
+    <menuitem id="menu_retard_form"
+        action="retard_form"
+        name="Cas en retard"
+        parent="menu_credit"
+        groups="sn_credit_boss"
+        sequence="6" />
+     <menuitem id="menu_retard_form_bis"
+        action="retard_form"
+        name="Cas en retard"
+        parent="sn_sales.menu_sn_sales"
+        groups="sn_credit_manager"
+        sequence="8"/>
+</odoo>

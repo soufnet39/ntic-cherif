@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Search-->
+    <!-- <record id="my_product_category_search_view" model="ir.ui.view">
+        <field name="name">sn_sales.productcategory.search</field>
+        <field name="model">sn_sales.productcategory</field>
+        <field name="arch" type="xml">
+            <search string="Catégories des produits">
+                <field name="name" string="Catégories des produits"/>
+            </search>
+        </field>
+    </record> -->
+     <!--Form-->
+    
+
+   
+
+    <!--Tree-->
+    <record id="my_products_categories_list_view" model="ir.ui.view">
+        <field name="name">sn_sales.products_categories.list</field>
+        <field name="model">sn_sales.products_categories</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Catégories des produits"  decoration-bf="True" create="true" delete="true" edit="true" editable="bottom">
+                <field name="name" string="Nom Catégorie"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Action -->
+    <record id="my_products_categories_action_tree" model="ir.actions.act_window">
+        <field name="name">Catégories des produits</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sn_sales.products_categories</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="my_products_categories_list_view"/>
+    </record>
+
+    <!--Menu Catégories of Products-->
+    <menuitem action="my_products_categories_action_tree"
+              id="menu_product_categ"
+              name="Catégories produits"
+              parent="menu_sn_sales_modes"
+              sequence="0"/>
+</odoo>

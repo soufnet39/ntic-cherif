@@ -1,0 +1,1018 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sn_purchases
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20191106\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-11 02:04+0000\n"
+"PO-Revision-Date: 2021-01-11 03:47+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar_SY\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: sn_purchases
+#: model:ir.actions.report,print_report_name:sn_purchases.action_report_purchase
+msgid "'Achat - %s' % (object.name)"
+msgstr "'شراء - %s' % (object.name)"
+
+#. module: sn_purchases
+#: model:ir.actions.report,print_report_name:sn_purchases.action_etats_achats_report
+msgid "'Etats de Factures d\\'achat'"
+msgstr "‘حالات فواتير الشراء'"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "(Annulée)"
+msgstr "(ملغاة)"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "(Brouillon)"
+msgstr "(مسودة)"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__semestre__1
+msgid "1er Semestre"
+msgstr "السداسي الأول"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__trimestre__1
+msgid "1er Trimestre"
+msgstr "الثلاثي الأول"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__annee__2019
+msgid "2019"
+msgstr ""
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__annee__2020
+msgid "2020"
+msgstr ""
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__semestre__2
+msgid "2em Semestre"
+msgstr "السداسي الثاني"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__trimestre__2
+msgid "2em Trimestre"
+msgstr "‫الثلاثي الثاني"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__trimestre__3
+msgid "3em Trimestre"
+msgstr "‫الثلاثي الثالث"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__trimestre__4
+msgid "4em Trimestre"
+msgstr "‫الثلاثي الرابع"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid ""
+"<span attrs=\"{'invisible':[('display_type', '=', False)]}\" class=\"text-muted\">\n"
+"                                            Une note sera affiché sous le nom de "
+"l'article seulement,\n"
+"                                            Une Section sera affiché sous la ligne "
+"entière\n"
+"                                        </span>"
+msgstr ""
+"‫<span attrs=\"{'invisible':[('display_type', '=', False)]}\" class=\"text-muted"
+"\">سيتم عرض الملاحظة تحت اسم المنتج فقط،\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‫                                            سيتم عرض المقطع تحت السطر بأكمله</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_supplier_form
+msgid ""
+"<span attrs=\"{'invisible':[('id', '!=', False)]}\">Création</span>\n"
+"                            <span class=\"oe_edit_only\" attrs=\"{'invisible':"
+"[('id', '=', False)]}\">Edition</span>\n"
+"                            <span class=\"oe_read_only\">Présentation</span>\n"
+"                            Fournisseur"
+msgstr ""
+"‫<span class=\"oe_edit_only\" attrs=\"{'invisible':[('id', '=', False)]}\">إنشاء</"
+"span> <span class=\"oe_read_only\"> </span> <span attrs=\"{'invisible':[('id', '!=', "
+"False)]}\">عرض</span>\n"
+"‬\n"
+"‫                            المورد"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid ""
+"<span attrs=\"{'invisible':[('name','!=','/')]}\">\n"
+"                                (Nouvelle)\n"
+"                            </span>\n"
+"                            <span class=\"text-danger\" attrs=\"{'invisible':"
+"[('state','not in',['canceled'])]}\">\n"
+"                                (Annulée)\n"
+"                            </span>\n"
+"                            <span class=\"text-warning\" attrs=\"{'invisible':['|',"
+"('name','=','/'),('state','not in',['draft'])]}\">\n"
+"                                (Brouillon)\n"
+"                            </span>"
+msgstr ""
+"‫<span attrs=\"{'invisible':[('name','!=','/')]}\">\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‫                                (جديد)\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                            </span>\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                            <span class=\"text-danger\" attrs=\"{'invisible':"
+"[('state','not in',['canceled'])]}\">\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‫                                (ملغاة)\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                            </span>\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                             <span class=\"text-warning\" attrs=\"{'invisible':['|',"
+"('name','=','/'),('state','not in',['draft'])]}\">\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‫                                (مسودة)\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                            </span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "<span class=\"big-title h1 pdright10\">Achat:</span>"
+msgstr "<span class=\"big-title h1 pdright10\">شراء:</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "<span class=\"title1\">Acheteur</span>"
+msgstr "<span class=\"title1\">المشتري</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_supplier_form
+msgid "<span class=\"title1\">Adresse:</span>"
+msgstr "<span class=\"title1\">‫العنوان‬:</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_supplier_form
+msgid "<span class=\"title1\">Code:</span>"
+msgstr "‫<span class=\"title1\">الرمز:</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid ""
+"<span class=\"title1\">Fournisseur</span>\n"
+"                                    :"
+msgstr "‫<span class=\"title1\">المورد</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_supplier_form
+msgid "<span class=\"title1\">Nom:</span>"
+msgstr "‫<span class=\"title1\">الاسم:</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_supplier_form
+msgid "<span class=\"title1\">Web:</span>"
+msgstr "‫<span class=\"title1\">موقع الويب:</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "<span style=\"color:black;\">Achat Nº:</span>"
+msgstr "‫<span style=\"color:black;\">رقم الشراء:</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+msgid "<span>Etat de récupération TVA d'achats</span>"
+msgstr "‫<span>حالات استرداد ضريبة القيمة المضافة</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.ntic_product_form_inherited1
+msgid "<span>Peut être acheté</span>"
+msgstr "<span>‫يُمكن أن تُشترى‬</span>"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "<strong>Arrêté la présente facture d'achat à la somme de:</strong> <br/>"
+msgstr "<strong>‫أوقفت هذه الفاتورة على مبلع قدره‬:</strong><br>"
+
+#. module: sn_purchases
+#: model:ir.actions.report,name:sn_purchases.action_report_purchase
+#: model_terms:ir.ui.view,arch_db:sn_purchases.ntic_product_form_inherited1
+#: model_terms:ir.ui.view,arch_db:sn_purchases.res_purchases_settings_view_form
+msgid "Achat"
+msgstr "مشترى"
+
+#. module: sn_purchases
+#: model:ir.actions.act_window,name:sn_purchases.purchases_orders_action
+#: model:ir.ui.menu,name:sn_purchases.menu_orders_tree
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Achats"
+msgstr "المشتريات"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Achats Order Lines"
+msgstr "أسطر طلب المشترى"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_res_config_settings__purchase_confirmed_by_default
+msgid "Achats confirmées par défaut"
+msgstr "المشتريات المؤكدة بشكل افتراضي"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_tree
+msgid "Acheteur"
+msgstr "المشتري"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_res_config_settings__charges_exist
+msgid "Activer des charges sur des produits"
+msgstr "تمكين إضافة رسوم مالية على المنتجات"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Ajouter une ligne"
+msgstr "إضافة سطر"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_order_view_graph
+msgid "Analyse des Achats"
+msgstr "تحليل المشتريات"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__periode__annuel
+msgid "Annuel"
+msgstr "السنوي"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Annulation"
+msgstr "إلغاء"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Annuller la facture d'achat"
+msgstr "إلعاء فاتورة الشراء"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__annee
+msgid "Année"
+msgstr "السنة"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__8
+msgid "Août"
+msgstr "أوت"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_ntic_supplier_filter
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Art.Imp :"
+msgstr "الرقم الجبائي:"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__4
+msgid "Avril"
+msgstr "أفريل"
+
+#. module: sn_purchases
+#: model:ir.model.constraint,message:sn_purchases.constraint_sn_purchases_charges_cahrge_uniq_name
+msgid "Chaque charge doit avoir un nom unique !"
+msgstr "يجب أن يكون لكل رسم مالي اسم فريد!"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__name
+msgid "Charge"
+msgstr "رسوم"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Code"
+msgstr "الكود"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__supplier_code
+msgid "Code Fournisseur"
+msgstr "كود المورد"
+
+#. module: sn_purchases
+#: model:ir.model,name:sn_purchases.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.res_purchases_settings_view_form
+msgid "Configuration - Achat"
+msgstr "إعدادات -الشراء"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Confirmer"
+msgstr "تأكيد"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.res_purchases_settings_view_form
+msgid "Confirmer automatiquement les Achats"
+msgstr "يتم تأكيد عمليات الشراء تلقائيًا"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__create_uid
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__create_date
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: sn_purchases
+#: model_terms:ir.actions.act_window,help:sn_purchases.menu_ntic_suppliers2_action
+msgid "Creer un nouveau Fournisseur"
+msgstr "إنشاء مورد جديد"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__date_operation
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_tree
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_order_search
+msgid "Dates"
+msgstr "التواريخ"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__display_name
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Divers"
+msgstr "متفرقات"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__12
+msgid "Décembre"
+msgstr "ديسمبر"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Désignation"
+msgstr "التعيين"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_supplier_form
+msgid "Envoi SMS"
+msgstr "إرسال SMS"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_supplier_form
+msgid "Envoyer SMS"
+msgstr "الرسائل النصية القصيرة"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__etat
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+msgid "Etat"
+msgstr "الدولة"
+
+#. module: sn_purchases
+#: model:ir.actions.report,name:sn_purchases.action_etats_achats_report
+msgid "Etat de Factures d'achat"
+msgstr "حالة فواتير الشراء"
+
+#. module: sn_purchases
+#: model:ir.actions.act_window,name:sn_purchases.etat_recupuration_tva_action
+msgid "Etat de recupuration TVA Achats"
+msgstr "حالات استرداد ضريبة القيمة المضافة"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__etat__recup
+msgid "Etat de récupération TVA"
+msgstr "حالة استرداد ضريبة القيمة المضافة"
+
+#. module: sn_purchases
+#: model:ir.ui.menu,name:sn_purchases.menu_purchases_wiz
+msgid "Etats d'Achat"
+msgstr "حالة الشراة"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "Etats de Factures"
+msgstr "حالة الفواتير"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "Facture Lines"
+msgstr "أسطر الفاتورة"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "Factures"
+msgstr "الفواتير"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__purchases_ids
+msgid "Factures Achats"
+msgstr "فواتير الشراء"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "Filter"
+msgstr "فلتر"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_supplier_form
+msgid "Fourniseurs"
+msgstr "الموردون"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__supplier_id
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_tree
+msgid "Fournisseur"
+msgstr "المورد"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Fournisseur :"
+msgstr "المورد:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+msgid "Fournisseur:"
+msgstr "المورد:"
+
+#. module: sn_purchases
+#: model:ir.ui.menu,name:sn_purchases.menu_all_fournisseurs
+msgid "Fournisseurs"
+msgstr "‫الموردون"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__2
+msgid "Février"
+msgstr "فبراير"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__periode__global
+msgid "Global"
+msgstr "شامل"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_order_search
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_ntic_supplier_filter
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "HT après Remise :"
+msgstr "HT بعد الخصم:"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__id
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Imprimer"
+msgstr "طباعة"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__1
+msgid "Janvier"
+msgstr "جانفي"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__7
+msgid "Juillet"
+msgstr "جويلية"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__6
+msgid "Juin"
+msgstr "جوان"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid ""
+"L'annulation sera\n"
+"                                            <br/>\n"
+"                                            après la confirmation"
+msgstr "سيتم الإلغاء<br>بعد التأكيد"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges____last_update
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__write_uid
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__write_date
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+msgid "Le:"
+msgstr "يوم:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Lignes d'achat"
+msgstr "أسطر المشترى"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_supplier_tree
+msgid "Liste Fournisseur"
+msgstr "قائمة الموردين"
+
+#. module: sn_purchases
+#: model:ir.actions.act_window,name:sn_purchases.menu_ntic_suppliers2_action
+msgid "Liste de Fournisseurs"
+msgstr "قائمة الموردين"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__5
+msgid "Mai"
+msgstr "ماي"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__3
+msgid "Mars"
+msgstr "مارس"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Mat.Fisc :"
+msgstr "الرقم الضريبي:"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__methode_calcule
+msgid "Methode de calcule"
+msgstr "طريقة الحساب"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__mois
+msgid "Mois"
+msgstr "الشهر"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__periode__mois
+msgid "Monsuel"
+msgstr "‫شهريا"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_order_search
+msgid "Montant"
+msgstr "المبلغ"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__value_fix
+msgid "Montant Fixe"
+msgstr "المبلغ ثابت"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Montant HT :"
+msgstr "المبلغ HT:"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_charges__methode_calcule__amount
+msgid "Montant fixe"
+msgstr "المبلغ ثابت"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Montant sans remise :"
+msgstr "المبلغ بدون خصم:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Nom affiché :"
+msgstr "الاسم المعروض:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_ntic_supplier_filter
+msgid "Nom, Code"
+msgstr "الاسم، رمز"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__11
+msgid "Novembre"
+msgstr "نوفمبر"
+
+#. module: sn_purchases
+#: model:ir.model,name:sn_purchases.model_sn_sales_product
+msgid "Ntic Product"
+msgstr "المنتج nTIC"
+
+#. module: sn_purchases
+#: model:ir.model,name:sn_purchases.model_sn_sales_commandes
+msgid "Ntic Sale Commandes"
+msgstr "طلبيات البيع Ntic"
+
+#. module: sn_purchases
+#: model:ir.model,name:sn_purchases.model_sn_sales_commande_lines
+msgid "Ntic commande Lines"
+msgstr "أسطر طلبيات  Ntic"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_sales_commandes__ref_facture_achat_source
+msgid "Num. Réference"
+msgstr "الترقيم الأصلي"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_tree
+msgid "Number"
+msgstr "عدد"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_order_search
+msgid "Numéro, Fournisseur"
+msgstr "رقم، مورد"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "N° fact"
+msgstr "رقم الفاتورة"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+msgid "N° fact."
+msgstr "رقم الفاتورة"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__10
+msgid "Octobre"
+msgstr "اكتوبر"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Options"
+msgstr "خيارات"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "Options Impression"
+msgstr "خيارات الطباعة"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Opérations"
+msgstr "عمليات"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_sales_product__sale_base_on__pmp
+msgid "PMP"
+msgstr "‫السعر المتوس"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_order_search
+msgid "Par Date"
+msgstr "حسب التاريخ"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_order_search
+msgid "Par Etat"
+msgstr "حسب الحالة"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__etat__supplier
+msgid "Par Fournisseur"
+msgstr "حسب المورد"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_sales_product__purchase_ok
+msgid "Peut être acheté"
+msgstr "يمكن شراءه"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__value_percent
+msgid "Pourcentage"
+msgstr "النسبة"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_charges__methode_calcule__percent
+msgid "Pourcentage %"
+msgstr "النسبة المئوية"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.res_purchases_settings_view_form
+msgid "Prendre en compte les differents charges sur le produit"
+msgstr "الأخذ بالاعتبار مختلف الرسوم على المنتج"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "Print"
+msgstr "طباعة"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_charges__sequence
+msgid "Priorite"
+msgstr "أولوية"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Prix Unit. :"
+msgstr "سعر الوحدة:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Prix Unt"
+msgstr "سعر الوحدة"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_sales_product__purchase_price
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_sales_product__sale_base_on__achat
+msgid "Prix d'achat"
+msgstr "سعر الشراء"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_sales_product__sale_base_on
+msgid "Prix de vente basé sur"
+msgstr "سعر البيع معتمد على"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_sales_product__pmp_price
+msgid "Prix moyen pondere (PMP)"
+msgstr "السعر المتوسط"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Produit :"
+msgstr "المنتج:"
+
+#. module: sn_purchases
+#: model:ir.module.category,name:sn_purchases.sn_purchases_access
+msgid "Purchases"
+msgstr "المشتريات"
+
+#. module: sn_purchases
+#: model:res.groups,name:sn_purchases.sn_purchases_boss
+msgid "Purchases Boss"
+msgstr "إدارة المشتريات: المدير العام"
+
+#. module: sn_purchases
+#: model:res.groups,name:sn_purchases.sn_purchases_manager
+msgid "Purchases Manager"
+msgstr "‫إدارة المشتريات: مسير"
+
+#. module: sn_purchases
+#: model:res.groups,name:sn_purchases.sn_purchases_user
+msgid "Purchases User"
+msgstr "‫إدارة المشتريات: مستخدم"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__periode
+msgid "Période"
+msgstr "الفتره"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Qte"
+msgstr "‪الكمية"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Quantité :"
+msgstr "الكمية:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_tree
+msgid "Quotation"
+msgstr "فاتورة شكلية"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_order_search
+msgid "Recherche Achats"
+msgstr "بحث في المشتريات"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.res_purchases_settings_view_form
+msgid "Recording"
+msgstr "تسجيل"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_sales_product__code_supplier
+msgid "Reference fournisseur"
+msgstr "مرجع المُوَرد"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Reg.Com :"
+msgstr "Reg.Com:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Remettre en état brouillon"
+msgstr "‪إرجاع إلى حالة المسودة"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Remise"
+msgstr "‪خصم"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Réference"
+msgstr "مرجع"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_ntic_supplier_filter
+msgid "Search Partner"
+msgstr "بحث الشركاء"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__semestre
+msgid "Semestre"
+msgstr "الفصل الدراسي"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__periode__semestre
+msgid "Semestriel"
+msgstr "الفصل الدراسي"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__mois__9
+msgid "Septembre"
+msgstr "سبتمبر"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Suivi par :"
+msgstr "‪المتابعة من طرف:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "THT"
+msgstr ""
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "TVA"
+msgstr "‪الضريبه على القيمة المضافة"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Taux :"
+msgstr "‪النسبة:"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_sales_product__sale_percentage
+msgid "Taux de Calcule"
+msgstr "نسبة الحساب"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_supplier_form
+msgid "Taxonomies"
+msgstr "‪التصنيفات"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "Total :"
+msgstr "المجموع:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "Total HT"
+msgstr "المجموع HT"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Total TTC:"
+msgstr "المجموع TTC:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_wizard_form
+msgid "Total TVA"
+msgstr "المجموع TVA:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Total après Remise :"
+msgstr "المجموع بعد الخصم:"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.view_purchases_tree
+msgid "Totaux"
+msgstr "المجاميع"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+msgid "Totaux:"
+msgstr "المجاميع:"
+
+#. module: sn_purchases
+#: model:ir.model.fields,field_description:sn_purchases.field_sn_purchases_purchases_wiz1__trimestre
+msgid "Trimestre"
+msgstr "الربع"
+
+#. module: sn_purchases
+#: model:ir.model.fields.selection,name:sn_purchases.selection__sn_purchases_purchases_wiz1__periode__trimestre
+msgid "Trimestriel"
+msgstr "الفصليه"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "Valeur de remise :"
+msgstr "قيمة الخصم:"
+
+#. module: sn_purchases
+#: model_terms:ir.actions.act_window,help:sn_purchases.purchases_orders_action
+msgid "Veuillez ajouter votre premier achat"
+msgstr "يرجى إضافة أول عملية شراء"
+
+#. module: sn_purchases
+#: code:addons/sn_purchases/models/suppliers_categories.py:0
+#, python-format
+msgid "Vous ne pouvez pas créer de relation de catégorie récursive."
+msgstr "‪لا يمكنك إنشاء علاقة بين الفئات تعود على نفسها."
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_etat_factures_achat_document
+msgid "des factures"
+msgstr "الفواتير"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.report_purchase_document
+msgid "le :"
+msgstr "يوم : "
+
+#. module: sn_purchases
+#: model_terms:ir.actions.act_window,help:sn_purchases.menu_ntic_suppliers2_action
+msgid "nTIC vous aide à suivre tous les activitiés en relation avec vos fournisseurs."
+msgstr "‫nTIC يساعدك على تتبع جميع الأنشطة المتعلقة بالموردين الخاص بك."
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_order_search
+msgid "par Acheteur"
+msgstr "حسب المشتري"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.sn_purchases_order_search
+msgid "par Fournisseur"
+msgstr "حسب المورد"
+
+#. module: sn_purchases
+#: model_terms:ir.ui.view,arch_db:sn_purchases.purchases_form
+msgid "product details"
+msgstr "تفاصيل المنتج"
+
+#. module: sn_purchases
+#: model:ir.model,name:sn_purchases.model_sn_purchases_charges
+msgid "sn_purchases.charges"
+msgstr "‫sn_purchases.رسوم"
+
+#. module: sn_purchases
+#: model:ir.model,name:sn_purchases.model_sn_purchases_purchases_wiz1
+msgid "sn_purchases.purchases.wiz1"
+msgstr ""

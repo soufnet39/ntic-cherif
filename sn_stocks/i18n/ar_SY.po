@@ -1,0 +1,1200 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sn_stocks
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20191106\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-11 02:05+0000\n"
+"PO-Revision-Date: 2021-01-11 03:57+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar_SY\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: sn_stocks
+#: model:ir.actions.report,print_report_name:sn_stocks.action_report_op_stock
+msgid "'Operation Stock - %s' % (object.name)"
+msgstr "‘عملية تخزين - %s' % (object.name)"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.report_op_stock_document
+msgid "(Annulée)"
+msgstr "(ملغاة)"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid ""
+"<br/>\n"
+"                                            Quantité disponible\n"
+"                                            <br/>"
+msgstr "‫<br>الكمية المتاحة<br>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+msgid ""
+"<br/>\n"
+"                                        Stock Peut être Négatif\n"
+"                                        <br/>"
+msgstr "‫<br>يمكن للمخزن أن يكون سالبًا<br>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+msgid ""
+"<br/>\n"
+"                                    Quantité disponible\n"
+"                                    <br/>"
+msgstr "‫<br>الكمية المتاحة<br>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.view_order_form_inherited1
+msgid ""
+"<br/>\n"
+"                            Stock Peut être Négatif\n"
+"                            <br/>"
+msgstr "‫<br>يمكن للمخزن أن يكون سالبًا<br>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_purchases_commandes_form_inherited
+msgid ""
+"<br/>\n"
+"                    Quantité disponible\n"
+"                    <br/>"
+msgstr "‫<br>الكمية المتاحة<br>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid ""
+"<span attrs=\"{'invisible':[('operation','!=','/')]}\">\n"
+"                                (Nouveau)\n"
+"                            </span>\n"
+"                            <span class=\"text-danger\" attrs=\"{'invisible':"
+"[('state','not in',['canceled'])]}\">\n"
+"                                (Annulée)\n"
+"                            </span>\n"
+"                            <span class=\"text-warning\" attrs=\"{'invisible':['|',"
+"('operation','=','/'),('state','not in',['draft'])]}\">\n"
+"                                (Brouillon)\n"
+"                            </span>"
+msgstr ""
+"‫<span attrs=\"{'invisible':[('operation','!=','/')]}\">\n"
+"‬\n"
+"‫                                (جديد)\n"
+"‬\n"
+"‏‫                            </span>\n"
+"‬\n"
+"‏‫                            <span class=\"text-danger\" attrs=\"{'invisible':"
+"[('state','not in',['canceled'])]}\">\n"
+"‬\n"
+"‫                                (ملغاة)\n"
+"‬\n"
+"‏‫                            </span>\n"
+"‬\n"
+"‏‫                            <span class=\"text-warning\" attrs=\"{'invisible':['|',"
+"('operation','=','/'),('state','not in',['draft'])]}\">\n"
+"‬\n"
+"‫                                (مسودة)\n"
+"‬\n"
+"‏‫                            </span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_form_view
+msgid ""
+"<span class=\"oe_edit_only\" attrs=\"{'invisible':[('id', '=', False)]}\">\n"
+"                                Edition\n"
+"                            </span>\n"
+"                            <span attrs=\"{'invisible':[('id', '!=', False)]}\">\n"
+"                                Création\n"
+"                            </span>\n"
+"                            <span class=\"oe_read_only\">\n"
+"                               Présentation\n"
+"                            </span>\n"
+"                            <span>\n"
+"                                de stock\n"
+"                            </span>"
+msgstr ""
+"‫<span class=\"oe_edit_only\" attrs=\"{'invisible':[('id', '=', False)]}\">\n"
+"‬\n"
+"‫                                تحرير\n"
+"‬\n"
+"‏‫                            </span>\n"
+"‬\n"
+"‏‫                            <span attrs=\"{'invisible':[('id', '!=', False)]}\">\n"
+"‬\n"
+"‫                                انشاء\n"
+"‬\n"
+"‏‫                            </span>\n"
+"‬\n"
+"‏‫                            <span class=\"oe_read_only\">\n"
+"‬\n"
+"‫                               عرض\n"
+"‬\n"
+"‏‫                            </span>\n"
+"‬\n"
+"‏‫                            <span>\n"
+"‬\n"
+"‫                                مخزن\n"
+"‬\n"
+"‏‫                            </span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_purchases_commandes_form_inherited
+msgid "<span class=\"text-danger\">Désolé. Acheteur sans Stock</span>"
+msgstr "‫<span class=\"text-danger\">معذرة. لا مخازن تحت تصرف هذا المستخدم</span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+#: model_terms:ir.ui.view,arch_db:sn_stocks.view_order_form_inherited1
+msgid "<span class=\"text-danger\">Désolé. Vendeur sans Stock</span>"
+msgstr "‫<span class=\"text-danger\">>معذرة. لا مخازن تحت تصرف هذا المستخدم</span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_purchases_commandes_form_inherited
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+#: model_terms:ir.ui.view,arch_db:sn_stocks.view_order_form_inherited1
+msgid "<span class=\"title1\">Stock</span>"
+msgstr "‫<span class=\"title1\">المخزن</span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_purchases_commandes_form_inherited
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+#: model_terms:ir.ui.view,arch_db:sn_stocks.view_order_form_inherited1
+msgid "<span class=\"title1\">Stocks</span>"
+msgstr "‫<span class=\"title1\">المخازن</span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_purchases_commandes_form_inherited
+msgid "<span>Il faut préciser le Stock destination!</span>"
+msgstr "‫<span>فمن الضروري تحديد المخزن الوجهة!</span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.view_order_form_inherited1
+msgid "<span>Il faut préciser le Stock source!</span>"
+msgstr "‫<span>يجب تحديد المخزن المصدر!</span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "<span>Il faut préciser le Stock source/destination!</span>"
+msgstr "‫<span>يجب تحديد مخزن المصدر/الوجهة!</span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.report_op_stock_document
+msgid "<span>Nº: </span>"
+msgstr ""
+"‫<span>سند البيع بالأقساط</span>\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫‬\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‫‏‫                    <span>رقم:</span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.report_op_stock_document
+msgid "<span>Réference: </span>"
+msgstr "‫<span>مرجع:</span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.view_order_form_inherited1
+msgid ""
+"<span>Stock inifini</span> <br/><br/>\n"
+"                        <span>Les quantités de cet article ne sont pas conrôlés</span>"
+msgstr ""
+"‫<span>مخزون لانهائي</span> <br/><br/>\n"
+"‬\n"
+"‏‫                        <span>كميات هذا العنصر ليست مراقبة</span>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.res_stocks_settings_view_form
+msgid "A faire sortire les articles vendus depuis plusieurs stocks?"
+msgstr "السماح بإخراج العناصر المباعة من أكثر من مخزن؟"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.res_stocks_settings_view_form
+msgid "A poser les articles achetés dans plus qu'un stock?"
+msgstr "السماح بوضع العناصر التي يتم شراؤها في أكثر من مخزن؟"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_res_config_settings__purchase_to_stocks
+msgid "Acheter et déposer sur multi Stocks?"
+msgstr "الشراء والإيداع في مخازن متعددة؟"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Ajouter une ligne"
+msgstr "إضافة سطر"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Annulation"
+msgstr "إلغاء"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Annuller cette opération"
+msgstr "إلغاء هاته العملية"
+
+#. module: sn_stocks
+#: model_terms:ir.actions.act_window,help:sn_stocks.stock_operations_action
+msgid "Aucune operation n'est trouvée"
+msgstr "لم يتم العثور على أية عملية"
+
+#. module: sn_stocks
+#. openerp-web
+#: code:addons/sn_stocks/static/src/xml/add_btns.xml:0
+#, python-format
+msgid "B. Livraison"
+msgstr "وصل استلام"
+
+#. module: sn_stocks
+#. openerp-web
+#: code:addons/sn_stocks/static/src/xml/add_btns.xml:0
+#, python-format
+msgid "B. Reception"
+msgstr "وصل الاستقبال"
+
+#. module: sn_stocks
+#. openerp-web
+#: code:addons/sn_stocks/static/src/xml/add_btns.xml:0
+#, python-format
+msgid "B. Sortie"
+msgstr "وصل خروج"
+
+#. module: sn_stocks
+#. openerp-web
+#: code:addons/sn_stocks/static/src/xml/add_btns.xml:0
+#, python-format
+msgid "B. d'Entrée"
+msgstr "وصل دخول"
+
+#. module: sn_stocks
+#: model:ir.actions.act_window,name:sn_stocks.stocks_operations_bentree_action
+#: model:ir.ui.menu,name:sn_stocks.menu_stocks_operations_b_entree
+msgid "Bon d'Entrée"
+msgstr "وصل الدخول"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_sales_commandes__document_type__entree
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_search_view
+msgid "Bon d'entrée"
+msgstr "وصل الدخول"
+
+#. module: sn_stocks
+#: model:ir.ui.menu,name:sn_stocks.menu_stocks_operations_b_sortie
+msgid "Bon de Sortie"
+msgstr "وصل الخروج"
+
+#. module: sn_stocks
+#: model:ir.actions.act_window,name:sn_stocks.stocks_operations_bliv_action
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_sales_commandes__document_type__livraison
+#: model:ir.ui.menu,name:sn_stocks.menu_stocks_operations_b_liv
+msgid "Bon de livraison"
+msgstr "‫وصل التسليم"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_search_view
+msgid "Bon de livraison client"
+msgstr "‫وصل تسليم الزبون"
+
+#. module: sn_stocks
+#: model:ir.actions.act_window,name:sn_stocks.stocks_operations_reception_action
+#: model:ir.ui.menu,name:sn_stocks.menu_stocks_operations_b_reception
+msgid "Bon de reception"
+msgstr "وصل استقبال"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_sales_commandes__document_type__reception
+msgid "Bon de recéption"
+msgstr "وصل الاستلام"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_search_view
+msgid "Bon de recéption fournisseur"
+msgstr "‫وصل إستقبال المورد"
+
+#. module: sn_stocks
+#: model:ir.actions.act_window,name:sn_stocks.stocks_operations_bsort_action
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_sales_commandes__document_type__sortie
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_search_view
+msgid "Bon de sortie"
+msgstr "‫وصل خروج"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.res_stocks_settings_view_form
+msgid "Chaque Opération n'est considere comme valide qu'apres confirmation."
+msgstr "إعتبار كل عملية تامة فقط بعد التأكيد."
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__commune_id
+msgid "Commune"
+msgstr "البلدية"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_eval_stocks__company_id
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.res_stocks_settings_view_form
+msgid "Configuration - Stocks"
+msgstr "إعدادات - المخازن"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Confirmer"
+msgstr "تأكيد"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.res_stocks_settings_view_form
+msgid ""
+"Confirmer la livraison apres chaque vente\n"
+"                                            <br/>\n"
+"                                            (i.e le stock sera touché après confirmation)"
+msgstr "تأكيد الاستلام بعد كل عملية بيع<br>(أي أن المخزن يتأثر  بعد التأكيد)"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.res_stocks_settings_view_form
+msgid ""
+"Confirmer la reception apres chaque achat\n"
+"                                            <br/>\n"
+"                                            (i.e le stock sera touché après confirmation)"
+msgstr "تأكيد الاستقبال بعد كل عملية شراء<br>(أي أن المخزن يتأثر  بعد التأكيد)"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__create_uid
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__create_uid
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__create_uid
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__create_date
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__create_date
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__create_date
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: sn_stocks
+#: model_terms:ir.actions.act_window,help:sn_stocks.etatstocks_action
+msgid "Creer les produits d'abord et alimenter les stocks."
+msgstr "إنشاء المنتجات أولاً ثم بعد ذلك معالجة المخازن."
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__confirmation_date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__date_transfert
+msgid "Date de transfert"
+msgstr "تاريخ التحويل"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__date_start
+msgid "Date debut"
+msgstr "تاريخ البداية"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__date_end
+msgid "Date fin"
+msgstr "تاريخ الانتهاء"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_sales_proformas__from_one_many_stock__many
+msgid "Depuis plusieurs stocks"
+msgstr "من عدة مخازن"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commande_lines__stock_id
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_proforma_lines__stock_id
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__stock_id_from
+msgid "Depuis stock"
+msgstr "من المخزن"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_sales_proformas__from_one_many_stock__one
+msgid "Depuis un seule stock"
+msgstr "من مخزن وحيد"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__note
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: sn_stocks
+#: code:addons/sn_stocks/models/rule.py:0
+#, python-format
+msgid "Destination Location"
+msgstr "المنطقة الوجهة"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_eval_stocks__display_name
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__display_name
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__display_name
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__display_name
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.report_op_stock_document
+msgid "Désignation"
+msgstr "التعيين"
+
+#. module: sn_stocks
+#. openerp-web
+#: code:addons/sn_stocks/static/src/xml/add_btns.xml:0
+#: model:ir.actions.act_window,name:sn_stocks.sn_stocks_inter_stocks_action
+#: model:ir.ui.menu,name:sn_stocks.menu_stocks_inter_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+#, python-format
+msgid "Entre Stocks"
+msgstr "بين المخازن"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__operation_id
+msgid "Entre Stocks Opération Reference"
+msgstr "مرجع عملية الأسهم"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_sn_stocks_interstock_lines
+msgid "Entre Stocks lines"
+msgstr "أسطر العملية بين المخازن"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__state
+msgid "Etat"
+msgstr "الدولة"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.etatstocks_tree
+#: model_terms:ir.ui.view,arch_db:sn_stocks.eval_stocks_tree
+msgid "Etat de stocks"
+msgstr "حالة المخازن"
+
+#. module: sn_stocks
+#: model:ir.ui.menu,name:sn_stocks.menu_all_product
+msgid "Etat des Stocks"
+msgstr "حالة المخازن"
+
+#. module: sn_stocks
+#: model:ir.actions.act_window,name:sn_stocks.etatstocks_action
+msgid "Etat des stocks"
+msgstr "حالة المخازن"
+
+#. module: sn_stocks
+#: model:ir.ui.menu,name:sn_stocks.menu_all_product2
+msgid "Evaluation de Stocks"
+msgstr "تقييم المخازن"
+
+#. module: sn_stocks
+#: model:ir.actions.act_window,name:sn_stocks.eval_stocks_action
+#: model:ir.model,name:sn_stocks.model_sn_stocks_eval_stocks
+msgid "Evaluation de stocks"
+msgstr "تقييم المخازن"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_stocks_stocks__nature__fix
+msgid "Fixe"
+msgstr "ثابت"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_proformas__from_one_many_stock
+msgid "From One Many Stock"
+msgstr "من مخزن واحد أو عدة مخازن"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_sn_stocks_reserves
+msgid "Gestion des quotas de reserve par stock"
+msgstr "إدارة الحصص الاحتياطية للمخازن"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stock_eval_stocks_search_view
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stock_operations_line_search_view
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_search_view
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_search_view
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.res_stocks_settings_view_form
+msgid "Généralités"
+msgstr "عموميات"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_eval_stocks__id
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__id
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__id
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__id
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_eval_stocks__product_id
+msgid "Id"
+msgstr "المُعرف"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Imprimer"
+msgstr "طباعة"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid ""
+"L'annulation sera\n"
+"                                            <br/>\n"
+"                                            après la confirmation"
+msgstr "سيتم الإلغاء<br>بعد التأكيد"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_res_config_settings__reception_confirmed_by_default
+msgid "La Réception automatique à l'achat"
+msgstr "الاستقبال التلقائي مع الشراء"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_res_config_settings__delivery_confirmed_by_default
+msgid "La livraison automatique à la commande"
+msgstr "الاستلام التلقائي مع البيع"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+msgid "Lancer le transfert"
+msgstr "إجراء التحويل"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_eval_stocks____last_update
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines____last_update
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks____last_update
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves____last_update
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__write_uid
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__write_uid
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__write_uid
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__write_date
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__write_date
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__write_date
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__interstock_lines
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Lignes"
+msgstr "أسطر"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Lignes Bon Livraison"
+msgstr "أسطر وصل الإستلام"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+msgid "Lignes de transfert"
+msgstr "أسطر عملية التحويل"
+
+#. module: sn_stocks
+#: model:ir.ui.menu,name:sn_stocks.menu_stocks
+msgid "Liste des Stocks"
+msgstr "قائمة المخازن"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__delivery_confirmed
+msgid "Livraison confirmé"
+msgstr "إستلام مؤكد"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__res_config_settings__purchase_to_stocks__multi
+#: model:ir.model.fields.selection,name:sn_stocks.selection__res_config_settings__sale_from_stocks__multi
+msgid "Many stocks"
+msgstr "عدة مخازن"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_stocks_stocks__nature__mobil
+msgid "Mobile"
+msgstr "الهاتف المحمول"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_sales_commandes__from_one_many_stock__one
+msgid "Mono stock"
+msgstr "مخزن وحيد"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_eval_stocks__montant
+msgid "Montant"
+msgstr "المبلغ"
+
+#. module: sn_stocks
+#: code:addons/sn_stocks/wizard/interstocks.py:0
+#: model:ir.actions.act_window,name:sn_stocks.stock_operations_action
+#: model:ir.ui.menu,name:sn_stocks.menu_stocks_movements
+#, python-format
+msgid "Mouvements des stocks"
+msgstr "حركةالمخازن"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_form_view
+msgid "Movements"
+msgstr "الحركات"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.res_stocks_settings_view_form
+msgid "Multi Stocks"
+msgstr "عدة مخازن"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_sales_commandes__from_one_many_stock__many
+msgid "Multi stocks"
+msgstr "‫عدة مخازن"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__name
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__nature
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_list_view
+msgid "Nature"
+msgstr "الطبيعه"
+
+#. module: sn_stocks
+#: model:ir.model.fields,help:sn_stocks.field_sn_sales_commande_lines__stock_infini
+#: model:ir.model.fields,help:sn_stocks.field_sn_sales_product__stock_infini
+msgid "Ne pas appliquer les règles de stocks"
+msgstr "لا تطبق قواعد المخازن"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_list_view
+msgid "Negatif"
+msgstr "سالب"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__len_stock_id
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_proformas__len_stock_id
+msgid "Nombre de stocks"
+msgstr "عدد المخازن"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_sn_sales_product
+msgid "Ntic Product"
+msgstr "المنتج nTIC"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_sn_sales_proformas
+msgid "Ntic Proformas"
+msgstr "‫NTIC فاتورات شكلية"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_sn_sales_commandes
+msgid "Ntic Sale Commandes"
+msgstr "طلبيات البيع Ntic"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_sn_stocks_stocks
+msgid "Ntic Stocks"
+msgstr "مخازن nTIC"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_sn_sales_commande_lines
+msgid "Ntic commande Lines"
+msgstr "أسطر طلبيات  Ntic"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_sn_sales_proforma_lines
+msgid "Ntic proforma Lines"
+msgstr "أسطر الفاتورات الشكلية NTIC"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__res_config_settings__sequences__global
+msgid "Numérotation globale"
+msgstr "الترقيم العام"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__res_config_settings__sequences__region
+msgid "Numérotation par region (stock)"
+msgstr "الترقيم حسب منطقة (المخزن)"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__res_config_settings__sequences__stock
+msgid "Numérotation par stock"
+msgstr "الترقيم حسب المخزن"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__res_config_settings__sequences__wilaya
+msgid "Numérotation par wilaya (stock)"
+msgstr "الترقيم حسب ولاية (المخزن)"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_res_config_settings__sequences
+msgid "Numérotation, bons de Vente"
+msgstr "الترقيم، وصل البيع"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__res_config_settings__purchase_to_stocks__mono
+#: model:ir.model.fields.selection,name:sn_stocks.selection__res_config_settings__sale_from_stocks__mono
+msgid "One Stock only"
+msgstr "مخزن وحيد فقط"
+
+#. module: sn_stocks
+#: model:ir.actions.report,name:sn_stocks.action_report_op_stock
+msgid "Operation Stock"
+msgstr "عملية على المخزن"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_tree
+msgid "Opérateur"
+msgstr "المتعامل"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__operation
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Opération"
+msgstr "عملية"
+
+#. module: sn_stocks
+#: code:addons/sn_stocks/models/rule.py:0
+#, python-format
+msgid "Opération Type"
+msgstr "نوع العملية"
+
+#. module: sn_stocks
+#: model:ir.ui.menu,name:sn_stocks.menu_stocks_operations
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stock_eval_stocks_pivot
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stock_operations_line_search_view
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_line_pivot
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_search_view
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Opérations"
+msgstr "عمليات"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_search_view
+msgid "Par Nature"
+msgstr "حسب الطبيعة"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stock_eval_stocks_search_view
+msgid "Par Produit"
+msgstr "حسب المنتج"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_search_view
+msgid "Par Region"
+msgstr "حسب المنطقة"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_purchases_order_search
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_sales_order_search
+msgid "Par Stock"
+msgstr "حسب المخزن"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stock_eval_stocks_search_view
+msgid "Par Unité"
+msgstr "حسب الوحدة"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_search_view
+msgid "Par Wilaya"
+msgstr "حسب الولاية"
+
+#. module: sn_stocks
+#: model_terms:ir.actions.act_window,help:sn_stocks.eval_stocks_action
+msgid "Pas de résultats!!.. Verifiez bien les entrées."
+msgstr "لا توجد نتائج!!.. تحقق من المدخلات."
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.res_stocks_settings_view_form
+msgid "Permission de vendre même le stock est vide!."
+msgstr "إذن بالبيع حتى ولو كان المخزن  فارغ!."
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_eval_stocks__price_avg
+msgid "Prix Achat Moyen"
+msgstr "متوسط سعر الشراء"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_eval_stocks__name
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stock_operations_line_search_view
+msgid "Produit"
+msgstr "المنتج"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Produit:"
+msgstr "المنتج:"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__products_ids
+msgid "Produits en question"
+msgstr "المنتجات المعنية"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.report_op_stock_document
+msgid "Qte"
+msgstr "‪الكمية"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commande_lines__qty_done
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_eval_stocks__qty_calc
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__qty
+msgid "Qte."
+msgstr "‪الكمية"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commande_lines__qte_disponible
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_product__qte_in_stock
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__qte_disponible
+msgid "Quantite disponible"
+msgstr "الكمية المتاحة"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__reserve_qte
+msgid "Quantite en reserve"
+msgstr "الكمية في الاحتياط"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.view_order_form_inherited1
+msgid ""
+"Quantité disponible\n"
+"                        <br/>"
+msgstr "الكمية المتاحة<br>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stock_eval_stocks_search_view
+msgid "Quantité non nulle"
+msgstr "كمية غير صفرية"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stock_eval_stocks_search_view
+msgid "Quantité nulle"
+msgstr "كمية صفرية"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Quantité:"
+msgstr "الكمية:"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.etatstocks_tree
+msgid "Reference"
+msgstr "رقم الإشارة"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__region
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_proformas__region
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__region_id
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_search_view
+msgid "Region"
+msgstr "الجهة"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "Remettre en état brouillon"
+msgstr "‪إرجاع إلى حالة المسودة"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__user_ids
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_list_view
+msgid "Responsables"
+msgstr "المسؤولون"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.report_op_stock_document
+msgid "Réference"
+msgstr "مرجع"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__reference
+msgid "Référence"
+msgstr "مرجع"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__sequence
+msgid "Sequence"
+msgstr "‪السلسلة"
+
+#. module: sn_stocks
+#: model:ir.model.fields,help:sn_stocks.field_sn_stocks_reserves__active
+msgid "Si non, Ce reserve sera cache et non supprime."
+msgstr "وإلا فإنه سيتم إخفاء هذا الاحتياط لا حذفه."
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__from_one_many_stock
+msgid "Source"
+msgstr "المصدر"
+
+#. module: sn_stocks
+#: code:addons/sn_stocks/models/rule.py:0
+#, python-format
+msgid "Source Location"
+msgstr "منطقة المصدر"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__stock_id
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_proformas__stock_id
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stock_operations_line_search_view
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_list_view
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_search_view
+msgid "Stock"
+msgstr "المخزن"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid ""
+"Stock\n"
+"                                            <br/>"
+msgstr "المخزن<br>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_purchases_commandes_form_inherited
+#: model_terms:ir.ui.view,arch_db:sn_stocks.view_order_form_inherited1
+msgid ""
+"Stock\n"
+"                    <br/>"
+msgstr "‫المخزن<br>"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.view_order_form_inherited1
+msgid "Stock Zero"
+msgstr "مخزون فارغ"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__stock_id_to
+msgid "Stock destination"
+msgstr "‫المخزن الوجهة"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__stock_id_from
+msgid "Stock départ"
+msgstr "المخزن المصدر"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+msgid ""
+"Stock départ\n"
+"                                    <br/>"
+msgstr "‫المخزن المصدر<br>"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commande_lines__stock_negatif
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__stock_negatif
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstock_lines__stock_negatif
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_interstocks__stock_negatif
+msgid "Stock exist"
+msgstr "التعامل بالمخازن متاح"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commande_lines__stock_infini
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_product__stock_infini
+msgid "Stock infini"
+msgstr "مخزون لانهائي"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__can_be_negatif
+msgid "Stock negatif"
+msgstr "مخزن سالب"
+
+#. module: sn_stocks
+#: model:ir.actions.act_window,name:sn_stocks.sn_stocks_stocks_action_form
+#: model:ir.module.category,name:sn_stocks.sn_stocks_access
+#: model:ir.ui.menu,name:sn_stocks.menu_sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.res_stocks_settings_view_form
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_search_view
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_list_view
+msgid "Stocks"
+msgstr "المخازن"
+
+#. module: sn_stocks
+#: model:res.groups,name:sn_stocks.sn_stocks_boss
+msgid "Stocks Boss"
+msgstr "‫إدارة المخازن : مدير عام"
+
+#. module: sn_stocks
+#: model:res.groups,name:sn_stocks.sn_stocks_manager
+msgid "Stocks Manager"
+msgstr "‫إدارة المخازن : مدير"
+
+#. module: sn_stocks
+#: model:res.groups,name:sn_stocks.sn_stocks_user
+msgid "Stocks User"
+msgstr "إدارة المخازن : مستخدم"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__stock_ids
+msgid "Stocks en question"
+msgstr "المخازن المعنية"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_tree
+msgid "Stocks operations"
+msgstr "عمليات المخازن"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_res_users__stock_ids
+msgid "Stocks under control"
+msgstr "المخازن الخاضعة للسيطرة"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.report_op_stock_document
+msgid "Suivi par :"
+msgstr "‪المتابعة من طرف:"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_reserves__name
+msgid "Titre"
+msgstr "ال‬عنوان"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.eval_stocks_tree
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_res_config_settings__operations_confirmed_by_default
+msgid "Tous les opérations entree/sortie stocks sont confirmées par défaut"
+msgstr "كل عمليات الإدخال والإخراج الخاصة بالمخازن مؤكدة بشكل افتراضي"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+msgid "Transfert entre Stocks"
+msgstr "التحويل بين المخازن"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__document_type
+msgid "Type de document"
+msgstr "نوع الوثيقة"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.eval_stocks_tree
+msgid "Unité"
+msgstr "وحده"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_res_users
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_search_view
+msgid "Vendeur"
+msgstr "‪البائع"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_res_config_settings__sale_from_stocks
+msgid "Vendre depuis multi stocks?"
+msgstr "البيع من مخازن متعددة؟"
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_res_config_settings__stock_negatif
+msgid "Vendre meme stocks négatifs"
+msgstr "بيع حتى في حالة المخزن السالب"
+
+#. module: sn_stocks
+#: model:ir.model.fields.selection,name:sn_stocks.selection__sn_stocks_stocks__nature__virtual
+msgid "Virtuel"
+msgstr "خيالي"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+msgid "Vous devez préciser les stocks: départ, et destination."
+msgstr "يجب تحديد المخازن: المصدر، والوجهة."
+
+#. module: sn_stocks
+#: model_terms:ir.actions.act_window,help:sn_stocks.stock_operations_action
+msgid ""
+"Vous devriez faire des ventes et des livraisons, des achats et des réceptions , ou une "
+"opération\n"
+"                d'entrée ou de sortie."
+msgstr "عليك إجراء عمليات بيع، تسليم ،‬ شراء،‫ استلام، أو أية عملية ‫ادخ‫ا‬ل أو ‫اخر‫ا‬ج."
+
+#. module: sn_stocks
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_commandes__wilaya
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_sales_proformas__wilaya
+#: model:ir.model.fields,field_description:sn_stocks.field_sn_stocks_stocks__wilaya_id
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_operations_search_view
+msgid "Wilaya"
+msgstr "الولاية"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_form_view
+msgid "ex: stock El-Oued"
+msgstr "على سبيل المثال مخازن الوادي"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.report_op_stock_document
+msgid "le:"
+msgstr "في:"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_interstocks_form
+#: model_terms:ir.ui.view,arch_db:sn_stocks.stocks_operation_form
+msgid "product details"
+msgstr "تفاصيل المنتج"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_search_view
+msgid "stocks fixes"
+msgstr "المخازن الثابتة"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_search_view
+msgid "stocks mobiles"
+msgstr "المخازن المتنقلة"
+
+#. module: sn_stocks
+#: model_terms:ir.ui.view,arch_db:sn_stocks.sn_stocks_stocks_search_view
+msgid "stocks virtuels"
+msgstr "المخازن الخيالية"
+
+#. module: sn_stocks
+#: model:ir.model,name:sn_stocks.model_sn_stocks_interstocks
+msgid "transfert entre stocks"
+msgstr "التحويل بين ال‫مخازن"

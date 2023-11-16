@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree -->
+   <record id="products_rest_tree" model="ir.ui.view">
+        <field name="name">products with rest in stock</field>
+        <field name="model">sn_credit.wiz_rest_product</field>
+        <field name="arch" type="xml">
+         
+             <tree string="" decoration-bf="True">
+                <field name="name"/>
+                <field name="qty_calc"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+     <!--Action-->
+    <act_window id="sn_credit_product_rest"
+                name="Produits avec stock"
+                res_model="sn_credit.wiz_rest_product"
+                view_mode="tree"
+                
+    />
+
+
+    <!--Menu bon de livraison-->
+    <menuitem action="sn_credit_product_rest"
+              id="menu_sn_credit_product_rest"
+              name="Produits avec stock"
+              parent="sn_sales.menu_sn_sales"
+              groups="sn_sales.sn_sales_user"
+              sequence="11"/>
+
+</odoo>

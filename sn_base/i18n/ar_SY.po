@@ -1,0 +1,608 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sn_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20191106\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-11 02:03+0000\n"
+"PO-Revision-Date: 2021-01-11 03:26+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar_SY\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid ""
+") <br/>\n"
+"                            <span class=\"ntic\">nTIC</span>, Solutions sur mesure"
+msgstr ""
+"‫)<br>\n"
+"‬\n"
+"‏‫                            <span class=\"ntic\">nTIC</span>، حلول حسب الطلب"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_wilayates_form
+msgid ""
+"<span class=\"oe_edit_only\" attrs=\"{'invisible': [('id', '=', "
+"False)]}\">Edition </span>\n"
+"                                <span attrs=\"{'invisible': [('id', '!=', "
+"False)]}\">Creation </span>\n"
+"                                <span id=\"wilaya\">Wilaya</span>"
+msgstr ""
+"‫<span class=\"oe_edit_only\" attrs=\"{'invisible': [('id', '=', False)]}\">تحرير</"
+"span> <span attrs=\"{'invisible': [('id', '!=', False)]}\">إنشاء</span> <span id="
+"\"wilaya\">الولاية</span>"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.company_info_form
+msgid ""
+"<span class=\"oe_edit_only\" attrs=\"{'invisible': [('id', '=', "
+"False)]}\">Edition </span>\n"
+"                                <span attrs=\"{'invisible': [('id', '!=', "
+"False)]}\">Creation </span>\n"
+"                                <span>Société</span>"
+msgstr ""
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_communes_form
+msgid ""
+"<span class=\"oe_edit_only\" attrs=\"{'invisible': [('id', '=', "
+"False)]}\">Edition </span>\n"
+"                                <span attrs=\"{'invisible': [('id', '!=', "
+"False)]}\">Creation </span>\n"
+"                                Commune"
+msgstr ""
+"‫<span class=\"oe_edit_only\" attrs=\"{'invisible': [('id', '=', False)]}\">تحرير</"
+"span> <span attrs=\"{'invisible': [('id', '!=', False)]}\">إنشاء</span>\n"
+"‬\n"
+"‫                                البلديه"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_regions_form
+msgid ""
+"<span class=\"oe_edit_only\" attrs=\"{'invisible': [('id', '=', "
+"False)]}\">Edition </span>\n"
+"                                <span attrs=\"{'invisible': [('id', '!=', "
+"False)]}\">Creation </span>\n"
+"                                Région"
+msgstr ""
+"‫<span class=\"oe_edit_only\" attrs=\"{'invisible': [('id', '=', False)]}\">تحرير</"
+"span> <span attrs=\"{'invisible': [('id', '!=', False)]}\">إنشاء</span>\n"
+"‬\n"
+"‫                                الجهة"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid "<span class=\"soufnet\">SoufNet</span> Company ("
+msgstr "‫<span class=\"soufnet\"> Soufnet </span> شركة ("
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.my_sequence_view_form
+msgid "<span class=\"title1\"> numeros par date </span>"
+msgstr "‫<span class=\"title1\">الرقم حسب التاريخ</span>"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.company_info_form
+msgid "<span class=\"title1\">Adresse :</span>"
+msgstr "‫<span class=“title1”>:العنوان</span>"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.company_info_form
+msgid "<span class=\"title1\">Nom du Société :</span>"
+msgstr "‫<span class=\"title1\"> إسم الشركة: </span>"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.my_sequence_view_form
+msgid "<span class=\"title1\">numero en cours</span>"
+msgstr "‫<span class=\"title1\">الرقم الحالي</span>"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid ""
+"<span>Choisir la wilaya d'exercice</span>\n"
+"                                <br/>"
+msgstr ""
+"‫<span>إختر الولاية المعنية </span>\n"
+"‬\n"
+"‏‫                                <br>"
+
+#. module: sn_base
+#. openerp-web
+#: code:addons/sn_base/static/src/js/menu.js:0
+#, python-format
+msgid "A propos de nous.."
+msgstr "حول الفريق."
+
+#. module: sn_base
+#. openerp-web
+#: code:addons/sn_base/static/src/xml/template.xml:0
+#, python-format
+msgid "A propos.."
+msgstr "‫حول الشركة.."
+
+#. module: sn_base
+#: model:ir.ui.menu,name:sn_base.menu_home
+msgid "Accueil"
+msgstr "البداية"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid "Activités localisés dans une seule place / multi places"
+msgstr "النشاطات في مكان واحد / أماكن متعددة"
+
+#. module: sn_base
+#: model:sn_base.wilayates,name:sn_base.wilaya_01
+msgid "Alger"
+msgstr "الجزائر"
+
+#. module: sn_base
+#. openerp-web
+#: code:addons/sn_base/static/src/xml/template.xml:0
+#, python-format
+msgid "All Rights reserved"
+msgstr "جميع الحقوق محفوظة"
+
+#. module: sn_base
+#: model:ir.ui.menu,name:sn_base.menu_analyses
+msgid "Analyses"
+msgstr "تحليل"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_company__a_imp
+msgid "Art. Imp."
+msgstr "‪الرقم الجبائي."
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_company__boite_postale
+msgid "B.P."
+msgstr "ص.ب:"
+
+#. module: sn_base
+#: model:ir.module.category,name:sn_base.sn_base_access
+msgid "Base App"
+msgstr "التطبيق الأساسي"
+
+#. module: sn_base
+#: model:res.groups,name:sn_base.sn_base_boss
+msgid "Base App Boss"
+msgstr "مشرف عام التطبيق الأساسي"
+
+#. module: sn_base
+#: model:res.groups,name:sn_base.sn_base_manager
+msgid "Base App Manager"
+msgstr "‫مدير  التطبيق الأساس"
+
+#. module: sn_base
+#: model:res.groups,name:sn_base.sn_base_user
+msgid "Base App User"
+msgstr "مستخدم التطبيق الأساس"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_company__capital_social
+msgid "Capital Social"
+msgstr "رأس المال:"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_regions__code
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates__code
+msgid "Code"
+msgstr "رمز"
+
+#. module: sn_base
+#: model:ir.model.constraint,message:sn_base.constraint_sn_base_regions_region_uniq
+msgid "Code and name of region must be unique!"
+msgstr "يجب أن يكون رمز واسم المنطقة غير مكرر!"
+
+#. module: sn_base
+#: model:ir.model.constraint,message:sn_base.constraint_sn_base_wilayates_wilaya_uniq
+msgid "Code et nom de wilaya doit être unique!"
+msgstr "‫يجب أن يكون رمز واسم الولاية غير مكررين"
+
+#. module: sn_base
+#: model:ir.actions.act_window,name:sn_base.action_ntic_communes
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_communes_form
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+#: model_terms:ir.ui.view,arch_db:sn_base.view_ntic_communes_tree
+msgid "Communes"
+msgstr "البلديات"
+
+#. module: sn_base
+#: model:ir.model,name:sn_base.model_sn_base_communes
+msgid "Communes of Algeria"
+msgstr "بلديات الجزائر"
+
+#. module: sn_base
+#: model:ir.model,name:sn_base.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: sn_base
+#: model:ir.model,name:sn_base.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: sn_base
+#: model:ir.ui.menu,name:sn_base.menu_config
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_communes__create_uid
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_message_wizard__create_uid
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_regions__create_uid
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_communes__create_date
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_message_wizard__create_date
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_regions__create_date
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_communes__display_name
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_message_wizard__display_name
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_regions__display_name
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: sn_base
+#: model:ir.ui.menu,name:sn_base.menu_divers
+msgid "Divers"
+msgstr "متفرقات"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid "Définir les localités de travail"
+msgstr "تحديد مكان العمل"
+
+#. module: sn_base
+#: model_terms:ir.actions.act_window,help:sn_base.action_ntic_communes
+msgid "Each Commune is attached to one wilaya."
+msgstr "كل بلدية ترتبط بولاية واحدة فقط."
+
+#. module: sn_base
+#: model:sn_base.wilayates,name:sn_base.wilaya_05
+msgid "El-Oued"
+msgstr "الوادي"
+
+#. module: sn_base
+#: model:sn_base.regions,name:sn_base.region_03
+msgid "Est"
+msgstr "شرق"
+
+#. module: sn_base
+#: model:ir.ui.menu,name:sn_base.menu_halat
+msgid "Etats"
+msgstr "الحالات و‫التحاليل‬"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid "General Settings"
+msgstr "الإعدادات العامة"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.view_communes_filter
+#: model_terms:ir.ui.view,arch_db:sn_base.view_wilayates_filter
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_communes__id
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_message_wizard__id
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_regions__id
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid "Interviens sur les stocks, Comptes, numérotations des piecces.."
+msgstr "يؤثر على المخزون ، الحسابات ، وترقيم القطع."
+
+#. module: sn_base
+#: model:res.groups,name:sn_base.make_invisible
+msgid "Invisible"
+msgstr "غير مرئيه"
+
+#. module: sn_base
+#: model:ir.model,name:sn_base.model_res_lang
+msgid "Languages"
+msgstr "اللغات"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_communes____last_update
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_message_wizard____last_update
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_regions____last_update
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_communes__write_uid
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_message_wizard__write_uid
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_regions__write_uid
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_communes__write_date
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_message_wizard__write_date
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_regions__write_date
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.ntic_regions_tree
+msgid "Liste des régions"
+msgstr "قائمة الجهاة"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid "Localités"
+msgstr "الإعدادات المحلية"
+
+#. module: sn_base
+#. openerp-web
+#: code:addons/sn_base/static/src/xml/template.xml:0
+#, python-format
+msgid "Log out"
+msgstr "تسجيل الخروج"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_company__m_fisc
+msgid "Mat. Fisc."
+msgstr "الرقم الضريبي:"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_message_wizard__name
+#: model_terms:ir.ui.view,arch_db:sn_base.my_message_wizard
+msgid "Message"
+msgstr "الرسالة"
+
+#. module: sn_base
+#: model:ir.model,name:sn_base.model_sn_base_message_wizard
+msgid "Message wizard to display warnings, alert ,success messages"
+msgstr "معالج الرسائل لعرض التحذيرات والتنبيه ورسائل النجاح"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_company__mobile
+msgid "Mobile"
+msgstr "الهاتف المحمول"
+
+#. module: sn_base
+#: model:ir.model.fields.selection,name:sn_base.selection__res_config_settings__company_places__mono
+msgid "Mono place"
+msgstr "مكان واحد"
+
+#. module: sn_base
+#: model:ir.model.fields.selection,name:sn_base.selection__res_config_settings__company_places__multi
+msgid "Multi places"
+msgstr "أماكن متعددة"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_company__nis
+msgid "NIS"
+msgstr ""
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_communes__name
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_regions__name
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: sn_base
+#: model:ir.model.constraint,message:sn_base.constraint_sn_base_communes_commune_uniq
+msgid "Name of commune must be unique in its wilaya!"
+msgstr "اسم البلدية يجب أن تكون متفرد  في الولاية!"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.my_sequence_view_form
+msgid "Next Number"
+msgstr "الرقم التالي"
+
+#. module: sn_base
+#: model:sn_base.regions,name:sn_base.region_02
+msgid "Nord"
+msgstr "شمال"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.my_sequence_view_form
+msgid "Numérotation de la pièce:"
+msgstr "ترقيم الوثيقة:"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.my_message_wizard
+msgid "OK"
+msgstr "موافق"
+
+#. module: sn_base
+#: model:sn_base.regions,name:sn_base.region_04
+msgid "Ouest"
+msgstr "غرب"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.view_wilayates_filter
+msgid "Par Région"
+msgstr "حسب الجهة"
+
+#. module: sn_base
+#. openerp-web
+#: code:addons/sn_base/static/src/xml/template.xml:0
+#, python-format
+msgid "Preferences"
+msgstr "تفضيلات"
+
+#. module: sn_base
+#: model:ir.model,name:sn_base.model_ir_qweb
+msgid "Qweb"
+msgstr ""
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_company__rib
+msgid "RIB"
+msgstr "‫RIB"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_company__reg_com
+msgid "Reg.Com."
+msgstr "س, ت:"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates__region_id
+msgid "Region"
+msgstr "الجهة"
+
+#. module: sn_base
+#: model:ir.actions.act_window,name:sn_base.menu_regions_action
+msgid "Regions"
+msgstr "الجهات"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_regions_form
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid "Régions"
+msgstr "الجهات"
+
+#. module: sn_base
+#: model:ir.model,name:sn_base.model_sn_base_regions
+msgid "Régions et régions"
+msgstr "الجهاة"
+
+#. module: sn_base
+#: model:ir.ui.menu,name:sn_base.menu_sn_base_global_settings
+msgid "Réglages"
+msgstr "تعديلات"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.view_communes_filter
+msgid "Search Commune"
+msgstr "البحث  في البلديات"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.view_wilayates_filter
+msgid "Search in wilayates"
+msgstr "البحث في الولايات"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_regions__sequence
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_wilayates__sequence
+msgid "Sequence"
+msgstr "‪السلسلة"
+
+#. module: sn_base
+#: model:ir.actions.act_window,name:sn_base.my_sequences_tree_action
+#: model_terms:ir.ui.view,arch_db:sn_base.my_sequence_view_form
+msgid "Sequences"
+msgstr "تسلسلات"
+
+#. module: sn_base
+#: model:ir.actions.act_window,name:sn_base.action_sn_base_configuration
+msgid "Settings"
+msgstr "الإعدادات"
+
+#. module: sn_base
+#: model:ir.actions.act_window,name:sn_base.societes_action
+#: model:ir.ui.menu,name:sn_base.menu_societes_tree
+#: model_terms:ir.ui.view,arch_db:sn_base.company_info_form
+#: model_terms:ir.ui.view,arch_db:sn_base.company_info_tree
+msgid "Sociétés"
+msgstr "شركات"
+
+#. module: sn_base
+#. openerp-web
+#: code:addons/sn_base/static/src/xml/template.xml:0
+#, python-format
+msgid "SoufNet Company"
+msgstr "شركة سوف نت"
+
+#. module: sn_base
+#: model:ir.ui.menu,name:sn_base.menu_strategies
+msgid "Stratégies"
+msgstr "استراتيجيات"
+
+#. module: sn_base
+#: model:sn_base.regions,name:sn_base.region_01
+msgid "Sud"
+msgstr "جنوب"
+
+#. module: sn_base
+#: model:ir.ui.menu,name:sn_base.menu_board_my_dash
+msgid "Table de bord"
+msgstr "واجهة القيادة"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid "Une grande influence sur les stocks, comptes, et autres.."
+msgstr "تأثيراتها على المخازن، الحسابات وغيرها."
+
+#. module: sn_base
+#: model:ir.ui.menu,name:sn_base.menu_sn_base_users
+msgid "Utilisateurs"
+msgstr "المستخدمين"
+
+#. module: sn_base
+#: model_terms:ir.actions.act_window,help:sn_base.menu_regions_action
+msgid "Veuillez Ajouter la premiere région"
+msgstr "يرجى إضافة أول جهة"
+
+#. module: sn_base
+#: model_terms:ir.actions.act_window,help:sn_base.menu_wilaya_action
+msgid "Veuillez Ajouter la premiere wilaya"
+msgstr "يرجى إضافة أول ولاية"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_company__wilaya_id
+#: model:ir.model.fields,field_description:sn_base.field_res_config_settings__company_wilaya_id
+#: model:ir.model.fields,field_description:sn_base.field_res_config_settings__wilayates
+#: model:ir.model.fields,field_description:sn_base.field_sn_base_communes__wilaya_id
+#: model_terms:ir.ui.view,arch_db:sn_base.view_communes_filter
+msgid "Wilaya"
+msgstr "الولاية"
+
+#. module: sn_base
+#: model:ir.actions.act_window,name:sn_base.menu_wilaya_action
+#: model_terms:ir.ui.view,arch_db:sn_base.ntic_wilayates_tree
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_wilayates_form
+msgid "Wilayates"
+msgstr "الولايات"
+
+#. module: sn_base
+#: model:ir.model,name:sn_base.model_sn_base_wilayates
+msgid "Wilayates of Algeria"
+msgstr "ولايات الجزائر"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_company__fax
+msgid "fax"
+msgstr "فاكس"
+
+#. module: sn_base
+#: model:ir.ui.menu,name:sn_base.sn_menu_root
+msgid "nTIC"
+msgstr "‫nTIC"
+
+#. module: sn_base
+#: model:ir.model.fields,field_description:sn_base.field_res_config_settings__company_places
+msgid "places commerciaux"
+msgstr "أماكن تجارية"
+
+#. module: sn_base
+#: model_terms:ir.ui.view,arch_db:sn_base.sn_base_settings_view_form
+msgid "www.soufnet.com"
+msgstr "‫www.soufnet.com"

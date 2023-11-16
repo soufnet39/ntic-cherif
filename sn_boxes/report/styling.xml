@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="sn_boxes_raport1" name="Boxes styling"  inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/sn_boxes/static/src/css/styles.css"/>
+            </xpath>
+        </template>
+
+</odoo>

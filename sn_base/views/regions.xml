@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Localites-MENU*-->
+    <!--<menuitem-->
+            <!--id="menu_localities"-->
+            <!--name="Localités"-->
+            <!--parent="menu_configuration"-->
+            <!--sequence="10"/>-->
+
+    <!-- = = = = = = = = = = = = = = = = = RégionS = = = = = = = = -->
+
+    <!-- regions-TREE* -->
+    <record model="ir.ui.view" id="ntic_regions_tree">
+        <field name="name">ntic regions tree</field>
+        <field name="model">sn_base.regions</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Liste des régions">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <!-- regions-Form -->
+    <record id="sn_base_regions_form" model="ir.ui.view">
+        <field name="name">sn base regions</field>
+        <field name="model">sn_base.regions</field>
+        <field name="arch" type="xml">
+            <form string="Régions">
+                <sheet>
+                    <field name="id" invisible="1"/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-8 offset-md-4 ">
+                            <h1 class="heading1">
+                                <!--<span class="oe_read_only"></span>-->
+                                <span class="oe_edit_only" attrs="{'invisible': [('id', '=', False)]}">Edition </span>
+                                <span attrs="{'invisible': [('id', '!=', False)]}">Creation </span>
+                                Région
+                            </h1>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="code"/>
+                        </div>
+                        <div class="col-2">
+                            <field class="my-form-control" name="code"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="name"/>
+                        </div>
+                        <div class="col-8">
+                            <field class="my-form-control" name="name"/>
+                        </div>
+                    </div>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--regionS-ACTIONS*-->
+    <record model="ir.actions.act_window" id="menu_regions_action">
+        <field name="name">Regions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sn_base.regions</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Veuillez Ajouter la premiere région
+            </p>
+        </field>
+    </record>
+
+</odoo>

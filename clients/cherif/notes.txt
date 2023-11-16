@@ -1,0 +1,10 @@
+TODO::
+======
+ - Interdire de supprimer un prelevement déjà traité
+ - selection automatique de stock n'est pas fonctionnelle (elle été au passé)
+ 
+
+
+
+DONE::
+======

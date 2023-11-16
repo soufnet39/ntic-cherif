@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_sn_boxes_boxes,sn_boxes.boxes,model_sn_boxes_boxes,sn_boxes_user,1,1,1,1
+access_sn_boxes_operations,sn_boxes.operations,model_sn_boxes_operations,sn_boxes_user,1,1,1,1

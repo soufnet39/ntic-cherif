@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="sn_homepage.homepage">
+        <!--View-->
+
+<br/>
+  <div class="row" style="overflow: scroll; min-height: 400px;">
+
+          <div class="col-md-8">
+              <div style="padding:30px">
+                  <div class="title_p1">Notification</div>
+                  <div class="body_p1"></div>
+                  <div class="title_p1">Alerts</div>
+                  <div class="body_p1"></div>
+                  <div class="title_p1">Messages</div>
+                  <div class="body_p1"></div>
+                 <div class="title_p1">Rendez Vous</div>
+                  <div class="body_p1"></div>
+
+              </div>
+          </div>
+          <div class="col-md-4 text-center">
+              <div id="company_logo_name">
+                   Campany Name
+              </div>
+
+              <br/> <br/> <br/>
+              <img class="" src="sn_base/static/src/img/logo.png"   /> <br/>
+              <div>
+              <span class="erp_name">Gestion Commerciale, <br/> Sur mesure</span> <span class="version">V1.0</span>
+              </div>
+              <div class="text-center">
+                  <br/>
+                  Designed &amp; Developped by <br/>
+                  <img class="" src="sn_base/static/src/img/soufnet.png"   />
+
+              </div>
+          </div>
+
+
+    </div>
+
+
+    </t>
+</templates>
+

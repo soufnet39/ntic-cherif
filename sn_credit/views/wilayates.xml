@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Main menu Commandes-->
+    <menuitem id="menu_sn_credit_wilayates_tree"
+              action="sn_base.menu_wilaya_action"
+              name="Wilayates"
+              parent="sn_base.menu_config"
+              groups="sn_base.sn_base_manager"
+              sequence="5"/>
+
+
+</odoo>

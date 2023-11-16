@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_ntic_regions,sn_base.regions,model_sn_base_regions,base.group_user,1,1,1,1
+access_ntic_wilayates,sn_base.wilayates,model_sn_base_wilayates,base.group_user,1,1,1,1
+access_ntic_communes,sn_base.communes,model_sn_base_communes,base.group_user,1,1,1,1

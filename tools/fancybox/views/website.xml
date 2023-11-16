@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <template id="assets_backend_fancy" name="web_widget_fancy assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link  href="/fancybox/static/src/js/lib/jquery-fancybox/css/jquery.fancybox.min.css" rel="stylesheet"/>
+            <script src="/fancybox/static/src/js/lib/jquery-fancybox/js/jquery.fancybox.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="/fancybox/static/src/js/lib/jquery-fancybox/js/fancy_image.js" />
+        </xpath>
+    </template>
+</odoo>

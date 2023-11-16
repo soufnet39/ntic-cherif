@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form view for proforma inherited -->
+      <!-- Form -->
+        <record id="view_variants_order_form_inherited" model="ir.ui.view">
+            <field name="name">sn_sales.commandes.form.inherited</field>
+            <field name="model">sn_sales.commandes</field>
+            <field name="priority" eval="21" />
+            <field name="inherit_id" ref="sn_sales.view_commande_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='commande_lines']/tree/control" position="inside">
+                    <create string="Ajouter une ligne composée" context="{'default_display_type': 'line_composed'}"/>
+                </xpath>
+                
+            </field>
+    </record>
+</odoo>

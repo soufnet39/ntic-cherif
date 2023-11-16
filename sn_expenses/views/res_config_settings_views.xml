@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_expense_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.expense</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]//div[@data-string='comptes']" position="inside">
+                     <h2>Dépenses</h2>
+                </xpath>
+            </field>
+        </record>
+
+        <!--<record id="action_sn_expenses_configuration" model="ir.actions.act_window">-->
+            <!--<field name="name">Settings</field>-->
+            <!--<field name="type">ir.actions.act_window</field>-->
+            <!--<field name="res_model">res.config.settings</field>-->
+            <!--<field name="view_mode">form</field>-->
+            <!--<field name="target">inline</field>-->
+            <!--<field name="context">{'module' : 'sn_boxes'}</field>-->
+        <!--</record>-->
+
+        <!--<menuitem id="menu_sn_expenses_global_settings"-->
+                  <!--name="Configuration"-->
+                  <!--parent="menu_sn_expenses"-->
+                  <!--sequence="20"-->
+                  <!--action="action_sn_expenses_configuration"-->
+                  <!--groups="base.group_system"/>-->
+    </data>
+</odoo>

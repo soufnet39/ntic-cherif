@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Tree-->
+    <record id="sn_credit_prelevements_tree" model="ir.ui.view">
+        <field name="name">Prelevements Liste</field>
+        <field name="model">sn_credit.prelevements</field>
+        <field name="arch" type="xml">
+            <tree string="Prelevement" decoration-bf="True" decoration-danger="is_closed" decoration-success="not is_closed">
+                <field name="sequence" widget="handle"/>
+                <field name="name" readonly="0"/>
+                <field name="c_month"/>
+                <field name="c_year"/>
+                <field name="is_closed" invisible="1" />
+                <field name="closed_on_nfact" string="Férmé sur"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <!--Form-->
+    <record id="sn_credit_prelevements_form" model="ir.ui.view">
+        <field name="name">Prélèvements Form</field>
+        <field name="model">sn_credit.prelevements</field>
+        <field name="arch" type="xml">
+            <form string="Prélèvements" class="prelevements">
+                <field name="is_closed" invisible="1"/>
+                <field name="nbr_lines" invisible="1"/>
+
+                <header>
+                    <button name="print_prelevements" string="Imprimer" type="object" class="oe_highlight btn-print" icon="fa-print" attrs="{'invisible':[('name','=','/')]}" />
+                    <button name="call_aksats" string="Importer les Aksats" type="object" class="oe_highlight btn-save" icon="fa-save" attrs="{'invisible':[('name','=','/')]}" />
+                    <button name="lock_it" string="Férmer la liste" type="object" class="oe_highlight btn-danger" icon="fa-lock" attrs="{'invisible':['|',('is_closed','=',True),('nbr_lines','=',0)]}" />
+                </header>
+
+                <sheet style="width:94%!important">
+                  <widget name="web_ribbon" text="Férmé" bg_color="bg-danger" attrs="{ 'invisible':[('is_closed','=',False)]}" />
+                    <div class="text-center">
+                        <h1>
+                            <field name="name" attrs="{'invisible':[('name','=','/')]}"/>
+                            <span class="text-warning" attrs="{'invisible':[('name','!=','/')]}">
+                                Prélèvement non sauvgardé
+                            </span>
+                        </h1>
+                        <button name="print_prelevements_xlsx" string="Exporter Excel (Contrat A)" type="object" class="oe_highlight btn-print" icon="fa-print" context="{'cntrt': 'A'}" attrs="{'invisible':['|',('name','=','/'),('a_exist','=',False)]}" style="margin:0 5px"/> 
+                        <button name="print_prelevements_xlsx" string="Exporter Excel (Contrat B)" type="object" class="oe_highlight btn-print" icon="fa-print" context="{'cntrt': 'B'}" attrs="{'invisible':['|',('name','=','/'),('b_exist','=',False)]}" style="margin:0 5px" /> 
+                        <button name="print_prelevements_xlsx" string="Exporter Excel (Contrat C)" type="object" class="oe_highlight btn-print" icon="fa-print" context="{'cntrt': 'C'}" attrs="{'invisible':['|',('name','=','/'),('c_exist','=',False)]}" style="margin:0 5px" />
+
+
+                    </div>
+                    <field name="a_exist" invisible="1" />
+                    <field name="b_exist" invisible="1" />
+                    <field name="c_exist" invisible="1" />
+                    <field name="d_exist" invisible="1" />
+                    <field name="e_exist" invisible="1" />
+                    <field name="f_exist" invisible="1" />
+
+
+
+                    <div class="prelevements_head" attrs="{'invisible':[('name','!=','/')]}">
+
+                        <div class="row">
+                            <div class="col-md-3 offset-md-6 text-right">
+                                <label for="c_month"/>
+                            </div>
+                            <div class="col-md-2">
+                                <field class="my-form-control" name="c_month"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 offset-md-6 text-right">
+                                <label for="c_year"/>
+                            </div>
+                            <div class="col-md-2">
+                                <field class="my-form-control" name="c_year"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row" attrs="{'invisible':[('name','=','/')]}">
+                        <div class="col-md-4 offset-md-6 text-right" >
+                            <span class="title1">Nombre de lignes Total : </span>
+                        </div>
+                        <div class="col-md-2 text-left">
+                            <field name="nbr_lines"/>
+                        </div>
+                    </div>
+                    <div class="row" attrs="{'invisible':['|',('name','=','/'),('a_exist','=',False)]}">
+
+                        <div class="col-md-4 offset-md-6 text-right" >
+                            <span class="title1">Nombre de lignes contrat A : </span>
+                        </div>
+                        <div class="col-md-2 text-left">
+                            <field name="nbr_lines_a"  />
+                        </div>
+                    </div>
+                    <div class="row" attrs="{'invisible':['|',('name','=','/'),('b_exist','=',False)]}">
+
+                        <div class="col-md-4 offset-md-6 text-right" >
+                            <span class="title1">Nombre de lignes contrat B : </span>
+                        </div>
+                        <div class="col-md-2 text-left">
+                                <field name="nbr_lines_b"  />
+                                
+                        </div>
+                    </div>
+                    <div class="row" attrs="{'invisible':['|',('name','=','/'),('c_exist','=',False)]}">
+
+                        <div class="col-md-4 offset-md-6 text-right" >
+                            <span class="title1">Nombre de lignes contrat C : </span>
+                        </div>
+                        <div class="col-md-2 text-left">
+                                <field name="nbr_lines_c"  />
+                        </div>
+                    </div>
+
+                    <div class="row" attrs="{'invisible':[('is_closed','=',False)]}">
+
+                        <div class="col-md-4 offset-md-6 text-right">
+                            <span class="title1  text-danger">Férmé sur la commamde N : </span>
+                        </div>
+                        <div class="col-md-2 text-left text-danger">
+
+                            <field name="closed_on_nfact" readonly="1" />
+
+                        </div>
+                    </div>
+
+
+                    <notebook>
+                        <page string="Prélèvements">
+                            <div class="text-center tab_infos" attrs="{'invisible': [('name','!=','/')]}">
+                                <br/>
+                                Veuillez déterminer le mois et l'année, ensuite sauvgardez..
+                            </div>
+
+                            <field name="aksats_lines" class="contour01" attrs="{'invisible': [('name','=','/')]}">
+                                <tree string="Aksats Lines" create="false" delete="false" default_order='name' >
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+
+                                    <field name="client_nom"/>
+                                    <field name="client_prenom"/>
+                                    <field name="amount" string="MontantVo" sum="Total"/>
+
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="date_start" string="Date Création" invisible="1"/>
+
+                                    <field name="nbr_echeance" string="Ech."/>
+                                    <field name="jour_prelevement" string="Jour"/>
+
+                                    <field name="day_to_cut"/>
+
+                                    <field name="client_ccp_numero" invisible="1"/>
+                                    <field name="client_ccp_cle" invisible="1"/>
+                                    <field name="contrat_ccp_numero" invisible="1"/>
+                                    <field name="contrat_ccp_cle" invisible="1"/>
+                                    <field name="state" class="text-center"/>
+
+
+                                </tree>
+                                <form string="Ligne Crédit">
+                                    <div class="row">
+                                        <div class="col-md-4 text-right">
+                                            <label for="name"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="name" readonly="1"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-right">
+                                            <label for="amount"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="amount" readonly="1"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 text-right">
+                                            <label for="state"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="state"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Opérations">
+                            <br/>
+                            <br/>
+                            <div class="row">
+                                 <div class="col-12 text-center">
+                                    <button name="unlock_it" string="Ouvrir la liste" type="object" class="oe_highlight btn-danger btn-lg"
+                                    icon="fa-unlock"
+                                    attrs="{'invisible':['|',('is_closed','=',False),('nbr_lines','=',0)]}" />
+
+                                 </div>
+                             </div>
+                        </page>
+                    </notebook>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTIONS* -->
+    <record model="ir.actions.act_window" id="prelevements_tree_action">
+        <field name="name">Prélèvements</field>
+        <field name="res_model">sn_credit.prelevements</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Veuillez Ajouter votre premier prélèvement
+            </p>
+        </field>
+    </record>
+
+    <!--Menu-->
+    <menuitem id="menu_prelevements_tree" action="prelevements_tree_action" name="Prélèvements" parent="menu_credit" groups="sn_credit_boss" sequence="1"/>
+</odoo>

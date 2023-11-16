@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sn_homepage_homepage,sn_homepage.homepage,model_sn_homepage_homepage,,1,0,0,0

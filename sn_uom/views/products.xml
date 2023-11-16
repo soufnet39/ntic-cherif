@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <!-- Tree view for "sn_sales.product" -->
+    <record id="view_uom_products_tree" model="ir.ui.view">
+        <field name="name">sn_sales_product_uom.tree</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.ntic_products_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="uom_sale_id" string="Unité"/>
+                <field name="uom_purchase_id" string="Unité(Achat)"  optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Form view for "model" -->
+    <record id="view_uom_products_form" model="ir.ui.view">
+        <field name="name">sn_sales_product_uom.form</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.ntic_product_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//label[@id='categories']" position="before">
+                <label for="uom_sale_id"/>
+                <br/>
+                <field class="my-form-control" name="uom_sale_id" options="{'no_create_edit': True, 'no_open': True}" />
+                <br/>
+            </xpath>
+            <xpath expr="//field[@name='pmp_price']" position="after">
+                <label for="uom_purchase_id"/>
+                <br/>
+                <field class="my-form-control" name="uom_purchase_id" options="{'no_create_edit': True, 'no_open': True}" />
+                <br/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

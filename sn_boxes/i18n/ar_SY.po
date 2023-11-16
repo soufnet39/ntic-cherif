@@ -1,0 +1,913 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sn_boxes
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-12 16:29+0000\n"
+"PO-Revision-Date: 2020-02-12 21:07+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar_SY\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_form_boxes
+msgid ""
+"<br/>\n"
+"                            <span>Il faut sauvgarder la commande avant tout paiement</span>"
+msgstr ""
+"‫<br>\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                            <span>يجب حفظ الطلبية قبل أي تسديد</span>"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_form_view
+msgid ""
+"<span class=\"oe_edit_only\" attrs=\"{'invisible':[('id', '=', False)]}\">\n"
+"                                Edition\n"
+"                            </span>\n"
+"                            <span attrs=\"{'invisible':[('id', '!=', False)]}\">\n"
+"                                Création\n"
+"                            </span>\n"
+"                            <span class=\"oe_read_only\">\n"
+"                               Présentation\n"
+"                            </span>\n"
+"                            <span>\n"
+"                                de Compte trésorerie\n"
+"                            </span>"
+msgstr ""
+"‫<span class=\"oe_edit_only\" attrs=\"{'invisible':[('id', '=', False)]}\">\n"
+"‬\n"
+"‫                                تحرير\n"
+"‬\n"
+"‏‫                            </span>\n"
+"‬\n"
+"‏‫                            <span attrs=\"{'invisible':[('id', '!=', False)]}\">\n"
+"‬\n"
+"‫                                انشاء\n"
+"‬\n"
+"‏‫                            </span>\n"
+"‬\n"
+"‏‫                            <span class=\"oe_read_only\">\n"
+"‬\n"
+"‫                               عرض\n"
+"‬\n"
+"‏‫                            </span>\n"
+"‬\n"
+"‏‫                            <span>\n"
+"‬\n"
+"‫                                الحساب المالي\n"
+"‬\n"
+"‏‫                            </span>"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__purchase
+msgid "Achat"
+msgstr "شراء"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "ديكور النشاط الاستثنائي"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_settings_view_form
+msgid "Affichage des paiements"
+msgstr "عرض التسديدات"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_sales_commandes__show_client_payment
+msgid "Afficher les paiements"
+msgstr "عرض التسديدات"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_res_config_settings__show_client_payment
+msgid "Afficher les paiements des clients"
+msgstr "عرض تسديدات الزبائن "
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_res_config_settings__show_supplier_payment
+msgid "Afficher les réglements des fournisseurs"
+msgstr "عرض مدفوعات الموردين"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_settings_view_form
+msgid ""
+"Afficher par défaut les paiements et les restes à payer avec les pièces\n"
+"                                        des ventes"
+msgstr "إظهار التسديدات وبقايا التسديدات افتراضيا مع مستندات البيع"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_settings_view_form
+msgid "Afficher par défaut les reglements des pièces d'achats envers les fournisseurs"
+msgstr "إظهار المدفوعات افتراضيا مع فواتير الشراء"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__agence
+msgid "Agence"
+msgstr "الوكالة"
+
+#. module: sn_boxes
+#: model_terms:ir.actions.act_window,help:sn_boxes.sn_boxes_operations_action
+msgid "Ajouter les opérations de trésorerie"
+msgstr "إضافة العمليات المالية"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_form_boxes
+msgid "Ajouter un paiement"
+msgstr "إضافة تسديد"
+
+#. module: sn_boxes
+#: model_terms:ir.actions.act_window,help:sn_boxes.sn_boxes_boxes_list_action
+msgid "Ajouter votre premier compte"
+msgstr "إضافة حسابك الأول"
+
+#. module: sn_boxes
+#: model_terms:ir.actions.act_window,help:sn_boxes.sn_boxes_boxes_action
+msgid "Ajouter votre première compte"
+msgstr "أضف  حسابك الأول"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_view_graph
+msgid "Analyse des Caisses"
+msgstr "تحليل الصناديق المالية"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__etat_bancaire__canceled
+msgid "Annulé"
+msgstr "ملغى"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.boxes_partner_filter
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: sn_boxes
+#: model_terms:ir.actions.act_window,help:sn_boxes.sn_boxes_debit_form
+msgid "Aucune operation n'est trouvée"
+msgstr "لم يتم العثور على أية عملية"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__other
+msgid "Autre"
+msgstr "اخرى"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__bank
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__mode__bank
+msgid "Banque"
+msgstr "البنك"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_search_view
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Banques"
+msgstr "البنوك"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__boxe_operations
+msgid "Boxe Operations"
+msgstr "العمليات المالية"
+
+#. module: sn_boxes
+#: model:res.groups,name:sn_boxes.sn_boxes_boss
+msgid "Boxes Boss"
+msgstr "الحسابات المالية - مدير عام"
+
+#. module: sn_boxes
+#: model:res.groups,name:sn_boxes.sn_boxes_manager
+msgid "Boxes Manager"
+msgstr "الحسابات المالية - مدير "
+
+#. module: sn_boxes
+#: model:res.groups,name:sn_boxes.sn_boxes_user
+msgid "Boxes User"
+msgstr "الحسابات المالية - مستخدم"
+
+#. module: sn_boxes
+#: model:ir.module.category,name:sn_boxes.sn_boxes_access
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_search_view
+msgid "Caisses"
+msgstr "الصناديق"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__etat_bancaire__with_us
+msgid "Chez Nous"
+msgstr "عندنا"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Client"
+msgstr "الزبون"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_sales_partner__client_operations
+msgid "Client Operations"
+msgstr "عمليات الزبائن "
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__partner_id
+msgid "Client/Fournis."
+msgstr "زبون / مورد"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__commande_id
+msgid "Commande"
+msgstr "طلبية"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__name
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__boxe
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Compte"
+msgstr "حساب"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__boxe_id_from
+msgid "Compte depart"
+msgstr "الحساب المصدر"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__boxe_id_to
+msgid "Compte destination"
+msgstr "الحساب الوجهة"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_tree
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_tree_with_sold
+msgid "Comptes"
+msgstr "الحسابات"
+
+#. module: sn_boxes
+#: model:ir.model,name:sn_boxes.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_settings_view_form
+msgid "Configuration - Trésorerie"
+msgstr "إعدادات - المالية"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__create_uid
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__create_uid
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__create_date
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__create_date
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: sn_boxes
+#: model:ir.model,name:sn_boxes.model_sn_sales_partner
+msgid "Credits part of partner"
+msgstr "الأقساط من جهة الزبون"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Credités"
+msgstr "دائن"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__date_action
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__date_transfert
+msgid "Date de transfert"
+msgstr "تاريخ التحويل"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__date_valeur
+msgid "Dave Valeur"
+msgstr "تاريخ القيمة"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Debités"
+msgstr "مدين"
+
+#. module: sn_boxes
+#: code:addons/sn_boxes/models/operations.py:0
+#, python-format
+msgid "Desole, On peut pas decaisser plus que le sold du compte."
+msgstr "آسف، لا يمكن صرف قيمة أكثر من مجموع الحساب."
+
+#. module: sn_boxes
+#: code:addons/sn_boxes/wizard/interboxes.py:0
+#, python-format
+msgid "Desole, On peut pas transferer une somme plus que le sold du compte source."
+msgstr "‫آسف، لا يمكن تحويل قيمة أكثر من مجموع الحساب المصدر."
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__display_name
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__display_name
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Débit/Credit"
+msgstr "مدين/دائن"
+
+#. module: sn_boxes
+#. openerp-web
+#: code:addons/sn_boxes/static/src/xml/add_btns.xml:0
+#: model:ir.actions.act_window,name:sn_boxes.sn_boxes_credit_form
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__sens__debit
+#: model:ir.ui.menu,name:sn_boxes.menu_boxes_operations_credit
+#, python-format
+msgid "Décaissement"
+msgstr "إنفاق"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__degagement
+msgid "Dégagement"
+msgstr "افراج"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__expense
+msgid "Dépense"
+msgstr "صرف"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__note
+msgid "Déscription"
+msgstr "وصف"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__date_echeance
+msgid "Echéance"
+msgstr "آجال"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__etat_bancaire__in_circulation
+msgid "En Circulation"
+msgstr "متداول"
+
+#. module: sn_boxes
+#. openerp-web
+#: code:addons/sn_boxes/static/src/xml/add_btns.xml:0
+#: model:ir.actions.act_window,name:sn_boxes.sn_boxes_debit_form
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__sens__credit
+#: model:ir.ui.menu,name:sn_boxes.menu_boxes_operations_dedit
+#, python-format
+msgid "Encaissement"
+msgstr "تحصيل"
+
+#. module: sn_boxes
+#. openerp-web
+#: code:addons/sn_boxes/static/src/xml/add_btns.xml:0
+#: model:ir.actions.act_window,name:sn_boxes.sn_boxes_inter_boxes_action
+#: model:ir.ui.menu,name:sn_boxes.menu_boxes_inter_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_interboxes_form
+#, python-format
+msgid "Entre Comptes"
+msgstr "بين الحسابات"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__mode__sold
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_search_view
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Espèce"
+msgstr "نقدي"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__etat_bancaire
+msgid "Etat Bancaire"
+msgstr "الحالة البنكية"
+
+#. module: sn_boxes
+#: model:ir.actions.act_window,name:sn_boxes.sn_boxes_boxes_clients_action
+msgid "Etat des Client"
+msgstr "قائمة حسابات الزبائن "
+
+#. module: sn_boxes
+#: model:ir.ui.menu,name:sn_boxes.menu_boxes_clients
+msgid "Etat des Clients"
+msgstr "حالة الزبائن "
+
+#. module: sn_boxes
+#: model:ir.actions.act_window,name:sn_boxes.sn_boxes_boxes_list_action
+#: model:ir.ui.menu,name:sn_boxes.menu_boxes_state
+msgid "Etat des Comptes"
+msgstr "حالة الحسابات"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.boxes_partner_filter
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_search_view
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__id
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__id
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: sn_boxes
+#: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "رمز الإشارة إلى نشاط استثنائي."
+
+#. module: sn_boxes
+#: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__message_needaction
+#: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "إذا كان محددًا، فهناك رسائل جديدة تحتاج لرؤيتها."
+
+#. module: sn_boxes
+#: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__message_has_error
+#: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا كان محددًا، فقد حدث خطأ في تسليم بعض الرسائل."
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__etat_bancaire__unpaid
+msgid "Impayé"
+msgstr "غير مسدد"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_interboxes_form
+msgid "Lancer le transfert"
+msgstr "إجراء التحويل"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes____last_update
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes____last_update
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__write_uid
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__write_uid
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__write_date
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__write_date
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sn_boxes
+#: model:ir.model.constraint,message:sn_boxes.constraint_sn_boxes_boxes_boxes_distinct
+msgid "Les noms des comptes doivent être uniques."
+msgstr "يجب أن تكون أسماء الحسابات فريدة من نوعها."
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__name
+msgid "Libellé"
+msgstr "الصيغه"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_form_boxes
+msgid "Lignes de paiement"
+msgstr "أسطر التسديدات"
+
+#. module: sn_boxes
+#: model:ir.actions.act_window,name:sn_boxes.sn_boxes_boxes_action
+#: model:ir.ui.menu,name:sn_boxes.menu_boxes
+msgid "Liste des Comptes"
+msgstr "قائمة الحسابات"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__mode
+msgid "Mode"
+msgstr "النسق"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__amount
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__amount
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__amount_done
+msgid "Montant"
+msgstr "المبلغ"
+
+#. module: sn_boxes
+#: model:ir.actions.act_window,name:sn_boxes.sn_boxes_operations_action
+#: model:ir.ui.menu,name:sn_boxes.menu_boxes_mouvements
+msgid "Mouvements des Comptes"
+msgstr "حركة الحسابات"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.boxes_partner_filter
+msgid "Nom"
+msgstr "الإسم"
+
+#. module: sn_boxes
+#: model:ir.model,name:sn_boxes.model_sn_boxes_operations
+msgid "Ntic Boxes Opération"
+msgstr "عمليات على الصناديق Ntic"
+
+#. module: sn_boxes
+#: model:ir.model,name:sn_boxes.model_sn_boxes_boxes
+msgid "Ntic Comptes of money"
+msgstr "حسابات المال nTIC"
+
+#. module: sn_boxes
+#: model:ir.model,name:sn_boxes.model_sn_sales_commandes
+msgid "Ntic Sale Commandes"
+msgstr "طلبيات البيع Ntic"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الاخطاء"
+
+#. module: sn_boxes
+#: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: sn_boxes
+#: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل الحادث بها خطأ في التسليم"
+
+#. module: sn_boxes
+#: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__operation
+msgid "Opération"
+msgstr "عملية"
+
+#. module: sn_boxes
+#: code:addons/sn_boxes/models/boxes.py:0 code:addons/sn_boxes/models/operations.py:0
+#: code:addons/sn_boxes/models/partner.py:0 code:addons/sn_boxes/wizard/interboxes.py:0
+#: model:ir.ui.menu,name:sn_boxes.menu_boxes_operations
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_list_view
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_pivot
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+#, python-format
+msgid "Opérations"
+msgstr "عمليات"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_sales_commandes__payment_ids
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__paiement
+msgid "Paiement"
+msgstr "التسديد"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_form_boxes
+msgid "Paiement de la Commande"
+msgstr "التسديد عند الطلب"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_form_boxes
+msgid "Paiements"
+msgstr "التسديدات"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_form_boxes
+msgid "Paiements:"
+msgstr "‫التسديدات:"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_search_view
+msgid "Par Région"
+msgstr "حسب الجهة"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_search_view
+msgid "Par Type"
+msgstr "حسب النوع"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_search_view
+msgid "Par Wilaya"
+msgstr "حسب الولاية"
+
+#. module: sn_boxes
+#: model_terms:ir.actions.act_window,help:sn_boxes.sn_boxes_boxes_clients_action
+msgid "Pas de clients !"
+msgstr "حسب الزبائن "
+
+#. module: sn_boxes
+#: code:addons/sn_boxes/models/operations.py:0
+#, python-format
+msgid "Pas de somme NULLE ou NEGATIFE!!."
+msgstr "لا مجال للمجموع المعدوم أو السلبي."
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__etat_bancaire__paid
+msgid "Payé"
+msgstr "مدفوع"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__rib
+msgid "RIB"
+msgstr "‫RIB"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__reference
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__region
+msgid "Region"
+msgstr "الجهة"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__user_ids
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_tree
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_tree_with_sold
+msgid "Responsables"
+msgstr "المسؤولون"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_sales_commandes__amount_rest
+msgid "Reste"
+msgstr "الباقي"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__retour
+msgid "Retour"
+msgstr "عودة"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__reception
+msgid "Réception"
+msgstr "استقبال"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Région"
+msgstr "الجهة"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_form_boxes
+msgid "Réste à payer:"
+msgstr "باقي الدفع:"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.boxes_partner_filter
+msgid "Search Partner"
+msgstr "بحث في الزبائن"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__sens
+msgid "Sens"
+msgstr "إتجاه"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_sales_partner__sold_client
+msgid "Sold Client"
+msgstr "رصيد الزبون"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__sold_boxe
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__sold_from
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__sold_boxe
+msgid "Sold Compte"
+msgstr "رصيد الحساب"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_search_view
+msgid "Solde Initial"
+msgstr "الرصيد الأولي"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_list_view
+msgid "Somme"
+msgstr "المجموع"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_interboxes__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: sn_boxes
+#: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة على أساس الأنشطة\n"
+"المتأخرة: تاريخ الاستحقاق مر\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"المخطط: الأنشطة المستقبلية."
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_tree_with_sold
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_clients
+#: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_tree_boxes
+msgid "Total"
+msgstr "المجموع"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_sales_commandes__total_reglement
+msgid "Total Reglements"
+msgstr "مجموع المدفوعات"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_form_boxes
+msgid "Total Réglements"
+msgstr "‫مجموع المدفوغات"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__transfer
+msgid "Transfer"
+msgstr "تحويل"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_interboxes_form
+msgid "Transfert entre comptes"
+msgstr "التحويل بين الحسابات"
+
+#. module: sn_boxes
+#: model:ir.ui.menu,name:sn_boxes.menu_sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_settings_view_form
+msgid "Trésorerie"
+msgstr "الخزينة المالية"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__boxe_type
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_list_view
+msgid "Type"
+msgstr "النوع"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Type d'operation"
+msgstr "نوع العملية"
+
+#. module: sn_boxes
+#: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "‪نوع النشاط الاستثنائي المسجل."
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_unread
+msgid "Unread Messages"
+msgstr "الرسائل الجديدة"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__user_id
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Vendeur"
+msgstr "‪البائع"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__locked
+msgid "Verrouillé"
+msgstr "مقفل"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Verrouillés"
+msgstr "‫مقفلة"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__versement
+msgid "Versement"
+msgstr "دفع"
+
+#. module: sn_boxes
+#: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__virement
+msgid "Virement"
+msgstr "حوالة"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__wilaya_id
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__wilaya
+#: model_terms:ir.ui.view,arch_db:sn_boxes.boxes_partner_filter
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
+msgid "Wilaya"
+msgstr "الولايه"
+
+#. module: sn_boxes
+#: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_form_view
+msgid "ex: Caisse El-Oued"
+msgstr "على سبيل المثال صندوق الوادي"
+
+#. module: sn_boxes
+#: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__region
+msgid "région"
+msgstr "الجهة"
+
+#. module: sn_boxes
+#: model:ir.model,name:sn_boxes.model_sn_boxes_interboxes
+msgid "transfert de monnais "
+msgstr "تحويل نقدي"

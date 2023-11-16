@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+
+        <!--liste des produits in details-->
+        <template id="report_ntic_product_details">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>products</h2>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!--liste des produits list-->
+        <template id="report_ntic_product_list">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <h2>products list</h2>
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+                            <h4 t-field="o.name"/>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!--Fiche Client(s)-->
+        <template id="report_ntic_clients">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>Clients</h2>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <!--Liste des Clients-->
+        <template id="clients_list">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                <h2 class="text-center">Liste des Clients</h2>
+                <br/>
+                <table class="table table-sm" style="margin-bottom:0;  font-size:11px">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee;">
+                            <th class="text-center" style="width:8%">Code</th>
+                            <th class="text-center" style="width:10%" >Rais.Soc.</th>
+                            <th style="">Nom</th>                          
+                            <th class="text-center" style="width:10%">Tél.</th>
+                        </tr>
+                    </thead>
+                     <tbody class="sale_tbody">
+                    <t t-foreach="docs" t-as="o">
+                         <tr style="border-bottom: 1px solid silver">
+                         <td id="ref" class="text-center"><span t-field="o.ref" /></td>
+                        
+                         <td><span t-field="o.name" /></td>
+                         <td class="text-center"><span t-field="o.phone" /></td>
+                            
+                         </tr>
+                         
+                    </t>
+                    </tbody>
+                    </table>
+                </t>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>

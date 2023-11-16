@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+      <!--print proforma -->
+    <report
+            id="action_report_proforma"
+            string="Proforma"
+            model="sn_sales.proformas"
+            report_type="qweb-html"
+            file="sn_sales.report_proforma"
+            name="sn_sales.report_proforma"
+            print_report_name="'Facture Proforma - %s' % (object.name)"
+    />
+    <!--print one commande -->
+    <report
+            id="action_report_commande"
+            string="Commande"
+            model="sn_sales.commandes"
+            report_type="qweb-html"
+            file="sn_sales.report_commande"
+            name="sn_sales.report_commande"
+            print_report_name="'Commande - %s' % (object.name)"
+    />
+    <report
+            id="action_report_commandes_list"
+            string="Commandes list"
+            model="sn_sales.commandes"
+            report_type="qweb-html"
+            file="sn_sales.report_commandes_list"
+            name="sn_sales.report_commandes_list"
+            print_report_name="'Commandes - list'"
+    />
+
+    <!-- Fiche Client(s) -->
+    <report id="action_report_ntic_client"
+            string="Fiche Client"
+            model="sn_sales.partner"
+            report_type="qweb-html"
+            file="sn_sales.report_ntic_clients"
+            name="sn_sales.report_ntic_clients"
+            print_report_name="Fiche Client"/>
+
+    
+ <!--Clients list -->
+    <report
+            id="partner_list_report"
+            string="List des Clients"
+            model="sn_sales.partner"
+            report_type="qweb-html"
+            file="sn_sales.clients_list"           
+            name="sn_sales.clients_list"
+            print_report_name="'Liste des Clients'"
+            paperformat="sn_base.paperformat_landscape"
+    />
+
+    <!--Etats des commandes -->
+    <report
+            id="action_etats_commandes_report"
+            string="Etat de Ventes"
+            model="sn_sales.commandes.wiz1"
+            report_type="qweb-html"
+            file="sn_sales.etats_ventes_report"           
+            name="sn_sales.etats_ventes_report"
+            print_report_name="'Etats de ventes'"
+            paperformat="sn_base.paperformat_landscape"
+    />
+</odoo>

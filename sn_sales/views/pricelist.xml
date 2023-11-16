@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- *TREE* -->
+    <record model="ir.ui.view" id="sn_sales_pricelist_tree">
+        <field name="name">sn_sales pricelist tree</field>
+        <field name="model">sn_sales.pricelist</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Catégories des prix" decoration-bf="True" create="true" delete="true" edit="true" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <!--<field name="region_ids" widget="many2many_tags"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <!-- *SEARCH* -->
+    <record model="ir.ui.view" id="sn_sales_pricelist_view_search">
+        <field name="name">sn_sales.pricelist.search</field>
+        <field name="model">sn_sales.pricelist</field>
+        <field name="arch" type="xml">
+            <search string="Recherche produits">
+                <field name="name" string="Prix"/>
+                <filter string="Archive" name="inactive" domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- *FORM* -->
+    <record model="ir.ui.view" id="sn_sales_pricelist_form">
+        <field name="name">sn_sales pricelist form</field>
+        <field name="model">sn_sales.pricelist</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="row">
+                        <div class="col-8 offset-md-4 ">
+                            <h1 class="heading1">
+                                Liste de prix
+                            </h1>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="name"/>
+                        </div>
+                        <div class="col-7">
+                            <field class="my-form-control" name="name" />
+                        </div>
+                    </div>
+                    <br/>
+                     <!--<div class="row">-->
+                        <!--<div class="col-4 text-right">-->
+                            <!--<label for="region_ids"/>-->
+                        <!--</div>-->
+                        <!--<div class="col-5">-->
+                            <!--<field class="my-form-control" name="region_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create': True}"/>-->
+                            <!--<span class="text-muted">Les listes des prix peux être limité par la région du client. <br/>-->
+                            <!--Laissez vide si vous voulez généraliser.-->
+                            <!--</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTIONS* -->
+    <record model="ir.actions.act_window" id="pricelist_tree_action">
+        <field name="name">Catégories des prix</field>
+        <field name="res_model">sn_sales.pricelist</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Veuillez Ajouter votre premiere liste de prix
+            </p>
+        </field>
+    </record>
+
+    <!--menu liste des prix-->
+    <menuitem id="menu_pricelist_tree"
+              action="pricelist_tree_action"
+              name="Listes des prix"
+              parent="sn_base.menu_config"
+              sequence="55"  />
+</odoo>

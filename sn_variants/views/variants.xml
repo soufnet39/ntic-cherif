@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- sn_variants.variants tree view -->
+    <record id="sn_variants_variants_view_tree" model="ir.ui.view">
+        <field name="name">sn_variants.variants.view.tree</field>
+        <field name="model">sn_variants.variants</field>
+        <field name="arch" type="xml">
+            <tree>
+               <field name="sequence" widget="handle"/>
+               <field name="name"/>
+               <field name="unity"/>                
+               <field name="display_type"/>      
+               <field name="items" widget="many2many_tags" />      
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- sn_variants.variants form view -->
+    <record id="n_sales_variants_view_form" model="ir.ui.view">
+        <field name="name">sn_variants.variants.view.form</field>
+        <field name="model">sn_variants.variants</field>
+        <field name="arch" type="xml">
+            <form string="Variants">
+                <sheet>
+                    <div class="row">
+                     <div class="col-md-4 text-right">
+                       <label for="name" />
+                     </div>
+                     <div class="col-md-7">
+                        <field name="name"/>
+                     </div>
+                    </div>
+                    <div class="row">
+                     <div class="col-md-4 text-right">
+                       <label for="unity" />
+                     </div>
+                     <div class="col-md-7">
+                        <field name="unity"/>
+                     </div>
+                    </div>
+                    <div class="row">
+                     <div class="col-md-4 text-right">
+                       <label for="display_type" />
+                     </div>
+                     <div class="col-md-7">
+                        <field name="display_type"/>
+                     </div>
+                    </div>
+                    <div class="row">
+                     <div class="col-md-4 text-right">
+                       <label for="items" />
+                     </div>
+                     <div class="col-md-7">
+                        <field name="items">
+                          
+                                <tree string="Items" create="true" delete="true" edit="true" editable="bottom">
+                                  
+                                  <field name="name"  />
+                                  <field name="item_abrv"  />
+                                  <field name="html_color"  
+                                  attrs="{'column_invisible':[('parent.display_type','!=', 'color')]}" 
+                                  widget="color"  
+                                  options="{'color_field': 'color'}"/>
+                                  
+                              </tree>
+                              
+                        </field>
+                     </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- sn_variants.variants action window -->
+     <act_window id="sn_variants_variants_action"
+        name="Variants"
+        res_model="sn_variants.variants"
+        view_mode="tree,form"
+        />
+
+    <!-- menu -->
+    <menuitem id="sn_variants_variants_menu" 
+        action="sn_variants_variants_action"
+        name="Variants"
+        parent="sn_base.menu_config"
+        sequence="4"/>
+
+
+</odoo>

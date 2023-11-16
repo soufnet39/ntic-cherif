@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_sales_credit_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.sales_credit</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority">101</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='multi_company']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="sales_with_credit" string="Vente a credit" data-key="sn_credit"
+                         groups="sn_credit.sn_credit_manager">
+
+                    <div class="h1 config-big-tilte">Configuration - Vente en Crédis</div>
+                        <h2>Parametres</h2>
+                        <br/>
+                    <br/>
+                            <div class="row form-group">
+                                <div class="col-md-6 offset-md-1 text-right ">
+                                    <label for="days_omitted_before" />
+                                </div>
+                                <div class="col-md-1">
+                                    <field class="my-form-control" name="days_omitted_before"/>
+                                </div>
+                            </div>
+
+
+                    
+
+
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_sn_credit_configuration" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'sn_credit'}</field>
+        </record>
+
+        <!--<menuitem id="menu_sn_credit_global_settings"-->
+                  <!--name="Configuration"-->
+                  <!--parent="menu_sn_credit"-->
+                  <!--sequence="20"-->
+                  <!--action="action_sn_credit_configuration"-->
+                  <!--groups="base.group_system"/>-->
+    </data>
+</odoo>

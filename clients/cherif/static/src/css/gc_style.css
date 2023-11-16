@@ -1,0 +1,79 @@
+.title1,.o_form_view .o_form_label{
+    font-size: 1.1em;
+    font-weight: bold;
+    color: darkcyan;
+    line-height:32px;
+}
+.o_form_view .o_form_label {
+ margin: 0;
+}
+.title2{
+    font-weight: bold;
+}
+.title{
+    color: red;
+    font-size: 20px;
+}
+.big_title{
+    text-align: right;
+    font-size: 30px;
+    padding-right: 200px;
+    background-color: whitesmoke;
+    margin-bottom: 20px;
+    border-top: 1px solid silver;
+    color: red;
+    cursor: pointer;
+}
+.big_title span{
+    font-size: 20px;
+    color: tomato;
+}
+.o_readonly_modifier {
+    color: #e8e8e8;
+    border: 1px solid #e8e8e8;
+}
+.affichage{
+ border:0;
+ color:blueviolet;
+ }
+ .back_silver{
+    background-color: #f7f7f7;
+    padding: 15px 15px 5px;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+}
+.my_container{
+    width: 90%;
+    margin: 0 auto;
+}
+.margin20{margin:20px 0px}
+.o_readonly_modifier {
+    color: #000;
+
+}
+.my-form-control{
+  height: 30px;
+  width: 100%;
+}
+.my-form-control-tags{
+    height: auto;
+    min-height: 31px;
+    padding-top: 4px;
+}
+.o_field_widget.o_field_many2one .o_external_button{
+    line-height: 33px;
+    margin: 0px 5px;
+    color: tomato;}
+.padtop5{padding-top:5px;}
+.o_form_view .o_form_sheet_bg > .o_form_sheet{ max-width:80%; }
+
+.o_field_empty {
+    display: inherit!important;
+    background-color: #f7f7f7;
+    border: 1px solid #cecece;
+    border-radius: 4px;
+}
+/*
+.padding0:{padding-left:0!important;
+padding-right:0!important}
+*/

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <template id="report_atat_ventes_inherited_from_sn_boxes"
+                inherit_id="sn_sales.report_etat_vente_document">
+              <xpath expr="//table[@id='main_table']/thead/tr" position="inside">
+                   <th id='head_total_regle' class="text-right">Total Réglé</th>
+                   <th id='head_reste' class="text-right">Reste</th>
+              </xpath>
+              <xpath expr="//table[@id='main_table']/thead/tr" position="before">
+                    <t t-set="sum_reglement" t-value="0"/>
+                    <t t-set="sum_reste" t-value="0"/>
+              </xpath>
+              <xpath expr="//table[@id='main_table']/tbody//tr[@class='main_tr']" position="inside">
+                    <td class="reglementa1 text-right">                            
+                            <span t-field="line.total_reglement"/>
+                    </td>
+                    <td class="reglementa2 text-right">                            
+                            <span t-field="line.amount_rest"/>
+                    </td>
+              </xpath>
+              <xpath expr="//table[@id='main_table']/tbody//tr[@class='main_tr']" position="inside">
+                    <t t-set="sum_reglement" t-value="sum_reglement + line.total_reglement"/>
+                    <t t-set="sum_reste" t-value="sum_reste + line.amount_rest"/>
+              </xpath>
+              <xpath expr="//td[@id='totalttc']" position="after">
+                    <td class="sum_reg1 text-right" >
+                            <span t-esc="'{:,.2f}'.format(sum_reglement)"/>
+                    </td>
+                    <td class="sum_reg2 text-right" >
+                            <span t-esc="'{:,.2f}'.format(sum_reste)"/>
+                    </td>
+
+              </xpath>
+    </template>
+ </odoo>   

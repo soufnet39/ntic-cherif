@@ -1,0 +1,19 @@
+
+.facture .contour01{
+   border-radius: 4px;    padding: 4px 0;
+   border: 2px solid green;
+   }
+
+.facture .big-title {  color: green; }
+
+.btn_facture i {  color: green!important;width: 25px !important }
+
+.facture .o_form_sheet{ border-top: 4px solid green!important; border-bottom: 2px solid green!important; }
+.facture .tab_infos {
+    border: 2px solid blue;
+    padding: 4px 0;
+    margin: 8px 0;
+    border-radius: 5px;
+    min-height:150px;
+    border: 2px solid green;
+}

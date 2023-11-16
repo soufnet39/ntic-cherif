@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.config_parameter" id="show_client_payment" forcecreate="False">
+            <field name="key">sn_boxes.show_client_payment</field>
+            <field name="value">True</field>
+        </record>
+        <record model="ir.config_parameter" id="show_supplier_payment" forcecreate="False">
+            <field name="key">sn_boxes.show_supplier_payment</field>
+            <field name="value">True</field>
+        </record>
+    </data>
+</odoo>

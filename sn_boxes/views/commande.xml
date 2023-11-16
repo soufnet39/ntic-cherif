@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inherit Commandes Tree View  -->
+    <record id="view_commande_tree_boxes" model="ir.ui.view">
+        <field name="name">commandes from boxes</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="20" />
+        <field name="inherit_id" ref="sn_sales.view_orders_tree"/>
+        <field name="arch" type="xml">
+        <xpath expr="//field[@name='amount_ttc']" position="after">
+                <field name="amount_rest" readonly="0" optional="hide" sum='Total'/>
+        </xpath>
+        </field>
+    </record>
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_commande_form_boxes" model="ir.ui.view">
+        <field name="name">commandes from boxes</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="18" />
+        <field name="inherit_id" ref="sn_sales.view_commande_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='divers']" position="inside">
+                <field name="show_client_payment"/>
+                <label for="show_client_payment"/>
+            </xpath>
+            <xpath expr="//div[@id='totaux']" position="inside">
+
+                <div attrs="{'invisible': [('show_client_payment','=',False)]}">
+
+                <div class="row" id="paiements">
+                    <div class="col-md-7 title1 text-right" id="paiements_label">
+                        Paiements :
+                    </div>
+                    <div class="col-md-5" style="text-align:right">
+                        <field name="total_reglement" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7 title1 text-right">
+                        Réste à payer :
+                    </div>
+                    <div class="col-md-5" style="text-align:right">
+                        <field name="amount_rest" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    </div>
+                </div>
+                </div>
+
+            </xpath>
+            <!--paiements-->
+            <xpath expr="//notebook/page[@name='operations']" position="before">
+                <page string="Paiements">
+                    <div class="tab_infos">
+                        <div class="text-center" attrs="{'invisible':[('name','!=','/')]}">
+                            <br/>
+                            <span>Il faut sauvgarder la commande avant tout paiement</span>
+                        </div>
+                        <field name="payment_ids" attrs="{'invisible':[('name','=','/')]}"
+                               context="{'default_name':'Commande n: '+name,
+                                     'default_partner_id':partner_id,
+                                     'default_sens':'credit',
+                                     'default_operation':'paiement',
+                                     'default_amount':amount_rest,
+                                     'default_user_id':user_id
+                                     }" >
+                            <tree string="Lignes de paiement" decoration-bf="True">
+                                <control>
+                                    <create string="Ajouter un paiement"/>
+                                </control>
+                                <field name="boxe"/>
+                                <field name="date_action"/>
+                                <field name="mode" />
+                                <field name="user_id" optional="hide"/>
+                                <field name="amount" sum="Total Réglements"/>
+                            </tree>
+                            <form strong="Paiement de commande">
+                                <sheet>
+                                    <field name="sens" invisible="1"/>
+                                    <field name="operation" invisible="1"/>
+                                    <field name="partner_id" invisible="1"/>
+                                    <field name="user_id" invisible="1"/>
+                                    <br/>
+                                    <div class="text-center">
+                                        <h1>
+                                            Paiement de la Commande
+                                        </h1>
+
+                                    </div>
+                                    <field name="name" invisible="1"/>
+                                    <div class="row form-group">
+                                        <div class="col-md-2 offset-md-1 ">
+                                            <label class="title1" for="boxe"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="boxe"/>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button name="sold_boxe_function" type="object"
+                                                    class="btn btn-block text-center oe_stat_button">
+                                                <field name="sold_boxe"/>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div id="mode" class="row form-group">
+                                        <div class="col-md-2 offset-md-1 ">
+                                            <label class="title1" for="mode"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="mode"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group" attrs="{'invisible':[('mode','=','sold')]}">
+                                        <div class="col-md-2 offset-md-1">
+                                            <label class="title1" for="reference"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="reference"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group" attrs="{'invisible':[('mode','=','sold')]}">
+                                        <div class="col-md-2 offset-md-1">
+                                            <label class="title1" for="date_action"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="date_action"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group" attrs="{'invisible':[('mode','=','sold')]}">
+                                        <div class="col-md-2 offset-md-1">
+                                            <label class="title1" for="date_echeance"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="date_echeance"/>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row form-group" attrs="{'invisible':[('mode','=','sold')]}">
+                                        <div class="col-md-2 offset-md-1">
+                                            <label class="title1" for="etat_bancaire"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="etat_bancaire"/>
+                                        </div>
+                                    </div> -->
+                                    <div class="row form-group" >
+                                        <div class="col-md-2 offset-md-1">
+                                            <label class="title1" for="date_valeur"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="date_valeur"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-md-2 offset-md-1">
+                                            <label class="title1" for="date_encaissement"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="date_encaissement"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-md-2 offset-md-1">
+                                            <label class="title1" for="amount"/>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <field class="my-form-control" name="amount"/>
+                                        </div>
+                                    </div>
+
+                                </sheet>
+
+                            </form>
+                        </field>
+                    </div>
+                </page>
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+       <!-- Precisions  -->
+        <record forcecreate="True" id="decimal_quantity" model="decimal.precision">
+            <field name="name">Quantity</field>
+            <field name="digits">0</field>
+        </record>
+       <record forcecreate="True" id="decimal_montant" model="decimal.precision">
+            <field name="name">Mantant</field>
+            <field name="digits">2</field>
+        </record>
+        <record forcecreate="True" id="decimal_remise_taux" model="decimal.precision">
+            <field name="name">Remise Taux</field>
+            <field name="digits">0</field>
+        </record>
+        <record forcecreate="True" id="decimal_remise_montant" model="decimal.precision">
+            <field name="name">Remise Montant</field>
+            <field name="digits">2</field>
+        </record>
+        <record forcecreate="True" id="decimal_tva" model="decimal.precision">
+            <field name="name">TVA</field>
+            <field name="digits">0</field>
+        </record>
+       <record forcecreate="True" id="3chiffreaftercomma" model="decimal.precision">
+            <field name="name">3 Zeros</field>
+            <field name="digits">3</field>
+        </record>
+       <record forcecreate="True" id="2chiffreaftercomma" model="decimal.precision">
+            <field name="name">2 Decimals</field>
+            <field name="digits">2</field>
+        </record>
+
+</odoo>

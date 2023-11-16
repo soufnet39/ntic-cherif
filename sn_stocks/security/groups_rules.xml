@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sn_stocks_access" model="ir.module.category">
+        <field name="name">Stocks</field>
+    </record>
+    <!-- User Group -->
+    <record id="sn_stocks_user" model="res.groups">
+        <field name="name">Stocks User</field>
+        <field name="category_id" ref="sn_stocks_access"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Manager Group -->
+    <record id="sn_stocks_manager" model="res.groups">
+        <field name="name">Stocks Manager</field>
+        <field name="category_id" ref="sn_stocks_access"/>
+        <field name="implied_ids" eval="[(4, ref('sn_stocks_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="sn_stocks_boss" model="res.groups">
+        <field name="name">Stocks Boss</field>
+        <field name="category_id" ref="sn_stocks_access"/>
+        <field name="implied_ids" eval="[(4, ref('sn_stocks_user')),(4, ref('sn_stocks_manager'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <!-- stocks rule-->
+    <record model="ir.rule" id="sale_product_rule">
+        <field name="name">Product multi centre (wilaya)</field>
+        <field name="model_id" ref="model_sn_stocks_stocks"/>
+        <field name="global" eval="True"/>
+        <field name="groups" eval="[(4, ref('sn_stocks.sn_stocks_user')), (4, ref('sn_stocks.sn_stocks_boss'))]"/>
+        <field name="domain_force">['|', ('company_id','=',False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+     <!-- evaluation stocks rule-->
+    <record model="ir.rule" id="evaluation_stock_rule">
+        <field name="name">evaluation stock with multi company</field>
+        <field name="model_id" ref="model_sn_stocks_eval_stocks"/>
+        <field name="global" eval="True"/>
+        <field name="groups" eval="[(4, ref('sn_stocks.sn_stocks_user')), (4, ref('sn_stocks.sn_stocks_manager')), (4, ref('sn_stocks.sn_stocks_manager'))]"/>
+        <field name="domain_force">['|', ('company_id','=',False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--Price List-->
+        <record id="pricelist_01" model="sn_sales.pricelist">
+            <field name="sequence">1</field>
+            <field name="name">Prix Gros</field>
+        </record>
+        <record id="pricelist_02" model="sn_sales.pricelist">
+            <field name="sequence">2</field>
+            <field name="name">Prix Détail</field>
+        </record>
+    </data>
+</odoo>

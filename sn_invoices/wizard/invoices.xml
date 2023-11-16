@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form view for "model" -->
+    <record model="ir.ui.view" id="view_invoices_wizard_form">
+        <field name="name">invoices.wizard.form</field>
+        <field name="model">sn_invoices.invoices.wiz1</field>
+        <field name="type">form</field>
+
+        <field name="arch" type="xml">
+            <form string="Etats de Factures" create="false" delete="false" edit="true">
+                <header>
+                </header>
+                <sheet>
+                 <div class="text-center h2 text-danger">
+                Etat des Factures
+                </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="etat"/>
+                                </div>
+                                <div class="col-md-10">
+                                    <field name="etat" />
+                                </div>
+                            </div>
+                            <div class="row" attrs="{'invisible': [('etat','!=','client')]}">
+                                <div class="col-md-2">
+                                    <label for="client_id"/>
+                                </div>
+                                <div class="col-md-10">
+                                    <field attrs="{ 'required': [('etat','=','client')] }"
+                                        name="client_id" options='{"no_open": True, "no_create_edit": True}' />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="periode"/>
+                                </div>
+                                <div class="col-md-10">
+                                    <field name="periode" />
+                                </div>
+                            </div>
+                            <div attrs="{'invisible': [('periode','!=','mois')]}" class="row">
+                                <div class="col-md-2">
+                                    <label for="mois"/>
+                                </div>
+                                <div class="col-md-10">
+                                    <field attrs="{ 'required': [('periode','=','mois')] }" name="mois" />
+                                </div>
+                            </div>
+                            <div attrs="{'invisible': [('periode','!=','trimestre')]}" class="row">
+                                <div class="col-md-2">
+                                    <label for="trimestre"/>
+                                </div>
+                                <div class="col-md-10">
+                                    <field attrs="{ 'required': [('periode','=','trimestre')] }" name="trimestre" />
+                                </div>
+                            </div>
+                            <div attrs="{'invisible': [('periode','!=','semestre')]}" class="row">
+                                <div class="col-md-2">
+                                    <label for="semestre"/>
+                                </div>
+                                <div class="col-md-10">
+                                    <field attrs="{ 'required': [('periode','=','semestre')] }" name="semestre" />
+                                </div>
+                            </div>
+                                 <div  class="row" attrs="{'invisible': [('periode','!=','interval')]}">
+                                <div class="col-md-2">
+                                    <span class="o_form_label"> Interval </span>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                   <label for="date_debut"/>  
+                                </div>                               
+                                <div class="col-md-3">
+                                    <field attrs="{ 'required': [('periode','=','interval')] }" name="date_debut" />
+                                </div>
+                                <div class="col-md-2 text-right">
+                                   <label for="date_fin"/>   
+                                </div>                             
+                                <div class="col-md-3">
+                                    <field attrs="{ 'required': [('periode','=','interval')] }" name="date_fin" />
+                                </div>
+                            </div>
+                            <div attrs="{'invisible': ['|',('periode','=','global'),('periode','=','interval')]}" class="row">
+                                <div class="col-md-2">
+                                    <label for="annee"/>
+                                </div>
+                                <div class="col-md-10">
+                                    <field name="annee" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="date_operation"/>
+                                </div>
+                                <div class="col-md-4">
+                                    <field name="date_operation" />
+                                </div>
+                                <div class="col-md-5" style="padding-top:7px">
+                                   <field name="including_canceled" />
+                                   <label for="including_canceled"/> <br/>
+                                   <field name="including_avoir" />
+                                   <label for="including_avoir"/>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 text-center" style="padding: 20px 50px">
+                            <button class="btn btn-primary btn-block" name="get_factures" type="object">Filtration</button>
+                            <br/>
+                            <button class="btn btn-primary btn-block" name="print_etats_factures" type="object">Impression</button>
+                        </div>
+
+                    </div>
+
+
+
+                    <notebook>
+
+                        <page string="Factures">
+                            <field name="invoices_ids" mode="tree" >
+                                <tree string="Facture Lines" default_order="name asc" decoration-bf="True" decoration-danger="state=='canceled'">
+                                    <field name="name" string="N° fact" />
+                                    <field name="state" invisible="1" />
+                                    <field name="confirmation_date" string="Date" />
+                                    <field name="partner_id" attrs="{'column_invisible': [('parent.etat','=','client')]}" />
+                                    <field name="amount_ht_signed" string="THT" sum="Total HT" />
+                                    <field name="amount_tva_signed" sum="Total TVA"/>
+                                    <field name="amount_timbre_signed" sum="Total Timbre" />
+                                    <field name="amount_ttc_signed" string="TTC" sum="Total TTC"/>
+                                </tree>
+
+                            </field>
+
+                        </page>
+
+                        <page string="Options Impression">
+
+                        </page>
+
+
+                    </notebook>
+
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Etat des factures.action -->
+    <record model="ir.actions.act_window" id="etat_factures_action">
+        <field name="name">Etat des Factures</field>
+        <field name="res_model">sn_invoices.invoices.wiz1</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_invoices_wizard_form"/>
+        <field name="target">current</field>
+        <!-- <field name="target">inline</field> -->
+    </record>
+
+    <!-- menu Facturation sub menu-->
+    <!-- <menuitem id="menu_etats_facturation" 
+            name="Facturation" 
+            parent="sn_base.menu_halat" 
+            sequence="1"/> -->
+
+    <!-- menu Etats de Factures-->
+    <menuitem id="menu_invoices_wiz"
+        action="etat_factures_action"
+        name="Etats de facturation"
+        parent="sn_base.menu_halat"
+        groups="sn_invoices_boss"
+        sequence="2"/>
+
+</odoo>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!--print Aksats -->
+    <report
+            id="action_report_aksats"
+            string="Aksats"
+            model="sn_sales.commandes"
+            report_type="qweb-html"
+            file="sn_credit.report_aksats"
+            name="sn_credit.report_aksats"
+            print_report_name="'Aksat - %s' % (object.name)"
+    />
+
+    <!--print Aksats per month -->
+    <report
+            id="action_report_aksats_mois"
+            string="Avancements"
+            model="sn_sales.commandes"
+            report_type="qweb-html"
+            file="sn_credit.report_aksats_mois"
+            name="sn_credit.report_aksats_mois"
+            print_report_name="'Avancements - %s' % (object.name)"
+    />
+
+    <!--print Prelevements -->
+    <report
+            id="action_report_prelevements"
+            string="Prelevements"
+            model="sn_credit.prelevements"
+            report_type="qweb-html"
+            file="sn_credit.report_prelevements"
+            name="sn_credit.report_prelevements"
+            paperformat="sn_base.paperformat_landscape"
+            print_report_name="'%s' % (object.name)"
+    />
+    <!--print Cuts -->
+    <report
+            id="action_report_cuts"
+            string="Enlèvements"
+            model="sn_credit.cuts"
+            report_type="qweb-html"
+            file="sn_credit.report_cuts"
+            name="sn_credit.report_cuts"
+            paperformat="sn_base.paperformat_landscape"
+            print_report_name="'Enlevement - %s' % (object.name)"
+    />
+    <!--print Retards trouvés -->
+    <report
+            id="action_report_retarts_touves"
+            string="Cas en retard"
+            model="sn_credit.wiz_tardations"
+            report_type="qweb-html"
+            file="sn_credit.retarts_touves"
+            name="sn_credit.retarts_touves"
+            print_report_name="'Cas en retard - %s' % (object.name)"
+    />
+
+    <!--Export for Excel-->
+        <report
+            id="prelevements_xlsx"
+            model="sn_credit.prelevements"
+            string="Exporter vers Excel"
+            report_type="xlsx"
+            name="sn_credit.prelevements"
+            file="Prelevement"
+            attachment_use="False"
+            menu="True"
+        />
+        <!-- engagement -->
+        <report
+            id="action_report_engagement"
+            string="Engagement"
+            model="sn_sales.commandes"
+            report_type="qweb-html"
+            file="sn_credit.report_engagement"
+            name="sn_credit.report_engagement"
+            print_report_name="'Engagement - %s' % (object.name)"
+            
+    />
+       
+
+</odoo>

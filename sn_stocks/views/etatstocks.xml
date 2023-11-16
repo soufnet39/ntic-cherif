@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- *TREE* -->
+    <record model="ir.ui.view" id="etatstocks_tree">
+        <field name="name">etatstocks tree</field>
+        <field name="model">sn_sales.commande.lines</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Etat de stocks" create="false">
+                <field name="product_id"/>
+                <field name="stock_id"/>
+                <field name="commande_id" string="Reference"/>
+                <field name="qty_stock" />
+            </tree>
+        </field>
+    </record>
+
+      <!--Search-->
+    <record id="sn_stock_operations_line_search_view" model="ir.ui.view">
+        <field name="name">sn_sales.commande.lines.search</field>
+        <field name="model">sn_sales.commande.lines</field>
+        <field name="arch" type="xml">
+            <search string="Opérations">
+                <field name="product_id"/>
+                <field name="stock_id"/>
+                <separator/>
+                <!--<field name="category_id" string="Tag" filter_domain="[('category_id','ilike', self)]"/>-->
+                <!--<field name="user_id"/>-->
+                <!--<field name="phone" filter_domain="['|',('phone','ilike',self),('mobile','=',self)]"/>-->
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="group_product" string="Produit" context="{'group_by': 'product_id'}"/>
+                    <filter name="group_stock" string="Stock" context="{'group_by': 'stock_id'}"/>
+                    <filter name="group_categ" string="Catégories" context="{'group_by': 'product_categ_id'}"/>
+                    <!--Not Stored <filter name="group_operation" string="Opération" context="{'group_by': 'document_type'}"/>-->
+
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Graph -->
+    <record id="sn_stock_operations_line_view_graph" model="ir.ui.view">
+        <field name="name">sn_sales.commande.lines.graph</field>
+        <field name="model">sn_sales.commande.lines</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="product_id" type="col"/>
+                <field name="stock_id" type="row"/>
+                <field name="qty" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!--PIVOT-->
+
+    <record model="ir.ui.view" id="sn_stocks_operations_line_pivot">
+        <field name="name">sn_sales.commande.lines.pivot</field>
+        <field name="model">sn_sales.commande.lines</field>
+        <field name="arch" type="xml">
+            <pivot string="Opérations" >
+                 <field name="product_id" type="row"/>
+                 <field name="stock_id" type="col"/>
+                 <field name="qty" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!--Action-->
+    <record id="etatstocks_action" model="ir.actions.act_window">
+        <field name="name">Etat des stocks</field>
+        <field name="res_model">sn_sales.commande.lines</field>
+        <field name="view_mode">tree,graph,pivot</field>
+        <field name="view_id" ref="etatstocks_tree"/>
+        <field name="search_view_id" ref="sn_stock_operations_line_search_view"/>
+<!--        <field name="graph_view_id" ref="sn_stock_operations_line_view_graph"/>-->
+<!--        <field name="pivot_view_id" ref="sn_stocks_operations_line_pivot"/>-->
+        <field name="context">{'search_default_group_product': 1}</field>
+        <field name="domain">[('display_type','not in',('line_note','line_section') ),('stock_infini','=',False)]</field>
+        
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Creer les produits d'abord et alimenter les stocks.
+            </p>
+        </field>
+    </record>
+    <!--,'search_default_group_stock': 1-->
+    <!--  <field name="search_view_id" ref="sn_sales_product_template_search_view"/> -->
+
+        <!--Menu etat de stock-->
+    <menuitem action="etatstocks_action"
+              id="menu_all_product"
+              name="Etat des Stocks"
+              parent="sn_base.menu_halat"
+              groups="sn_stocks_user"        
+              sequence="2"/>
+</odoo>

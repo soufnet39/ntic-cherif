@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Search-->
+    <record id="sn_stocks_operations_search_view" model="ir.ui.view">
+        <field name="name">sn_sales.commandes.search</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="arch" type="xml">
+            <search string="Opérations">
+
+                <field name="user_id"/>
+                <field name="reference"/>
+                <field name="name"/>
+                <field name="creation_date"/>
+
+                <filter name="filter_livraison" string="Bon de livraison client" domain="[('document_type','=','livraison')]"/>
+                <filter name="filter_reception" string="Bon de recéption fournisseur" domain="[('document_type','=','reception')]"/>
+                <filter name="filter_sortie" string="Bon de sortie" domain="[('document_type','=','sortie')]"/>
+                <filter name="filter_entree" string="Bon d'entrée" domain="[('document_type','=','entree')]"/>
+
+
+                <separator/>
+                <!--<separator/>-->
+                <!--<field name="category_id" string="Tag" filter_domain="[('category_id','ilike', self)]"/>-->
+                <!--<field name="user_id"/>-->
+                <!--<field name="phone" filter_domain="['|',('phone','ilike',self),('mobile','=',self)]"/>-->
+                <group expand="0" name="group_by" string="Group By">
+                    <!--                    <filter name="group_debit_credit" string="Débit/Credit" context="{'group_by': 'sens'}"/>-->
+                    <filter name="group_vendeur" string="Vendeur" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_stock" string="Stocks" context="{'group_by': 'stock_id'}"/>
+                    <filter name="group_region" string="Region" context="{'group_by': 'region'}"/>
+                    <filter name="group_wilaya" string="Wilaya" context="{'group_by': 'wilaya'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Tree-->
+    <record id="sn_stocks_operations_tree" model="ir.ui.view">
+        <field name="name">operations tree</field>
+        <field name="model">sn_sales.commandes</field>
+
+        <field name="arch" type="xml">
+            <tree string="Stocks operations" default_order='id desc, operation desc, creation_date desc'
+                create="false" decoration-bf="True">
+                <field name="operation"/>
+                <field name="document_type"/>
+                <field name="reference"/>
+                <field name="creation_date"/>
+                <field name="stock_id"/>
+                <field name="user_id" string="Opérateur"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--form-->
+    <record id="stocks_operation_form" model="ir.ui.view">
+        <field name="name">Opération</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="101"/>
+        <field name="arch" type="xml">
+            <form string="Opération" class="livraison">
+                <header>
+                    <button name="print_operation_stock" string="Imprimer" type="object"
+                        class="oe_highlight btn-print" icon="fa-print"
+                        attrs="{'invisible':['|',('operation','=','/')]}"
+                        />
+                    <button name="action_confirm" class="oe_highlight btn-confirm"
+                        string="Confirmer" type="object"
+                        attrs="{'invisible':['|',('operation','=','/'),('state','in',['confirmed','canceled'])]}"
+                        />
+                    <button name="action_draft" class="oe_highlight"
+                        string="Remettre en état brouillon" type="object" states="canceled"/>
+
+                    <field name="state" widget="statusbar"/>
+                </header>
+
+                <sheet>
+                    <field name="name_updatable" invisible="1"/>
+                    <field name="commande_lines_count" invisible="1"/>
+                    <field name="len_stock_id" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="go2piece" type="object"
+                            attrs="{'invisible': [('name','in',('/',''))]}"
+                            context="{'piece':'commande'}"
+                            class="oe_stat_button btn_commande" icon="fa-archive">
+                            <field name="name" readonly="1" />
+                        </button>
+                    </div>
+                    <br/>
+                    <div>
+                        <h1>
+                            <field readonly="1" name="document_type" force_save="1" class="big-title h1 pdright10 text-danger"/>
+                            :
+                            <field name="operation"
+                                attrs="{'invisible':[('operation','=','/')],'readonly':[('name_updatable','=',False)]}"/>
+                            <span attrs="{'invisible':[('operation','!=','/')]}">
+                                (Nouveau)
+                            </span>
+                            <span class="text-danger" attrs="{'invisible':[('state','not in',['canceled'])]}">
+                                (Annulée)
+                            </span>
+                            <span class="text-warning" attrs="{'invisible':['|',('operation','=','/'),('state','not in',['draft'])]}">
+                                (Brouillon)
+                            </span>
+                        </h1>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4 text-right">
+                                    <label for="reference"/>
+                                </div>
+                                <div class="col-md-8">
+                                    <field class="my-form-control" name="reference"
+                                        attrs="{'required':[('document_type','not in',['livraison','reception'])]}" />
+                                </div>
+                            </div>
+                            <div id="partnerid" class="row"
+                                 attrs="{'invisible':[('document_type','not in',['livraison','reception'])]}">
+                                <div class="col-md-4 text-right">
+                                    <label for="partner_id"/>
+                                </div>
+                                <div class="col-md-8">
+                                    <field class="my-form-control" name="partner_id"
+                                        domain="[('is_customer','=',True)]"
+                                        attrs="{'required':[('document_type','=','livraison')]}"
+                                        />
+                                </div>
+                            </div>
+                            <!-- <div id="partnerid" class="row" attrs="{'invisible':[('document_type','not in',['reception'])]}">
+                                <div class="col-md-4 text-right">
+                                    <label for="partner_id_suppliers"/>
+                                </div>
+                                <div class="col-md-8">
+                                    <field class="my-form-control" name="partner_id_suppliers"
+                                        domain="[('is_supplier','=',True)]"
+                                        attrs="{'required':[('document_type','=','reception')]}"
+                                        />
+                                </div>
+                            </div> -->
+                            <!-- attrs="{'required':[('document_type','in',['livraison','reception'])]}" -->
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-5 text-right">
+                                    <label for="creation_date" states="draft,canceled"/>
+                                    <label for="confirmation_date" states="confirmed"/>
+                                </div>
+                                <div class="col-md-7">
+                                    <field class="my-form-control" name="creation_date" states="draft,canceled"/>
+                                    <field class="my-form-control" name="confirmation_date" states="confirmed"/>
+                                </div>
+                            </div>
+
+                            <div class="row header_document" id="user_id">
+                                <div class="col-md-5 text-right">
+                                    <label for="user_id"/>
+                                </div>
+                                <div class="col-md-7">
+                                    <field class="my-form-control" name="user_id"
+                                        attrs="{'readonly':[('commande_lines_count', '>', 0)]}"
+                                        options="{'no_open': True,}"/>
+                                </div>
+                            </div>
+
+                            <div attrs="{'invisible':[('len_stock_id', '=', 0)]}">
+
+                                <div class="row header_document">
+                                    <div class="col-md-5 text-right">
+                                        <span class="title1">Stock</span>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <field name="stock_id" class="my-form-control" force_save="1"
+                                            attrs="{'readonly':[('commande_lines_count', '>', 0)]}"
+                                            options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" attrs="{'invisible':[('len_stock_id', '>', 0)]}">
+                                <div class="col-md-5 text-right">
+                                    <span class="title1">Stocks</span>
+                                </div>
+                                <div class="col-md-7">
+                                    <span class="text-danger">Désolé. Vendeur sans Stock</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <notebook>
+                        <page string="Lignes">
+                            <field name="commande_lines" class="contour01" 
+                            widget="section_and_note_one2many"
+                            context="{'default_stock_id':stock_id }">
+
+                                <tree string="Lignes Bon Livraison"   decoration-bf="True"  >
+                                    <control>
+                                        <create string="Ajouter une ligne"/>
+                                    </control>
+
+                                    <field name="display_type" invisible="1"/>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id"/>
+                                    <field name="name" invisible="1"/>
+                                    <field name="qty" />
+                                    <!-- <field name="qty_stock" invisible='1' force_save="1" /> -->
+                                    <field name="stock_id" invisible="1" />
+
+                                </tree>
+                                <form string="product details">
+                                   
+                                    <div class="row text-center" attrs="{'invisible': [('stock_id','!=',False)] }">
+                                        <span>Il faut préciser le Stock source/destination!</span>
+                                    </div>
+
+                                    <div class="row form-group" attrs="{'invisible': [('stock_id','=',False)] }">
+                                        <!-- <field name="qty_stock" invisible='1' force_save="1" /> -->
+                                        <div class="col-md-8" id="adding_article">
+                                            <div class="row">
+                                                <div class="col-3 text-right title3">
+                                                    Produit:
+                                                </div>
+                                                <div class="col-8">
+                                                    <field class="my-form-control" name="product_id"
+                                                        options="{'no_open': True,}"
+                                                        required="1"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="row" id="quantity">
+                                                <div class="col-3 text-right title3" id="qty_label">
+                                                    Quantité:
+                                                </div>
+                                                <div class="col-4 offset-md-4">
+                                                    <field class="form-control" name="qty"/>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4 text-center">
+                                            Stock
+                                            <br/>
+                                            <span class="text-danger">
+                                                <field name="stock_id" options="{'no_open': True}"/>
+                                            </span>
+                                            <hr/>
+                                            <br/>
+                                            Quantité disponible
+                                            <br/>
+                                            <!-- <span class="text-danger">
+                                                <field name="qte_disponible"/>
+                                            </span> -->
+
+                                        </div>
+                                    </div>
+
+
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Opérations">
+                            <div id="commandes" class="row tab_infos">
+                                <div class="col-md-4" style="border-right:1px solid #dedede">
+                                    <h4 class="hh4">Annulation</h4>
+                                    <hr/>
+                                    <div class="text-center">
+                                        <div class="text-danger text-center" attrs="{'invisible':[('state','=','confirmed'),]}">
+                                            L'annulation sera
+                                            <br/>
+                                            après la confirmation
+                                        </div>
+                                        <button name="action_cancel"
+                                            string="Annuller cette opération"
+                                            type="object" states="confirmed" class="oe_highlight btn-cancel"/>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4" style="border-right:1px solid #dedede">
+                                    <h4 class="hh4">Mono/Multi stock</h4>
+                                    <hr/>
+
+                                    <div class="row" attrs="{'invisible':[('len_stock_id','&lt;',2)]}">
+                                    <div class="col-md-5 text-right">
+                                        <label for="from_one_many_stock"/>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <field class="my-form-control" name="from_one_many_stock"/>
+                                    </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </page>
+
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--Action-->
+    <record id="stock_operations_action" model="ir.actions.act_window">
+        <field name="name">Mouvements des stocks</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sn_sales.commandes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('document_type','in',['livraison','reception','sortie','entree'])]</field>
+        <field name="context">{'washi':'mouvements_stocks','default_document_type':'livraison'}</field>
+        <field name="search_view_id" ref="sn_stocks_operations_search_view" />
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Aucune operation n'est trouvée
+            </p>
+            <p>
+                Vous devriez faire des ventes et des livraisons, des achats et des réceptions , ou une opération
+                d'entrée ou de sortie.
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="reglage_stock_operations_action_tree">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="sn_stocks_operations_tree"/>
+        <field name="act_window_id" ref="stock_operations_action"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="reglage_stock_operations_action_form">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="stocks_operation_form"/>
+        <field name="act_window_id" ref="stock_operations_action"/>
+    </record>
+
+
+    <!--Menu Journal de Stock-->
+    <menuitem action="stock_operations_action"
+        id="menu_stocks_movements"
+        name="Mouvements des stocks"
+        parent="menu_sn_stocks"
+        groups="sn_stocks_manager"
+        sequence="0"/>
+
+    <!--Action bon de livraison-->
+    <act_window id="stocks_operations_bliv_action"
+        name="Bon de livraison"
+        res_model="sn_sales.commandes"
+        view_mode="form"
+        view_id="stocks_operation_form"
+        context="{'default_document_type':'livraison'}"
+        />
+
+    <!--Menu bon de livraison-->
+    <menuitem action="stocks_operations_bliv_action"
+        id="menu_stocks_operations_b_liv"
+        name="Bon de livraison"
+        parent="menu_stocks_operations"
+        groups="sn_stocks_manager"
+        sequence="1"/>
+
+
+    <act_window id="stocks_operations_bsort_action"
+        name="Bon de sortie"
+        res_model="sn_sales.commandes"
+        view_mode="form"
+        view_id="stocks_operation_form"
+        context="{'default_document_type':'sortie'}"
+        />
+     <!--Action bon de reception -->
+    <act_window id="stocks_operations_reception_action"
+        name="Bon de reception"
+        res_model="sn_sales.commandes"
+        view_mode="form"
+        view_id="stocks_operation_form"
+        context="{'default_document_type':'reception'}"
+        />
+
+    <!--Menu bon de reception -->
+    <menuitem action="stocks_operations_reception_action"
+        id="menu_stocks_operations_b_reception"
+        name="Bon de reception"
+        parent="sn_stocks.menu_stocks_operations"
+        groups="sn_purchases.sn_purchases_manager"
+        sequence="2"/>
+
+    <!--Menu bon de Sortie -->
+    <menuitem action="stocks_operations_bsort_action"
+        id="menu_stocks_operations_b_sortie"
+        name="Bon de Sortie"
+        parent="menu_stocks_operations"
+        groups="sn_stocks_manager"
+        sequence="3"/>
+
+    <!--Action bon d'Entree-->
+    <act_window id="stocks_operations_bentree_action"
+        name="Bon d'Entrée"
+        res_model="sn_sales.commandes"
+        view_mode="form"
+        view_id="stocks_operation_form"
+        context="{'default_document_type':'entree'}"
+        />
+
+    <!--Menu bon d'Entree -->
+    <menuitem action="stocks_operations_bentree_action"
+        id="menu_stocks_operations_b_entree"
+        name="Bon d'Entrée"
+        parent="menu_stocks_operations"
+        groups="sn_stocks_manager"
+        sequence="4"/>
+
+
+</odoo>

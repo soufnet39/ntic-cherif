@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="my_footer" inherit_id="web.external_layout_standard">
+ <xpath expr="//div[@class='footer o_standard_footer']" position="replace">
+     <div class="footer o_standard_footer" style="border-top:1px solid black; padding-top:5px;font-size:9pt;">
+       <table border="0" style="width:100%">
+       
+        <td style="width:100%; text-align:center">
+             <span  t-field="company.phone" />           
+        </td> 
+         
+       </table>
+     </div>
+ </xpath>
+</template>
+</data>
+</odoo> 

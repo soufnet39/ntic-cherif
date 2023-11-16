@@ -1,0 +1,78 @@
+.oe_subtotal_footer .o_field_number{
+font-size:1.3em!important}
+.o_settings_container .o_setting_box .o_setting_right_pane button.btn-link:first-child {
+    padding-left: 10px;
+}
+.w512 img{
+  max-width: 100%!important;
+  max-height: inherit!important;
+
+}
+.proforma .contour01, .commande .contour01{   border-radius: 4px 0;    padding: 4px;    }
+.proforma .contour01 {border: 2px solid tomato;}
+.commande .contour01 {border: 2px solid blue;}
+
+.proforma .big-title {  color: tomato; }
+.commande .big-title{  color: blue;   }
+
+.h1{  font-size: 2.2rem !important; }
+
+.btn_proforma i {  color: tomato!important;width: 25px !important }
+
+.btn_commande i{  color: blue!important; width:25px !important   }
+
+.proforma .o_form_sheet{ border-top: 4px solid tomato!important; border-bottom: 2px solid tomato!important; }
+.commande .o_form_sheet{ border-top: 4px solid blue!important; border-bottom: 2px solid blue!important; }
+.o_form_view .o_notebook .tab-content > .tab-pane {  padding: 5px 0 !important; }
+
+.commande .tab_infos , .proforma .tab_infos{
+    border: 2px solid blue;
+    padding: 4px 0;
+    margin: 8px 0;
+    border-radius: 5px;
+    min-height:150px;
+}
+.proforma .tab_infos{ border: 2px solid tomato; }
+
+.totaux .col-md-5 {
+
+    font-size: 14px;
+    font-weight: bold;
+}
+.totaux .row{ border-bottom: 1px solid silver}
+.totaux > div { line-height: 25px}
+.my-radio{
+    color: rebeccapurple;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 5px;
+    border: 1px solid silver;}
+
+.o_form_view  .my-radio .o_form_label{  line-height: inherit!important;}
+
+.logistics{
+border: 1px solid #d7d7d7;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: antiquewhite;
+}
+.uncover{
+    border: none!important;
+    background-color: inherit!important;
+    color: tomato !important;
+    display: table-cell !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+.title3 ,.title3 .o_form_label {
+  line-height: 20px;
+  color: teal;
+  font-weight: bold;
+  }
+.livraison .o_is_line_note,.livraison .o_is_line_section{
+    display: none;
+}
+.oe_button_box button.btn_in_oe_button_box{
+    background-color: #ececec!important;
+    border-radius: 0 !important;
+}

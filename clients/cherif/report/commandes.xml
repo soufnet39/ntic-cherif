@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="cherif_boxes_sn_sales_report_commande_inherited" name="credits styling" inherit_id="sn_boxes.boxes_sn_sales_report_commande_inherited">
+                    <xpath expr="//table[@id='versement_details']" position="replace">
+                    </xpath>
+    </template>
+</odoo>

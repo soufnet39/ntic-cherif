@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Tree-->
+   <record id="sn_stocks_reserves_tree" model="ir.ui.view">
+       <field name="name">sn_stocks reserves tree</field>
+       <field name="model">sn_stocks.reserves</field>
+       <field name="arch" type="xml">
+           <tree string="" decoration-bf="True">
+               <field name="name"/>
+           </tree>
+       </field>
+   </record>
+
+
+    <!--Form-->
+    <record id="sn_stocks_reserves_form" model="ir.ui.view">
+        <field name="name">sn_stocks reserves form</field>
+        <field name="model">sn_stocks.reserves</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                   <field name="name"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Action-->
+    <record id="sn_stocks_reserves_action" model="ir.actions.act_window">
+        <field name="name">Reserves de Stocks</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sn_stocks.reserves</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+     <!--Menu-->
+    <menuitem action="sn_stocks_reserves_action"
+              id="menu_stocks_reserves"
+              name="Reserve des stocks"
+              parent="sn_base.menu_strategies"
+              groups="sn_stocks_manager"
+              sequence="5"/>
+
+</odoo>

@@ -1,0 +1,225 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sn_expenses
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-18 20:45+0000\n"
+"PO-Revision-Date: 2019-09-18 21:55+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"Language: ar_DZ\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: sn_expenses
+#: model_terms:ir.actions.act_window,help:sn_expenses.sn_expenses_categories_action_id
+msgid "Ajouter la première catégorie des dépenses"
+msgstr "إضافة الفئة الأولى من المصروفات"
+
+#. module: sn_expenses
+#: model_terms:ir.actions.act_window,help:sn_expenses.sn_expenses_actions_all
+msgid "Ajouter vos premières dépenses"
+msgstr "إضافة أولى المصروفات"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_boxes_operations__expense_category
+#: model_terms:ir.ui.view,arch_db:sn_expenses.ntic_expenses_categories_tree
+msgid "Catégorie"
+msgstr "الفئة"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.sn_expenses_categories_search_view
+msgid "Catégorie de depenses"
+msgstr "Catégorie de depenses"
+
+#. module: sn_expenses
+#: model:ir.actions.act_window,name:sn_expenses.sn_expenses_categories_action_id
+msgid "Catégories Dépenses"
+msgstr "فئات الصرف"
+
+#. module: sn_expenses
+#: model:ir.ui.menu,name:sn_expenses.menu_expenses_cat
+msgid "Catégories des Dépenses"
+msgstr "فئات الصرف"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.ntic_expenses_categories_tree
+msgid "Catégories des dépenses"
+msgstr "فئات الصرف"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.sn_expenses_categories_search_view
+msgid "Catégories principals"
+msgstr "الفئات الرئيسية"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__child_id
+msgid "Child Catégories"
+msgstr "فئات الفرعية"
+
+#. module: sn_expenses
+#: model:ir.model,name:sn_expenses.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__display_name
+msgid "Display Name"
+msgstr "الإسم المعروض"
+
+#. module: sn_expenses
+#: model:ir.actions.act_window,name:sn_expenses.sn_expenses_actions_all
+#: model:ir.ui.menu,name:sn_expenses.menu_all_expenses
+#: model:ir.ui.menu,name:sn_expenses.menu_sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.ntic_expenses_tree
+#: model_terms:ir.ui.view,arch_db:sn_expenses.res_expense_settings_view_form
+msgid "Dépenses"
+msgstr "النفقات"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.view_ntic_expenses_filter
+msgid "Expense"
+msgstr "المصروف"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.ntic_expenses_tree_pivot
+msgid "Expense Analyse"
+msgstr "تحليل المصروفات"
+
+#. module: sn_expenses
+#: model:ir.module.category,name:sn_expenses.sn_expenses_access
+msgid "Expenses"
+msgstr "المصروفات"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.ntic_expenses_view_graph
+msgid "Expenses Analysis"
+msgstr "تحليل المصروفات"
+
+#. module: sn_expenses
+#: model:res.groups,name:sn_expenses.sn_expenses_boss
+msgid "Expenses Boss"
+msgstr "إدارةالمصروفات - الرئيس"
+
+#. module: sn_expenses
+#: model:res.groups,name:sn_expenses.sn_expenses_manager
+msgid "Expenses Manager"
+msgstr "إدارة المصروفات - مدير"
+
+#. module: sn_expenses
+#: model:res.groups,name:sn_expenses.sn_expenses_user
+msgid "Expenses User"
+msgstr "إدارةالمصروفات - مستخدم"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.sn_expenses_categories_search_view
+#: model_terms:ir.ui.view,arch_db:sn_expenses.view_ntic_expenses_filter
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.view_ntic_expenses_filter
+msgid "My Expenses"
+msgstr "مصروفاتي"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__name
+#: model_terms:ir.ui.view,arch_db:sn_expenses.sn_expenses_categories_form_view
+msgid "Nom"
+msgstr "الإسم"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__complete_name
+msgid "Nom Complèt"
+msgstr "الاسم الكامل"
+
+#. module: sn_expenses
+#. openerp-web
+#: code:addons/sn_expenses/static/src/xml/add_btns.xml:10
+#: model:ir.actions.act_window,name:sn_expenses.sn_expense_form
+#: model:ir.ui.menu,name:sn_expenses.menu_boxes_operations_credit
+#, python-format
+msgid "Nouvelle Dépense"
+msgstr "مصروف جديد"
+
+#. module: sn_expenses
+#: model:ir.model,name:sn_expenses.model_sn_boxes_operations
+msgid "Ntic Boxes Opération"
+msgstr "عمليات على الصناديق Ntic"
+
+#. module: sn_expenses
+#: model:ir.model,name:sn_expenses.model_sn_expenses_categories
+msgid "Ntic Expenses Catégories"
+msgstr "فئات نفقات nTIC"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.view_ntic_expenses_filter
+msgid "Par Catégorie"
+msgstr "حسب الفئة"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__parent_id
+msgid "Parent"
+msgstr "المرجع"
+
+#. module: sn_expenses
+#: model:ir.model.fields,field_description:sn_expenses.field_sn_expenses_categories__parent_path
+msgid "Parent Path"
+msgstr "المسار الأصلي"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.view_ntic_expenses_filter
+msgid "Région"
+msgstr "الجهة"
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.ntic_expenses_tree
+msgid "Total"
+msgstr "المجموع"
+
+#. module: sn_expenses
+#: code:addons/sn_expenses/models/expenses.py:31
+#, python-format
+msgid "Vous ne pouvez pas créer de relation récursive."
+msgstr "لا يمكنك إنشاء علاقة متكررة."
+
+#. module: sn_expenses
+#: model_terms:ir.ui.view,arch_db:sn_expenses.view_ntic_expenses_filter
+msgid "Wilaya"
+msgstr "الولايه"

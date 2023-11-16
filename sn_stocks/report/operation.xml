@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--commande-->
+        <template id="report_op_stock">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sn_stocks.report_op_stock_document" t-lang="user.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_op_stock_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':user.lang})"/>
+                <h2 class="text-center mt32 mb32">
+                    <span t-field="doc.document_type"/>
+                    <span >Nº: </span>
+                    <span t-field="doc.operation"/>
+                    <span t-if="doc.state == 'canceled' "> (Annulée)</span>
+                </h2>
+                <h4 t-if="doc.reference" class="text-center mt16 mb16" >
+                    <span >Réference: </span>
+                    <span t-field="doc.reference"/>
+                </h4>
+                <table style="width:100%">
+                    <tr>
+                        <td t-if="doc.user_id" class="text-left">
+                            Suivi par : <span t-field="doc.user_id"/>
+                        </td>
+                        <td class="text-right">
+                            le: <span t-if="doc.state == 'confirmed'" t-field="doc.confirmation_date"/>
+                                <span t-if="doc.state != 'confirmed'" t-field="doc.creation_date"/>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <table class="table table-sm" style="margin-bottom:0">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee; font-size:11pt">
+                            <th t-if="doc.code_article_exist" class="text-center" style="width:15%">Réference</th>
+                            <th class="text-left" style="width:45%">Désignation</th>
+                            <th class="text-center" style="width:8%">Qte</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.commande_lines" t-as="line">
+                            <tr style="border-bottom:1px solid #CECECE;" >
+                                <td t-if="doc.code_article_exist" class="text-center">
+                                    <span t-field="line.product_id.code"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.product_id"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="line.qty"/>
+                                </td>
+
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+
+                <div class="clearfix" />
+
+                <div>
+                    <span t-field="doc.note"/>
+                </div>
+
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="my_menus_template_id" xml:space="preserve">
+    <t t-name="UserMenu.Actions">
+        <a role="menuitem" href="#" data-menu="settings" class="dropdown-item">Preferences</a>
+        <a role="menuitem" href="#" data-menu="about" class="dropdown-item">A propos..</a>
+        <div role="separator" class="dropdown-divider"/>
+        <a role="menuitem"    href="#" data-menu="logout" class="dropdown-item">Log out</a>
+    </t>
+
+     <div t-name="Ntix.about">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="offset-md-2 col-md-8 text-center">
+                    <br/>
+                 <h1 style="color:tomato">
+                     SoufNet Company
+                 </h1>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    All Rights reserved
+                </div>
+            </div>
+        </div>
+    </div>
+
+</templates>
+

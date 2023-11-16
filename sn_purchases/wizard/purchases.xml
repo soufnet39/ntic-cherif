@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Form view for wizard -->
+    <record model="ir.ui.view" id="view_purchases_wizard_form">
+        <field name="name">purchases.wizard.form</field>
+        <field name="model">sn_purchases.purchases.wiz1</field>
+        <field name="type">form</field>
+
+        <field name="arch" type="xml">
+            <form string="Etats de Factures" create="false" delete="false" edit="true">
+                <header>
+                </header>
+                <sheet>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label for="etat"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field name="etat" />
+                        </div>
+                    </div>
+                    <div class="row" attrs="{'invisible': [('etat','!=','supplier')]}">
+                        <div class="col-md-1">
+                            <label for="supplier_id"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field attrs="{ 'required': [('etat','=','supplier')] }" name="supplier_id" options='{"no_open": True, "no_create_edit": True}' />
+                        </div>
+                    </div>
+                    <div class="row" attrs="{'invisible': [('etat','!=','supplier')]}">
+                        <div class="col-md-1">
+                            <label for="periode"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field name="periode" />
+                        </div>
+                    </div>
+                    <div attrs="{'invisible': ['|',('periode','!=','mois'),('etat','!=','supplier')]}" class="row">
+                        <div class="col-md-1">
+                            <label for="mois"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field attrs="{ 'required': [('periode','=','mois'),('etat','=','supplier')] }" name="mois" />
+                        </div>
+                    </div>
+                    <div attrs="{'invisible': ['|',('periode','!=','trimestre'),('etat','!=','supplier')]}" class="row">
+                        <div class="col-md-1">
+                            <label for="trimestre"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field attrs="{ 'required': [('periode','=','trimestre'),('etat','=','supplier')] }" name="trimestre" />
+                        </div>
+                    </div>
+                    <div attrs="{'invisible': ['|',('periode','!=','semestre'),('etat','!=','supplier')]}" class="row">
+                        <div class="col-md-1">
+                            <label for="semestre"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field attrs="{ 'required': [('periode','=','semestre'),('etat','=','supplier')] }" name="semestre" />
+                        </div>
+                    </div>
+                    <div attrs="{'invisible': [('periode','=','global')]}" class="row">
+                        <div class="col-md-1">
+                            <label for="annee"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field name="annee" />
+                        </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-md-1">
+                            <label for="date_operation"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field name="date_operation" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <button name="get_factures" type="object"> Filter </button>
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <button name="print_etats_factures" type="object"> Print </button>
+                        </div>
+                    </div>
+
+                    <notebook>
+
+                        <page string="Factures">
+                            <field name="purchases_ids" mode="tree">
+                                <tree string="Facture Lines" decoration-bf="True">
+                                    <field name="name" string="N° fact" />
+                                    <field name="confirmation_date" string="Date" />
+                                    <field name="partner_id" attrs="{'column_invisible': [('parent.etat','=','client')]}" /> 
+                                    <field name="amount_ht" string="THT" sum="Total HT" />
+                                    <field name="amount_tva"  sum="Total TVA"/>
+                                    
+                                </tree>
+
+                            </field>
+
+                        </page>
+
+                        <page string="Options Impression">
+
+                        </page>
+
+
+                    </notebook>
+
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Etat des achats action -->
+    <record model="ir.actions.act_window" id="etat_recupuration_tva_action">
+        <field name="name">Etat de recupuration TVA Achats</field>
+        <field name="res_model">sn_purchases.purchases.wiz1</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_purchases_wizard_form"/>
+        <field name="target">current</field>
+        <!-- <field name="target">inline</field> -->
+    </record>
+
+    <!-- menu Facturation sub menu-->
+    <!-- <menuitem id="menu_etats_achats" 
+            name="Achats" 
+            parent="sn_base.menu_halat" 
+            sequence="3"/> -->
+
+    <!-- menu Etats de Factures-->
+    <menuitem id="menu_purchases_wiz" 
+            action="etat_recupuration_tva_action" 
+            name="Etats d'Achat"             
+            parent="sn_base.menu_halat"
+            groups="sn_purchases_boss"
+            sequence="3"/>
+
+</odoo>

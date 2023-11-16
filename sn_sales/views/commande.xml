@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--main menu Commande-->
+
+    <menuitem id="menu_sn_sales" name="Traitements" parent="sn_base.sn_menu_root" sequence="1" web_icon="sn_sales,static/description/icon.png"/>
+
+    <!--Search-->
+    <record id="sn_sales_order_search" model="ir.ui.view">
+        <field name="name">Search Sales</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="arch" type="xml">
+            <search string="Recherche commandes">
+                <field name="name" string="Numéro, Client" filter_domain="['|',('name', 'ilike', self), ('partner_id', 'ilike', self)]"/>
+                <field name="amount_ttc" string="Montant" />
+                <!-- <filter name="filter_draft" help="Brouillons" domain="[('state','=','draft')]"/> -->
+                <filter name="filter_canceled" help="Commandes Annulées" domain="[('state','=','canceled')]"/>
+                <filter string="Dates et périodes" name="filter_create_date" date="confirmation_date"/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="group_user_id" string="Par Vendeur" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_partner_id" string="Par Client" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_state" string="Par Etat" context="{'group_by': 'state'}"/>
+                    <filter string="Par Date" name="order_month" domain="[]" context="{'group_by': 'confirmation_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Graph -->
+    <record id="sn_sales_order_view_graph" model="ir.ui.view">
+        <field name="name">sn_sales.commandes graph</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="arch" type="xml">
+            <graph string="Analyse des Caisses">
+                <field name="write_date" type="col"/>
+                <field name="write_uid" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+    <!--TREE-->
+    <record id="view_orders_tree" model="ir.ui.view">
+        <field name="name">sn_sales.commandes tree</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority">4</field>
+        <field name="arch" type="xml">
+            <tree string="commandes_tree" decoration-danger="state=='canceled'" decoration-warning="state=='draft'" decoration-bf="True">
+                <field name="name" string="Number"/>
+                <field name="display_date" string="Date" readonly="0" />
+                <field name="partner_id" string="Client"/>
+                <field name="user_id" optional="hide"/>
+                <field name="state" readonly="0" optional="hide"/>
+                <field name="amount_ttc" readonly="0" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Form-->
+
+    <record id="view_commande_form" model="ir.ui.view">
+        <field name="name">sn_sales.commandes form</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="10"/>
+        <field name="arch" type="xml">
+            <form string="Commande" class="o_sale_order commande">
+                <header>
+                    <button name="print_commande" string="Aperçu" type="object" class="oe_highlight btn-print" icon="fa-print" attrs="{'invisible':['|',('name','=','/')]}" />
+                    <button name="action_confirm" class="oe_highlight btn-confirm" string="Confirmer" type="object" attrs="{'invisible':['|',('name','=','/'),('state','in',['confirmed','canceled'])]}" />
+
+                    <button name="action_draft" class="oe_highlight" string="Remettre en état brouillon" type="object" states="canceled"/>
+
+                    <field name="state" widget="statusbar"/>
+                </header>
+
+                <sheet>
+                    <!-- Required hidden fields -->
+                    <field name="product_name_editable" invisible="1"/>
+                    <field name="proforma_origin" invisible="1"/>
+                    <field name="name_updatable" invisible="1"/>
+                    <field name="commande_lines_count" invisible="1"/>
+                    <field name="operation_type" invisible="1"/>
+
+                    <!-- = = = = = = = = = = = = -->
+
+                    <div class="oe_button_box" name="button_box">
+                        <button attrs="{'invisible':[('proforma_origin','=',0)]}" name="go2proforma" type="object" class="my_btn_box oe_stat_button btn_proforma" icon="fa-file">
+                            Proforma
+                        </button>
+
+                    </div>
+                    <br/>
+                    <div>
+                        <h1>
+                            <label class="big-title h1 pdright10" for="name" id="label_commande"/>
+                            :
+                            <field name="name" force_save='1' attrs="{'invisible':[('name','=','/')],'readonly':[('name_updatable','=',False)]}"/>
+                            <span attrs="{'invisible':[('name','!=','/')]}">
+                                (Nouvelle)
+                            </span>
+                            <span class="text-danger" attrs="{'invisible':[('state','not in',['canceled'])]}">
+                                (Annulée)
+                            </span>
+                            <span class="text-warning" attrs="{'invisible':['|',('name','=','/'),('state','not in',['draft'])]}">
+                                (Brouillon)
+                            </span>
+                        </h1>
+                    </div>
+
+                    <div class="row header_document">
+                        <div class="col-md-6" id="panel_left">
+                            <div class="row" id="partner">
+                                <div class="col-md-4 text-right">
+                                    <label for="partner_id"/>
+                                </div>
+                                <div class="col-md-8">
+                                    <field class="my-form-control" name="partner_id"
+                                    options='{ "no_create": True}'
+                                    context="{'default_is_customer':True}"
+                                    domain="[('is_customer','=',True)]"
+                                    attrs="{'required':[('operation_type','in',['command'])]}" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" id="panel_right">
+                            <div class="row" id="dateur">
+                                <div class="col-md-4 text-right">
+                                    <label for="creation_date" states="draft,canceled"/>
+                                    <label for="confirmation_date" states="confirmed"/>
+                                </div>
+                                <div class="col-md-4">
+                                    <field class="my-form-control" name="creation_date" states="draft,canceled"/>
+                                    <field class="my-form-control" name="confirmation_date" states="confirmed"/>
+                                </div>
+                                <div class="col-md-4" attrs="{'invisible':['|',('state','!=','confirmed'),('creation_date','!=','confirmation_date')]}">
+                                    (
+                                    <field class="uncover" name="creation_date" readonly="1"/>
+                                    )
+                                </div>
+                            </div>
+
+                            <div class="row" id="user_id">
+                                <div class="col-md-4 text-right">
+                                    <label for="user_id"/>
+                                </div>
+                                <div class="col-md-7">
+                                    <field class="my-form-control" name="user_id" attrs="{'readonly':[('commande_lines_count', '>', 0)]}" options="{'no_open': True,}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <notebook>
+                        <!--******************************************* ORDER LINE ************************************************ * -->
+                        <page name="lignes" string="Lignes de commande">
+                            <field name="commande_lines" widget="section_and_note_one2many" mode="tree" class="contour01" context="{'default_remise_mta':remise_mta,'default_remise_taux':remise_taux}">
+                                <tree string="commandes Lines" decoration-bf="True">
+                                    <control>
+                                        <create string="Ajouter une ligne"/>
+                                        <!-- <create string="Ajouter une note" context="{'default_display_type': 'line_note'}"/>
+                                        <create string="Ajouter une section" context="{'default_display_type': 'line_section'}"/> -->
+                                    </control>
+
+                                    <field name="recno" style="width:34px; text-align: center!important" attrs="{'column_invisible':[('parent.display_recno','=',False)]}" />
+                                    <field name="sequence" widget="handle" style="text-align: center!important"/>
+                                    <field name="product_code" string="Réf." attrs="{'column_invisible':[('parent.code_article_exist','=',False)]}"/>
+                                    <field name="name" widget="html" />
+                                    <field name="qty"/>
+                                    <field name="price_unit"/>
+                                    <field name="remise_taux" attrs="{'column_invisible':['|',('parent.remise_exist', '=', False),'|',('parent.remise_applied_on', '=', 'global'),('parent.remise_methode', '=', 'mta')]}"/>
+                                    <field name="remise_mta" attrs="{'column_invisible':['|',('parent.remise_exist', '=', False),'|',('parent.remise_applied_on', '=', 'global'),('parent.remise_methode', '=', 'taux')]}"/>
+
+                                    <field name="price_total"/>
+                                    <field name="display_type" invisible="1"/>
+                                </tree>
+                                <form string="product details">
+                                    <div id='add_article'>
+                                        <field name="display_type" invisible="1"/>
+                                        <span attrs="{'invisible':[('display_type', 'not in', ('line_note','line_section'))]}" class="text-muted">
+                                            Une note sera affiché sous le nom de l'article seulement,
+                                            Une Section sera affiché sous la ligne entière
+                                        </span>
+                                        <hr attrs="{'invisible':[('display_type', 'not in', ('line_note','line_section'))]}"/>
+                                        <field name="name" widget="html" attrs="{'invisible':[('display_type', 'not in', ('line_note','line_section'))]}"/>
+                                        <div class="row form-group" attrs="{'invisible':['!',('display_type', '=', False)]}">
+                                            <div class="col-md-12" id="adding_article">
+                                                <div class="row" id="adding_article_first">
+                                                    <div class="col-3 text-right title3">
+                                                        Produit :
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <field  class="my-form-control" name="product_id"
+                                                        domain="[('sale_ok', '=', True)]"
+                                                        options="{'no_open': True,}" attrs="{'required':[('display_type', '=', False)]}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row" attrs="{'invisible':[('parent.product_name_editable', '=', False)]}">
+                                                    <div class="col-3 text-right title3">
+                                                        Nom affiché :
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <field class="my-form-control" name="name" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row" id="quantity"  >
+                                                    <div class="col-3 text-right title3" id="qty_label">
+                                                        Quantité :
+                                                    </div>
+                                                    <div class="col-4 offset-md-4">
+                                                        <field class="form-control" name="qty"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-3 text-right title3">
+                                                        Prix Unit. :
+                                                    </div>
+                                                    <div class="col-4 offset-md-4">
+                                                        <field class="form-control" name="price_unit"/>
+                                                    </div>
+                                                    <!-- <div class="col-4">
+                                                        <field class="uncover" name="price_list_libelle" />
+                                                    </div> -->
+                                                </div>
+
+                                                <field name="price_touched" invisible="1" />
+
+                                                <div class="row" attrs="{'invisible':[('price_touched', '=', False)]}">
+                                                    <div class="col-11 text-right">
+                                                        <label class="text-danger" for="price_changed" /> : <field  name="price_changed" />
+                                                    </div>
+                                                </div>
+                                                <div class="row" attrs="{'invisible':['|',('parent.remise_exist', '=', False),'|',('parent.remise_applied_on', '=', 'global'),('parent.remise_methode', '=', 'mta')]}">
+                                                    <div class="col-3 text-right title3">
+                                                        <label for="remise_taux"/> :
+                                                    </div>
+                                                    <div class="col-4 offset-md-4">
+                                                        <field class="form-control" name="remise_taux"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row" attrs="{'invisible':['|',('parent.remise_exist', '=', False),'|',('parent.remise_applied_on', '=', 'global'),('parent.remise_methode', '=', 'taux')]}">
+                                                    <div class="col-3 text-right title3">
+                                                        <label for="remise_mta"/> :
+                                                    </div>
+                                                    <div class="col-4 offset-md-4">
+                                                        <field class="form-control" name="remise_mta"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3 text-right title3">
+                                                        Total TTC:
+                                                    </div>
+                                                    <div class="col-4 offset-md-4">
+                                                        <field class="form-control" name="price_total"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </field>
+                        </page>
+                        <!--('livraison_image','=',0),('facture_image','=',0)-->
+                        <!-- <page string="Pièces en relation" attrs="{'invisible':[('proforma_origin','=',0),]}">
+                            <div class="tab_infos text-center">
+                                <br/>
+                                <button class="btn btn-primary">
+                                    <field name="name"/>
+                                </button>
+                            </div>
+                        </page> -->
+                        <page string="Opérations" name="operations">
+                            <div id="operations" class="row tab_infos">
+                                <div class="col-md-4" style="border-right:1px solid #dedede" id="annulation">
+                                    <h4 class="hh4">Annulation</h4>
+                                    <hr/>
+                                    <div class="text-center">
+                                        <div class="text-danger text-center" attrs="{'invisible':[('state','=','confirmed'),]}">
+                                            L'annulation sera
+                                            <br/>
+                                            après la confirmation
+                                        </div>
+                                        <button name="action_cancel" string="Annuler la Commande" type="object" states="confirmed" class="oe_highlight btn-cancel"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </page>
+                        <page string="Options">
+                            <div id="information" class="row tab_infos">
+                                <div class="col-md-4" style="border-right:1px solid #dedede">
+                                    <h4 class="hh4">TVA</h4>
+                                    <hr/>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <field name="tva_exist" />
+                                            <label for="tva_exist"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div attrs="{'invisible': [('tva_exist','=',False)]}" class="col-md-6 text-right title1">
+                                            <span class="title1">Taux :</span>
+                                        </div>
+                                        <div attrs="{'invisible': [('tva_exist','=',False)]}" class="col-md-6 pad-left-zero text-right">
+                                            <field class="my-form-control" name="tva_taux"/>
+                                        </div>
+                                    </div>
+                                    <br/>
+
+                                </div>
+                                <div class="col-md-4" style="border-right:1px solid #dedede">
+                                    <h4 class="hh4">Remise</h4>
+                                    <hr/>
+                                    <field name="remise_exist"/>
+                                    <label for="remise_exist"/>
+
+                                    <div class="content-group" attrs="{'invisible': [('remise_exist','=',False)]}">
+                                        <div class="row">
+                                            <div class="col-md-7 text-right">
+                                                <label for="remise_methode"/>
+                                                :
+                                            </div>
+                                            <div class="col-md-5" style="text-align:right">
+                                                <field class="form-control" name="remise_methode"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-7 text-right">
+                                                <label for="remise_applied_on"/>
+                                                :
+                                            </div>
+                                            <div class="col-md-5" style="text-align:right">
+                                                <field class="form-control" name="remise_applied_on"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" attrs="{'invisible': ['|',('remise_methode','=','mta'),('remise_applied_on','=','article')]}">
+                                            <div class="col-md-7 text-right">
+                                                <label for="remise_taux"/>
+                                                :
+                                            </div>
+                                            <div class="col-md-5" style="text-align:right">
+                                                <field class="my-form-control" name="remise_taux"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" attrs="{'invisible': ['|',('remise_methode','=','taux'),('remise_applied_on','=','article')]}">
+                                            <div class="col-md-7 text-right">
+                                                <label for="remise_mta"/>
+                                                :
+                                            </div>
+                                            <div class="col-md-5" style="text-align:right">
+                                                <field class="my-form-control" name="remise_mta"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div id="divers" class="col-md-4" style="border-right:1px solid #dedede">
+                                    <h4 class="hh4">Divers</h4>
+                                    <hr/>
+                                    <div attrs="{'invisible':[('name','=','/')]}" id="op_divers">
+
+                                        <field name="name_updatable"/>
+                                        <label for="name_updatable"/>
+                                        <br/>
+                                        <field name="code_article_exist"/>
+                                        <label for="code_article_exist"/>
+                                        <br/>
+                                        <field name="display_recno"/>
+                                        <label for="display_recno"/>
+                                        <br/>
+                                        <field name="product_name_editable"/>
+                                        <label for="product_name_editable"/>
+                                        <br/>
+                                        <field name="special"/>
+                                        <label for="special"/>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </page>
+                    </notebook>
+                    <!--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- -->
+                    <div class="row">
+                        <div class="col-md-7" id="note_zone">
+
+                            <div class="row">
+                                <div class="col-md-3 text-right">
+                                    <label for="note" />
+                                </div>
+                                <div class="col-md-8">
+                                    <field class="my-form-control" name="note" />
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-5 totaux" id="totaux">
+                            <div attrs="{'invisible': [('remise_exist','=',False)]}">
+                                <div class="row">
+                                    <div class="col-md-7 text-right">
+                                        <label class="text-danger" for="amount_ht_before_remise"/>
+                                        :
+                                    </div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_ht_before_remise" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 text-right">
+                                        <label class="text-danger" for="remise_valeur"/>
+                                        :
+                                    </div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="remise_valeur" />
+                                    </div>
+                                </div>
+                                <div class="row" attrs="{'invisible': [('tva_exist','=',False)]}">
+                                    <div class="col-md-7 title1 text-danger text-right">Montant HT Remise :</div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_ht" />
+                                    </div>
+                                </div>
+                                <div class="row" attrs="{'invisible': [('tva_exist','=',False)]}">
+                                    <div class="col-md-7 title1 text-danger text-right">
+                                        TVA
+                                        <field readonly="1" force_save="1" name="tva_taux"/>
+                                        % :
+                                    </div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_tva" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 title1 text-danger text-right">Montant Total TTC :</div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_ttc" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div attrs="{'invisible': [('remise_exist','=',True)]}">
+                                <div class="row" attrs="{'invisible': [('tva_exist','=',False)]}">
+                                    <div class="col-md-7  text-right">
+                                        <label class="text-danger" for="amount_ht"/>
+                                        :
+                                    </div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_ht" />
+                                    </div>
+                                </div>
+
+                                <div class="row" attrs="{'invisible': [('tva_exist','=',False)]}">
+                                    <div class="col-md-7 title1 text-danger  text-right">
+                                        TVA
+                                        <field readonly="1" name="tva_taux" force_save="1"/>
+                                        % :
+                                    </div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_tva" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-7 title1 text-right">
+                                        <label class="text-danger" for="amount_ttc"/>
+                                        :
+                                    </div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_ttc" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="oe_clear"/>
+
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <!-- ACTIONS -->
+    <record model="ir.actions.act_window" id="sales_orders_action">
+        <field name="name">Commandes</field>
+        <field name="res_model">sn_sales.commandes</field>
+        <field name="view_mode">tree,form,search,graph,pivot</field>
+        <field name="search_view_id" ref="sn_sales_order_search"/>
+        <field name="context">{'default_operation_type':'command','washi':'commandes'}</field>
+        <field name="domain">[('operation_type','=','command')]</field>
+
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Veuillez Ajouter votre première Commande
+            </p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window.view" id="sales_orders_view_tree">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_orders_tree"/>
+        <field name="act_window_id" ref="sales_orders_action"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="sales_orders_view_form">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_commande_form"/>
+        <field name="act_window_id" ref="sales_orders_action"/>
+    </record>
+
+
+
+
+    <!--Commande form action -->
+    <act_window id="sn_sales_order_form_action"
+        name="Nouvelle Commande"
+        res_model="sn_sales.commandes"      
+        view_mode="form"/>
+
+    <!--Main menu Commandes-->
+    <menuitem id="menu_orders_tree" action="sales_orders_action"
+        name="Commandes"
+        parent="menu_sn_sales"
+        sequence="2"/>
+
+
+   
+
+
+
+
+
+</odoo>

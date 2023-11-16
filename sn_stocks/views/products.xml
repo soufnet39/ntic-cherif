@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Form (Product) View to Modify it -->
+    <record id="sn_sales_product_inherited" model="ir.ui.view">
+        <field name="name">Produit</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.ntic_product_form"/>
+
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='note']" position="before">
+                 <div class="row" id='stk_ngt'>
+                        <div class="col-md-6 offset-md-4">
+                            <field name="stock_infini"/>
+                            <label class="title1" for="stock_infini"/>
+                        </div>
+                    </div>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- Inherit Form (Tree) View to Modify it -->
+    <record model="ir.ui.view" id="ntic_products_tree_inherited">
+        <field name="name">product template tree</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.ntic_products_tree"/>
+        <field name="arch" type="xml">
+            <field name="default_price" position="before">
+                <field name="purchase_price" optional="hide" />
+            </field>
+        </field>
+    </record>
+
+     <!-- Adding Pivot view to product -->
+    <record model="ir.ui.view" id="ntic_products_pivot">
+        <field name="name">product template pivot</field>
+        <field name="model">sn_sales.product</field>
+        <field name="arch" type="xml">
+            <pivot>
+                  <field name="name" type="row"/>
+                 <!--<field name="valeur_stock" type="measure"/>-->
+            </pivot>
+        </field>
+    </record>
+
+
+</odoo>

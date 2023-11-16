@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+     <!--Clients list with Sold -->
+    <report
+            id="partner_list_with_sold_report"
+            string="Soldes des Clients"
+            model="sn_sales.partner"
+            report_type="qweb-html"
+            file="sn_boxes.clients_sold_list"           
+            name="sn_boxes.clients_sold_list"
+            print_report_name="'Soldes des Clients'"
+            paperformat="sn_base.paperformat_landscape"
+    />
+     <!--Bon de Caisse -->
+    <report
+            id="bon_caisse_report"
+            string="Bon de Caisse"
+            model="sn_boxes.operations"
+            report_type="qweb-html"
+            file="sn_boxes.bon_caisse_detail"           
+            name="sn_boxes.bon_caisse_detail"
+            print_report_name="'Bon de Caisse'"
+    />
+</odoo>

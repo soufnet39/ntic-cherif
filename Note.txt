@@ -1,0 +1,8 @@
+ res.company:
+ -----------
+ wilaya_id = fields.Many2one('sn_base.wilayates',string="Wilaya")
+ is declared in sn_base 
+ wilaya_id = fields.Many2one('sn_base.wilayates',string="Wilaya", required=True)
+ is declared in sn_credits     
+ ====================================================================
+ in security ir.model.access there is some thing strange with sn_sales_pricelist_item

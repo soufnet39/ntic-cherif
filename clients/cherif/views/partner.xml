@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="partner_form_cherif" model="ir.ui.view">
+        <field name="name">Partners</field>
+        <field name="model">sn_sales.partner</field>
+        <field name="priority" eval="20" />
+        <field name="inherit_id" ref="sn_sales.sn_sales_partner_form"/>	    
+        <field name="arch" type="xml">
+                <xpath expr="//div[@id='tarification']" position="replace">
+                </xpath>
+                <xpath expr="//div[@id='list_prix']" position="replace">
+                </xpath>
+                <xpath expr="//div[@id='personne_ids']" position="replace">
+                </xpath>
+                <xpath expr="//div[@id='website']" position="replace">
+                </xpath>
+                <xpath expr="//div[@id='proid']" position="replace">
+                    <div class="row form-group">
+                        <div class="col-md-3 offset-md-1 text-right">
+                                <label for="date_naissance"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="date_naissance"/>
+                        </div>                         
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3 offset-md-1 text-right">
+                            <label for="lieu_naissance"/>
+                        </div>
+                        <div class="col-md-7">
+                            <field class="form-control" name="lieu_naissance"/>                            
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3 offset-md-1 text-right">
+                                <label for="pere"/>
+                        </div>
+                        <div class="col-md-7">
+                            <field class="form-control" name="pere"/>
+                        </div>                      
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3 offset-md-1 text-right">
+                            <label for="mere"/>
+                        </div>
+                        <div class="col-md-7">
+                            <field class="form-control" name="mere"/>
+                        </div>                        
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3 offset-md-1 text-right">
+                            <label for="nom_epous"/>
+                        </div>
+                        <div class="col-md-7">
+                            <field class="form-control" name="nom_epous"/>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3 offset-md-1 text-right">
+                            <label for="employeur"/>
+                        </div>
+                        <div class="col-md-7">
+                            <field class="form-control" name="employeur"/>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3 offset-md-1 text-right">
+                            <label for="identity_card_number"/>
+                        </div>
+                        <div class="col-md-7">
+                            <field class="form-control" name="identity_card_number"/>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3 offset-md-1 text-right">
+                            <label for="identity_card_date"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="identity_card_date"/>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3 offset-md-1 text-right">
+                            <label for="identity_card_place"/>
+                        </div>
+                        <div class="col-md-7">
+                            <field class="form-control" name="identity_card_place"/>
+                        </div>
+                    </div>
+                </xpath>
+
+        </field>
+    </record>
+</odoo>

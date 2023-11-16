@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <!-- inherit search view for "sn_sales.product" -->
+    <record id="sn_sales_product_template_search_view_inherited" model="ir.ui.view">
+        <field name="name">sn_sales_product_uom.tree</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.sn_sales_product_template_search_view" />
+        <field name="arch" type="xml">
+             
+              <xpath expr="//filter[@name='filter_to_service']" position="after">
+                 <filter string="Product composed" name="filter_to_composed" domain="[('product_type', '=', 'composed')]"/>
+                 <filter string="Product variants" name="filter_to_variants" domain="[('product_type', '=', 'variants')]"/>
+           
+             </xpath>
+             
+        </field>
+    </record>
+    <!-- inherit Tree view for "sn_sales.product" -->
+    <record id="view_variants_products_tree" model="ir.ui.view">
+        <field name="name">sn_sales_product_uom.tree</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.ntic_products_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_price']" position="before">
+                <field name="has_variants" optional="hide" />
+            </xpath>
+        </field>
+    </record>
+    <!-- Tree view of products for only parent products -->
+    <!-- This is inherited from sn_sales module -->
+    <!-- AIM: to hide chid products -->
+   <record id="sn_sales.ntic_product_actions_all" model="ir.actions.act_window">
+     <field name="domain">[('parent_id', '=', False)]</field>
+    </record>
+    
+    <!-- tree view of only child products -->
+     <!-- <record id="ntic_product_actions_only_childs" model="ir.actions.act_window">
+        <field name="name">Variétés de produits</field>
+        <field name="res_model">sn_sales.product</field>
+        <field name="view_mode">tree,form</field>
+         <field name="view_id" ref="sn_sales.ntic_products_tree"/>
+       
+      
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Pas de variétés à présent!..
+            </p>
+        </field>
+    </record> -->
+  
+
+     <!--Menu liste de variétés de Products-->
+    <!-- <menuitem action="ntic_product_actions_only_childs"
+        id="menu_product_varies"
+        name="Liste Produits Variés"
+        parent="sn_sales.menu_products"
+        groups="sn_variants_user"
+        sequence="4"/> -->
+
+
+    <!-- Form view for "model" -->
+    <record id="view_variants_products_form" model="ir.ui.view">
+        <field name="name">sn_sales_product_uom.form</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.ntic_product_form" />
+        <field name="arch" type="xml">
+               
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                 <button name="call_variants" type="object" class="oe_stat_button btn_in_oe_button_box" icon="">
+                    <span>Variétés: </span> <field name="nbr_variants_active"   /> / <field name="nbr_variants_total" />
+                </button>
+            </xpath>
+            
+            <xpath expr="//label[@id='categories']" position="before">
+                
+                <label for="product_type" />
+                <field class="my-form-control" name="product_type"    /> 
+            
+                <label for="product_abrv" attrs="{ 'invisible': ['|',('product_type','!=','variants'),('parent_id','!=',False)] , 'readonly': ['|',('product_type','=','variants'),('parent_id','!=',False)] }"/>
+                <field class="my-form-control" name="product_abrv"  attrs="{ 'invisible': [('product_type','!=','variants')] , 'required': [('product_type','=','variants')]  }"                />
+                
+                 <field name="has_variants"  invisible="1" /> 
+                 <field name="parent_id"  invisible="1" /> 
+                 <div class="cadre_vc" 
+                     attrs="{ 'invisible': [('product_type','!=','variants'),('product_type','!=','composed')]  }">
+                      <div class="row"  attrs="{ 'invisible': [('product_type','!=','variants')]  }">
+                            <div class="col-md-8"> 
+                            
+                            </div>
+                            <div class="col-md-4 text-right">
+                              
+                              <button name="generate_variants" string="Generate Variants"                              
+                              type="object" class="oe_highlight btn-access"/>
+                              
+                            </div>
+                      </div>
+                    <notebook>
+                        <page string="Produits enfants" >
+                            <field name="child_ids" widget="one2many" >
+                                <tree string="sub products"  create="false" delete="false">
+                                    <field name="product_abrv" attrs="{'column_invisible': [('parent.product_type','!=','variants')]}" />
+                                    <field name="name" attrs="{'column_invisible': [('parent.product_type','!=','composed')]}" />
+
+                                    <field name="default_price"  />
+                                    <field name="active"  />
+                                </tree>
+                            </field>
+                        </page>    
+                        <page string="Catégories de variants"  attrs="{ 'invisible': [('product_type','!=','variants')]  }" >
+                        
+                            <field name="variants_ids" widget="one2many" context="{'show_attribute': False}">
+                                <tree string="Variantes" editable="bottom">
+                                    <field name="variant_id" attrs="{'readonly': [('id', '!=', False)]}"/>
+                                    <field name="items_ids" widget="many2many_tags" options="{'no_create_edit': True}" />
+                                </tree>
+                            </field>
+                        </page>
+                                    
+                    </notebook>
+                </div>
+                
+                
+                
+            </xpath> 
+        </field>
+    </record>
+
+</odoo>

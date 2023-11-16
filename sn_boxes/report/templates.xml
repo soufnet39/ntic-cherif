@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+      <!--Liste des Clients-->
+        <template id="clients_sold_list">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                <h2 class="text-center">Soldes des Clients</h2>
+                <br/>
+                <table class="table table-sm" style="margin-bottom:0;  font-size:11px">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee;">
+                            <th class="text-center" style="width:8%">Code</th>
+                            <th class="text-center" style="width:10%" >Rais.Soc.</th>
+                            <th style="">Nom</th>                          
+                            <th class="text-center" style="width:10%">Solde</th>
+                        </tr>
+                    </thead>
+                     <tbody class="sale_tbody">
+                    <t t-foreach="docs" t-as="o">
+                         <tr style="border-bottom: 1px solid silver">
+                         <td class="text-center"><span t-field="o.ref" /></td>
+                         <td class="text-center"><span t-field="o.raison_social_id" /></td>
+                         <td><span t-field="o.name" /></td>
+                         <td class="text-right"><span t-field="o.sold_client" /></td>
+                            
+                         </tr>
+                         
+                    </t>
+                    </tbody>
+                    </table>
+                </t>
+            </t>
+        </template>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_bcn_details_uom_inherit"  inherit_id="sn_sales.bcn_details">
+        <xpath expr="//th[@id='qty_id_title']" position="after">
+            <th t-if="doc.show_uom" class="text-center"  >Unité</th>
+        </xpath>
+        <xpath expr="//td[@id='qty_id_value']" position="after">
+            <td t-if="doc.show_uom" class="text-center"  >
+                    <span t-field="line.product_uom_name"/>
+            </td>
+        </xpath>
+    </template>
+
+</odoo>

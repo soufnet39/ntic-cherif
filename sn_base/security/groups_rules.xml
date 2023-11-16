@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="make_invisible" model="res.groups">
+      <field name="name">Invisible</field>
+    </record>
+
+    <!--Super User Group-->
+    <!-- <record id="sn_base_super_user" model="res.groups">
+        <field name="name">Super User</field>
+        <field name="category_id" ref="base.module_category_administration_administration"/>       
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record> -->
+ <!--  Category Name -->
+    <record id="sn_base_access" model="ir.module.category">
+        <field name="name">Base App</field>
+    </record>
+
+    <!--  User Group -->
+    <record id="sn_base_user" model="res.groups">
+        <field name="name">Base App User</field>
+        <field name="category_id" ref="sn_base_access"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Manager Group -->
+    <record id="sn_base_manager" model="res.groups">
+        <field name="name">Base App Manager</field>
+        <field name="category_id" ref="sn_base_access"/>
+        <field name="implied_ids" eval="[(4, ref('sn_base_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <!-- Boss Group -->
+    <record id="sn_base_boss" model="res.groups">
+        <field name="name">Base App Boss</field>
+        <field name="category_id" ref="sn_base_access"/>
+        <field name="implied_ids" eval="[(4, ref('sn_base_user')),(4, ref('sn_base_manager'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+
+</odoo>

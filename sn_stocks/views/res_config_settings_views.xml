@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="res_stocks_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.stocks</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Stocks" string="Stocks" data-key="sn_stocks" groups="sn_stocks.sn_stocks_manager">
+                        <div class="h1 config-big-tilte">Configuration - Stocks</div>
+                        <h2>Généralités</h2>
+                        <div class="row o_settings_container">
+                            <div class="col-md-6">
+                                <!-- stock_negatif -->
+                                <div class="o_setting_box">
+                                    <div class="o_setting_left_pane">
+                                        <field name="stock_negatif" />
+                                    </div>
+                                    <div class="o_setting_right_pane">
+                                        <label for="stock_negatif" />
+                                        <div class="text-muted">
+                                            Permission de vendre même le stock est vide!.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- qty_delivered_equals_commanded -->
+                                <!-- <div class="o_setting_box">
+                                    <div class="o_setting_left_pane">
+                                        <field name="qty_delivered_equals_commanded" />
+                                    </div>
+                                    <div class="o_setting_right_pane">
+                                        <label for="qty_delivered_equals_commanded" />
+                                        <div class="text-muted">
+                                            Par defaut les qauntités livrés égalent les quantités commandés
+
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+
+                            <div class="col-md-6">
+                                <!-- delivery_confirmed_by_default -->
+                                <div class="o_setting_box">
+                                    <div class="o_setting_left_pane">
+                                        <field name="delivery_confirmed_by_default" />
+                                    </div>
+                                    <div class="o_setting_right_pane">
+                                        <label for="delivery_confirmed_by_default" />
+                                        <div class="text-muted">
+                                            Confirmer la livraison apres chaque vente
+                                            <br />
+                                            (i.e le stock sera touché après confirmation)
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- reception_confirmed_by_default -->
+                                <div class="o_setting_box">
+                                    <div class="o_setting_left_pane">
+                                        <field name="reception_confirmed_by_default" />
+                                    </div>
+                                    <div class="o_setting_right_pane">
+                                        <label for="reception_confirmed_by_default" />
+                                        <div class="text-muted">
+                                            Confirmer la reception apres chaque achat
+                                            <br />
+                                            (i.e le stock sera touché après confirmation)
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- operations_confirmed_by_default -->
+                                <div class="o_setting_box">
+                                    <div class="o_setting_left_pane">
+                                        <field name="operations_confirmed_by_default" />
+                                    </div>
+                                    <div class="o_setting_right_pane">
+                                        <label for="operations_confirmed_by_default" />
+                                        <div class="text-muted">
+                                        Chaque Opération n'est considere comme valide qu'apres confirmation.
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="qty_delivered_equals_commanded"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="qty_delivered_equals_commanded"/>
+                                    <div class="text-muted">
+                                        Pas de difference entre Qte livrée et commandée. <br/>
+                                        c.a.d on doit s'entretenir qu'avec la Qte commandée
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <h2>Multi Stocks</h2>
+                        <div class="row o_settings_container">
+                            <div class="col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="purchase_to_stocks" readonly="1" />
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="purchase_to_stocks" />
+                                    <div class="text-muted">
+                                        A poser les articles achetés dans plus qu'un stock?
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 o_setting_box">
+
+                                <div class="o_setting_left_pane">
+                                    <field name="sale_from_stocks" readonly="1" />
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="sale_from_stocks" />
+                                    <div class="text-muted">
+                                        A faire sortire les articles vendus depuis plusieurs stocks?
+                                        </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <!--        <record id="action_sn_stocks_configuration" model="ir.actions.act_window">-->
+        <!--            <field name="name">Settings</field>-->
+        <!--            <field name="type">ir.actions.act_window</field>-->
+        <!--            <field name="res_model">res.config.settings</field>-->
+        <!--            <field name="view_mode">form</field>-->
+        <!--            <field name="target">inline</field>-->
+        <!--            <field name="context">{'module' : 'sn_stocks'}</field>-->
+        <!--        </record>-->
+
+        <!--        <menuitem id="menu_sn_stocks_global_settings"-->
+        <!-- name="Configuration2222"-->
+        <!-- parent="menu_sn_stocks"-->
+        <!-- sequence="20"-->
+        <!-- action="action_sn_stocks_configuration"-->
+        <!-- groups="base.group_system"/>-->
+
+
+    </data>
+
+</odoo>

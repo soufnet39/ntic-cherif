@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--UOM Category-->
+        <record id="uom_cat_01" model="sn_sales.uomcategory">
+            <field name="name">Unité</field>
+            <field name="measure_type">unit</field>
+        </record>
+        <record id="uom_cat_02" model="sn_sales.uomcategory">
+            <field name="name">Kilo gramme</field>
+            <field name="measure_type">weight</field>
+        </record>
+        <record id="uom_cat_03" model="sn_sales.uomcategory">
+            <field name="name">Mètre</field>
+            <field name="measure_type">length</field>
+        </record>
+        <record id="uom_cat_04" model="sn_sales.uomcategory">
+            <field name="name">Litre</field>
+            <field name="measure_type">volume</field>
+        </record>
+
+
+        <!--UOM-->
+        <record id="uom_01" model="sn_sales.uom">
+            <field name="name">Unité</field>
+            <field name="category_id" ref="uom_cat_01"/>
+        </record>
+        <record id="uom_02" model="sn_sales.uom">
+            <field name="name">kg</field>
+            <field name="category_id" ref="uom_cat_02"/>
+        </record>
+        <record id="uom_03" model="sn_sales.uom">
+            <field name="name">M</field>
+            <field name="category_id" ref="uom_cat_03"/>
+        </record>
+        <record id="uom_04" model="sn_sales.uom">
+            <field name="name">L</field>
+            <field name="category_id" ref="uom_cat_04"/>
+        </record>
+
+
+    </data>
+</odoo>

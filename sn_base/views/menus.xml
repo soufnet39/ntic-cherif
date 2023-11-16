@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="sn_menu_root" name="nTIC" sequence="0"/>
+
+    <menuitem id="menu_home"
+              name="Accueil"
+              parent="sn_menu_root"
+              sequence="1"/>
+
+    <!-- Hide dashboard main menu -->
+    <record model="ir.ui.menu" id="base.menu_board_root">
+        <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+    </record>
+
+    <!-- Hide Emoloyees main menu -->
+    <!--<record model="ir.ui.menu" id="hr.menu_hr_root">-->
+        <!--<field name="groups_id" eval="[(6,0,[ref('sn_base.make_invisible')])]"/>-->
+    <!--</record>-->
+
+    <menuitem
+            id="menu_board_my_dash"
+            name="Table de bord"
+            parent="menu_home"
+            action="board.open_board_my_dash_action"
+            sequence="1"/>
+
+    <menuitem id="menu_halat"
+              name="Etats"
+              parent="sn_menu_root"
+              sequence="7"/>
+
+    <menuitem id="menu_analyses"
+              name="Analyses"
+              parent="sn_menu_root"
+              sequence="10"/>
+
+    <menuitem id="menu_strategies"
+              name="Stratégies"
+              parent="menu_analyses"
+              sequence="10"/>
+
+
+
+    <record id="action_sn_base_configuration" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+    </record>
+
+    <menuitem id="menu_config"
+            name="Configuration"
+            parent="sn_menu_root"
+            groups="sn_base_manager"              
+            sequence="11"  />
+
+    <menuitem id="menu_sn_base_global_settings"
+            name="Réglages"
+            parent="menu_config"
+            sequence="20"
+            action="action_sn_base_configuration"
+            groups="sn_base_manager"/>
+       
+
+    <menuitem id="menu_divers"
+            name="Divers"
+            parent="sn_menu_root"
+            sequence="10" />
+
+    <menuitem id="menu_sn_base_users"
+            name="Utilisateurs"
+            parent="menu_config"
+            sequence="2"
+            action="base.action_res_users"
+            groups="sn_base_manager"/>
+
+  <!-- HIDE SUPER USER FROM LIST OF USERS -->
+    <record id="base.action_res_users" model="ir.actions.act_window">
+            <field name="name">Users</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_id" ref="base.view_users_tree"/>
+            <field name="domain" >[('name','!=','Administrator')]</field>
+            <field name="search_view_id" ref="base.view_users_search"/>
+            <field name="context">{'search_default_no_share': 1}</field>
+            <field name="help">Create and manage users that will connect to the system. Users can be deactivated should there be a period of time during which they will/should not connect to the system. You can assign them groups in order to give them specific access to the applications they need to use in the system.</field>
+        </record>
+        
+    
+    <!-- = = = = = = = = = -->
+
+</odoo>

@@ -1,0 +1,66 @@
+
+.credits .contour01{   border-radius: 4px;    padding: 4px; border: 2px solid purple;    }
+.credits .big-title{  color: purple;   }
+
+.btn_credits { border: 2px solid purple!important }
+.btn_credits i{  color: purple!important; width:25px !important   }
+.credits .o_form_sheet{ border-top: 4px solid purple!important; border-bottom: 2px solid purple!important; }
+
+.credits .tab_infos {
+    border: 2px solid purple;
+    padding: 4px 0;
+    margin: 8px 0;
+    border-radius: 5px;
+    min-height:150px;
+}
+
+.credits .credits_head .o_readonly_modifier{
+    border: 1px solid silver;
+    border-radius: 4px;
+    line-height: 27px;
+    background-color: ghostwhite;
+    padding: 1px 2px 0 4px;}
+
+/* ------------ */
+
+.prelevements .o_form_sheet{width: 94%!important}
+.prelevements .big-title{  color: lightseagreen;   }
+.prelevements .contour01{   border-radius: 4px;    padding: 4px; border: 2px solid lightseagreen;    }
+.prelevements .o_form_sheet_bg > .o_form_sheet{ border-top: 4px solid lightseagreen!important;
+    border-bottom: 2px solid lightseagreen!important;
+    width:94%!important}
+.prelevements .tab_infos {
+    border: 2px solid lightseagreen;
+    padding: 4px 0;
+    margin: 8px 0;
+    border-radius: 5px;
+    min-height:150px;
+}
+.hawet{
+    border: 1px solid silver;
+    border-radius: 4px;
+    padding: 5px 10px 0 0;
+    line-height: 14px;
+    margin-bottom: 2px;
+    background-color: honeydew;
+    }
+.marginleft5px{
+    margin-left:5px;
+}
+.paddingleft5px{
+    padding-left:5px;
+}
+.m_btn{
+padding: 2px 9px;}
+.jour{
+padding-left : 0px;
+font-weight: bold;
+    background-color: initial !important;
+    border: 0px !important;
+    color: orangered;
+    padding-left: 0 !important;
+}
+.divprint{
+    text-align: right;
+    padding: 6px 10px 10px;
+}

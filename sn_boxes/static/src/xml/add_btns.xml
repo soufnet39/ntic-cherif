@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+
+
+    <t t-extend="ListView.buttons">
+
+       <t t-jquery="div.o_list_buttons" t-operation="append">
+            <!-- <t t-log="widget"/> -->
+            <button type="button" t-if="widget.renderer.state.context.washi=='mouvements_boxes'" class="btn btn-primary oe_sold_in_button">
+                Encaissement
+            </button>
+            <button type="button" t-if="widget.renderer.state.context.washi=='mouvements_boxes'" class="btn btn-primary oe_sold_out_button">
+                Décaissement
+            </button>
+            <button type="button" t-if="widget.renderer.state.context.washi=='mouvements_boxes'" class="btn btn-primary oe_between_boxes_button">
+                Entre Comptes
+            </button>
+
+        </t>
+    </t>
+
+
+</template>
+

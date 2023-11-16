@@ -1,0 +1,1856 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sn_credit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20191106\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-11 01:25+0000\n"
+"PO-Revision-Date: 2021-01-11 02:54+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar_SY\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: sn_credit
+#: model:ir.actions.report,print_report_name:sn_credit.action_report_aksats
+msgid "'Aksat - %s' % (object.name)"
+msgstr "'أقساط - %s' % (object.name)"
+
+#. module: sn_credit
+#: model:ir.actions.report,print_report_name:sn_credit.action_report_aksats_mois
+msgid "'Avancements - %s' % (object.name)"
+msgstr "'التسبيقات - %s' % (object.name)"
+
+#. module: sn_credit
+#: model:ir.actions.report,print_report_name:sn_credit.action_report_cuts
+msgid "'Enlevement - %s' % (object.name)"
+msgstr "‘الإقتطاعات - %s' % (object.name)"
+
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid "(Brouillon)"
+msgstr "(مسودة)"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid ", Jour:"
+msgstr "اليوم:"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_system_errors__decalage__1
+msgid "1 mois"
+msgstr "شهر واحد"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_system_errors__decalage__2
+msgid "2 mois"
+msgstr "شهران"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2019
+msgid "2019"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2020
+msgid "2020"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2021
+msgid "2021"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2022
+msgid "2022"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2023
+msgid "2023"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2024
+msgid "2024"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2025
+msgid "2025"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2026
+msgid "2026"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2027
+msgid "2027"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2028
+msgid "2028"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2029
+msgid "2029"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2030
+msgid "2030"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2031
+msgid "2031"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2032
+msgid "2032"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2033
+msgid "2033"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2034
+msgid "2034"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_year__2035
+msgid "2035"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_system_errors__decalage__3
+msgid "3 mois"
+msgstr "ثلاثة شهور"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid ""
+"<br/>\n"
+"                                Veuillez déterminer le mois et l'année, ensuite sauvgardez.."
+msgstr "‫<br>الرجاء تحديد الشهر والسنة، ثم أحفظ."
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid ""
+"<br/>\n"
+"                            Il faut sauvgarder avant de génerer El-Aksat"
+msgstr "‫<br>يجب أن تحفظ أولا قبل البدأ في توليد الأقساط"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_centres_form
+msgid ""
+"<span class=\"oe_edit_only\" attrs=\"{'invisible': [('id', '=', False)]}\">Edition </span>\n"
+"                                <span attrs=\"{'invisible': [('id', '!=', "
+"False)]}\">Creation </span>\n"
+"                                <span>Centre</span>"
+msgstr ""
+"‫<span class=\"oe_edit_only\" attrs=\"{'invisible': [('id', '=', False)]}\"></span> <span "
+"attrs=\"{'invisible': [('id', '!=', False)]}\">تحرير</span> <span>إنشاء</span> مركز"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "<span class=\"text-danger font-weight-bold\">Montants</span>"
+msgstr "‫<span class=\"text-danger font-weight-bold\">المبالغ</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "<span class=\"text-danger font-weight-bold\">Nbrs.</span>"
+msgstr "‫<span class=\"text-danger font-weight-bold\">أرقام.</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid ""
+"<span class=\"text-warning\" attrs=\"{'invisible':[('name','!=','/')]}\">\n"
+"                                Prélèvement non sauvgardé\n"
+"                            </span>"
+msgstr ""
+"‫<span class=\"text-warning\" attrs=\"{'invisible':[('name','!=','/')]}\">معاينة غير محفوظة</"
+"span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "<span class=\"title1  text-danger\">Férmé sur la commamde N : </span>"
+msgstr "‫<span class=“title1  text-danger”>أُغلقت على الطلبية رقم:  </span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "<span class=\"title1\">Bloqués :</span>"
+msgstr "‫<span class=\"title1\">مجمد:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.ntic_credit_partner_form
+msgid "<span class=\"title1\">CCP</span>:"
+msgstr "‫<span class=\"title1\">ح ج ب</span>:"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "<span class=\"title1\">Cloturés :</span>"
+msgstr "‫<span class=\"title1\">مغلقة:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "<span class=\"title1\">Impayés :</span>"
+msgstr "‫<span class=\"title1\">غير مسددة:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "<span class=\"title1\">Indéfinis :</span>"
+msgstr "‫<span class=\"title1\">غير معروف:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_centres_form
+msgid "<span class=\"title1\">Nom du Centre</span>"
+msgstr "‫<span class=\"title1\">إسم المركز</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "<span class=\"title1\">Nombre de lignes Total : </span>"
+msgstr "‫<span class=\"title1\">العدد الكلي للأسطر:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "<span class=\"title1\">Nombre de lignes contrat A : </span>"
+msgstr "‫<span class=\"title1\">عدد أسطر العقد A:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "<span class=\"title1\">Nombre de lignes contrat B : </span>"
+msgstr "‫<span class=\"title1\">عدد أسطر العقد B:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "<span class=\"title1\">Nombre de lignes contrat C : </span>"
+msgstr "‫<span class=\"title1\">عدد أسطر العقد C:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "<span class=\"title1\">Payés :</span>"
+msgstr "<span class=\"title1\">مدفوع:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "<span class=\"title1\">Prélèvements à vérifier</span>"
+msgstr "‫<span class=\"title1\">تعيينات للتحقق</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "<span class=\"title1\">Total :</span>"
+msgstr "‫<span class=\"title1\">المجموع:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid ""
+"<span>Bon de vente à Credit</span>\n"
+"                <span>Nº:</span>"
+msgstr ""
+"‫<span>سند البيع بالأقساط</span>\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                    <span>رقم:</span>"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "A Reporter avec un décalage de:"
+msgstr "للتأجيل بفارق : "
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__a_exist
+msgid "A exist"
+msgstr "‪وجود ضريبة القيمة المضافة"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_contrats_form
+msgid "A, B, C, D, E ou F"
+msgstr "‫A أو B أو C أو D أو E أو F"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__aksat_id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_mois_reel__aksat_id
+msgid "Aksat Reference"
+msgstr "مرجع الأقساط"
+
+#. module: sn_credit
+#: model:ir.actions.report,name:sn_credit.action_report_aksats
+msgid "Aksats"
+msgstr "الأقساط"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Aksats Lines"
+msgstr "أسطر الأقساط"
+
+#. module: sn_credit
+#: model:ir.ui.menu,name:sn_credit.aksats_months_menu_act
+msgid "Aksats par mois reel"
+msgstr "الأقساط الشهرية"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__annee
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__c_annee
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__c_year
+msgid "Année"
+msgstr "السنة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__annee_reel
+msgid "Année réel"
+msgstr "العتم الحقيقي"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__8
+msgid "Août"
+msgstr "أوت"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "Appeler les Erreurs Système"
+msgstr "أحص أخطاء النظام"
+
+#. module: sn_credit
+#: code:addons/sn_credit/models/prelevement.py:0
+#, python-format
+msgid ""
+"Attension: Commande(s) non traité(s):\n"
+"   - "
+msgstr "حذار: طلبيات غير معالجة."
+
+#. module: sn_credit
+#: model:ir.actions.report,name:sn_credit.action_report_aksats_mois
+msgid "Avancements"
+msgstr "التسبيقات"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__4
+msgid "Avril"
+msgstr "أفريل"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__b_exist
+msgid "B exist"
+msgstr "‫B موجود"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__command_name
+msgid "B.C N°"
+msgstr "طلبية رقم:"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_cuts_lines__c_etat__2
+msgid "Bloqué"
+msgstr "مجمد"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__c_exist
+msgid "C exist"
+msgstr "‫C موجود"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__c_ccp
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_cuts_document
+msgid "CCP Client"
+msgstr "الزبون CCP"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__p_ccp
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_cuts_document
+msgid "CCP Vendeur"
+msgstr "البائع CCP"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid "CCP:"
+msgstr "‫Ccp:"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__aksats_touched
+msgid "Can delete akstats"
+msgstr "يستطيع حذف الأقساط"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_retard_view_form
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "Caption"
+msgstr "التسميه"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_retard_view_form
+msgid "Cas en Retard"
+msgstr "‫‫الحالات المتأخرة"
+
+#. module: sn_credit
+#: model:ir.actions.act_window,name:sn_credit.retard_form
+#: model:ir.ui.menu,name:sn_credit.menu_retard_form
+msgid "Cas en retard"
+msgstr "‫الحالات المتأخرة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__is_recalculated
+msgid "Cas recalculé à cause du retard"
+msgstr "حالة تم إعادة حسابها بسبب التأخير"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_centres_tree
+msgid "Centre"
+msgstr "المركز"
+
+#. module: sn_credit
+#: model:ir.actions.act_window,name:sn_credit.centres_action
+#: model:ir.ui.menu,name:sn_credit.menu_centres_tree
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_centres_form
+msgid "Centres"
+msgstr "المراكز"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__client_ccp_cle
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "CleA"
+msgstr "مفتاح A"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__contrat_ccp_cle
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "CleB"
+msgstr "‫مفتاح B"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__partner_name
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "Client"
+msgstr "الزبون"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid "Client:"
+msgstr "الزبون:"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__ccp_cle
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_partner__ccp_cle
+msgid "Clé CCP"
+msgstr "مفتاح CCP"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_cuts_lines__c_etat__5
+msgid "Clôturé"
+msgstr "مغلق"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_res_company__code_centre
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__code_centre
+msgid "Code"
+msgstr "رمز"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards__command_id
+msgid "Commande Reference"
+msgstr "مرجع الطلبية"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards__commande_id_generated
+msgid "Commande liée"
+msgstr "الطلبية ذات الصلة"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_mois_reel__company_id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__company_id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__company_id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__company_id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__client_ccp_numero
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "CompteA"
+msgstr "الحساب A"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__contrat_ccp_numero
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "CompteB"
+msgstr "الحساب B"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__count_blo
+msgid "Compteur Bloqués"
+msgstr "العداد المجمدات"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__count_clo
+msgid "Compteur Clôturé"
+msgstr "عداد المغلق"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__count_imp
+msgid "Compteur Impayés"
+msgstr "عداد غير المدفوع"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__count_ind
+msgid "Compteur Indéfinis"
+msgstr "عداد غير لبمعرف"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__count_pay
+msgid "Compteur payés"
+msgstr "العداد المدفوعات"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.res_sales_credit_settings_view_form
+msgid "Configuration - Vente en Crédis"
+msgstr "إعدادات - البيع بالتقسيط"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__contrat
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__contrat
+msgid "Contrat"
+msgstr "العقد"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid "Contrat:"
+msgstr "العقد:"
+
+#. module: sn_credit
+#: model:ir.actions.act_window,name:sn_credit.sn_credit_contrats_action
+#: model:ir.ui.menu,name:sn_credit.menu_sn_credit_contrats
+msgid "Contrats"
+msgstr "العقود"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__cosh
+msgid "Cosh"
+msgstr "مؤشر"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines__create_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_wiz_tardations__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines__create_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_wiz_tardations__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_sales_partner
+msgid "Credits part of partner"
+msgstr "الأقساط من جهة الزبون"
+
+#. module: sn_credit
+#: model:ir.ui.menu,name:sn_credit.menu_credit
+msgid "Crédits"
+msgstr "الأقساط"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_tempo_cuts_lines
+msgid "Cuts text file divided par lots"
+msgstr "إقتطاعات مقسمة حسب الحزم"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__d_exist
+msgid "D exist"
+msgstr "D موجود"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__c_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__confirmation_date
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_cuts_document
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__date_creation
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Date Création"
+msgstr "التاريخ الإنشاء"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__date_start
+msgid "Date Début"
+msgstr "تاريخ البدء"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid "Date Début:"
+msgstr "تاريخ البدء:"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__date_end
+msgid "Date Fin"
+msgstr "تاريخ الانتهاء"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid "Date Fin:"
+msgstr "تاريخ الانتهاء:"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__date_start
+msgid "Date début"
+msgstr "تاريخ البدء"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__date_end
+msgid "Date fin"
+msgstr "تاريخ الانتهاء"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_mois_reel__mois_annee
+msgid "Date opération"
+msgstr "تاريخ العملية"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "DateCreation"
+msgstr "تاريخ الإنشاء"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "DateDebut"
+msgstr "تاريخ البدء"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "DateFin"
+msgstr "تاريخ النهاية"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid "Daté le:"
+msgstr "بتاريخ:"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__12
+msgid "Decembre"
+msgstr "ديسمبر"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "Des erreurs système ont été détectées"
+msgstr "تم الكشف عن أخطاء في النظام"
+
+#. module: sn_credit
+#: model:ir.model.constraint,message:sn_credit.constraint_sn_credit_cuts_month_year_unique2
+msgid "Des prèlevements sont identiques , Ils doivent être uniques!"
+msgstr "بعض المعاينات متشابهة، المطلوب أنها تكون متفردة!"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_retards_lines
+msgid "Details of retards cases"
+msgstr "تفصيل الحالات المتأخرة"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_retards_lines_wiz
+msgid "Details of retards cases tempo"
+msgstr "‫تفصيل الحالات المتأخرة المؤقتة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_report_sn_credit_prelevements__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_mois_reel__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines__display_name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_wiz_tardations__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines__done
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_system_errors__hala__done
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_wiz_tardations__hala__done
+msgid "Done"
+msgstr "المنتهية"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__decalage
+msgid "Décalage"
+msgstr "الفارق : "
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_aksats_lines__state__declared
+msgid "Déclaré"
+msgstr "مصرح به"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_mois_document
+msgid "Déductions"
+msgstr "الإقتطاعات"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Déduit par mois"
+msgstr "الإقتطاع الشهري"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__description
+msgid "Déscription"
+msgstr "الوصف"
+
+#. module: sn_credit
+#: code:addons/sn_credit/models/prelevement.py:0
+#, python-format
+msgid "Désolé.. Pas de prélèvement pour ce mois!.."
+msgstr "معذرة.. لا توجد معاينات في هذا الشهر!.."
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__e_exist
+msgid "E exist"
+msgstr "‫E موجودة"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Ech."
+msgstr "فشل"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_document
+msgid "Echècs"
+msgstr "فشل"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "El-Oued le: ........"
+msgstr "الوادي في: ........"
+
+#. module: sn_credit
+#: model:ir.actions.act_window,name:sn_credit.cuts_tree_action
+#: model:ir.actions.report,name:sn_credit.action_report_cuts
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__cuts_ids
+#: model:ir.ui.menu,name:sn_credit.menu_cuts_tree
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_tree
+msgid "Enlèvements"
+msgstr "الإقتطاعات"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "Enlèvements Lines"
+msgstr "تفصيل الإقتطاعات"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Enlèvements pour la réference"
+msgstr "إقتطاعات للمرجع"
+
+#. module: sn_credit
+#: model:ir.actions.act_window,name:sn_credit.sys_err_form
+#: model:ir.ui.menu,name:sn_credit.menu_sys_err_form
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_retard_view_form
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "Erreurs Système"
+msgstr "أخطاء النظام"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__state
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__state_parent
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__c_etat
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_cuts_document
+msgid "Etat"
+msgstr "الدولة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__etat
+msgid "Etat de pere"
+msgstr "حالة المصدر"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Exporter Excel (Contrat A)"
+msgstr "تصدير إلى الإكسل (العقد A)"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Exporter Excel (Contrat B)"
+msgstr "‫تصدير إلى الإكسل (العقد B)"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Exporter Excel (Contrat C)"
+msgstr "‫تصدير إلى الإكسل (العقد C)"
+
+#. module: sn_credit
+#: model:ir.actions.report,name:sn_credit.prelevements_xlsx
+msgid "Exporter vers Excel"
+msgstr "‫تصدير إلى الإكسل"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__f_exist
+msgid "F exist"
+msgstr "F موجود"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__filename
+msgid "Filename"
+msgstr "آسم الملف"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Férmer la liste"
+msgstr "غلق القائمة"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_tree
+msgid "Férmé sur"
+msgstr "مغلقة على"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__2
+msgid "Février"
+msgstr "فبراير"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "Groupes de lignes"
+msgstr "مجموعة الأسطر"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Génerer les Aksats"
+msgstr "توليد الأقساط"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_aksats_lines__state__generated
+msgid "Géneré"
+msgstr "مولدة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__is_cmd_retard
+msgid "Généré comme retard"
+msgstr "مولدة كحالة متأخرة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__hala
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_wiz_tardations__hala
+msgid "Hala"
+msgstr "الحالة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_report_sn_credit_prelevements__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_mois_reel__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__commande_aksat_line_id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines__id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_wiz_tardations__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "Il parait qu'il n'existe aucune erreur système basé sur les prèlevement selectionnées"
+msgstr "يبدو أنه لا توجد حالات أخطاء في النظام بناءً على التعيينات المختارة"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_cuts_lines__c_etat__1
+msgid "Impayé"
+msgstr "غير مسدد"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Importer les Aksats"
+msgstr "استيراد الأقساط"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Imprimer"
+msgstr "طباعة"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Imprimer Aksats"
+msgstr "طباعة الأقساط"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Imprimer Avancements"
+msgstr "طباعة التسبيقات"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_cuts_lines__c_etat__x
+msgid "Indéfini"
+msgstr "غير معروف"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines__lot_title
+msgid "Intervale"
+msgstr "مجال"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_tree
+msgid "Intitulé"
+msgstr "العنوان"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__name
+msgid "Intitulé de l'enlèvement"
+msgstr "عنوان الحدث"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__is_closed
+msgid "Is Closed"
+msgstr "مغلق؟"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__1
+msgid "Janvier"
+msgstr "جانفي"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__jour
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Jour"
+msgstr "اليوم"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__jour_retrait
+msgid "Jour de retrait"
+msgstr "يوم السحب"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__jour_prelevement
+msgid "JourPrel"
+msgstr "يوم المعاينة"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__7
+msgid "Juillet"
+msgstr "جويلية"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__6
+msgid "Juin"
+msgstr "جوان"
+
+#. module: sn_credit
+#: code:addons/sn_credit/models/commande.py:0
+#, python-format
+msgid "La somme des Aksats dépasse la totalité du montant par mois"
+msgstr "مجموع الأقساط تجاوز المبلغ الشهري"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_report_sn_credit_prelevements____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_mois_reel____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines____last_update
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_wiz_tardations____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines__write_uid
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_wiz_tardations__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines__write_date
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_wiz_tardations__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_document
+msgid "Le Jour"
+msgstr "اليوم"
+
+#. module: sn_credit
+#: code:addons/sn_credit/models/contrats.py:0
+#, python-format
+msgid "Le Jour doit être entre 1 et 31"
+msgstr "يجب أن يكون اليوم بين 1 و 31"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__day_to_cut
+msgid "Le jour"
+msgstr "اليوم"
+
+#. module: sn_credit
+#: model:ir.model.constraint,message:sn_credit.constraint_sn_credit_prelevements_month_year_unique
+msgid "Le mois et l'année sont déjà prises, Ils doivent être uniques!"
+msgstr "تم استعمال الشهر والسنة، في حين يجب أن تكونا متفردين!"
+
+#. module: sn_credit
+#: code:addons/sn_credit/models/contrats.py:0
+#, python-format
+msgid "Le nom doit être un de 6 lettres en Maj. A,B,C,D,E,F."
+msgstr "يجب أن يكون الاسم واحد من ستة أحرف الكبيرة. A، B، C، D، E، F."
+
+#. module: sn_credit
+#: model:ir.model.constraint,message:sn_credit.constraint_sn_credit_contrats_contrat_uniq
+msgid "Le nom du contrat doit être unique dans le même centre!"
+msgstr "يجب أن يكون اسم العقد فريدًا في نفس المركز!"
+
+#. module: sn_credit
+#: model:ir.model.constraint,message:sn_credit.constraint_sn_sales_partner_ccp_unique
+msgid "Les comptes CCP doivent être uniques!"
+msgstr "يجب أن تكون حسابات CCP غير مكررة!"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__retard_ids
+msgid "Les retards"
+msgstr "الحالات المتأخرة"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Ligne Crédit"
+msgstr "أسطر الأقساط"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Ligne kist"
+msgstr "سطر القسط"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__nbr_cuts_tempo_lot
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__nbr_lines
+msgid "Lignes"
+msgstr "أسطر"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Lignes Aksats"
+msgstr "أسطر الأقساط"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__cuts_tempo_lot_ids
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "Lots"
+msgstr "حزم"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__5
+msgid "Mai"
+msgstr "ماي"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__3
+msgid "Mars"
+msgstr "مارس"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__mode
+msgid "Mode de traitement"
+msgstr "وضع التعامل"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__moi
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__c_mois
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__c_month
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_mois_document
+msgid "Mois"
+msgstr "الشهر"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__name
+msgid "Mois et Année"
+msgstr "الشهر والسنة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__mois_reel
+msgid "Mois réel"
+msgstr "الشهر الحقيقي"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__mth_traited
+msgid "Mois traité"
+msgstr "الشهر المعالج"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__amount
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__c_montant
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards__mta_tot_months_retard
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines__montant
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz__montant
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__mta_tot_months_retard
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_document
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_cuts_document
+msgid "Montant"
+msgstr "المبلغ"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__retrait_amount
+msgid "Montant / Retrait"
+msgstr "قيمة السحب"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_mois_document
+msgid "Montant Déduit"
+msgstr "المبلغ المقتطع"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid "Montant global:"
+msgstr "المبلغ الإجمالي:"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "MontantVo"
+msgstr "المبلغ Vo"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_mois_reel__mta_deduit
+msgid "Mta déduit"
+msgstr "المبلغ المقتطع"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__mta_pay
+msgid "Mta. payés"
+msgstr "المبلغ المدفوع"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "N.Mois"
+msgstr "الشهر"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_wiz_tardations__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__nbr_echeance
+msgid "Nbr Echéance"
+msgstr "عدد الإستحقاقات"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__nbr_lines
+msgid "Nbr lignes"
+msgstr "عدد الأسطر"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__nbr_lines_a
+msgid "Nbr lignes Contrat A"
+msgstr "عدد أسطر العقد A"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__nbr_lines_b
+msgid "Nbr lignes Contrat B"
+msgstr "‫عدد أسطر العقد B"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__nbr_lines_c
+msgid "Nbr lignes Contrat C"
+msgstr "‫عدد أسطر العقد C"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__nbr_lines_d
+msgid "Nbr lignes Contrat D"
+msgstr "‫عدد أسطر العقد D"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__nbr_lines_e
+msgid "Nbr lignes Contrat E"
+msgstr "‫عدد أسطر العقد E"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__nbr_lines_f
+msgid "Nbr lignes Contrat F"
+msgstr "‫عدد أسطر العقد F"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__retrait_number
+msgid "Nbr retraits / mois"
+msgstr "عدد مرات السحب"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__addad_monthes
+msgid "Nbr. mois"
+msgstr "عدد الأشهر"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__client_nom
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__c_nom
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_cuts_document
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "Nom"
+msgstr "الإسم"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_ntic_partner_credit_filter
+msgid "Nom, Prénom, Ccp"
+msgstr "الاسم، اللقب، Ccp"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_res_config_settings__days_omitted_before
+msgid "Nombre de jour non considéré avant declaration"
+msgstr "عدد الأيام غير المعتدة قبل الإعلان"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__nbr_months
+msgid "Nombre de mois proposé"
+msgstr "عدد اللأشهر الم"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__month_number
+msgid "Nombre des mois"
+msgstr "عدد الأشهر"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid "Nombre des mois:"
+msgstr "عدد الأشهر:"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__11
+msgid "Novembre"
+msgstr "نوفمبر"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_sales_commandes
+msgid "Ntic Sale Commandes"
+msgstr "طلبيات البيع Ntic"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__ccp_numero
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_partner__ccp_numero
+msgid "Numéro CCP"
+msgstr "رقم CCP"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__closed_on_idfact
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__closed_on_nfact
+msgid "Numéro de facture"
+msgstr "رقم الفاتورة"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_sales_order_credit_search
+msgid "Numéro, Nom, Prénom, CCP"
+msgstr "الرقم والاسم واللقب وCCP"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__10
+msgid "Octobre"
+msgstr "اكتوبر"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "Opération términée avec succés."
+msgstr "تمت العملية بنجاح"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Opérations"
+msgstr "عمليات"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Ouvrir la liste"
+msgstr "فتح القائمة"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_sales_commandes__payment_state__negatif
+msgid "Paiement Négatif"
+msgstr "تسديد سالب"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_sales_commandes__payment_state__partiel
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_sales_order_credit_search
+msgid "Paiement Partiel"
+msgstr "الدفع الجزئي"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_sales_commandes__payment_state__complet
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_sales_order_credit_search
+msgid "Paiement Total"
+msgstr "الدفع ‫الإجمال"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_sales_commandes__payment_state__waloo
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_sales_order_credit_search
+msgid "Paiement ZERO"
+msgstr "الدفع معدوم"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__payment_state
+msgid "Paiements"
+msgstr "المدفوعات"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_sales_order_credit_search
+msgid "Par Etat"
+msgstr "حسب الحالة"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.res_sales_credit_settings_view_form
+msgid "Parametres"
+msgstr "الإعدادات"
+
+#. module: sn_credit
+#: code:addons/sn_credit/wizard/system_errors.py:0
+#, python-format
+msgid "Pas de prélèvement choisis"
+msgstr "لم يتم اختيار أي من التعيينات"
+
+#. module: sn_credit
+#: code:addons/sn_credit/wizard/retards_wiz.py:0
+#, python-format
+msgid "Pas de retard"
+msgstr "لا توجد حالات متأخرة"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_cuts_lines__c_etat__0
+msgid "Payé"
+msgstr "تم الدفع"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_tree
+msgid "Prelevement"
+msgstr "تعيينات"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__prelevement_id
+msgid "Prelevement Reference"
+msgstr "مراجع التعيينات"
+
+#. module: sn_credit
+#: model:ir.actions.report,name:sn_credit.action_report_prelevements
+msgid "Prelevements"
+msgstr "التعيينات"
+
+#. module: sn_credit
+#: model:ir.actions.act_window,name:sn_credit.prelevements_tree_action
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__prelevement_ids
+#: model:ir.ui.menu,name:sn_credit.menu_prelevements_tree
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+msgid "Prélèvements"
+msgstr "التعيينات"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_prelevements
+msgid "Prélèvements de aksats par mois"
+msgstr "تعيينات الأقساط الشهرية"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__client_prenom
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_partner__prenom
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "Prénom"
+msgstr "اللقب"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_contrats_form
+msgid "Présentation du Contrat"
+msgstr "التعريف بالعقد"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "Période"
+msgstr "الفتره"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__recno
+msgid "Recno"
+msgstr "رقم"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_mois_document
+msgid "Rest à payer:"
+msgstr "الباقي للدفع:"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_wiz_tardations__retards_ids
+msgid "Retards"
+msgstr "الحالات المتأخرة"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_retards
+msgid "Retards cases"
+msgstr "‫الحالات المتأخرة"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_retards_wiz
+msgid "Retards cases temporaire"
+msgstr "‫الحالات المتأخرة المؤقتة"
+
+#. module: sn_credit
+#: code:addons/sn_credit/wizard/retards_wiz.py:0
+#, python-format
+msgid "Retards déjà Calculés"
+msgstr "سبق وأن تم احصاء الحالات المتأخرة"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_aksats_lines__state__postponed
+msgid "Retardé"
+msgstr "متاخرة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__monthly_amount
+msgid "Retrait mensuel"
+msgstr "السحب الشهري"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
+msgid "Retrait mensuel:"
+msgstr "السحب الشهري:"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Retraits par mois"
+msgstr "السحوبات في الشهر"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__name
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__name
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_document
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_cuts_document
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_prelevements_document
+msgid "Réference"
+msgstr "مرجع"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__cut_id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines__cut_id
+msgid "Réference2Cut"
+msgstr "‫Reference2Cut"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_aksats_lines__state__refused
+msgid "Réfusé"
+msgstr "مرفوض"
+
+#. module: sn_credit
+#: model:res.groups,name:sn_credit.sn_credit_boss
+msgid "Sales Credit Boss"
+msgstr "البيع بالأقساط: رئيس"
+
+#. module: sn_credit
+#: model:res.groups,name:sn_credit.sn_credit_manager
+msgid "Sales Credit Manager"
+msgstr "‫البيع بالأقساط: مسير"
+
+#. module: sn_credit
+#: model:res.groups,name:sn_credit.sn_credit_user
+msgid "Sales Credit User"
+msgstr "‫البيع بالأقساط: مستخدم"
+
+#. module: sn_credit
+#: model:ir.module.category,name:sn_credit.sn_credit_access
+msgid "Sales with Credit"
+msgstr "‫البيع بالأقساط"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_cuts_lines__c_etat__y
+msgid "Sans Image"
+msgstr "بدون صورة"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_document
+msgid "Seccès"
+msgstr "ناجح"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_prelevements__c_month__9
+msgid "Septembre"
+msgstr "سبتمبر"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__sequence
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__sequence
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__sequence
+msgid "Sequence"
+msgstr "المسلسل"
+
+#. module: sn_credit
+#: model:ir.actions.act_window,name:sn_credit.action_sn_credit_configuration
+msgid "Settings"
+msgstr "الإعدادات"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__avancement
+msgid "Succès"
+msgstr "ناجح"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Supprimer les Aksats"
+msgstr "حذف الأقساط"
+
+#. module: sn_credit
+#: code:addons/sn_credit/models/cuts.py:0
+#, python-format
+msgid "The file must be a TXT file"
+msgstr "يجب أن يكون الملف من النوع TXT"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_tree
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_prelevements_form
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_retard_view_form
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_commande_boxes_tree_sn_credit
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.view_credits_order_form_inherited
+msgid "Total Déduit :"
+msgstr "مجموع الإقتطاعات:"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_mois_document
+msgid "Total avances:"
+msgstr "مجموع التسديدات:"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__total_deduit
+msgid "Total déduit"
+msgstr "‫مجموع الإقتطاعات :"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_mois_document
+msgid "Total déduit:"
+msgstr "مجموع الإقتطاعات:"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.report_aksats_document
+msgid "Total:"
+msgstr "المجموع:"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_retard_view_form
+msgid "Traitement de Retard"
+msgstr "معالجة الحالات المتأخرة"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "Traiter la liste"
+msgstr "معالجة القائمة"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_system_errors__mode__all
+msgid "Traiter la totalité"
+msgstr "معالجة الكل"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "Transfer"
+msgstr "تحويل"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_retard_view_form
+msgid "Trouver les cas en Retards"
+msgstr "أبحث عن الحالات المتأخرة"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_aksats_lines__state__terminated
+msgid "Términé"
+msgstr "منتهية"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__aksats_mois_reel
+msgid "Un mois reel de credit"
+msgstr "شهر حقيقي للقسط"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__aksats_lines
+msgid "Une ligne de credit"
+msgstr "سطر القسط"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__cuts_lines
+msgid "Une ligne de listing"
+msgstr "سطر القائمة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__aksats_lines
+msgid "Une ligne prelevée"
+msgstr "سطر معين"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts__files
+msgid "Upload Txt File"
+msgstr "تحميل ملف Txt"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__users_ids
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_aksats_lines__state__validated
+msgid "Validé"
+msgstr "مقبول"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.res_sales_credit_settings_view_form
+msgid "Vente a credit"
+msgstr "بيع بالتقسيط"
+
+#. module: sn_credit
+#: model_terms:ir.actions.act_window,help:sn_credit.cuts_tree_action
+msgid "Veuillez Ajouter votre premier Enlèvement"
+msgstr "الرجاء إضافة أول اقتطاع"
+
+#. module: sn_credit
+#: model_terms:ir.actions.act_window,help:sn_credit.prelevements_tree_action
+msgid "Veuillez Ajouter votre premier prélèvement"
+msgstr "الرجاء إضافة أول تعيين"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid ""
+"Veuillez determiner les prélevements à vérifier\n"
+"                                <br/>\n"
+"                                Ensuite Appuyez sur le bouton en question"
+msgstr "يرجى تحديد التعيينات التي تريد التحقق منها<br/>ثم اضغط على الزر بالإحصاء"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_system_errors_view_form
+msgid "Vérification des erreurs Système"
+msgstr "التحقق من أخطاء النظام"
+
+#. module: sn_credit
+#: model:ir.ui.menu,name:sn_credit.menu_sn_credit_wilayates_tree
+msgid "Wilayates"
+msgstr "الولايات"
+
+#. module: sn_credit
+#: model:ir.actions.act_window,name:sn_credit.aksats_months_action
+#: model:ir.actions.act_window,name:sn_credit.aksats_months_reel_action
+msgid "aksats.mois_reel.action"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_mois_reel__annee
+msgid "annee"
+msgstr "العام"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "calcule reel mois"
+msgstr "احتساب الشهر الحقيقي"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_system_errors__hala__clear
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_wiz_tardations__hala__clear
+msgid "clear"
+msgstr "مسح"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__command_id
+msgid "command id"
+msgstr "رقم الطلبية"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_system_errors__commandes_ids
+msgid "commandes"
+msgstr "الطلبيات"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_cuts
+msgid "coupure par mois"
+msgstr "الاقتطاع الشهري"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_cuts_lines
+msgid "detail mensuel des cuts faites par la poste"
+msgstr "التفصيل الشهري للاقتطاعات المنجزة على مستوى البريد"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_aksats_lines
+msgid "detail mensuel des retrait des aksats"
+msgstr "التفصيل الشهري لاقتطاعات الأقساط"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_system_errors__hala__exist
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_wiz_tardations__hala__exist
+msgid "exist"
+msgstr "موجود"
+
+#. module: sn_credit
+#: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
+msgid "lignes listing"
+msgstr "أسطر القائمة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__aksats_adad
+msgid "lines number"
+msgstr "أرقام الأسطر"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_cuts_lines__aksat_line_id
+msgid "link 2 aksats"
+msgstr "الربط بالأقساط"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_tempo_cuts_lines__lot
+msgid "lot"
+msgstr "حزمة"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_mois_reel__mois
+msgid "mois"
+msgstr "الشر"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines__month
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz__month
+msgid "month"
+msgstr "الشهر"
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_report_sn_credit_prelevements
+msgid "report.sn_credit.prelevements"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines__retard_id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz__retard_id
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_wiz__wiz_retard_id
+msgid "retard Reference"
+msgstr "مرجع التأخير"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards__retard_lines_ids
+msgid "retard_lines"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_aksats_mois_reel
+msgid "retrait reel mensuel des aksats"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_system_errors
+msgid "sn_credit.system_errors"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_wiz_tardations
+msgid "sn_credit.wiz_tardations"
+msgstr ""
+
+#. module: sn_credit
+#: model:ir.model,name:sn_credit.model_sn_credit_contrats
+msgid "type de contrats de vente en credit"
+msgstr "نوع عقود البيع بالأقساط"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_system_errors__mode__selection
+msgid "valor2"
+msgstr "قيمة"
+
+#. module: sn_credit
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_system_errors__hala__waiting
+#: model:ir.model.fields.selection,name:sn_credit.selection__sn_credit_wiz_tardations__hala__waiting
+msgid "waiting"
+msgstr "انتظار"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines__year
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_retards_lines_wiz__year
+msgid "year"
+msgstr "عام"
+
+#. module: sn_credit
+#: model:ir.model.fields,field_description:sn_credit.field_sn_credit_aksats_lines__echecs
+msgid "Échecs"
+msgstr "الفشل"

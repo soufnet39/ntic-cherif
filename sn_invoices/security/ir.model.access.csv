@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_sn_invoices_invoices,sn_invoices.invoices,model_sn_invoices_invoices,sn_invoices_user,1,1,1,1
+access_sn_invoices_invoices_lines,sn_invoices.invoices.lines,model_sn_invoices_invoices_lines,sn_invoices_user,1,1,1,1
+
+access_sn_invoices_etat_104,sn_invoices.etat_104,model_sn_invoices_etat_104,sn_invoices_user,1,1,1,1

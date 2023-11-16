@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="credits_sn_sales_report_commande_inherited" name="credits styling" inherit_id="sn_sales.report_commande_document">
+            <!-- <xpath expr="//span[@class='tarikh']" position="before">
+               <span t-field="doc.company_id.wilaya_id"/>
+            </xpath> -->
+            <xpath expr="//div[@id='last_block']" position="after">
+                <br />
+                <br />
+
+                <table   class="table table-sm" style=" border:1px ;width:70%;margin: 0 auto">
+                    <tr>
+                        <td class='text-center'>
+                                المؤسسة غير مسؤولة عن الإقتطاعات الجزافية   300دج أو 600دج  للحسابات بدون رصيد
+                            </td>
+                    </tr>
+                    <tr>
+                        <td class='text-center'>
+                                Non responsable des déductions 300DA ou 600DA pour les comptes sans solde
+                            </td>
+                    </tr>
+                </table>
+             </xpath>
+        </template>
+
+       
+        
+    </data>
+</odoo>

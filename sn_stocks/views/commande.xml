@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  
+    <!-- Inherited Tree: view for "sn_sales.commandes" -->
+    <record id="commande_stock_tree_inherited" model="ir.ui.view">
+        <field name="name">commande tree inherited</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="inherit_id" ref="sn_sales.view_orders_tree" />
+        <field name="priority" eval="16" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_ttc']" position="before">
+                <field name="stock_id" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!--Inherits Sales Form-->
+    <record id="view_order_form_inherited1" model="ir.ui.view">
+        <field name="name">sn_sales.commandes form</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority">1000</field>
+        <field name="inherit_id" ref="sn_sales.view_commande_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button name="go2piece" type="object"
+                    attrs="{'invisible': [('operation','in',('/',''))]}"
+                    context="{'piece':'livraison'}"
+                    class="oe_stat_button btn_livraison" icon="fa-archive">
+                    <field name="operation" readonly="1" />
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='commande_lines']" position="attributes">
+                <attribute name="context">
+                    {'default_remise_mta':remise_mta,'default_remise_taux':remise_taux,
+                    'default_stock_id':stock_id }
+                </attribute>
+            </xpath>
+                    
+            <xpath expr="//div[@id='user_id']" position="after">
+                <field name="len_stock_id" invisible="1" />
+                <field name="commande_lines_count" invisible="1"/>
+                <field name="document_type" invisible="1"/>
+
+                <div>
+                    <div class="row" attrs="{'invisible':[('len_stock_id', '!=', 0)]}">
+                        <div class="col-md-4 text-right">
+                            <span class="title1">Stocks</span>
+                        </div>
+                        <div class="col-md-7">
+                            <span class="text-danger">Désolé. Vendeur sans Stock</span>
+                        </div>
+                    </div>
+                    <div attrs="{'invisible':[('len_stock_id','=',0) ]}">
+                        <div class="row">
+                            <div class="col-md-4 text-right">
+                                <span class="title1">Stock</span>
+                            </div>
+                            <div class="col-md-7">
+                                <field name="stock_id" class="my-form-control" force_save="1"
+                                    attrs="{'readonly':[('commande_lines_count', '>', 0)]}"
+                                    options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}"/>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </xpath>
+
+            <!-- <xpath expr="//tree/field[@name='qty']" position="after">
+                <field name="qty_done" invisible="0"  />
+            </xpath>
+            <xpath expr="//div[@id='add_article']" position="after">
+                <field name="qty_done" invisible="0"  />
+            </xpath> -->
+            <!-- <xpath expr="//div[@id='add_article']" position="inside">
+
+            </xpath> -->
+            <!-- <xpath expr="//div[@id='divers']" position="inside">
+                <field name="qty_delivered_equals_commanded"/>
+                <label for="qty_delivered_equals_commanded"/>
+                 <br/>
+            </xpath> -->
+
+            <xpath expr="//div[@id='adding_article']" position="attributes">
+                <attribute name="class">col-md-8</attribute>
+                <attribute name="attrs">{'invisible': ['|',('parent.len_stock_id','=',0),('stock_id','=',False)] }</attribute>
+            </xpath>
+            <xpath expr="//div[@id='adding_article']" position="after">
+                <!-- <field name="qty_stock" invisible='1' force_save="1" /> -->
+                <div class="col-md-8 text-center"
+                    attrs="{'invisible': [('stock_id','!=',False)] }">
+                    <span>Il faut préciser le Stock source!</span>
+                </div>
+                <div class="col-md-4 text-center" attrs="{'invisible': [('stock_id','=',False)] }">
+                    Stock
+                    <br/>
+                    <span class="text-danger">
+                        <field name="stock_id" options="{'no_open': True}"/>
+                    </span>
+                    <hr/>
+                    <br/>
+                    <field name="stock_infini" invisible='1'  />
+                    <div attrs="{'invisible': [('stock_infini','=',False)] }">
+                        <span>Stock inifini</span> <br/><br/>
+                        <span>Les quantités de cet article ne sont pas conrôlés</span>
+                    </div>
+                    <div attrs="{'invisible': [('stock_infini','=',True)] }">
+                        Quantité disponible
+                        <br/>
+                        <span class="text-danger">
+                            <field name="qte_disponible" force_save="1"/>
+                        </span>
+                        <field name="stock_negatif" invisible="1"/>  
+                        <div attrs="{'invisible': [('stock_negatif','=',False)] }" >
+                            <br/>
+                            Stock Peut être Négatif
+                            <br/>
+                        </div>
+                    
+                        <field name="productidid"  invisible="1"  />                    
+                        
+                        <div style="background-color: red" attrs="{'invisible': ['|','|',('stock_negatif','=',True),('qte_disponible','>',0),('productidid','=',0)] }" >
+                            <br/>
+                            <h3 class="text-white"> Stock Zero</h3> 
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+                <!-- <footer> 
+                    <button  type="object" string="Save"/> or 
+                    <button string="Cancel" special="cancel" class="oe_link"/> 
+                </footer> -->
+            </xpath>
+            <xpath expr="//div[@id='annulation']" position="after">
+                <!-- <div class="col-md-4" style="border-right:1px solid #dedede" id="annulation">
+                        <h4 class="hh4">Mono/Multi Stock</h4>
+                        <hr/>
+                        <div class="row" attrs="{'invisible':[('len_stock_id','&lt;',2)]}">
+                            <div class="col-md-4 text-right">
+                                <label for="from_one_many_stock"/>
+                            </div>
+                            <div class="col-md-7">
+                                <field class="my-form-control" name="from_one_many_stock"/>
+                            </div>
+                        </div>
+                    </div> -->
+            </xpath>
+            <!-- <xpath expr="//tree/field[@name='product_uom_qty']" position="replace">
+                <field name="product_uom_qty" string="Qté." />
+            </xpath>
+            <xpath expr="//tree/field[@name='product_uom_qty']" position="after">
+                <field name="product_uom_qty_livred" attrs="{'column_invisible': [('parent.qty_delivered_equals_commanded','=',True)]}" />
+
+            </xpath> -->
+
+        </field>
+    </record>
+
+    <!--Inherits sales Search-->
+    <record id="sn_stocks_sales_order_search" model="ir.ui.view">
+        <field name="name">Sales Search</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="inherit_id" ref="sn_sales.sn_sales_order_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_by']" position="inside">
+                <filter name="group_stock_id" string="Par Stock" context="{'group_by': 'stock_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

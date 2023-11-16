@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_uom_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.uom</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="UOM" string="UOM" data-key="sn_uom" groups="sn_uom.sn_uom_manager">
+                        <div class="h1 config-big-tilte"> Configuration - U.O.M </div>
+                        <h2>Recording</h2>
+                        <div class="row o_settings_container">
+                            <div class="col-md-6 o_setting_box">
+
+                                <div class="o_setting_left_pane">
+                                    <field name="purchase_confirmed_by_default"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="purchase_confirmed_by_default"/>
+                                    <div class="text-muted">
+                                        Confirmer les UOMs
+                                    </div>
+                                </div>
+                                <br/>
+                            </div>
+                            <div class="col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="charges_exist"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="charges_exist"/>
+                                    <div class="text-muted">
+                                        Prendre en compte les differents charges sur le produit
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <!--<record id="action_sn_uom_configuration" model="ir.actions.act_window">-->
+            <!--<field name="name">Settings</field>-->
+            <!--<field name="type">ir.actions.act_window</field>-->
+            <!--<field name="res_model">res.config.settings</field>-->
+            <!--<field name="view_mode">form</field>-->
+            <!--<field name="target">inline</field>-->
+            <!--<field name="context">{'module' : 'sn_uom'}</field>-->
+        <!--</record>-->
+
+        <!--<menuitem id="menu_sn_uom_global_settings"-->
+                  <!--name="Configuration"-->
+                  <!--parent="menu_sn_uom"-->
+                  <!--sequence="20"-->
+                  <!--action="action_sn_uom_configuration"-->
+                  <!--groups="base.group_system"/>-->
+    </data>
+</odoo>

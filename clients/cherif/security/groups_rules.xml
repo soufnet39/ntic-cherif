@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!--  Category special group -->
+    <record id="cherif_spacial_access" model="ir.module.category">
+        <field name="name">Cherif Special Access</field>
+    </record>
+     <!--  User cant spacial account -->
+    <record id="cherif_special_user" model="res.groups">
+        <field name="name">Cherif cannot change price</field>
+        <field name="category_id" ref="cherif_spacial_access"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+
+    </record>
+
+    <!-- - - - ####################################@- - - -->
+
+    <!--  Category Name -->
+    <record id="cherif_access" model="ir.module.category">
+        <field name="name">Cherif Access</field>
+    </record>
+
+    <!--  User Group -->
+    <record id="cherif_user" model="res.groups">
+        <field name="name">Cherif User</field>
+        <field name="category_id" ref="cherif_access"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    
+
+    <!-- Manager Group -->
+    <record id="cherif_manager" model="res.groups">
+        <field name="name">Cherif Manager</field>
+        <field name="category_id" ref="cherif_access"/>
+        <field name="implied_ids" eval="[(4, ref('cherif_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <!-- Boss Group -->
+    <record id="cherif_boss" model="res.groups">
+        <field name="name">Cherif Boss</field>
+        <field name="category_id" ref="cherif_access"/>
+        <field name="implied_ids" eval="[(4, ref('cherif_user')),(4, ref('cherif_manager'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+
+</odoo>

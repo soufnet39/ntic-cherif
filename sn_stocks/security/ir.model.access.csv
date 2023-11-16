@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_sn_stocks_stocks,sn_stocks.stocks,model_sn_stocks_stocks,sn_stocks_user,1,1,1,1
+access_sn_stocks_eval_stocks,sn_stocks.eval_stocks,model_sn_stocks_eval_stocks,sn_stocks_user,1,0,0,0
+access_sn_stocks_reserves,sn_stocks.reserves,model_sn_stocks_reserves,sn_stocks_user,1,1,1,1

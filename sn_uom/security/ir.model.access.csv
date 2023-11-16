@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_sn_uom_categories,sn_uom.categories,model_sn_uom_categories,uom_user,1,1,1,1
+access_sn_uom_uom,sn_uom.uom,model_sn_uom_uom,uom_user,1,1,1,1

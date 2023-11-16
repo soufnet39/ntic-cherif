@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--  Category Name -->
+    <record id="sn_credit_access" model="ir.module.category">
+        <field name="name">Sales with Credit</field>
+    </record>
+
+    <!--  User Group -->
+    <record id="sn_credit_user" model="res.groups">
+        <field name="name">Sales Credit User</field>
+        <field name="category_id" ref="sn_credit_access"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Manager Group -->
+    <record id="sn_credit_manager" model="res.groups">
+        <field name="name">Sales Credit Manager</field>
+        <field name="category_id" ref="sn_credit_access"/>
+        <field name="implied_ids" eval="[(4, ref('sn_credit_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <!-- Boss Group -->
+    <record id="sn_credit_boss" model="res.groups">
+        <field name="name">Sales Credit Boss</field>
+        <field name="category_id" ref="sn_credit_access"/>
+        <field name="implied_ids" eval="[(4, ref('sn_credit_user')),(4, ref('sn_credit_manager'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+
+
+
+    <!--Contrats rule-->
+    <!-- <record model="ir.rule" id="sn_rcedit_contrats_rule">
+        <field name="name">Contrats multi centre (company)</field>
+        <field name="model_id" ref="model_sn_credit_contrats"/>
+        <field name="global" eval="True"/>
+        <field name="groups" eval="[(4, ref('sn_credit_user')), (4, ref('sn_credit_manager'))]"/>
+        <field name="domain_force">['|', ('company_id','=',False), ('company_id', 'in', company_ids)]</field>
+    </record> -->
+
+     <!--Prelevements rule-->
+    <!-- <record model="ir.rule" id="sn_rcedit_prelevements_rule">
+        <field name="name">Prelevements multi centre (company)</field>
+        <field name="model_id" ref="model_sn_credit_prelevements"/>
+        <field name="global" eval="True"/>
+        <field name="groups" eval="[(4, ref('sn_credit_user')), (4, ref('sn_credit_manager'))]"/>
+        <field name="domain_force">['|', ('company_id','=',False), ('company_id', 'in', company_ids)]</field>
+    </record> -->
+    <!--Enlèvements rule-->
+    <!-- <record model="ir.rule" id="sn_rcedit_cuts_rule">
+        <field name="name">Enlèvements multi centre (company)</field>
+        <field name="model_id" ref="model_sn_credit_cuts"/>
+        <field name="global" eval="True"/>
+        <field name="groups" eval="[(4, ref('sn_credit_user')), (4, ref('sn_credit_manager'))]"/>
+        <field name="domain_force">['|', ('company_id','=',False), ('company_id', 'in', company_ids)]</field>
+    </record> -->
+
+    <!--Enlèvements lines rule-->
+    <!-- <record model="ir.rule" id="sn_rcedit_lines_rule">
+        <field name="name">Enlèvements lines multi centre (company)</field>
+        <field name="model_id" ref="model_sn_credit_cuts_lines"/>
+        <field name="global" eval="True"/>
+        <field name="groups" eval="[(4, ref('sn_credit_user')), (4, ref('sn_credit_manager'))]"/>
+        <field name="domain_force">['|', ('company_id','=',False), ('company_id', 'in', company_ids)]</field>
+    </record> -->
+
+     <!-- rest products rule-->
+     <!-- <record model="ir.rule" id="sn_rcedit_rest_product">
+        <field name="name">rest des produits(company)</field>
+        <field name="model_id" ref="model_sn_credit_wiz_rest_product"/>
+        <field name="global" eval="True"/>
+        <field name="groups" eval="[(4, ref('sn_credit_user')), (4, ref('sn_credit_manager'))]"/>
+        <field name="domain_force">['|', ('company_id','=',False), ('company_id', 'in', company_ids)]</field>
+    </record>  -->
+</odoo>

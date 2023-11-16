@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <act_window id="ccombine_wizard_action"
+        name="Grouper vers 1 Facture"
+        binding_model="sn_sales.commandes"
+        res_model="sn_sales.commandes_selected.wiz"
+        view_mode="form" target="new"
+
+        />
+
+    <record model="ir.ui.view" id="combine_commandes_wizard_view">
+        <field name="name">sn_sales.commandes_selected.wiz.form</field>
+        <field name="model">sn_sales.commandes_selected.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Combine">
+                <div class="text-center">
+                    <h1 class="text-danger">Grouper les Commandes pour une même Facture</h1>
+                </div>
+                <field name="is_momken" invisible="1"/>
+                <br/>
+                <field name="motif"  class='h3 text-center' widget="html"/>
+                <br/>
+                <field name="selected_commandes_ids_count" invisible="1"/>
+                <div class="text-center" attrs="{'invisible':[('selected_commandes_ids_count','>',1)]}">
+                  Selectionnez au moins 2 commandes pour faire leur groupement vers Facture
+                </div>
+                <field name="selected_commandes_ids"   style="pointer-events:none;"                                              
+                 attrs="{'invisible':[('selected_commandes_ids_count','&lt;',2)]}" >
+                    <tree string="Caption" create="false" delete="false" edit="false" editable="top">
+                        <field name="cmd_name" readonly="1"/>
+                        <field name="client_name" readonly="1"/>
+                        <field name="cmd_date" readonly="1"/>
+                        <field name="count_lines" readonly="1"/>
+                        <field name="facture_name" readonly="1"/>
+                    </tree>
+                   
+                </field>
+                <footer>
+                    <button  class="btn btn-primary" attrs="{'invisible':[('is_momken','=',False)]}" 
+                    name="do_groupe" string="Grouper" type="object"/>
+               
+                    <button class="btn btn-secondary" data-dismiss="modal" string="Abondonner"/>
+                    <span class="h4 text-danger" attrs="{'invisible':[('is_momken','=',True)]}"> Veuillez lire les remarques en haut </span>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

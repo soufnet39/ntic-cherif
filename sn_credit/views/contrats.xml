@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Main Menu-->
+    <menuitem id="menu_credit"
+              name="Crédits"
+              parent="sn_base.sn_menu_root"
+              sequence="3"/>
+
+    <!--Tree-->
+    <record id="sn_credit_contrats_tree" model="ir.ui.view">
+        <field name="name">Credit contrats</field>
+        <field name="model">sn_credit.contrats</field>
+        <field name="arch" type="xml">
+            <tree string="" decoration-bf="True">
+                <field name="name"/>
+                <field name="jour_retrait"/>
+                <field name="description"/>
+                <field name="ccp_numero"/>
+                <field name="ccp_cle"/>
+                <field name="users_ids"   widget="many2many_tags" />
+
+            </tree>
+        </field>
+    </record>
+    <!--Form-->
+    <record id="sn_credit_contrats_form" model="ir.ui.view">
+        <field name="name">Contrat Form</field>
+        <field name="model">sn_credit.contrats</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <br/>
+                    <div class="text-center text-danger">
+                        <h1>
+                            Présentation du Contrat
+                        </h1>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-4 text-right">
+                            <label for="name"/>
+                        </div>
+                        <div class="col-md-2">
+                            <field class="my-form-control" name="name" placeholder="A, B, C, D, E ou F"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">
+                            <label for="description"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control" name="description"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">
+                            <label for="jour_retrait"/>
+                        </div>
+                        <div class="col-md-2">
+                            <field class="my-form-control" name="jour_retrait"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">
+                            <label for="nbr_months"/>
+                        </div>
+                        <div class="col-md-2">
+                            <field class="my-form-control" name="nbr_months"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">
+                            <label for="nbr_aksats"/>
+                        </div>
+                        <div class="col-md-2">
+                            <field class="my-form-control" name="nbr_aksats"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">
+                            <label for="ccp_numero"/>
+                        </div>
+                        <div class="col-md-3">
+                            <field class="my-form-control" name="ccp_numero"/>
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <label for="ccp_cle"/>
+                        </div>
+                        <div class="col-md-2">
+                            <field class="my-form-control" name="ccp_cle"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">
+                            <label for="users_ids"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control" name="users_ids" 
+                            widget="many2many_tags" 
+                            
+                            options="{'no_create': True}"
+                            
+                            />
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Action-->
+    <act_window id="sn_credit_contrats_action"
+                name="Contrats"
+                res_model="sn_credit.contrats"
+                view_mode="tree,form"
+                view_id="sn_credit_contrats_tree"
+    />
+
+
+    <!--Menu bon de livraison-->
+    <menuitem action="sn_credit_contrats_action"
+              id="menu_sn_credit_contrats"
+              name="Contrats"
+              parent="sn_base.menu_config"
+              groups="sn_credit_boss"
+              sequence="3"/>
+
+
+</odoo>

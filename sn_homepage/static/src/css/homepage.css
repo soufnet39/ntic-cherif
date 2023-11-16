@@ -1,0 +1,45 @@
+@import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css");
+body{}
+.widget {
+    margin: 10px 0 25px 0;
+    display: block;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color:#fff
+    /*border: solid #875a7b;*/
+}
+.widget .widget-heading {
+    padding: 7px 15px;
+    -webkit-border-radius: 2px 2px 0 0;
+    -moz-border-radius: 2px 2px 0 0;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+    text-align: center;
+    background: #875a7b;
+    color: white;
+}
+.widget .widget-body {
+    padding: 10px 15px;
+    font-size: 36px;
+    font-weight: 300;
+    color: #875a7b;
+    border: solid #875a7b;
+}
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+
+    }
+
+     .table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}

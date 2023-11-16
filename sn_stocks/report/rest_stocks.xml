@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_rest_stck_w_qty">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="text-center">
+                    <h2>
+                  Liste des produits
+                    </h2>
+                </div>
+                <br/>
+                <div class="text-left" style="direction:ltr">
+             Le :         <span t-esc="time.strftime('%d/%m/%Y')"/>
+                </div>
+                <table style="width:90%; margin:0 auto;direction:ltr;text-align:left;">
+                    <thead style="border: 1px solid #000;">
+                        <th style="width:75%"> Désignation
+                        </th>
+                        <th class="text-left">Prix</th>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="doc">
+                            <t t-set="doc" t-value="doc.with_context({'lang':user.lang})"/>
+
+                            <tr style="border-bottom: 1px solid silver;">
+                                <td>
+                                    <span t-field="doc.name"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="doc.price"/>
+                                </td>
+                            </tr>
+
+
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,3165 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sn_sales
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20191106\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-11 02:02+0000\n"
+"PO-Revision-Date: 2021-01-11 04:14+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar_SY\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: sn_sales
+#: code:addons/sn_sales/models/products.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "‫%s (نسخة)"
+
+#. module: sn_sales
+#: model:ir.actions.report,print_report_name:sn_sales.action_report_commande
+msgid "'Commande - %s' % (object.name)"
+msgstr ""
+
+#. module: sn_sales
+#: model:ir.actions.report,print_report_name:sn_sales.action_report_commandes_list
+msgid "'Commandes - list'"
+msgstr "'الطلبيات - قائمة'"
+
+#. module: sn_sales
+#: model:ir.actions.report,print_report_name:sn_sales.action_etats_commandes_report
+msgid "'Etats de ventes'"
+msgstr "‫‘حالة البيع’"
+
+#. module: sn_sales
+#: model:ir.actions.report,print_report_name:sn_sales.action_report_proforma
+msgid "'Facture Proforma - %s' % (object.name)"
+msgstr ""
+
+#. module: sn_sales
+#: model:ir.actions.report,print_report_name:sn_sales.partner_list_report
+msgid "'Liste des Clients'"
+msgstr "قائمة الزبائنط"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commande_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "(Annulée)"
+msgstr "(ملغاة)"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commande_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "(Brouillon)"
+msgstr "(مسودة)"
+
+#. module: sn_sales
+#: model:sn_sales.validities_offre,name:sn_sales.valoffre_02
+msgid "15 Jours"
+msgstr "15 يوم"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__semestre__1
+msgid "1er Semestre"
+msgstr "السداسي الأول"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__trimestre__1
+msgid "1er Trimestre"
+msgstr "الثلاثي الأول"
+
+#. module: sn_sales
+#: model:sn_sales.validities_offre,name:sn_sales.valoffre_05
+msgid "2 Mois"
+msgstr "شهران"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__annee__2019
+msgid "2019"
+msgstr ""
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__annee__2020
+msgid "2020"
+msgstr ""
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__semestre__2
+msgid "2em Semestre"
+msgstr "السداسي الثاني"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__trimestre__2
+msgid "2em Trimestre"
+msgstr "‫الثلاثي الثاني"
+
+#. module: sn_sales
+#: model:sn_sales.validities_offre,name:sn_sales.valoffre_03
+msgid "30 Jours"
+msgstr "30 يوما"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__trimestre__3
+msgid "3em Trimestre"
+msgstr "‫الثلاثي الثالث"
+
+#. module: sn_sales
+#: model:sn_sales.validities_offre,name:sn_sales.valoffre_04
+msgid "45 Jours"
+msgstr "45 يوم"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__trimestre__4
+msgid "4em Trimestre"
+msgstr "‫الثلاثي الرابع"
+
+#. module: sn_sales
+#: model:sn_sales.methodes_paiement,name:sn_sales.metpaie_03
+msgid "50% à la commande, 50% à la livraison"
+msgstr "50٪ عند الطلب، 50٪ عند التسليم"
+
+#. module: sn_sales
+#: model:sn_sales.validities_offre,name:sn_sales.valoffre_01
+msgid "7 Jours"
+msgstr "7 أيام"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid ""
+"<br/>\n"
+"                                considere vente confirmer avec la livraison\n"
+"                                <br/>\n"
+"                                remise? si oui? (default case: global ou par article, percentage ou mta fixe......)"
+msgstr ""
+"‫<br>إعتبار البيع مؤكد مع الشحن<br>تخفيض؟ في حالة نعم؟ (الحالة الافتراضية: عمومية أو حسب المنتج ،حساب بالنسبة "
+"المئوية أو قيمة ثابتة ......)"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commande_document
+msgid ""
+"<br/>\n"
+"                        <span id=\"arrete\">\n"
+"                            <strong>Arrêté la présente commande à la somme de:</strong>\n"
+"                        </span>\n"
+"                        <br/>"
+msgstr ""
+"‫<br/>\n"
+"‬\n"
+"‏‫                        <span id=“arrete”>\n"
+"‬\n"
+"‏‫                            <strong>تم توقيف هاته الطلبية على مبلغ قدره:</strong>\n"
+"‬\n"
+"‏‫                        </span>\n"
+"‬\n"
+"‏‫                        <br/>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid ""
+"<br/>\n"
+"                        <span id=\"arrete\">\n"
+"                            <strong>Arrêtée la présente facture proforma à la somme de:</strong>\n"
+"                        </span>\n"
+"                        <br/>"
+msgstr ""
+"‫<br/>\n"
+"‬\n"
+"‏‫                        <span id=“arrete”>\n"
+"‬\n"
+"‏‫                            <strong></strong>\n"
+"‬\n"
+"‏‫                        </span>\n"
+"‬\n"
+"‏‫                        <br/>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+msgid ""
+"<span attrs=\"{'invisible':[('display_type', 'not in', ('line_note','line_section'))]}\" class=\"text-muted\">\n"
+"                                            Une note sera affiché sous le nom de l'article seulement,\n"
+"                                            Une Section sera affiché sous la ligne entière\n"
+"                                        </span>"
+msgstr ""
+"‫<span attrs=\"{'invisible':[('display_type', '=', False)]}\" class=\"text-muted\">سيتم عرض الملاحظة تحت اسم المنتج "
+"فقط،\n"
+"‬\n"
+"‫                                            سيتم عرض المقطع تحت السطر بأكمله</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid ""
+"<span attrs=\"{'invisible':[('display_type', 'not in', ('line_note','line_section'))]}\" class=\"text-muted\">\n"
+"                                            Une note sera affiché sous le nom de l'article seulement,\n"
+"                                            Une Section sera affiché sous la ligne entière\n"
+"                                    </span>"
+msgstr ""
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid ""
+"<span attrs=\"{'invisible':[('id', '!=', False)]}\">Création</span>\n"
+"                            <span class=\"oe_edit_only\" attrs=\"{'invisible':[('id', '=', False)]}\">Edition</"
+"span>\n"
+"                            <span class=\"oe_read_only\">Présentation</span>\n"
+"                            Client"
+msgstr ""
+"‫<span attrs=“{‘invisible’:[(‘id’, ‘!=‘, False)]}”>Création</span>\n"
+"‬\n"
+"‏‫                            <span class=“oe_edit_only” attrs=“{‘invisible’:[(‘id’, ‘=‘, False)]}”>Edition</span>\n"
+"‬\n"
+"‏‫                            <span class=“oe_read_only”>Présentation</span>\n"
+"‬\n"
+"‏‫                            Client"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid ""
+"<span attrs=\"{'invisible':[('name','!=','/')]}\">\n"
+"                                (Nouvelle)\n"
+"                            </span>\n"
+"                            <span class=\"text-danger\" attrs=\"{'invisible':[('state','not in',"
+"['canceled'])]}\">\n"
+"                                (Annulée)\n"
+"                            </span>\n"
+"                            <span class=\"text-warning\" attrs=\"{'invisible':['|',('name','=','/'),('state','not "
+"in',['draft'])]}\">\n"
+"                                (Brouillon)\n"
+"                            </span>"
+msgstr ""
+"‫<span attrs=\"{'invisible':[('name','!=','/')]}\">\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‫                                (جديد)\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                            </span>\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                            <span class=\"text-danger\" attrs=\"{'invisible':[('state','not in',"
+"['canceled'])]}\">\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‫                                (ملغاة)\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                            </span>\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                             <span class=\"text-warning\" attrs=\"{'invisible':['|',('name','=','/'),('state','not "
+"in',['draft'])]}\">\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‫                                (مسودة)\n"
+"‬\n"
+"‏‫‬\n"
+"‬\n"
+"‫‏‫                            </span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_product_form
+msgid ""
+"<span attrs=\"{'invisible':[('sale_methode','=','unified')]}\">\n"
+"                                Liste des prix\n"
+"                            </span>"
+msgstr "<span attrs=\"{'invisible':[('sale_methode','=','unified')]}\">قائمة الأسعار</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_product_form
+msgid "<span class=\"text-muted\">S'affiche après le nom de l'article (au Choix)</span>"
+msgstr "‫<span class=\"text-muted\">يظهر بعد اسم العنصر (حسب الاختيار)</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "<span class=\"title1\">Image :</span>"
+msgstr "<span class=\"title1\">الصوره:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "<span class=\"title1\">Precision décimal</span>"
+msgstr "‫<span class=\"title1\">الدقة العشرية</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "<span class=\"title1\">Reg.Com :</span>"
+msgstr "‫<span class=\"title1\">السجل التجاري:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "<span class=\"title1\">Solvabilité :</span>"
+msgstr "‫<span class=\"title1\">أهل للثقة:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "<span class=\"title1\">Taux :</span>"
+msgstr "<span class=\"title1\">معدل:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "<span class=\"title1\">Taxonomies (Vocabulaires)</span>"
+msgstr "‫<span class=\"title1\">التصنيفات (المفردات)</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "<span class=\"title1\">Web :</span>"
+msgstr "‫<span class=\"title1\">موقع الويب:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commande_document
+msgid "<span style=\"color:black\" id=\"main_title\">Commande Nº:</span>"
+msgstr "‫<span style=\"color:black\" id=\"main_title\">رقم الطلبية:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "<span style=\"color:black\">Facture Proforma Nº:</span>"
+msgstr "‫<span style=\"color:black;\">رقم الفاترة الشكلية:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "<span> Condition de vente : </span>"
+msgstr "‫<span>شروط البيع:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "<span> Mode de paiement : </span>"
+msgstr "<span>طريقة الدفع:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "<span> Méthode de paiement : </span>"
+msgstr "<span>طريقة الدفع:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "<span> Validité de l'offre : </span>"
+msgstr "<span>صلاحية العرض:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.taxonomies_action
+msgid "<span>Add your first taxonomy</span>"
+msgstr "‫<span>إضافة أول تصنيف</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "<span>Commandes</span>"
+msgstr "‫<span>الطلبيات</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "<span>Montant Max:</span>"
+msgstr "‫<span>الحد الأقصى للمبلغ:</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_product_form
+msgid "<span>Peut être Vendu</span>"
+msgstr "<span>يمكن بيعها</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_details
+msgid "<span>Remise</span>"
+msgstr "<span>الخصم</span>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_details
+msgid "<span>Réference</span>"
+msgstr "‫<span>مرجع:</span>"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__product_type
+msgid ""
+"A consumable product is a product for which stock is not managed.\n"
+"A service is a non-material product you provide."
+msgstr ""
+
+#. module: sn_sales
+#: model:sn_sales.methodes_paiement,name:sn_sales.metpaie_01
+msgid "A la commande"
+msgstr "عند الطلب"
+
+#. module: sn_sales
+#: model:sn_sales.methodes_paiement,name:sn_sales.metpaie_02
+msgid "A la réception de la facture"
+msgstr "عند استلام الفاتورة"
+
+#. module: sn_sales
+#: model:sn_sales.methodes_paiement,name:sn_sales.metpaie_04
+msgid "A tèrme"
+msgstr "إلى أجل"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_needaction
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_needaction
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_needaction
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__active
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__active
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__activity_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__activity_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__activity_exception_decoration
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__activity_exception_decoration
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__activity_state
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__activity_state
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__address
+msgid "Adresse"
+msgstr "عنوان"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Affichage / précision"
+msgstr "عرض / الدقة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__code_article_exist
+msgid "Afficher Code article"
+msgstr "عرض رمز المنتج"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__display_description
+msgid "Afficher Déscription"
+msgstr "عرض الوصف"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Afficher des codes des articles avant les noms"
+msgstr "عرض مرجع المنتج بالترافق مع إسمه"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__code_article_exist
+msgid "Afficher des codes pour les articles"
+msgstr "عرض رموز المنتجات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__display_recno
+msgid "Afficher le numéros de lignes"
+msgstr "عرض أرقام الأسطر"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Afficher le numéros de lignes pour les bons .P?.F?. dans l'ordre du haut vers le bas"
+msgstr "إظهار أرقام الأسطر الخاصة بالوثائق (طلبية،فاتورة،شكلية). بالترتيب من الأعلى إلى الأسفل"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Afficher les description des produits avec les bons et les factures"
+msgstr "عرض أوصاف المنتجات مع الطلبيات والفواتير"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__display_recno
+msgid "Afficher les numéro"
+msgstr "عرض الأرقام"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Ajouter une ligne"
+msgstr "إضافة سطر"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_product_form
+msgid "Ajouter/Editer Produits"
+msgstr "إضافة / تحرير المنتجات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_order_view_graph
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_proforma_view_graph
+msgid "Analyse des Caisses"
+msgstr "تحليل حالة الصناديق"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__periode__annuel
+msgid "Annuel"
+msgstr "السنوي"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Annulation"
+msgstr "إلغاء"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+msgid "Annuler la Commande"
+msgstr "إلغاء الطلبية"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Annuler la facture Proforma"
+msgstr "إلغاء الفاتورة الشكلية"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_proforma_search
+msgid "Annullés"
+msgstr "ملغى"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes__state__canceled
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_proformas__state__canceled
+msgid "Annulée"
+msgstr "ملغاة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__annee
+msgid "Année"
+msgstr "السنة"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__8
+msgid "Août"
+msgstr "أوت"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Aperçu"
+msgstr "معاينة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__date_application_start
+msgid "Applicable à partir de"
+msgstr "يُنفذ بدءا من"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__price_changed
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__price_changed
+msgid "Approbation du nouveau prix"
+msgstr "إعتماد السعر الجديد"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_pricelist_view_search
+msgid "Archive"
+msgstr "ارشيف"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_template_search_view
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_ntic_partner_filter
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__art_imp
+msgid "Art. Imp."
+msgstr "‪الرقم الجبائي."
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commande_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Art.Imp :"
+msgstr "الرقم الجبائي:"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_attachment_count
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_attachment_count
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_attachment_count
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid ""
+"Avoir la possibilite de modifier les désignations des produits lors de vente ou\n"
+"                                        facturation"
+msgstr ""
+"القدرة على تغيير أسماء المنتجات عند البيع أو\n"
+"‬\n"
+"‫                                        الفوتره"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__4
+msgid "Avril"
+msgstr "أفريل"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__special
+msgid "Bon spécial"
+msgstr "طلبية خاصة"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes__state__draft
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_proformas__state__draft
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_proforma_search
+msgid "Brouillon"
+msgstr "مسودة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_template_search_view
+msgid "Can be Purchased"
+msgstr "يمكن شراؤها"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_template_search_view
+msgid "Can be Sold"
+msgstr "يمكن بيعها"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__categories_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__categories_ids
+msgid "Categories"
+msgstr "فئات"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.pricelist_tree_action
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_pricelist_tree
+msgid "Catégories des prix"
+msgstr "فئات الأسعار"
+
+#. module: sn_sales
+#: model:ir.model.constraint,message:sn_sales.constraint_sn_sales_product_barcode_uniq
+msgid "Chaque code a barre doit être assigne a un seul produit !"
+msgstr "يجب تعيين كودبار واحد لمنتج واحد!"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_modes_paiement__nature__cheque
+msgid "Chèque"
+msgstr "صك"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__city
+msgid "City"
+msgstr "المدينة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__client_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__partner_id
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_etat_vente_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_orders_tree
+msgid "Client"
+msgstr "العميل"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commande_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Client :"
+msgstr "‫الزبون:"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__partner_id
+msgid "Client/Fournisseur"
+msgstr "‫الزبون / المورد"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_etat_vente_document
+msgid "Client:"
+msgstr "الزبون:"
+
+#. module: sn_sales
+#: model:ir.ui.menu,name:sn_sales.menu_all_clients model_terms:ir.ui.view,arch_db:sn_sales.ntic_partner_tree
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_ntic_clients
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "Clients"
+msgstr "الزبائن"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.action_timbre
+msgid "Cliquer pour créer la 1ere formule de calcul de timbre."
+msgstr "انقر لإنشاء صيغة حساب الطابع الأول."
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes__operation_type__purchase
+msgid "Cmd Achat"
+msgstr "طلبية شراء"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes__operation_type__command
+msgid "Cmd. Vente"
+msgstr "طلبية بيع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__product_code
+#: model_terms:ir.ui.view,arch_db:sn_sales.clients_list model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Code"
+msgstr "رمز"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__client_code
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__ref
+msgid "Code Client"
+msgstr "رمز ‫الزبون"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__using_codebare
+msgid "Code a barre Exist"
+msgstr "كودبار موجود"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__code_article_exist
+msgid "Code article exist"
+msgstr "رمز المنتج موجود"
+
+#. module: sn_sales
+#: model:ir.model.constraint,message:sn_sales.constraint_sn_sales_partner_code_partner_uniq
+msgid "Code client doit être unique !"
+msgstr "يجب أن يكون رمز ‫الزبون فريدًا!"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_content_types__color
+msgid "Color Index"
+msgstr "معرف اللون"
+
+#. module: sn_sales
+#: code:addons/sn_sales/models/proforma.py:0 model:ir.actions.report,name:sn_sales.action_report_commande
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__name
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+#, python-format
+msgid "Commande"
+msgstr "طلبية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__commande_id
+msgid "Commande Reference"
+msgstr "مرجع الطلبية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__commande_image
+msgid "Commande Réf."
+msgstr "‫مرجع الطلبية"
+
+#. module: sn_sales
+#: code:addons/sn_sales/models/proforma.py:0
+#, python-format
+msgid "Commande en relation non trouvée!.. Peut être supprimée.. Cette relation sera désormais déconnectée"
+msgstr "لم يتم العثور على الطلبية ذات العلاقة!.. من الممكن أنه تم حذفها. سيتم الآن قطع هاته العلاقة"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.sales_orders_action model:ir.ui.menu,name:sn_sales.menu_orders_tree
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+msgid "Commandes"
+msgstr "الطلبيات"
+
+#. module: sn_sales
+#: code:addons/sn_sales/models/partner.py:0
+#, python-format
+msgid "Commandes Client"
+msgstr "طلبيات الزبائن"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__command_confirmed_by_default
+msgid "Commandes confirmées par défaut"
+msgstr "الطلبيات مؤكدة بشكل افتراضي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__commandes_ids
+msgid "Commandes de Ventes"
+msgstr "‫طلبيات البيع"
+
+#. module: sn_sales
+#: model:ir.actions.report,name:sn_sales.action_report_commandes_list
+msgid "Commandes list"
+msgstr "قائمة الطلبيات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__commune_id
+msgid "Commune"
+msgstr "البلدية"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__company_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__company_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__company_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__company_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__company_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__company_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__company_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies__company_id
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_products_tree
+msgid "Company"
+msgstr "الشركة"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commande_lines__display_type__composed
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_proforma_lines__display_type__composed
+msgid "Composé"
+msgstr "مركب"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_conditions_vente__name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__condition_vente_id
+msgid "Condition de vente"
+msgstr "شرط البيع"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.conditions_vente_action
+#: model:ir.model,name:sn_sales.model_sn_sales_conditions_vente model:ir.ui.menu,name:sn_sales.menu_conditions_vente
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_conditions_vente_tree
+msgid "Conditions de vente"
+msgstr "شروط البيع"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_timbre_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_timbre_tree
+msgid "Configuration Timbre"
+msgstr "إعدادات الطابع"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Confirmer"
+msgstr "تأكيد"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Confirmer automatiquement les commandes de vente"
+msgstr "تأكيد الطلبيات تلقائيًا"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Confirmer automatiquement les factures proformas"
+msgstr "تأكيد الفواتير الشكلية تلقائيًا"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Confirmer le lancement des promtions occasionnelles"
+msgstr "تأكيد إطلاق الحملات العرضية"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes__state__confirmed
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_proformas__state__confirmed
+msgid "Confirmée"
+msgstr "مؤكدة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_proforma_search
+msgid "Confirmés"
+msgstr "مؤكدة"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_product__product_type__consu
+msgid "Consumable"
+msgstr "للاستهلاك"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_content_types
+msgid "Content Types"
+msgstr "أنواع المحتويات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Conversion"
+msgstr "التحويل"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Convertir en Commande"
+msgstr "التحويل إلى طلبية"
+
+#. module: sn_sales
+#: model:ir.ui.menu,name:sn_sales.menu_clients
+msgid "Coopérants"
+msgstr "المتعاملون"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_conditions_vente__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_content_types__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_methodes_paiement__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies_items__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__create_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_validities_offre__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_conditions_vente__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_content_types__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_methodes_paiement__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies_items__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__create_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_validities_offre__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_partner
+msgid "Credits part of partner"
+msgstr "الأقساط من جهة الزبون"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.menu_ntic_clients_action
+msgid "Creer un nouveau client"
+msgstr "إنشاء زبون جديد"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.ntic_product_actions_all
+msgid "Creer un nouveau produit"
+msgstr "إنشاء منتج جديد"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__creation_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__creation_date
+msgid "Création"
+msgstr "إنشاء"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__partner_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__proforma_partner_id
+msgid "Customer"
+msgstr "العميل"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__confirmation_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__display_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__date_operation
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__confirmation_date
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_etat_vente_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_orders_tree
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proformas_tree
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__validity_exist
+msgid "Date / Nbr Jours"
+msgstr "تاريخ / عدد أيام "
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__validity_date
+msgid "Date de Validité"
+msgstr "تاريخ الصلاحية"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_order_search
+msgid "Dates et périodes"
+msgstr "تواريخ ومجالات الأزمنة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_conditions_vente__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_content_types__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_methodes_paiement__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies_items__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__display_name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_validities_offre__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__display_type
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__display_type
+msgid "Display Type"
+msgstr "نوع العرض"
+
+#. module: sn_sales
+#: model:sn_sales.conditions_vente,name:sn_sales.condvent_01
+msgid "Disponible"
+msgstr "متاح"
+
+#. module: sn_sales
+#: model:sn_sales.conditions_vente,name:sn_sales.condvent_04
+msgid "Disponible à 10 jours après la réception de bon de commande"
+msgstr "متاح بعد 10 أيام من استلام الطلب"
+
+#. module: sn_sales
+#: model:sn_sales.conditions_vente,name:sn_sales.condvent_05
+msgid "Disponible à 15 jours après la réception de bon de commande"
+msgstr "متاح بعد 15 يومًا من استلام الطلب"
+
+#. module: sn_sales
+#: model:sn_sales.conditions_vente,name:sn_sales.condvent_02
+msgid "Disponible à 3 jours après la réception de bon de commande "
+msgstr "متاح بعد 3 أيام من استلام الطلب"
+
+#. module: sn_sales
+#: model:sn_sales.conditions_vente,name:sn_sales.condvent_03
+msgid "Disponible à 5 jours après la réception de bon de commande"
+msgstr "متاح بعد 5 أيام من استلام الطلب"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Divers"
+msgstr "متفرقات"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__12
+msgid "Décembre"
+msgstr "ديسمبر"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_conditions_vente__isdefault
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_methodes_paiement__isdefault
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement__isdefault
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_validities_offre__isdefault
+msgid "Défault?"
+msgstr "الافتراضي؟"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_product_form
+msgid "Définition"
+msgstr "تعريف"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_taxonomies_form
+msgid "Définition de Taxonomie (Catégorie)"
+msgstr "تعريف التصنيف (الفئة)"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__validity_exist
+msgid "Délais de validités exprimées en date"
+msgstr "نهايات الصلاحية معبر عنها بواسطة تاريخ"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__descript
+msgid "Déscription"
+msgstr "الوصف"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__name
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_details
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Désignation"
+msgstr "التعيين"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__product_name_editable
+msgid "Désignation editable"
+msgstr "تسمية قابلة للتحرير"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__product_name_editable
+msgid "Désignation éditable"
+msgstr "تسمية قابلة للتحرير"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_product_form
+msgid "Désignation.."
+msgstr "التعيين.."
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Déterminer le language à utiliser lors de l'impression des documents."
+msgstr "تحديد اللغة التي تريد استخدامها عند طباعة المستندات."
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__is_expired
+msgid "Eexpiré"
+msgstr "منتهية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__email
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__email
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__res_config_settings__remise_applied_on__global
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes__remise_applied_on__global
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_proformas__remise_applied_on__global
+msgid "En global"
+msgstr "في العموم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__date_end
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_pricelist_item__date_end
+msgid "Ending valid for the pricelist item validation"
+msgstr "‫Ending valid for the pricelist item validation"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_modes_paiement__nature__cash
+msgid "Espèce"
+msgstr "نقدي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__state
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__etat
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__state
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_etat_vente_document
+msgid "Etat"
+msgstr "الدولة"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.etat_ventes
+#: model:ir.actions.report,name:sn_sales.action_etats_commandes_report
+msgid "Etat de Ventes"
+msgstr "حالة المبيعات"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__etat__global
+msgid "Etat global des Clients"
+msgstr "الحالة العامة للزبائن"
+
+#. module: sn_sales
+#: model:ir.ui.menu,name:sn_sales.menu_commandes_wiz
+msgid "Etats de Vente"
+msgstr "‫حالة المبيعات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+msgid "Etats de Ventes"
+msgstr "‫‘‫حالة المبيعات’"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_proforma_search
+msgid "Expirés"
+msgstr "منتهية"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+msgid "Facture Lines"
+msgstr "أسطر الفاتورة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__name
+msgid "Facture Proforma"
+msgstr "فاتورة شكلية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__facture_image
+msgid "Facture Réf."
+msgstr "مرجع الفاتورة"
+
+#. module: sn_sales
+#: model:ir.actions.report,name:sn_sales.action_report_ntic_client
+#: model:ir.actions.report,print_report_name:sn_sales.action_report_ntic_client
+msgid "Fiche Client"
+msgstr "بطاقة الزبون"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_partner__solvency__fidele
+msgid "Fidèle"
+msgstr "الأوفياء"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+msgid "Filtration"
+msgstr "الترشيح"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_timbres
+msgid "Fiscal Timbre configuration"
+msgstr "إعدادات الطابع الضريبي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_follower_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_follower_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_follower_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_channel_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_channel_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_channel_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_partner_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_partner_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_partner_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__fonction
+msgid "Fonction"
+msgstr "الوظيفة"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_partner__email_formatted
+msgid "Format email address \"Name <email@domain>\""
+msgstr "تنسيق البريد الإلكتروني \"الاسم <email@domain>\""
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__email_formatted
+msgid "Formatted Email"
+msgstr "البريد الإلكتروني المنسق"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.action_timbre
+msgid "Formules de Timbre"
+msgstr "صيغ إحتساب الطابع"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_template_search_view
+msgid "Future Activities"
+msgstr "الأنشطة المستقبلية"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__2
+msgid "Février"
+msgstr "فبراير"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__periode__global
+msgid "Global"
+msgstr "شامل"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_order_search
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_proforma_search
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_ntic_partner_filter
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_totaux
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "HT après Remise :"
+msgstr "HT بعد الخصم:"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+msgid "HT après la remise :"
+msgstr "‫HT بعد الخصم:"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_conditions_vente__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_content_types__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_methodes_paiement__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies_items__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_validities_offre__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__activity_exception_icon
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__activity_exception_icon
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commandes__activity_exception_icon
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__activity_exception_icon
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proformas__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "رمز الإشارة إلى نشاط استثنائي."
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commandes__message_needaction
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commandes__message_unread
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__message_needaction
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__message_unread
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proformas__message_needaction
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proformas__message_unread
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_timbres__message_needaction
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_timbres__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "إذا كان محددًا، فهناك رسائل جديدة تحتاج لرؤيتها."
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commandes__message_has_error
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commandes__message_has_sms_error
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__message_has_error
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__message_has_sms_error
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proformas__message_has_error
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proformas__message_has_sms_error
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_timbres__message_has_error
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_timbres__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا كان محددًا، فقد حدث خطأ في تسليم بعض الرسائل."
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__active
+msgid "If unchecked, it will allow you to hide the product without removing it."
+msgstr "إذا لم يتم تحديدها، فإنه سوف يسمح لك لإخفاء المنتج دون إزالته."
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__image
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__image
+msgid "Image 128"
+msgstr "صورة 128"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__image_512
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__image_512
+msgid "Image 512"
+msgstr "صورة 512"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+msgid "Impression"
+msgstr "طباعة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_product_form
+msgid "Information"
+msgstr "المعلومات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "Internal note..."
+msgstr "مذكرة داخلية..."
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_is_follower
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_is_follower
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_is_follower
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__is_customer
+msgid "Is it Customer"
+msgstr "هل هو زبون"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__is_supplier
+msgid "Is it Supplier"
+msgstr "هل هو مورد"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies__items
+msgid "Items"
+msgstr "العناصر"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__1
+msgid "Janvier"
+msgstr "جانفي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__function
+msgid "Job Position"
+msgstr "المنصب الوظيفي"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__7
+msgid "Juillet"
+msgstr "جويلية"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__6
+msgid "Juin"
+msgstr "جوان"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+msgid ""
+"L'annulation sera\n"
+"                                            <br/>\n"
+"                                            après la confirmation"
+msgstr "سيتم الإلغاء<br>بعد التأكيد"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "L'annulation sera <br/> après la confirmation"
+msgstr "سيتم إلغاء<br>بعد التأكيد"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "La TVA est en marche avec les devis et le bons de vente"
+msgstr "ضريبة القيمة المضافة على مع عروض الأسعار والطلبيات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "La conversion est déjà faite"
+msgstr "تم إجراء التحويل بالفعل"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "La conversion sera <br/> après la confirmation"
+msgstr "التحويل سيكون <br/> بعد تأكيد"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid ""
+"La numérotation des bons de commandes\n"
+"                                        <br/>"
+msgstr "ترقيم الطلبيات<br>"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "La remise, exist elle et applicable sur les Devis et les bons"
+msgstr "الخصم القائم والمطبق على عروض الأسعار والطلبيات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__promotions_exist
+msgid "Lancer des promotions"
+msgstr "إطلاق العروض الترويجية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__lang
+msgid "Language"
+msgstr "اللغة"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__res_config_settings__print_language__client
+msgid "Language Client"
+msgstr "لغة الزبون"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__res_config_settings__print_language__user
+msgid "Language User"
+msgstr "لغة المستخدم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__print_language
+msgid "Language d'impression"
+msgstr "لغة الطباعة "
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_conditions_vente____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_content_types____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_methodes_paiement____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies_items____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres____last_update
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_validities_offre____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_conditions_vente__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_content_types__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_methodes_paiement__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies_items__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__write_uid
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_validities_offre__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_conditions_vente__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_content_types__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_methodes_paiement__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies_items__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__write_date
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_validities_offre__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_template_search_view
+msgid "Late Activities"
+msgstr "الأنشطة المتأخرة"
+
+#. module: sn_sales
+#: model:ir.model.constraint,message:sn_sales.constraint_sn_sales_timbres_name_uniq
+msgid "Le nom doit être unique par Société!"
+msgstr "يجب أن يكون الاسم فريدًا في كل شركة!"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_etat_vente_document
+msgid "Le:"
+msgstr "يوم:"
+
+#. module: sn_sales
+#: code:addons/sn_sales/models/commandes.py:0
+#, python-format
+msgid "Les quantités sont nuls, Pas de confirmation "
+msgstr "الكميات صفرية، لا يمكن التأكيد"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__name
+msgid "Libellé"
+msgstr "الصيغه"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__pricelist_id
+msgid "Libellé de prix"
+msgstr "تسمية السعر"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+msgid "Lignes de commande"
+msgstr "أسطر الطلبية"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Lignes de proforma"
+msgstr "أسطر الفاتورة الشكلية"
+
+#. module: sn_sales
+#: model:ir.actions.report,name:sn_sales.partner_list_report
+msgid "List des Clients"
+msgstr "قائمة الزبائن"
+
+#. module: sn_sales
+#: model:ir.ui.menu,name:sn_sales.menu_all_product
+msgid "Liste Produits"
+msgstr "قائمة المنتجات"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.menu_ntic_clients_action
+msgid "Liste de Clients"
+msgstr "قائمة الزبائن"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__list_prix
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__list_prix
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__list_prix
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_pricelist_form
+msgid "Liste de prix"
+msgstr "قائمة الأسعار"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_products_tree
+msgid "Liste de produits"
+msgstr "قائمة المنتجات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.clients_list
+msgid "Liste des Clients"
+msgstr "قائمة الزبائن"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commandes_list
+msgid "Liste des commandes"
+msgstr "قائمة الطلبيات"
+
+#. module: sn_sales
+#: model:ir.ui.menu,name:sn_sales.menu_pricelist_tree
+msgid "Listes des prix"
+msgstr "قوائم الأسعار"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__5
+msgid "Mai"
+msgstr "ماي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_main_attachment_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_main_attachment_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_main_attachment_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_partner__solvency__bad_payed
+msgid "Mal Payeur"
+msgstr "سداد سئء"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__3
+msgid "Mars"
+msgstr "مارس"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__mat_fisc
+msgid "Mat. Fisc."
+msgstr "الرقم الضريبي"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commande_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Mat.Fisc :"
+msgstr "الرقم الضريبي:"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__dept_limit
+msgid "Max Amount"
+msgstr "الحد الأقصى للمبلغ"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_has_error
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_has_error
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_has_error
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__remise_applied_on
+msgid "Methode d'application"
+msgstr "طريقة التطبيق"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__sale_methode
+msgid "Methode de prix"
+msgstr "طريقة حساب السعر"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__remise_methode
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__remise_methode
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__remise_methode
+msgid "Methode de remise"
+msgstr "طريقة حساب الخصم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__min_quantity
+msgid "Min. Quantity"
+msgstr "الحد الأدنى للكمية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__mobile
+msgid "Mobile"
+msgstr "الهاتف المحمول"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement__name
+msgid "Mode"
+msgstr "النسق"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__mode_paiement_id
+msgid "Mode de paiement"
+msgstr "‫طريقة الدفع"
+
+#. module: sn_sales
+#: model:ir.model.constraint,message:sn_sales.constraint_sn_sales_modes_paiement_mode_paiement_unique
+msgid "Mode de paiement éxiste déjà!"
+msgstr "‫طريقة للدفع موجودة مسبقا!"
+
+#. module: sn_sales
+#: model:ir.ui.menu,name:sn_sales.menu_sn_sales_modes
+msgid "Modes"
+msgstr "وضعيات"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.mode_paiement_action
+#: model:ir.model,name:sn_sales.model_sn_sales_modes_paiement model:ir.ui.menu,name:sn_sales.menu_modes_paiement
+msgid "Modes de paiement"
+msgstr "طرق الدفع"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_mode_paiement_tree
+msgid "Modes paiement"
+msgstr "‫وضعيات الدفع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__mois
+msgid "Mois"
+msgstr "الشهر"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__periode__mois
+msgid "Monsuel"
+msgstr "‫شهريا"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__res_config_settings__remise_methode__mta
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes__remise_methode__mta
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_proformas__remise_methode__mta
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_details
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_etat_vente_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_order_search
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+msgid "Montant"
+msgstr "المبلغ"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__amount_ht
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__amount_ht
+msgid "Montant HT"
+msgstr "مبلغ HT"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_totaux
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Montant HT :"
+msgstr "المبلغ HT:"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__amount_ht_before_remise
+msgid "Montant avant la remise"
+msgstr "المبلغ قبل الخصم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__amount_ht_before_remise
+msgid "Montant avant remise"
+msgstr "المبلغ قبل الخصم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__remise_mta
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__remise_mta
+msgid "Montant de remise"
+msgstr "قيمة الخصم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__remise_default_mta
+msgid "Montant par defaut"
+msgstr "المبلغ الإفتراضي"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_totaux
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Montant sans remise :"
+msgstr "المبلغ بدون خصم:"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_methodes_paiement__name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__methode_paiement_id
+msgid "Méthode de paiement"
+msgstr "طريقة الدفع"
+
+#. module: sn_sales
+#: model:ir.model.constraint,message:sn_sales.constraint_sn_sales_methodes_paiement_methode_paiement_unique
+msgid "Méthode de paiement éxiste déjà!"
+msgstr "طريقة للدفع موجودة مسبقا!"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.methode_paiement_action
+#: model:ir.model,name:sn_sales.model_sn_sales_methodes_paiement
+#: model:ir.ui.menu,name:sn_sales.menu_methodes_paiement
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_methode_paiement_tree
+msgid "Méthodes de paiement"
+msgstr "طرق الدفع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__nis
+msgid "N.I.S."
+msgstr "الرقم الإحصائي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_content_types__name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies_items__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement__nature
+msgid "Nature"
+msgstr "الطبيعه"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__activity_date_deadline
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__activity_date_deadline
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__activity_summary
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__activity_summary
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__activity_type_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__activity_type_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies__name
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__name
+#: model_terms:ir.ui.view,arch_db:sn_sales.clients_list
+msgid "Nom"
+msgstr "الإسم"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Nom affiché :"
+msgstr "الاسم المعروض:"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__price_list_libelle
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__price_list_libelle
+msgid "Nom de liste de prix"
+msgstr "اسم قائمة الأسعار"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__product_name_editable
+msgid "Nom de produit modifiable"
+msgstr "اسم المنتج القابل للتغيير"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_product_form
+msgid "Nom du produit"
+msgstr "اسم المنتج"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_ntic_partner_filter
+msgid "Nom, Code"
+msgstr "الاسم، رمز"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__commande_lines_count
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__proforma_lines_count
+msgid "Nombre de lignes"
+msgstr "عدد الأسطر"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_partner__solvency__non_solvable
+msgid "Non Solvable"
+msgstr "غير سهل عند التسديد"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__note
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__note
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__note
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commande_lines__display_type__line_note
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_proforma_lines__display_type__line_note
+msgid "Note"
+msgstr "الملاحظات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__comment
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "Notes"
+msgstr "الملاحظات"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.sn_sales_order_form_action
+msgid "Nouvelle Commande"
+msgstr "طلبية جديدة"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__11
+msgid "Novembre"
+msgstr "نوفمبر"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_product
+msgid "Ntic Product"
+msgstr "المنتج nTIC"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_proformas
+msgid "Ntic Proformas"
+msgstr "‫NTIC فاتورات شكلية"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_commandes
+msgid "Ntic Sale Commandes"
+msgstr "طلبيات البيع Ntic"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_commande_lines
+msgid "Ntic commande Lines"
+msgstr "أسطر طلبيات  Ntic"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_proforma_lines
+msgid "Ntic proforma Lines"
+msgstr "أسطر الفاتورات الشكلية NTIC"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_orders_tree
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proformas_tree
+msgid "Number"
+msgstr "عدد"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_needaction_counter
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_needaction_counter
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_needaction_counter
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_has_error_counter
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_has_error_counter
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_has_error_counter
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الاخطاء"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commandes__message_needaction_counter
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__message_needaction_counter
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proformas__message_needaction_counter
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_timbres__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commandes__message_has_error_counter
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__message_has_error_counter
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proformas__message_has_error_counter
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_timbres__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل الحادث بها خطأ في التسليم"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commandes__message_unread_counter
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__message_unread_counter
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proformas__message_unread_counter
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_timbres__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__name_updatable
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__name_updatable
+msgid "Numero Modifiable"
+msgstr "الرقم قابل للتعديل"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_order_search
+msgid "Numéro, Client"
+msgstr "الرقم، الزبون"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__res_config_settings__sequences__global
+msgid "Numérotation globale"
+msgstr "الترقيم العام"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__sequences
+msgid "Numérotation, bons de Vente"
+msgstr "الترقيم، وصل البيع"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_etat_vente_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+msgid "N° Bon"
+msgstr "رقم الطلب"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__10
+msgid "Octobre"
+msgstr "اكتوبر"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__operation_type
+msgid "Operation type"
+msgstr "‪نوع العملية"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Options"
+msgstr "خيارات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+msgid "Options Impression"
+msgstr "خيارات الطباعة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Opérations"
+msgstr "عمليات"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__sequence
+msgid "Ordonner la liste de products"
+msgstr "طلب قائمة المنتجات"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__etat__client
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_order_search
+msgid "Par Client"
+msgstr "حسب الزبون"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_order_search
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_proforma_search
+msgid "Par Date"
+msgstr "حسب التاريخ"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_order_search
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_proforma_search
+msgid "Par Etat"
+msgstr "حسب الحالة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_order_search
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_proforma_search
+msgid "Par Vendeur"
+msgstr "حسب البائع"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__res_config_settings__remise_applied_on__article
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes__remise_applied_on__article
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_proformas__remise_applied_on__article
+msgid "Par article"
+msgstr "حسب المنتج"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories__partner_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__partner_id
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: sn_sales
+#: code:addons/sn_sales/models/timbres.py:0
+#, python-format
+msgid "Pas de confiuration du calcul Timbre."
+msgstr "لا وجود لطريقة حساب الطابع."
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Permettre au timbre d'être appliqué avec le mode de reglement Espèce"
+msgstr "السماح بتطبيق الطابع مع وضع التسديد النقدي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__personne_ids
+msgid "Personnages"
+msgstr "الاشخاص"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "Personne en relation"
+msgstr "الشخص ذو العلاقة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "Personnes"
+msgstr "الأشخاص"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_personnes
+msgid "Personnes en contact avec les sociétés"
+msgstr "الأشخاص الذين هم على اتصال بالشركات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__sale_ok
+msgid "Peut être vendu"
+msgstr "يمكن البيع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__phone
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_personnes__phone
+msgid "Phone"
+msgstr "رقم الهاتف"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__max_value
+msgid "Plafond"
+msgstr "السقف"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__concerned
+msgid "Port-parole"
+msgstr "الممثل"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Precision des chiffres, nombres decimals apres la virgule"
+msgstr "دقة الأرقام، أرقام عشرية بعد الفاصلة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Precisions"
+msgstr "الدقة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_kanban_view
+msgid "Price:"
+msgstr "السعر:"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_pricelist
+msgid "Pricelist"
+msgstr "قائمة الأسعار"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_pricelist_item
+msgid "Pricelist Item"
+msgstr "عنصر قائمة الأسعار"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__item_ids
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__pricelist_item_ids
+msgid "Pricelist Items"
+msgstr "عناصر قائمة الأسعار"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__fixed_price
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_pricelist_view_search
+msgid "Prix"
+msgstr "السعر"
+
+#. module: sn_sales
+#: model:sn_sales.pricelist,name:sn_sales.pricelist_02
+msgid "Prix Détail"
+msgstr "سعر التجزئة"
+
+#. module: sn_sales
+#: model:sn_sales.pricelist,name:sn_sales.pricelist_01
+msgid "Prix Gros"
+msgstr "سعر الجملة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__price_unit
+msgid "Prix Unit."
+msgstr "‪سعر‬‫ الوحدة."
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Prix Unit. :"
+msgstr "سعر الوحدة:"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_details
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Prix Unt"
+msgstr "سعر الوحدة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_products_tree
+msgid "Prix de vente"
+msgstr "سعر البيع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__default_price
+msgid "Prix de vente standard"
+msgstr "‪سعر البيع العادي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__price_touched
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__price_touched
+msgid "Prix modifié"
+msgstr "السعر المعدل"
+
+#. module: sn_sales
+#: code:addons/sn_sales/models/commandes.py:0 code:addons/sn_sales/models/proforma.py:0
+#, python-format
+msgid "Problème de liaison entre pièces"
+msgstr "مشكلة في الربط بين الوثائق"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories__product_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__product_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__product_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__product_id
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_kanban_view
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_template_search_view
+msgid "Product"
+msgstr "المنتج"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__product_commande_lines
+msgid "Product Commande Lines"
+msgstr "‪تفصيل الطلبية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__product_image
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__product_image
+msgid "Product Image"
+msgstr "‪صورة المنتج"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__product_type
+msgid "Product Type"
+msgstr "‪نوع المنتج"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_template_search_view
+msgid "Product as service"
+msgstr "المنتج كخدمة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_template_search_view
+msgid "Product consumable"
+msgstr "منتج استهلاكي"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.ntic_product_actions_all
+msgid "Products"
+msgstr "المنتجات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Produit :"
+msgstr "المنتج:"
+
+#. module: sn_sales
+#: model:ir.ui.menu,name:sn_sales.menu_products model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Produits"
+msgstr "المنتجات"
+
+#. module: sn_sales
+#: code:addons/sn_sales/models/commandes.py:0 model:ir.actions.report,name:sn_sales.action_report_proforma
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#, python-format
+msgid "Proforma"
+msgstr "‪الفاتورة الشكلية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__proforma_id
+msgid "Proforma Reference"
+msgstr "‪المرجع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__proforma_note_default
+msgid "Proforma default Note"
+msgstr "‪الملاحظة الافتراضية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__proforma_origin
+msgid "Proforma en relation"
+msgstr "‪الفاتورة الشكلية ذات العلاقة"
+
+#. module: sn_sales
+#: code:addons/sn_sales/models/commandes.py:0
+#, python-format
+msgid "Proforma en relation non trouvée!.. Peut être supprimée.. Cette relation sera désormais déconnectée"
+msgstr "‪الفاتورة الشكلية ذات العلاقة غير موجودة!.. من الممكن أنها حذفت. سيتم الآن قطع هاته العلاقة"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.proformas_tree_action model:ir.ui.menu,name:sn_sales.menu_proformas_tree
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Proformas"
+msgstr "‪الفاتورات الشكلية"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Proformas Lines"
+msgstr "‪أسطر الفاتورة الشكلية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__proforma_confirmed_by_default
+msgid "Proformas confirmées par défaut"
+msgstr "‪يتم تأكيد الفواتير الشكلية افتراضيا"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "Présentation"
+msgstr "‪العرض"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__periode
+msgid "Période"
+msgstr "الفتره"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_details
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Qte"
+msgstr "‪الكمية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__qty
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__qty
+msgid "Qte."
+msgstr "‪الكمية"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Quantité :"
+msgstr "الكمية:"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proformas_tree
+msgid "Quotation"
+msgstr "فاتورة شكلية"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.clients_list
+msgid "Rais.Soc."
+msgstr "التسمية:"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_order_search
+msgid "Recherche commandes"
+msgstr "أوامر البحث"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_pricelist_view_search
+msgid "Recherche produits"
+msgstr "البحث عن المنتجات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_proforma_search
+msgid "Recherche proforma"
+msgstr "‪البحث عن الفواتير الشكلية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__code
+msgid "Reference Interne"
+msgstr "المرجع الداخلي"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commande_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Reg.Com :"
+msgstr "Reg.Com:"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__region
+msgid "Region"
+msgstr "الجهة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__region_ids
+msgid "Regions"
+msgstr "المناطق"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Remettre en état brouillon"
+msgstr "‪إرجاع إلى حالة المسودة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__remise_mta
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__remise_mta
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Remise"
+msgstr "‪خصم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__remise_taux
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__remise_taux
+msgid "Remise %"
+msgstr "‪نسبة الخصم"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Remise / Timbre"
+msgstr "‪الخصم / الطابع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__remise_exist
+msgid "Remise Exist"
+msgstr "‪وجود الخصوم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__remise_exist
+msgid "Remise Exist?"
+msgstr "‪هل يوجد خصم؟"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__remise_applied_on
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__remise_applied_on
+msgid "Remise à appliquer"
+msgstr "‪الخصم المطبق"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__activity_user_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__activity_user_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__product_code
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+msgid "Réf."
+msgstr "المرجع :"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Réference"
+msgstr "مرجع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__reg_com
+msgid "Rég.Com"
+msgstr "‪السجل التجاري"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_has_sms_error
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_has_sms_error
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_has_sms_error
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__user_id_id
+msgid "Salesperson"
+msgstr "مسئول المبيعات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_ntic_partner_filter
+msgid "Search Partner"
+msgstr "بحث الشركاء"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commande_lines__display_type__line_section
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_proforma_lines__display_type__line_section
+msgid "Section"
+msgstr "‪القسم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__semestre
+msgid "Semestre"
+msgstr "الفصل الدراسي"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__periode__semestre
+msgid "Semestriel"
+msgstr "الفصل الدراسي"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "Send SMS"
+msgstr "إرسال رسالة نصية قصيرة SMS"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__mois__9
+msgid "Septembre"
+msgstr "سبتمبر"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__sequence
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_conditions_vente__sequence
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_methodes_paiement__sequence
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_modes_paiement__sequence
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist__sequence
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__sequence
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__sequence
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_validities_offre__sequence
+msgid "Sequence"
+msgstr "‪السلسلة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Sequences"
+msgstr "تسلسلات"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_product__product_type__service
+msgid "Service"
+msgstr "‪خدمة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_template_search_view
+msgid "Show all records which has next action date is before today"
+msgstr "عرض كافة السجلات التي تاريخ الإجراء التالي فيها يسبق تاريخ اليوم الجاري"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__solvency
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__solvency
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__solvency
+msgid "Solvabilite"
+msgstr "‪أهل الثقة"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_partner__solvency__solvable
+msgid "Solvable"
+msgstr "‪سهل السداد"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_pricelist_item__product_id
+msgid "Specify a product. Keep empty otherwise."
+msgstr "حدد منتجًا. وإلا احتفظ بالفراغ"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_partner__tarification__special
+msgid "Spécial"
+msgstr "‪خاص"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_partner__tarification__standard
+msgid "Standard"
+msgstr "قياسي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_pricelist_item__date_start
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_pricelist_item__date_start
+msgid "Starting date for the pricelist item validation"
+msgstr "تاريخ بدء التحقق من صحة عنصر قائمة الأسعار"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commandes__activity_state
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__activity_state
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proformas__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة على أساس الأنشطة\n"
+"المتأخرة: تاريخ الاستحقاق مر\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"المخطط: الأنشطة المستقبلية."
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commande_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Suivi par :"
+msgstr "‪المتابعة من طرف:"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commandes_wizard_form
+msgid "TTC"
+msgstr "Ttc"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__amount_tva
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__amount_tva
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_totaux
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "TVA"
+msgstr "‪الضريبه على القيمة المضافة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__tva_exist
+msgid "TVA Exist?"
+msgstr "ضريبة القيمة المضافة موجودة؟"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "TVA/Timbre"
+msgstr "ضريبة القيمة المضافة / الطابع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__tarification
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__tarification
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__tarification
+msgid "Tarification"
+msgstr "‪التسعيرة"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__res_config_settings__remise_methode__taux
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes__remise_methode__taux
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_proformas__remise_methode__taux
+msgid "Taux"
+msgstr "‪النسبة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__tva_taux
+msgid "Taux (%)"
+msgstr "‪النسبة (%)"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__remise_default_taux
+msgid "Taux (%) par defaut"
+msgstr "‪النسبة الإفتراضية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__tva_taux
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__tva_taux
+msgid "Taux TVA"
+msgstr "‪نسبة ضريبة القيمة المضافة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__remise_taux
+msgid "Taux de Remise"
+msgstr "‪نسبة الخصم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__remise_taux
+msgid "Taux de remise"
+msgstr "‪نسبة الخصم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__taux
+msgid "Taux du timbre"
+msgstr "معدل الدمغة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies_items__taxo_id
+msgid "Taxo"
+msgstr "‪التصنيف"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.taxonomies_action
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories__taxo_id
+#: model:ir.ui.menu,name:sn_sales.taxonomies_menu model_terms:ir.ui.view,arch_db:sn_sales.ntic_product_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_taxonomies_tree
+msgid "Taxonomies"
+msgstr "‪التصنيفات"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.taxonomies_action
+msgid "Taxonomies are ways to categorize contents"
+msgstr "‪التصنيفات طريقة لتنظيم المحتويات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Taxonomies, Une methode d'organisation et classification des contenus par terms"
+msgstr "‪التصنيفات، طريقة لتنظيم المحتويات حسب المصطلحات"
+
+#. module: sn_sales
+#: model:ir.model.constraint,message:sn_sales.constraint_sn_sales_conditions_vente_condition_vente_unique
+msgid "Terme de Condition de vente éxiste déjà!"
+msgstr "Existe حالة المبيعات مصطلح بالفعل!"
+
+#. module: sn_sales
+#: model:ir.model.constraint,message:sn_sales.constraint_sn_sales_validities_offre_validite_offre_unique
+msgid "Terme de validité d'offre éxiste déjà!"
+msgstr "مصطلح صلاحية عرض esiste بالفعل!"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__amount_timbre
+msgid "Timbre"
+msgstr "ختم"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Timbre :"
+msgstr "ختم:"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__timbre_applicable
+msgid "Timbre appliquable"
+msgstr "طابع قابل للتطبيق"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_product_template_search_view
+msgid "Today Activities"
+msgstr "نشاطات اليوم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__price_total
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__price_total
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_orders_tree
+msgid "Total"
+msgstr "المجموع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__amount_ttc
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__amount_ttc_sec
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__amount_ttc
+msgid "Total TTC"
+msgstr "المجموع TTC:"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_totaux
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Total TTC:"
+msgstr "المجموع TTC:"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_totaux
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "Total après Remise :"
+msgstr "المجموع بعد الخصم:"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+msgid "Total après la remise :"
+msgstr "‪المجموع بعد الحصم:"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_etat_vente_document
+msgid "Totaux:"
+msgstr "مجموع:"
+
+#. module: sn_sales
+#: model:ir.ui.menu,name:sn_sales.menu_sn_sales
+msgid "Traitements"
+msgstr "العمليات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes_wiz1__trimestre
+msgid "Trimestre"
+msgstr "الربع"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_commandes_wiz1__periode__trimestre
+msgid "Trimestriel"
+msgstr "الفصليه"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__tva_exist
+msgid "Tva Exist"
+msgstr "‪وجود ضريبة القيمة المضافة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.ntic_products_tree
+msgid "Type"
+msgstr "النوع"
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commandes__activity_exception_decoration
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_product__activity_exception_decoration
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proformas__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "‪نوع النشاط الاستثنائي المسجل."
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__operation_type
+msgid "Type operation"
+msgstr "‪نوع العملية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_taxonomies__contents
+msgid "Types de contenus"
+msgstr "‪نوع المحتوى"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.clients_list
+msgid "Tél."
+msgstr "هاتف."
+
+#. module: sn_sales
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_commande_lines__display_type
+#: model:ir.model.fields,help:sn_sales.field_sn_sales_proforma_lines__display_type
+msgid "UX Raisons."
+msgstr "‪بغرض واجهة المستخدم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__commande_lines
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__proforma_lines
+msgid "Un article"
+msgstr "‪منتج"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_product__sale_methode__list
+msgid "Unifié ou Liste des prix"
+msgstr "‪قائمة موحدة أو قائمة بأسعار مختلفة"
+
+#. module: sn_sales
+#: model:ir.model.fields.selection,name:sn_sales.selection__sn_sales_product__sale_methode__unified
+msgid "Unifié sur prix standard"
+msgstr "‪موحدة على السعر القياسي"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proforma_lines__price_unit
+msgid "Unit Price"
+msgstr "‪سعر الوحدة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_unread
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_unread
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_unread
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_unread
+msgid "Unread Messages"
+msgstr "الرسائل الجديدة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__message_unread_counter
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__message_unread_counter
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__message_unread_counter
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_timbres__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Utiliser (Oui/Non)"
+msgstr "‪استخدام (نعم /لا)"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__using_codebare
+msgid "Utiliser Code a barre"
+msgstr "‪استخدام كودبار"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Utiliser Les logistics: Poids,Volume,Colisage"
+msgstr "‪اعتماد الخدمات اللوجستية: الوزن، حجم، التعبئة"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__tva_exist
+msgid "Utiliser la Tva"
+msgstr "‪استخدام ضريبة القيمة المضافة"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Utiliser le methode des codes a barre pour accelerer la saisie"
+msgstr "‪استخدام طريقة الباركود لتسريع عمليات الإدخال"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_res_config_settings__using_logistics
+msgid "Utiliser les logistics"
+msgstr "استخدام الخدمات اللوجستية"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__remise_exist
+msgid "Utiliser les remises"
+msgstr "‪استخدام الخصومات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__remise_valeur
+msgid "Valeur de la remise"
+msgstr "‪قيمة الخصم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__remise_valeur
+msgid "Valeur de remise"
+msgstr "‪قيمة الخصم"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.bcn_totaux
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "Valeur de remise :"
+msgstr "قيمة الخصم:"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__validity_offre_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_validities_offre__name
+msgid "Validité de l'offre"
+msgstr "صلاحية العرض"
+
+#. module: sn_sales
+#: model:ir.actions.act_window,name:sn_sales.validities_offre_action
+#: model:ir.model,name:sn_sales.model_sn_sales_validities_offre model:ir.ui.menu,name:sn_sales.menu_validities_offre
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_validities_offre_tree
+msgid "Validités des offres"
+msgstr "صلاحية العروض"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Validités exprimés en date"
+msgstr "الصلاحية المعبر عنها اعتبارا من التاريخ"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_categories__items_ids
+msgid "Values"
+msgstr "‪القيم"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__image_variant_128
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__image_variant_128
+msgid "Variant Image 128"
+msgstr "‪صورة متغيرة 128"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__image_variant_512
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__image_variant_512
+msgid "Variant Image 512"
+msgstr "‪صورة متغيرة 512"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__user_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__user_id
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__user_id
+msgid "Vendeur"
+msgstr "‪البائع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__user_ids
+msgid "Vendeurs"
+msgstr "‪البائعون"
+
+#. module: sn_sales
+#: model:ir.module.category,name:sn_sales.sn_sales_access model_terms:ir.ui.view,arch_db:sn_sales.ntic_product_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.sn_sales_partner_form
+msgid "Vente"
+msgstr "البيع"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Vente - Clients"
+msgstr "‪البيع - الزبائن"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Vente - Généralités"
+msgstr "‪البيع - عموميات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Vente - Produits"
+msgstr "‪البيع - المنتجات"
+
+#. module: sn_sales
+#: model:res.groups,name:sn_sales.sn_sales_boss
+msgid "Vente Boss"
+msgstr "المبيعات: المدير العام"
+
+#. module: sn_sales
+#: model:res.groups,name:sn_sales.sn_sales_manager
+msgid "Vente Manager"
+msgstr "‫المبيعات: المدير"
+
+#. module: sn_sales
+#: model:res.groups,name:sn_sales.sn_sales_user
+msgid "Vente User"
+msgstr "‫المبيعات: المستخدم"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Ventes - Clients"
+msgstr "‪المبيعات - الزبائن"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Ventes - Généralités"
+msgstr "‪المبيعات - عموميات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.res_sales_settings_view_form
+msgid "Ventes - Produits"
+msgstr "‪المبيعات - المنتجات"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.mode_paiement_action
+msgid "Veuillez Ajouter votre 1er mode de paiement"
+msgstr "الرجاء إضافة طريقة الدفع الأولى"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.methode_paiement_action
+msgid "Veuillez Ajouter votre 1er méthode de paiement"
+msgstr "الرجاء إضافة طريقة الدفع الأولى"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.validities_offre_action
+msgid "Veuillez Ajouter votre 1ere Validité d'offres"
+msgstr "يرجى إضافة عروض الصلاحية الأولى"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.conditions_vente_action
+msgid "Veuillez Ajouter votre 1ere condition de vente"
+msgstr "يرجى إضافة الشرط الأول للبيع"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.proformas_tree_action
+msgid "Veuillez Ajouter votre premiere Proforma"
+msgstr "‪الرجاء إضافة أول فاتورة شكلية"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.pricelist_tree_action
+msgid "Veuillez Ajouter votre premiere liste de prix"
+msgstr "يرجى إضافة قائمة الأسعار الأولى"
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.sales_orders_action
+msgid "Veuillez Ajouter votre première Commande"
+msgstr "‪الرجاء إضافة طلبيتك الأول"
+
+#. module: sn_sales
+#: code:addons/sn_sales/models/clients_categories.py:0
+#, python-format
+msgid "Vous ne pouvez pas créer de relation de catégorie récursive."
+msgstr "‪لا يمكنك إنشاء علاقة بين الفئات تعود على نفسها."
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__website
+msgid "Website Link"
+msgstr "رابط الموقع"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_partner__wilaya_id
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_ntic_partner_filter
+msgid "Wilaya"
+msgstr "الولاية"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_taxonomies
+msgid "categories and familly"
+msgstr "‪الفئات والعائلات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__barcode
+msgid "code a barre"
+msgstr "‪كودبار"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+msgid "commandes Lines"
+msgstr "أسطر الطلبية"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_orders_tree
+msgid "commandes_tree"
+msgstr "‪commandes_tree"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_etat_vente_document
+msgid "des Ventes"
+msgstr "المبيعات"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commande_lines__productidid
+msgid "field_name"
+msgstr "Field_name"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_taxonomies_items
+msgid "items of taxonomies"
+msgstr "‪عناصر التصنيفات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_commande_document
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_proforma_document
+msgid "le :"
+msgstr "يوم: "
+
+#. module: sn_sales
+#: model_terms:ir.actions.act_window,help:sn_sales.menu_ntic_clients_action
+msgid "nTIC vous aide à suivre tous les activitiés en relation avec vos clients."
+msgstr "‪يساعدك nTIC على تتبع جميع الأنشطة المتعلقة بزبائنك."
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
+#: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
+msgid "product details"
+msgstr "تفاصيل المنتج"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_ntic_product_details
+msgid "products"
+msgstr "المنتجات"
+
+#. module: sn_sales
+#: model_terms:ir.ui.view,arch_db:sn_sales.report_ntic_product_list
+msgid "products list"
+msgstr "قائمة المنتجات"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_commandes_wiz1
+msgid "sn_sales.commandes.wiz1"
+msgstr "sn_sales.orders.wiz1"
+
+#. module: sn_sales
+#: model:ir.model,name:sn_sales.model_sn_sales_categories
+msgid "taxonomies Items lines"
+msgstr "‪تفصيل عناصر التصنيف"
+
+#. module: sn_sales
+#: model:ir.model.fields,field_description:sn_sales.field_sn_sales_product__using_logistics
+msgid "utiliser logistics"
+msgstr "استخدام الخدمات اللوجستية"

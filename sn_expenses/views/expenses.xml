@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--main menu expenses-->
+
+    <menuitem id="menu_sn_expenses"
+              name="Dépenses"
+              parent="sn_boxes.menu_sn_boxes"
+              sequence="9"
+              web_icon="sn_expenses,static/description/icon.png"/>
+
+    <!--Search-->
+    <record id="sn_expenses_categories_search_view" model="ir.ui.view">
+        <field name="name">sn_expenses.categories.search</field>
+        <field name="model">sn_expenses.categories</field>
+        <field name="arch" type="xml">
+            <search string="Catégorie de depenses">
+                <field name="name"/>
+
+                <separator/>
+                <filter name="filter_cat_principals" string="Catégories principals" domain="[('parent_id','=',False)]"/>
+
+                <group expand="0" name="group_by" string="Group By">
+
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Form-->
+
+    <record id="sn_expenses_categories_form_view" model="ir.ui.view">
+        <field name="name">sn_expenses.categories.form</field>
+        <field name="model">sn_expenses.categories</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Nom " class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="parent_id"/>
+                        </div>
+                        <div class="col-md-8">
+                            <field class="my-form-control" name="parent_id" options="{'no_open': True}"/>
+                        </div>
+                    </div>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Ntic Expenses Catégories Tree -->
+
+    <record id="ntic_expenses_categories_tree" model="ir.ui.view">
+        <field name="name">sn_expenses.categories.tree</field>
+        <field name="model">sn_expenses.categories</field>
+        <field name="arch" type="xml">
+            <tree string="Catégories des dépenses" decoration-bf="True">
+                <field name="display_name" string="Catégorie"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Action -->
+
+    <record id="sn_expenses_categories_action_id" model="ir.actions.act_window">
+        <field name="name">Catégories Dépenses</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sn_expenses.categories</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="sn_expenses_categories_search_view"/>
+        <field name="view_id" ref="ntic_expenses_categories_tree"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Ajouter la première catégorie des dépenses
+            </p>
+        </field>
+    </record>
+
+    <!--Menu-->
+
+    <menuitem action="sn_expenses_categories_action_id"
+              id="menu_expenses_cat"
+              name="Catégories des Dépenses"
+              parent="menu_sn_expenses"
+              groups="sn_expenses_manager"
+              sequence="3"/>
+
+    <act_window id="sn_expense_form"
+                name="Nouvelle Dépense"
+                res_model="sn_boxes.operations"
+                view_mode="form"
+                context="{'default_operation':'expense', 'default_sens':'debit'}"/>
+
+    <menuitem action="sn_expense_form"
+              id="menu_boxes_operations_credit"
+              name="Nouvelle Dépense"
+              parent="menu_sn_expenses"
+              groups="sn_boxes.sn_boxes_manager"
+              sequence="2"/>
+
+</odoo>

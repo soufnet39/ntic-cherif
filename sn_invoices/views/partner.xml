@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sn_sales_partner_form_inherited" model="ir.ui.view">
+        <field name="name">sales_partner_form.inherited</field>
+        <field name="model">sn_sales.partner</field>
+        <field name="inherit_id" ref="sn_sales.sn_sales_partner_form" />
+        <field name="type">form</field>
+        <field name="priority" eval="16" />
+        <field name="arch" type="xml">
+            
+            <xpath expr="//div[@id='button_box']" position="inside">
+                <button name="client_factures" type="object"
+                        context="{'selected_partner':id}" 
+                        class="oe_stat_button" icon="fa-archive">
+                        <span>Factures</span>
+                </button>
+            </xpath>
+            
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.config_parameter" id="stock_negatif" forcecreate="False">
+            <field name="key">sn_stocks.stock_negatif</field>
+            <field name="value">True</field>
+        </record>
+        <record model="ir.config_parameter" id="delivery_confirmed_by_default" forcecreate="False">
+            <field name="key">sn_stocks.delivery_confirmed_by_default</field>
+            <field name="value">True</field>
+        </record>
+        <record model="ir.config_parameter" id="reception_confirmed_by_default" forcecreate="False">
+            <field name="key">sn_stocks.reception_confirmed_by_default</field>
+            <field name="value">True</field>
+        </record>
+        <record model="ir.config_parameter" id="operations_confirmed_by_default" forcecreate="False">
+            <field name="key">sn_stocks.operations_confirmed_by_default</field>
+            <field name="value">True</field>
+        </record>
+        <!-- <record model="ir.config_parameter" id="qty_delivered_equals_commanded" forcecreate="False">
+            <field name="key">sn_stocks.qty_delivered_equals_commanded</field>
+            <field name="value">True</field>
+        </record> -->
+
+
+        <record model="ir.config_parameter" id="purchase_to_stocks" forcecreate="False">
+            <field name="key">sn_stocks.purchase_to_stocks</field>
+            <field name="value">mono</field>
+        </record>
+        <record model="ir.config_parameter" id="sale_from_stocks" forcecreate="False">
+            <field name="key">sn_stocks.sale_from_stocks</field>
+            <field name="value">mono</field>
+        </record>
+    </data>
+</odoo>

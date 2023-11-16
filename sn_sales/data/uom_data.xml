@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--UOM Category-->
+
+        <record id="uom_cat_02" model="sn_sales.uomcategory">
+            <field name="name">Poids</field>
+            <field name="measure_type">weight</field>
+        </record>
+        <record id="uom_cat_03" model="sn_sales.uomcategory">
+            <field name="name">Longueur</field>
+            <field name="measure_type">length</field>
+        </record>
+        <record id="uom_cat_04" model="sn_sales.uomcategory">
+            <field name="name">Volume</field>
+            <field name="measure_type">volume</field>
+        </record>
+
+
+        <!--UOM-->
+
+        <record id="uom_02" model="sn_sales.uom">
+            <field name="name">Kg</field>
+            <field name="category_id" ref="uom_cat_02"/>
+        </record>
+        <record id="uom_03" model="sn_sales.uom">
+            <field name="name">m</field>
+            <field name="category_id" ref="uom_cat_03"/>
+        </record>
+        <record id="uom_04" model="sn_sales.uom">
+            <field name="name">m3</field>
+            <field name="category_id" ref="uom_cat_04"/>
+        </record>
+
+    </data>
+</odoo>

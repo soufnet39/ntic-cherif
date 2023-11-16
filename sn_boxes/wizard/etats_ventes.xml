@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- sn_SALES etats de ventes inherit tree view -->
+    <record id="sn_boxes_sn_sales_commandes_wiz1_inherited" model="ir.ui.view">
+        <field name="name">Boxes Etat de ventes</field>
+        <field name="model">sn_sales.commandes.wiz1</field>
+        <field name="inherit_id" ref="sn_sales.view_commandes_wizard_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='commandes_ids']/tree//field[@name='amount_ttc']" position="after">
+                <field name="total_reglement"  sum="Montant" />
+                <field name="amount_rest"  sum="Montant" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

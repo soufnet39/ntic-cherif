@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_sales_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.sales</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Vente" string="Vente - Généralités" data-key="sn_sales"
+                         groups="sn_sales.sn_sales_manager">
+                        <div class="h1 config-big-tilte">Ventes - Généralités</div>
+                        <h2>Utiliser (Oui/Non)</h2>
+                        <div class="row o_settings_container">
+
+                            <div class="col-md-6 o_setting_box">
+
+                                <div class="o_setting_left_pane">
+                                    <field name="tva_exist"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="tva_exist"/>
+                                    <div class="text-muted">
+                                        La TVA est en marche avec les devis et le bons de vente
+                                    </div>
+                                    <div class="content-group" attrs="{'invisible': [('tva_exist','=',False)]}">
+                                        <label for="tva_taux"/>
+                                        <br/>
+                                        <field name="tva_taux"/>
+                                        <br/>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="o_setting_left_pane">
+                                    <field name="validity_exist"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="validity_exist"/>
+                                    <div class="text-muted">
+                                        Validités exprimés en date
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 o_setting_box">
+
+                                <div class="o_setting_left_pane">
+                                    <field name="promotions_exist"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="promotions_exist"/>
+                                    <div class="text-muted">
+                                        Confirmer le lancement des promtions occasionnelles
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="o_setting_left_pane">
+                                    <field name="command_confirmed_by_default"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="command_confirmed_by_default"/>
+                                    <div class="text-muted">
+                                        Confirmer automatiquement les commandes de vente
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="o_setting_left_pane">
+                                    <field name="proforma_confirmed_by_default"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="proforma_confirmed_by_default"/>
+                                    <div class="text-muted">
+                                        Confirmer automatiquement les factures proformas
+                                    </div>
+                                </div>
+                                <br/>
+                            </div>
+                        </div>
+
+
+                    <!--<div class="col-12 col-lg-6 o_setting_box">-->
+                                <!--<div class="o_setting_left_pane">-->
+                                    <!--<field name="name_updatable"/>-->
+                                <!--</div>-->
+                                <!--<div class="o_setting_right_pane">-->
+                                    <!--<label for="name_updatable"/>-->
+                                    <!--<div class="text-muted">-->
+                                        <!--Numeros des pieces modifiables (bons, factures, bl, proformas..)-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+
+
+                        <h2>Taxonomies</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <span class="title1">Taxonomies (Vocabulaires)</span>
+                                    <div class="text-muted">
+                                        Taxonomies, Une methode d'organisation et classification des contenus par terms
+                                    </div>
+                                    <br/>
+                                        <button name="%(sn_sales.taxonomies_action)d" icon="fa-arrow-right"
+                                            type="action" string="Taxonomies" class="btn-link"/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+
+
+                            </div>
+                        </div>
+
+                        <h2>Remise / Timbre</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="remise_exist"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="remise_exist"/>
+                                    <div class="text-muted">
+                                        La remise, exist elle et applicable sur les Devis et les bons
+                                    </div>
+                                    <div class="content-group" attrs="{'invisible': [('remise_exist','=',False)]}">
+                                        <div class="row mt16">
+                                            <div class="col-md-5">
+                                                <label for="remise_methode"/>
+                                                <br/>
+                                                <field name="remise_methode"/>
+                                            </div>
+                                            <div class="col-md-5" attrs="{'invisible': [('remise_methode','=','mta')]}">
+                                                <label for="remise_default_taux"/>
+                                                <br/>
+                                                <field name="remise_default_taux"/>
+                                            </div>
+                                            <div class="col-md-5"
+                                                 attrs="{'invisible': [('remise_methode','=','taux')]}">
+                                                <label for="remise_default_mta"/>
+                                                <br/>
+                                                <field name="remise_default_mta"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt16">
+                                            <div class="col-md-10">
+                                                <label for="remise_applied_on"/>
+                                                <br/>
+                                                <field name="remise_applied_on"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+
+                                <div class="o_setting_left_pane">
+                                    <field name="timbre_applicable"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="timbre_applicable"/>
+                                    <div class="text-muted">
+                                        Permettre au timbre d'être appliqué avec le mode de reglement Espèce
+                                    </div>
+                                    <!-- <div class="content-group" attrs="{'invisible': [('timbre_applicable','=',False)]}">
+                                        <label for="timbre_taux"/>
+                                        <br/>
+                                        <field name="timbre_taux"/>
+                                        <br/>
+                                        <label for="timbre_min_value"/>
+                                        <br/>
+                                        <field name="timbre_min_value"/>
+                                        <br/>
+                                        <label for="timbre_max_value"/>
+                                        <br/>
+                                        <field name="timbre_max_value"/>
+                                        <br/>
+                                    </div> -->
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <h2>Affichage / précision</h2>
+                        <br/>
+                        <div class="row o_settings_container">
+
+                            <div class="col-md-6 o_setting_box">
+
+                                <div class="o_setting_left_pane">
+                                    <field name="display_description"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="display_description"/>
+                                    <div class="text-muted">
+                                        Afficher les description des produits avec les bons et les factures
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="o_setting_left_pane">
+
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <span class="title1">Precision décimal</span>
+                                    <div class="text-muted">
+                                        Precision des chiffres, nombres decimals apres la virgule
+                                    </div>
+                                    <br/>
+                                        <button name="%(base.action_decimal_precision_form)d" icon="fa-arrow-right"
+                                            type="action" string="Precisions"  class="btn-link"/>
+                                </div>
+                                <br/>
+                                <div class="o_setting_left_pane">
+
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="sequences"/>
+                                    <br/>
+                                    <field name="sequences" style="width:100%"/>
+                                    <div class="text-muted">
+                                        La numérotation des bons de commandes
+                                        <br/>
+                                        <button name="%(sn_base.my_sequences_tree_action)d" icon="fa-arrow-right"
+                                            type="action" string="Sequences"
+                                            class="btn-link"/>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 o_setting_box" id="product_name_editable">
+
+                                <div class="o_setting_left_pane">
+                                    <field name="product_name_editable"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="product_name_editable"/>
+                                    <div class="text-muted">
+                                        Avoir la possibilite de modifier les désignations des produits lors de vente ou
+                                        facturation
+                                    </div>
+                                </div>
+                                <br/>
+
+                                <div class="o_setting_left_pane">
+                                    <field name="code_article_exist"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="code_article_exist"/>
+                                    <div class="text-muted">
+                                        Afficher des codes des articles avant les noms                                    </div>
+                                </div>
+                                  <br/>
+
+                                <div class="o_setting_left_pane">
+                                    <field name="display_recno"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="display_recno"/>
+                                    <div class="text-muted">
+                                        Afficher le numéros de lignes pour les bons .P?.F?. dans l'ordre du haut vers le bas
+                                    </div>
+                                </div>
+
+                                <br/>
+                                  <div class="o_setting_left_pane">
+
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="print_language"/> <br/>
+                                    <field name="print_language"/>
+                                    <div class="text-muted">
+                                        Déterminer le language à utiliser lors de l'impression des documents.
+                                    </div>
+                                </div>
+                                <br/>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                    <br/>
+                    <!-- * * * * * * * * * * * * * -->
+                    <div class="app_settings_block" data-string="Vente2" string="Vente - Produits" data-key="sn_sales_product"
+                         groups="sn_sales.sn_sales_manager">
+                         <div class="h1 config-big-tilte">Ventes - Produits</div>
+                        <h2>Produits</h2>
+                          <div class="row mt16 o_settings_container">
+                            <!-- <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="uom_exist"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="uom_exist"/>
+                                    <div class="text-muted">
+                                        Acheter et vendre dans des unités de mesure différentes
+                                    </div>
+                                    <div class="content-group" attrs="{'invisible': [('uom_exist','=',False)]}">
+                                        <div class="mt16">
+
+                                            <br/>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="using_logistics"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="using_logistics"/>
+                                    <div class="text-muted">
+                                        Utiliser Les logistics: Poids,Volume,Colisage
+                                    </div>
+                                </div>
+                                <br/>
+                                considere vente confirmer avec la livraison
+                                <br/>
+                                remise? si oui? (default case: global ou par article, percentage ou mta fixe......)
+
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="using_codebare"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="using_codebare"/>
+                                    <div class="text-muted">
+                                        Utiliser le methode des codes a barre pour accelerer la saisie
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- * * * * * * * * * * * * * -->
+                    <div class="app_settings_block sn_sales_client" data-string="Vente3" string="Vente - Clients"   data-key="sn_sales_client"
+                         groups="sn_sales.sn_sales_manager">
+                         <div class="h1 config-big-tilte">Ventes - Clients</div>
+                        <h2>Clients</h2>
+
+                    </div>
+                </xpath>
+            </field>
+      </record>
+    </data>
+</odoo>

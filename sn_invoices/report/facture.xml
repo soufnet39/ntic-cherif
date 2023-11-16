@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--facture-->
+        <template id="facture_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sn_invoices.report_facture_document" t-lang="user.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_facture_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':user.lang})"/>
+                <div t-if="doc.state=='canceled'" style="
+                position: absolute;
+                transform: rotate(320deg);
+                -webkit-transform: rotate(320deg); 
+                font-size: 139px;
+                opacity: 0.5;
+                color: gray;
+                z-index: 1;
+                left: 20%;
+                top: 283px;">
+                   ANNULÉ
+                </div>
+                 <table style="width:100%" id='entete'>
+                        <tr>
+                            <td style="width:5%" ></td>
+                            <td style="width:95%">
+                                <table style="font-size:11pt">
+                                    <tr>
+                                        <td style="min-width:100px; vertical-align:top;text-align:right;padding:3px 5px 0">Client :</td>
+                                        <td>
+                                            <span style="font-weight:bold; "  t-field="doc.partner_id.name" />
+
+                                            <t t-if="doc.partner_id.address">
+                                                    <br/>
+                                                    <span t-field="doc.partner_id.address" />
+                                                    <span t-field="doc.partner_id.wilaya_id" />
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.partner_id.reg_com">
+                                        <td style="text-align:right;padding-right:5px">Reg.Com :</td>
+                                        <td ><span t-field="doc.partner_id.reg_com"/></td>
+                                    </tr>
+                                    <tr t-if="doc.partner_id.mat_fisc">
+                                        <td style="text-align:right;padding-right:5px">Mat.Fisc :</td>
+                                        <td><span t-field="doc.partner_id.mat_fisc"/></td>
+                                    </tr>
+                                    <tr t-if="doc.partner_id.art_imp">
+                                        <td style="text-align:right;padding-right:5px">Art.Imp :</td>
+                                        <td><span t-field="doc.partner_id.art_imp"/></td>
+                                    </tr>
+                                    <tr t-if="doc.partner_id.nis">
+                                        <td style="text-align:right;padding-right:5px">NIS :</td>
+                                        <td><span t-field="doc.partner_id.nis"/></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                <h3 class="text-center mt32 mb32" id="numero">
+                    <span style="color:black" >Facture <span t-if="doc.state=='avoir'"> d'Avoir</span> Nº:</span>
+                    <span style="color:black" t-field="doc.name"/>
+                    <span t-if="doc.state=='canceled'"> (Annulée)</span>
+                    <span t-if="doc.state=='draft'"> (Brouillon)</span>
+                </h3>
+                <table style="width:100%">
+                    <tr>
+                        <td t-if="doc.user_id" class="text-left">
+                            Suivi par : <span t-field="doc.user_id"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="doc.company_id.wilaya_id"/>
+                            le: <span t-if="doc.state in ['confirmed','avoir']" t-field="doc.confirmation_date"/><span t-if="doc.state not in ['confirmed','avoir']" t-field="doc.creation_date"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="table table-sm" style="margin-bottom:0">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee; font-size:11pt">
+                            <th t-if="doc.code_article_exist" class="text-center" style="width:15%">Réference</th>
+                            <th class="text-left" style="width:45%">Désignation</th>
+                            <th class="text-center" style="width:8%" id="qty_id_title">Qte</th>
+                            <th class="text-right" style="width:12%">Prix Unt</th>
+                            <th t-if="doc.remise_exist and doc.remise_applied_on=='article'" class="text-right"
+                                style="width:12%">Remise
+                            </th>
+                            <th class="text-right" style="width:12%">Montant</th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.facture_lines" t-as="line">
+                            <tr style="border-bottom:1px solid #AAA;"
+                                t-att-class="'bg-200 font-weight-bold' if line.display_type == 'line_section' else 'font-italic' if line.display_type == 'line_note' else ''">
+                                <t t-if="line.display_type not in ('line_section','line_note')">
+                                    <td t-if="doc.code_article_exist" class="text-center">
+                                        <span t-field="line.product_id.code"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td class="text-center" id="qty_id_value">
+                                        <span t-field="line.qty"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.price_unit"/>
+                                    </td>
+                                    <td t-if="doc.remise_exist and doc.remise_applied_on=='article'" class="text-right">
+                                        <span t-if="doc.remise_methode=='taux'" t-field="line.remise_taux"/>
+                                        <span t-if="doc.remise_methode=='mta'" t-field="line.remise_mta"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.price_total"/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <div class="oe_structure"/>
+                <div class="clearfix">
+
+                    <div t-if="doc.remise_exist" class="row" name="total">
+                        <div t-attf-class="#{'col-5' if report_type != 'html' else 'col-sm-6 col-md-6'} ml-auto">
+                            <table class="table table-sm">
+                                <tr style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Montant HT :</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.amount_ht_before_remise"/>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Remise % :</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.remise_valeur"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.tva_exist" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Montant HT Remise :</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.amount_ht"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.tva_exist" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">TVA  <span t-field="doc.tva_taux" t-options='{"widget": "float", "precision": 0}'/> % :
+                                    </td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.amount_tva"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.amount_timbre>0" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Timbre :</td>
+                                    <td style="text-align:right; border-top:0">
+                                        <span t-field="doc.amount_timbre"/>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Montant Total TTC 
+                                    <span t-if="doc.ret_gar_exist">, avant Retenue</span> :</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-if="not doc.ret_gar_exist" t-field="doc.amount_ttc"/>
+                                        <span t-if="doc.ret_gar_exist" t-field="doc.amount_ttc_before_retenue"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.ret_gar_exist" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">
+                                     Retenue de Garantie <span t-field="doc.ret_gar_taux" t-options='{"widget": "float", "precision": 0}'/> %:
+                                    </td>
+                                    <td style="border-top:0; text-align:right">
+                                      <span t-field="doc.amount_retenue" />
+                                    </td>
+                                </tr>                                
+                                <tr t-if="doc.ret_gar_exist" style="border-bottom:1px solid #dddddd;">
+                                     <td class="text-right" style="border-top:0">
+                                     <span t-if="doc.tva_exist">TTC</span>
+                                     <span t-if="not doc.tva_exist">HT</span>  
+                                     Après retenue de garantie
+                                    </td>
+                                    <td style="border-top:0; text-align:right">
+                                         <span t-field="doc.amount_ttc" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div t-if="not doc.remise_exist" class="row" name="total">
+                        <div t-attf-class="#{'col-5' if report_type != 'html' else 'col-sm-6 col-md-6'} ml-auto">
+                            <table class="table table-sm">
+                                <tr t-if="doc.tva_exist" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Montant HT :</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.amount_ht"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.tva_exist" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">TVA <span t-field="doc.tva_taux" t-options='{"widget": "float", "precision": 0}'/> % :
+                                    </td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.amount_tva"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.amount_timbre>0" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Timbre :</td>
+                                    <td style="text-align:right; border-top:0">
+                                        <span t-field="doc.amount_timbre"/>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Total 
+                                    <span t-if="doc.tva_exist">TTC</span>
+                                    <span t-if="not doc.tva_exist">HT</span> 
+                                    <span t-if="doc.ret_gar_exist"> avant Retenue</span>
+                                    :</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-if="not doc.ret_gar_exist" t-field="doc.amount_ttc"/>
+                                        <span t-if="doc.ret_gar_exist" t-field="doc.amount_ttc_before_retenue"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.ret_gar_exist" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">
+                                     Retenue de Garantie <span t-field="doc.ret_gar_taux" t-options='{"widget": "float", "precision": 0}'/> %:
+                                    </td>
+                                    <td style="border-top:0; text-align:right">
+                                      <span t-field="doc.amount_retenue" />
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.ret_gar_exist" style="border-bottom:1px solid #dddddd;">
+                                     <td class="text-right" style="border-top:0">
+                                     <span t-if="doc.tva_exist">TTC</span>
+                                    c<span t-if="not doc.tva_exist">HT</span>  
+                                     Après retenue de garantie
+                                    </td>
+                                    <td style="border-top:0; text-align:right">
+                                         <span t-field="doc.amount_ttc" />
+                                    </td>
+                                </tr>                               
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div t-if="doc.mode_paiement_id">
+                    <span> Mode de paiement : </span> <span t-field="doc.mode_paiement_id"/>
+                    <span t-if="doc.mode_paiement_nature=='cheque'">
+                       <span t-field="doc.cheque_info"/>
+                    </span>
+                </div>
+                <div>
+                    <span t-field="doc.note"/>
+                </div>
+                <div>
+                <strong>Arrêtée la présente facture<span t-if="doc.state=='avoir'"> d'avoir</span> à la somme de:</strong> <br/>
+                 <t t-set="mm" t-value="doc.amount_ttc"></t>
+                <span t-esc="doc.chiflet(mm)"/>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

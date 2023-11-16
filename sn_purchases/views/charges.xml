@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!--Tree-->
+   <record id="sn_purchases_charges_tree" model="ir.ui.view">
+       <field name="name">sn_purchases charges tree</field>
+       <field name="model">sn_purchases.charges</field>
+       <field name="arch" type="xml">
+           <tree string="" decoration-bf="True">
+               <field name="name"/>
+           </tree>
+       </field>
+   </record>
+
+
+    <!--Form-->
+    <record id="sn_purchases_charges_form" model="ir.ui.view">
+        <field name="name">sn_purchases charges form</field>
+        <field name="model">sn_purchases.charges</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+
+                        <field name="name"/>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Action-->
+    <record id="sn_purchases_charges_action" model="ir.actions.act_window">
+        <field name="name">charges</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sn_purchases.charges</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+     <!--Menu-->
+    <menuitem action="sn_purchases_charges_action"
+              id="menu_purchases_charges"
+              name="Charges sur Produits"
+              parent="sn_base.menu_strategies"
+              groups="sn_purchases_manager"
+              sequence="7"/>
+</odoo>

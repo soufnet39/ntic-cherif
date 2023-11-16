@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+      <template id="report_atat_ventes_inherited_from_sn_invoices" inherit_id="sn_sales.report_etat_vente_document">
+            <xpath expr="//table[@id='main_table']/thead/tr//th[@id='daty']" position="after">
+                  <th t-if="doc.with_facture=='with'" class="text-center">Facture</th>
+            </xpath>
+            <xpath expr="//table[@id='main_table']/tbody//td[@class='daty text-center']" position="after">
+                  <td t-if="doc.with_facture=='with'" class="text-center">
+                        <span t-field="line.facture_name"/>
+                  </td>
+            </xpath>
+            <xpath expr="//table[@id='main_table']/tbody//td[@id='first_td']" position="after">
+                  <td t-if="doc.with_facture=='with'"></td>
+            </xpath>
+            
+      </template>
+</odoo>   

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--facture-->
+        <template id="etats_factures_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sn_invoices.report_etat_factures_document" t-lang="user.lang"/>
+                </t>
+            </t>
+        </template>
+        <template id="report_etat_factures_document">
+            <t t-call="web.internal_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':user.lang})"/>
+               
+        
+
+                 <h3 class="text-center mt32">
+                <span id="main_title" >
+                     Etat <span t-field="doc.etat"/> <span t-if="doc.periode!='interval'" t-field="doc.periode"/> 
+                       des factures 
+                </span>                
+                <t t-if="doc.periode=='mois'"> ( <span t-field="doc.mois" /> ) </t>
+                <br/>
+                <span t-if="doc.etat=='client'">Client: <span t-field="doc.client_id"/>
+                </span>
+                <span t-if="doc.periode=='interval'">Interval: <span t-field="doc.date_debut"/> - <span t-field="doc.date_fin"/> 
+                </span>
+                </h3>
+               
+                <table style="width:100%">
+                    <tr>
+                        <td class="text-left">
+
+                        </td>
+                        <td class="text-right">
+                             Le: <span t-field="doc.date_operation"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <br/>
+                
+                <t t-set="sum_ht" t-value="0"/>
+                <t t-set="sum_tva" t-value="0"/>
+                <t t-set="sum_timbre" t-value="0"/>
+                <t t-set="sum_ttc" t-value="0"/>
+
+                <table class="table table-sm" style="margin-bottom:0">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee; font-size:11px">
+                            <th class="text-center">N° fact.</th>
+                            <th class="text-center">Date</th>
+                            <th id="client_name" t-if="doc.etat=='global'" >Client</th> 
+                            <th t-if="doc.etat=='global'" >Reg.Com.</th> 
+                            <th t-if="doc.etat=='global'" >Mat.Fisc.</th> 
+                            <th t-if="doc.etat=='global'" >Art.Imp.</th> 
+                            <th class="text-right">Total HT</th>
+                            <th class="text-right">TVA</th>
+                            <th class="text-right">Timbte</th>
+                            <th class="text-right">Total TTC</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.invoices_ids" t-as="line" >
+                            <tr style="border-bottom:1px solid #AAA;font-size:10px">
+                                <td class="text-center">
+                                    <span t-field="line.name"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="line.confirmation_date"/>
+                                </td>
+                                <td class="td_partner_id" t-if="doc.etat=='global'">
+                                    <span t-field="line.partner_id"/>
+                                </td>                              
+                                 <td t-if="doc.etat=='global'" >
+                                    <span t-field="line.partner_id.reg_com"/>
+                                </td>
+                                <td t-if="doc.etat=='global'" >
+                                    <span t-field="line.partner_id.mat_fisc"/>
+                                </td>
+                                 <td t-if="doc.etat=='global'" >
+                                    <span t-field="line.partner_id.art_imp"/>
+                                </td>                                 
+                                <td class="text-right">
+                                    <span t-esc="'{:,.2f}'.format(line.amount_ht_signed)" />
+                                </td>
+                                <td t-if="line.state not in ['canceled']" class="text-right">
+                                    <span t-esc="'{:,.2f}'.format(line.amount_tva_signed)" />
+                                </td>
+                                <td t-if="line.state not in ['canceled']" class="text-right">
+                                    <span t-esc="'{:,.2f}'.format(line.amount_timbre_signed)" />
+                                </td>
+                                <td t-if="line.state not in ['canceled']" class="text-right">
+                                    <span t-esc="'{:,.2f}'.format(line.amount_ttc_signed)" />
+                                </td>
+                                 <td colspan="3"  t-if="line.state in ['canceled']" class="text-center">
+                                  &lt;&lt;&lt; ANNULÉ >>>
+                                 </td>
+
+                            </tr>
+                            <t t-if="line.state not in ['canceled']">                           
+                                <t t-set="sum_ht" t-value="sum_ht + line.amount_ht_signed"/>
+                                <t t-set="sum_tva" t-value="sum_tva + line.amount_tva_signed"/>
+                                <t t-set="sum_timbre" t-value="sum_timbre + line.amount_timbre_signed"/>
+                                <t t-set="sum_ttc" t-value="sum_ttc + line.amount_ttc_signed"/>
+                             </t> 
+                        </t>
+                        <tr style="border:1px solid #AAA;font-size:11px">
+                            <td></td>                  
+                            <td t-if="doc.etat=='global'"></td>
+                            <td class="td_footer" t-if="doc.etat=='global'"></td>
+                            <td t-if="doc.etat=='global'"></td>
+                            <td t-if="doc.etat=='global'"></td>
+                            <td  class="text-right">
+                                Totaux:
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="'{:,.2f}'.format(sum_ht)"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="'{:,.2f}'.format(sum_tva)"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="'{:,.2f}'.format(sum_timbre)"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="'{:,.2f}'.format(sum_ttc)"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="oe_structure"/>
+
+            </t>
+        </template>
+    </data>
+</odoo>

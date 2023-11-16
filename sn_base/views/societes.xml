@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="company_info_tree" model="ir.ui.view">
+        <field name="name">Sociétés</field>
+        <field name="model">res.company</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" string="Sociétés" />
+            </tree>
+        </field>
+    </record>
+
+    <!--Form-->
+    <record id="company_info_form" model="ir.ui.view">
+        <field name="name">Sociétés Form</field>
+        <field name="model">res.company</field>
+        <field name="arch" type="xml">
+            <form string="Sociétés">
+                <sheet>
+                    <field name="id" invisible="1"/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-8 offset-md-4 ">
+                            <h1 class="heading1">                                
+                                <span class="oe_edit_only" attrs="{'invisible': [('id', '=', False)]}">Edition </span>
+                                <span attrs="{'invisible': [('id', '!=', False)]}">Creation </span>
+                                <span>Société</span>
+                            </h1>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <span class="title1">Nom du Société :</span>
+                        </div>
+                        <div class="col-2">
+                            <field class="my-form-control" name="name"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="wilaya_id"/> :
+                        </div>
+                        <div class="col-2">
+                            <field class="my-form-control" name="wilaya_id"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="email"/> :
+                        </div>
+                        <div class="col-4">
+                            <field class="my-form-control" name="email"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="website"/> :
+                        </div>
+                        <div class="col-4">
+                            <field class="my-form-control" name="website"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="phone"/> :
+                        </div>
+                        <div class="col-4">
+                            <field class="my-form-control" name="phone"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="logo"/> :
+                        </div>
+                        <div class="col-4">
+                           <field name="logo" widget="image" class="oe_avatar"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <span class='title1'>Adresse :</span>
+                            <!-- <label for="street"/> : -->
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="street" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="report_header"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="report_header" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="report_footer"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="report_footer" />
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="mobile"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="mobile" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="fax"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="fax" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="boite_postale"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="boite_postale" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="nis"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="nis" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="rib"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="rib" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="capital_social"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="capital_social" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="m_fisc"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="m_fisc" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="a_imp"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="a_imp" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="reg_com"/> :
+                        </div>
+                        <div class="col-4">
+                             <field class="my-form-control" name="reg_com" />
+                        </div>
+                    </div>      
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!--Action-->
+    <record id="societes_action" model="ir.actions.act_window">
+        <field name="name">Sociétés</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.company</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+          </p>
+        </field>
+    </record>
+ 
+    <!--Menu-->
+     <menuitem id="menu_societes_tree"
+              action="societes_action"
+              name="Sociétés"
+              parent="sn_base.menu_config"              
+              groups="sn_base_boss"              
+              sequence="4"/>
+
+</odoo>

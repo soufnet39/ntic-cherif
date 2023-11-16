@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sn_credit_centres_tree" model="ir.ui.view">
+        <field name="name">Centres</field>
+        <field name="model">res.company</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" string="Centre" />
+                <field name="code_centre"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Form-->
+    <record id="sn_credit_centres_form" model="ir.ui.view">
+        <field name="name">Centres Form</field>
+        <field name="model">res.company</field>
+        <field name="arch" type="xml">
+            <form string="Centres">
+                <sheet>
+                    <field name="id" invisible="1"/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-8 offset-md-4 ">
+                            <h1 class="heading1">
+                                <!--<span class="oe_read_only"></span>-->
+                                <span class="oe_edit_only" attrs="{'invisible': [('id', '=', False)]}">Edition </span>
+                                <span attrs="{'invisible': [('id', '!=', False)]}">Creation </span>
+                                <span>Centre</span>
+                            </h1>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <span class="title1">Nom du Centre</span>
+                        </div>
+                        <div class="col-2">
+                            <field class="my-form-control" name="name"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="wilaya_id"/>
+                        </div>
+                        <div class="col-2">
+                            <field class="my-form-control" name="wilaya_id"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="email"/>
+                        </div>
+                        <div class="col-3">
+                            <field class="my-form-control" name="email"/>
+                        </div>
+                    </div>
+                  
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                        <span class="o_form_label">Adresse</span>                           
+                        </div>
+                        <div class="col-4">
+                            <field class="my-form-control" name="street"/>
+                        </div>
+                    </div>
+                      <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="phone"/>
+                        </div>
+                        <div class="col-3">
+                            <field class="my-form-control" name="phone"/>
+                        </div>
+                    </div>
+                     <br/>
+                      <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="logo"/>
+                        </div>
+                        <div class="col-3">
+                           <field name="logo" widget="image" class="oe_avatar"/>
+                        </div>
+                    </div>
+                    <br/>
+                      <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="report_header"/>
+                        </div>
+                        <div class="col-3">
+                             <field name="report_header" />
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!--Action-->
+    <record id="centres_action" model="ir.actions.act_window">
+        <field name="name">Centres</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.company</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+          </p><p>
+          </p>
+        </field>
+    </record>
+<!-- Hide societes menu -->
+    <record model="ir.ui.menu" id="sn_base.menu_societes_tree">
+        <field name="groups_id" eval="[(6,0,[ref('sn_base.make_invisible')])]"/>
+    </record>
+    <!--Menu-->
+     <menuitem id="menu_centres_tree"
+              action="centres_action"
+              name="Centres"
+              parent="sn_base.menu_config"
+              groups="sn_base.sn_base_manager"
+              sequence="4"/>
+
+</odoo>

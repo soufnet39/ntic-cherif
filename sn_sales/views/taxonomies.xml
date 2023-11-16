@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--       Tree-->
+    <record id="sn_sales_taxonomies_tree" model="ir.ui.view">
+        <field name="name">Taxonomies Tree</field>
+        <field name="model">sn_sales.taxonomies</field>
+        <field name="arch" type="xml">
+            <tree string="Taxonomies">
+                <field name="name"/>
+                <field name="items" widget="many2many_tags"/>
+                <field name="contents" widget="many2many_tags" options="{'color_field': 'color'}"/>
+
+            </tree>
+        </field>
+    </record>
+    <!--        Form-->
+    <record id="sn_sales_taxonomies_form" model="ir.ui.view">
+        <field name="name">Taxonomies Form</field>
+        <field name="model">sn_sales.taxonomies</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                <br/>
+                    <div class="row">
+                        <div class="col-6 text-center offset-md-4">
+                            <h2 class="text-danger"> Définition de Taxonomie (Catégorie)</h2>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right title3">
+                            <label for="name" />
+                        </div>
+                        <div class="col-6">
+                            <field name="name"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right title3">
+                            <label for="contents" />
+                        </div>
+                        <div class="col-6">
+                            <field name="contents" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 text-right title3">
+                            <label for="items" />
+                        </div>
+                        <div class="col-6">
+                            <field name="items">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </div>
+
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--        Action-->
+    <record id="taxonomies_action" model="ir.actions.act_window">
+        <field name="name">Taxonomies</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sn_sales.taxonomies</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <span>Add your first taxonomy</span>
+            </p>
+            <p>
+                Taxonomies are ways to categorize contents
+            </p>
+        </field>
+    </record>
+    <!--Menu-->
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="taxonomies_menu"
+        name="Taxonomies"
+        parent="sn_base.menu_config"
+        action="taxonomies_action"
+        sequence="1"/>
+
+</odoo>

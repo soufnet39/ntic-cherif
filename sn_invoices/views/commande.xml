@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Inherits Sales Form-->
+    <record id="view_commande_form_facture" model="ir.ui.view">
+        <field name="name">commande from facture</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="inherit_id" ref="sn_sales.view_commande_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="inside">
+                <field name="facture_image" invisible="1"/>
+            </xpath>
+            <xpath expr="//div[@id='operations']" position="inside">
+                <div class="col-md-4" style="border-right:1px solid #dedede" id="annulation">
+                    <h4 class="hh4">Conversion</h4>
+                    <hr/>
+                    <div class="text-center">
+                        <button name="action_convert2facture" class="oe_highlight btn-convert"
+                            string="Convertir en facture" type="object"
+                            attrs="{'invisible':['|','|',('name','=','/'),('state','in',['draft','canceled']),('facture_image','>',0)]}"
+                            />
+                    </div>
+                </div>
+
+            </xpath>
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button attrs="{'invisible':[('facture_image','=',0)]}" name="go2facture" type="object"
+                    class="my_btn_box oe_stat_button btn_facture" icon="fa-file">
+                    Facture
+                </button>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

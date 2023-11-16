@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="cherif_sn_sales_pricelist_tree" model="ir.ui.view">
+        <field name="name">PriceList</field>
+        <field name="model">sn_sales.pricelist</field>
+        <field name="priority" eval="20" />
+        <field name="inherit_id" ref="sn_sales.sn_sales_pricelist_tree"/>	    
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='name']" position="after">
+                <field name="numberOfMonths"/>
+            </xpath>        
+        </field>
+    </record>
+</odoo>

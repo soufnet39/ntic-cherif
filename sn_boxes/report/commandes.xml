@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="boxes_sn_sales_report_commande_inherited" name="boxes_commandes" inherit_id="sn_sales.bcn_totaux">
+            <xpath expr="//table[@id='toto']" position="inside">
+                <tr t-if="doc.show_client_payment">
+
+                    <td class="text-right" id="paiements_label" style="border-top:0">Paiements :</td>
+                    <td style="text-align:right;border-top:0;border-bottom:1px solid #dddddd;">
+                        <span t-field="doc.total_reglement"/>
+                    </td>
+                </tr>
+                <tr t-if="doc.show_client_payment">
+                    <td class="text-right" style="border-top:0">Réste à payer :</td>
+                    <td style="text-align:right;border-top:0;border-bottom:1px solid #dddddd;">
+                        <span t-field="doc.amount_rest"/>
+                    </td>
+                </tr>
+            </xpath>
+            <xpath expr="//table[@id='toto']" position="after">
+                <table id='versement_details' t-if="doc.total_reglement>0" style="width:30%; float:left; font-size:12px; border:1px solid gray">
+                    <thead >
+                        <th  colspan="2" class="text-center">
+                           Détails Versements
+                        </th>
+                         <tr style="border-bottom:1px solid gray">
+                            <th style="padding-left:10px"> Date</th>
+                            <th style="padding-right:10px" class="text-right"> Versement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <t t-foreach="doc.payment_ids" t-as="pay">
+                            <tr >
+                                <td style="padding-left:10px">
+                                    <span t-field="pay.date_action"/>
+                                </td>
+                                <td style="padding-right:10px" class="text-right">
+                                    <span t-esc="'{:,.2f}'.format(pay.amount)"/>
+                                    
+                                </td>
+                            </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </xpath>
+            </template>
+        </data>
+    </odoo>

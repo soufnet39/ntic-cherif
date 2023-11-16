@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_sn_credit_contrats,sn_credit.contrats,model_sn_credit_contrats,sn_credit_user,1,1,1,1
+
+access_sn_credit_aksats_lines,sn_credit.aksats.lines,model_sn_credit_aksats_lines,sn_credit_user,1,1,1,1
+access_sn_credit_aksats_mois_reel,sn_credit.aksats.mois_reel,model_sn_credit_aksats_mois_reel,sn_credit_user,1,1,1,1
+access_sn_credit_wiz_rest_product,sn_credit.wiz_rest_product,model_sn_credit_wiz_rest_product,sn_credit_user,1,1,1,1
+
+access_sn_credit_prelevements,sn_credit.prelevements,model_sn_credit_prelevements,sn_credit_user,1,1,1,1
+
+access_sn_credit_cuts,sn_credit.cuts,model_sn_credit_cuts,sn_credit_user,1,1,1,1
+access_sn_credit_cuts_lines,sn_credit.cuts.lines,model_sn_credit_cuts_lines,sn_credit_user,1,1,1,1
+
+access_sn_credit_retards,sn_credit.retards,model_sn_credit_retards,sn_credit_user,1,1,1,1
+access_sn_credit_tempo_cuts_lines,sn_credit.tempo_cuts.lines,model_sn_credit_tempo_cuts_lines,sn_credit_user,1,1,1,1
+
+access_sn_credit_aksats_mois_reel_sah,sn_credit.aksats.mois_reel_sah,model_sn_credit_aksats_mois_reel_sah,sn_credit_user,1,1,1,1

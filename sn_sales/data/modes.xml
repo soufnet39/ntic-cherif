@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Modes de paiement -->
+        <record id="modpaie_01" model="sn_sales.modes_paiement">
+            <field name="sequence">1</field>
+            <field name="name">A tèrme</field>           
+        </record>
+        <record id="modpaie_02" model="sn_sales.modes_paiement">
+            <field name="sequence">2</field>
+            <field name="name">Par Chéque</field>           
+        </record>
+        <record id="modpaie_03" model="sn_sales.modes_paiement">
+            <field name="sequence">3</field>
+            <field name="name">En Espèce</field> 
+        </record>
+        <record id="modpaie_04" model="sn_sales.modes_paiement">
+            <field name="sequence">4</field>
+            <field name="name">Par Versement</field>           
+        </record>
+        <record id="modpaie_05" model="sn_sales.modes_paiement">
+            <field name="sequence">5</field>
+            <field name="name">Par Virement</field>           
+        </record>
+
+         <!-- Methodes de paiement -->
+         <record id="metpaie_01" model="sn_sales.methodes_paiement">
+            <field name="sequence">1</field>
+            <field name="name">A la commande</field>             
+        </record>
+        <record id="metpaie_02" model="sn_sales.methodes_paiement">
+            <field name="sequence">2</field>
+            <field name="name">A la réception de la facture</field>             
+        </record>
+        <record id="metpaie_03" model="sn_sales.methodes_paiement">
+            <field name="sequence">3</field>
+            <field name="name">50% à la commande, 50% à la livraison</field>             
+        </record>
+        <record id="metpaie_04" model="sn_sales.methodes_paiement">
+            <field name="sequence">4</field>
+            <field name="name">A tèrme</field>             
+        </record>
+
+        <!-- Conditions de vente -->
+         <record id="condvent_01" model="sn_sales.conditions_vente">
+            <field name="sequence">1</field>
+            <field name="name">Disponible</field>             
+        </record>
+        <record id="condvent_02" model="sn_sales.conditions_vente">
+            <field name="sequence">2</field>
+            <field name="name">Disponible à 3 jours après la réception de bon de commande </field>             
+        </record>
+        <record id="condvent_03" model="sn_sales.conditions_vente">
+            <field name="sequence">3</field>
+            <field name="name">Disponible à 5 jours après la réception de bon de commande</field>             
+        </record>
+        <record id="condvent_04" model="sn_sales.conditions_vente">
+            <field name="sequence">4</field>
+            <field name="name">Disponible à 10 jours après la réception de bon de commande</field>             
+        </record>
+        <record id="condvent_05" model="sn_sales.conditions_vente">
+            <field name="sequence">5</field>
+            <field name="name">Disponible à 15 jours après la réception de bon de commande</field>             
+        </record>
+
+        <!-- Validités des offres -->
+         <record id="valoffre_01" model="sn_sales.validities_offre">
+            <field name="sequence">1</field>
+            <field name="name">7 Jours</field>             
+        </record>
+        <record id="valoffre_02" model="sn_sales.validities_offre">
+            <field name="sequence">2</field>
+            <field name="name">15 Jours</field>             
+        </record>
+        <record id="valoffre_03" model="sn_sales.validities_offre">
+            <field name="sequence">3</field>
+            <field name="name">30 Jours</field>             
+        </record>
+        <record id="valoffre_04" model="sn_sales.validities_offre">
+            <field name="sequence">4</field>
+            <field name="name">45 Jours</field>             
+        </record>
+        <record id="valoffre_05" model="sn_sales.validities_offre">
+            <field name="sequence">5</field>
+            <field name="name">2 Mois</field>             
+        </record>
+       
+
+    </data>
+</odoo>

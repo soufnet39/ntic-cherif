@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_sn_variants_variants,sn_variants.variants,model_sn_variants_variants,sn_variants_user,1,1,1,1
+access_sn_variants_variants_items,sn_variants.variants.items,model_sn_variants_variants_items,sn_variants_user,1,1,1,1
+
+access_sn_variants_categories,sn_variants.categories,model_sn_variants_categories,sn_variants_user,1,1,1,1

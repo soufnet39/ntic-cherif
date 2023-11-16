@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+
+    <t t-extend="ListView.buttons">
+
+        <t t-jquery="div.o_list_buttons" t-operation="append">
+
+            <button type="button" t-if="widget.renderer.state.context.washi=='liste_depenses' || widget.renderer.state.context.washi=='mouvements_boxes'" class="btn btn-primary oe_new_expense_button">
+                Nouvelle Dépense
+            </button>
+
+
+        </t>
+    </t>
+
+</template>
+

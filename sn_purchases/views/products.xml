@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ntic_product_form_inherited1" model="ir.ui.view">
+        <field name="name">sn_sales.product.form_inherit</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.ntic_product_form"/>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="//div[@class='sale_ok_class']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+            <xpath expr="//div[@class='sale_ok_class']" position="after">
+                <div>
+                    <field name="purchase_ok"/>
+                    <span>Peut être acheté</span>
+                </div>
+            </xpath> -->
+            <xpath expr="//div[@id='vente_block']" position="after">
+                <hr/>
+                <h3 id='label_achat' class="h3">Achat</h3>
+                <br/>
+                <div class="row form-group" id="achat_block">
+                    <div class="col-md-6 offset-md-4">
+                        <label class="title1" for="purchase_price"/>
+                        <field class="form-control" name="purchase_price"/>
+                        <label class="title1" for="pmp_price"/>
+                        <field class="form-control " name="pmp_price"/>
+
+                    </div>
+
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='sale_methode']" position="after">
+                <label class="title1" for="sale_base_on"/>
+                <field class="form-control " name="sale_base_on"/>
+                <label class="title1" for="sale_percentage"/>
+                <field class="form-control" name="sale_percentage"/>
+            </xpath>
+            <field name="code" position="after">
+                <label class="title1" for="code_supplier"/>
+                <field class="form-control" name="code_supplier"/>
+            </field>
+        </field>
+
+    </record>
+
+
+</odoo>

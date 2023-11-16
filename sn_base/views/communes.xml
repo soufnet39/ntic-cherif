@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <!-- = = = = = = = = = = COMMUNES = = = = = = = = = = = -->
+    <!--Communes-TREE-->
+    <record id="view_ntic_communes_tree" model="ir.ui.view">
+        <field name="name">sn_base.communes.tree</field>
+        <field name="model">sn_base.communes</field>
+        <field name="arch" type="xml">
+            <tree string="Communes" >
+                <field name="name"/>
+                <field name="wilaya_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- communes-Form -->
+    <record id="sn_base_communes_form" model="ir.ui.view">
+        <field name="name">sn base communes</field>
+        <field name="model">sn_base.communes</field>
+        <field name="arch" type="xml">
+            <form string="Communes">
+                <sheet>
+                    <field name="id" invisible="1"/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-8 offset-md-4 ">
+                            <h1 class="heading1">
+                                <!--<span class="oe_read_only"></span>-->
+                                <span class="oe_edit_only" attrs="{'invisible': [('id', '=', False)]}">Edition </span>
+                                <span attrs="{'invisible': [('id', '!=', False)]}">Creation </span>
+                                Commune
+                            </h1>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="name"/>
+                        </div>
+                        <div class="col-6">
+                            <field class="my-form-control" name="name"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="wilaya_id"/>
+                        </div>
+                        <div class="col-6">
+                            <field class="my-form-control" name="wilaya_id"/>
+                        </div>
+                    </div>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Communes-KANBAN  -->
+    <record model="ir.ui.view" id="ntic_communes_kanban">
+        <field name="name">sn_base.communes kanban</field>
+        <field name="model">sn_base.communes</field>
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <kanban class="o_communes_kanban">
+                <field name="name"/>
+                <field name="wilaya_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title oe_partner_heading">
+                                    <field name="name"/>
+                                </strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!--Communes-Filter-->
+    <record id="view_communes_filter" model="ir.ui.view">
+        <field name="name">sn_base.communes.select</field>
+        <field name="model">sn_base.communes</field>
+        <field name="arch" type="xml">
+            <search string="Search Commune">
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="group_wilaya" string="Wilaya" context="{'group_by': 'wilaya_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Communes-Action-->
+    <record id="action_ntic_communes" model="ir.actions.act_window">
+        <field name="name">Communes</field>
+        <field name="res_model">sn_base.communes</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="search_view_id" ref="view_communes_filter"/>
+        <field name="help">Each Commune is attached to one wilaya.</field>
+    </record>
+
+    <!--Communes menu-->
+    <!--<menuitem action="action_ntic_communes"-->
+              <!--id="menu_communes"-->
+              <!--name="Communes"-->
+              <!--parent="menu_localities"-->
+              <!--sequence="3"/>-->
+</odoo>

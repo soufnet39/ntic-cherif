@@ -1,0 +1,15 @@
+.o_form_view .o_form_label {
+    float: inherit!important;
+}
+.o_list_view .o_list_number, .o_list_view .o_list_number input,
+input.o_field_number{
+    text-align: left!important;
+    direction: rtl
+
+}
+.o_list_view .o_list_table thead > tr > th:not(.o_list_record_selector).o_list_number_th {
+    text-align: left!important;
+}
+span.o_field_number {
+    text-align: left!important;
+}

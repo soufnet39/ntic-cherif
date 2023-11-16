@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sn_employees_employee_category_user,sn_employees.employee.category.user,model_sn_employees_employee_category,group_sn_employees_user,1,1,1,1
+access_sn_employees_employee_category_emp,sn_employees.employee.category.emp,model_sn_employees_employee_category,base.group_user,1,0,0,0
+access_sn_employees_employee_user,sn_employees.employee user,model_sn_employees_employee,group_sn_employees_user,1,1,1,1
+access_sn_employees_employee_system_user,sn_employees.employee system user,model_sn_employees_employee,base.group_user,1,0,0,0
+access_sn_employees_employee_resource_user,resource.resource.user,resource.model_resource_resource,group_sn_employees_user,1,1,1,1
+access_sn_employees_department_user,sn_employees.department.user,model_sn_employees_department,group_sn_employees_user,1,1,1,1
+access_sn_employees_department_employee,sn_employees.department.employee,model_sn_employees_department,base.group_user,1,0,0,0
+access_ir_property_sn_employees_user,ir_property hr_user,base.model_ir_property,group_sn_employees_user,1,1,1,0

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sn_stocks_interstocks_form" model="ir.ui.view">
+        <field name="name">Entre Stock</field>
+        <field name="model">sn_stocks.interstocks</field>
+        <field name="arch" type="xml">
+            <form string="Entre Stocks">
+                <sheet>
+                    <field name="name" invisible="1"/>
+                    <field name="state" invisible="1"/>
+                    <br/>
+                    <div class="row form-group">
+                        <div class="col-md-6 offset-md-3 text-center">
+                            <h1 class="text-danger">
+                                Transfert entre Stocks
+                            </h1>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row form-group">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="stock_id_from"/>
+                        </div>
+                        <div class="col-md-6">
+                            <field class="my-form-control" name="stock_id_from"
+                                options='{"no_open": True, "no_create": False}' />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="stock_id_to"/>
+                        </div>
+                        <div class="col-md-6">
+                            <field class="my-form-control" name="stock_id_to"
+                                options='{"no_open": True, "no_create": False}' />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="date_transfert"/>
+                        </div>
+                        <div class="col-md-6">
+                            <field class="my-form-control" name="date_transfert"/>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="note"/>
+                        </div>
+                        <div class="col-md-6">
+                            <field class="my-form-control" name="note"/>
+                        </div>
+                    </div>
+                    <field name="interstock_lines"  context="{'default_stock_id_from':stock_id_from }"    >
+                        <tree string="Lignes de transfert" decoration-bf="True">
+                            <control>
+                                <create string="Ajouter une ligne"/>
+                            </control>
+
+                            <field name="sequence" widget="handle"/>
+                            <field name="product_id"/>
+                            <field name="qty" />
+
+                        </tree>
+                        <form string="product details">
+
+                            <div class="text-center" attrs="{'invisible': [('parent.stock_id_from','!=',False),('parent.stock_id_to','!=',False)]}">
+                                <h2>
+                                    Vous devez préciser les stocks: départ, et destination.
+                                </h2>
+                            </div>
+                            <div class="row" attrs="{'invisible': ['|',('parent.stock_id_from','=',False),('parent.stock_id_to','=',False)]}">
+                                <div class="col-8">
+                                    <div class="row">
+                                        <div class="col-4 text-right title3">
+                                            Produit:
+                                        </div>
+                                        <div class="col-8">
+                                            <field class="my-form-control" name="product_id"
+                                            options="{'no_open': True}" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4 text-right title3">
+                                            Quantité:
+                                        </div>
+                                        <div class="col-4 offset-md-4">
+                                            <field class="form-control" name="qty"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-center">
+
+                                    Stock départ
+                                    <br/>
+                                    <span class="text-danger">
+                                        <field name="stock_id_from" options="{'no_open': True}"/>
+                                    </span>
+                                    <hr/>
+                                    <br/>
+                                    Quantité disponible
+                                    <br/>
+                                    <span class="text-danger">
+                                        <field name="qte_disponible" force_save="1"/>
+                                    </span>
+                                    <field name="stock_negatif" invisible="1"/>
+                                    <div attrs="{'invisible': [('stock_negatif','=',True)] }">
+                                        <br/>
+                                        Stock Peut être Négatif
+                                        <br/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </field>
+                    <br/>
+                    <footer class="text-center" attrs="{'invisible':[('state','=',True)]}">
+                        <button name="do_transfert" string="Lancer le transfert" type="object"
+                            class="btn-success btn-lg"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Action-->
+    <act_window id="sn_stocks_inter_stocks_action"
+        name="Entre Stocks"
+        res_model="sn_stocks.interstocks"
+        view_mode="form"
+        target='inline'
+        view_id="sn_stocks_interstocks_form"
+        />
+
+    <!--Menu-->
+    <menuitem action="sn_stocks_inter_stocks_action"
+        id="menu_stocks_inter_stocks"
+        name="Entre Stocks"
+        parent="menu_stocks_operations"
+        groups="sn_stocks_manager"
+        sequence="4"/>
+</odoo>

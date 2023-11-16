@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inherit Commandes Tree View  -->
+    <record id="view_commande_boxes_tree_sn_credit" model="ir.ui.view">
+        <field name="name">commande from boxes</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="22" />
+        <field name="inherit_id" ref="sn_boxes.view_commande_tree_boxes"/>
+        <field name="arch" type="xml">
+            <!-- [@string='commandes_tree'] -->
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-danger">amount_rest==amount_ttc</attribute>
+                <attribute name="decoration-success">amount_rest==0</attribute>
+                <attribute name="decoration-warning">amount_rest&lt;0</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='amount_ttc']" position="after">
+                <field name="total_deduit" readonly="0" optional="show" sum="Total"/>
+                <!-- <field name="mta_transferred_as_retard"  string="Retard" readonly="0" optional="show" /> -->
+            </xpath>
+        </field>
+    </record>
+
+
+    <!--Search-->
+    <record id="sn_sales_order_credit_search" model="ir.ui.view">
+        <field name="name">Search Sales</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="inherit_id" ref="sn_sales.sn_sales_order_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="string">Numéro, Nom, Prénom, CCP</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='group_state']" position="replace">
+                <filter name="group_payment_state" string="Par Etat" context="{'group_by': 'payment_state'}"/>
+            </xpath>
+            <xpath expr="//field[@name='amount_ttc']" position="after">
+                <filter name="filter_complet" help="Paiement Total" domain="[('payment_state','=','complet')]"/>
+                <filter name="filter_partiel" help="Paiement Partiel" domain="[('payment_state','=','partiel')]"/>
+                <filter name="filter_waloo" help="Paiement ZERO" domain="[('payment_state','=','waloo')]"/>
+                <filter name="cmd_considered_as_retard" help="Cmds declarés Retard" domain="[('is_considered_as_retard','=',True)]"/>
+                <filter name="cmd_generated_from_retard" help="Cmds Générés comme Retard" domain="[('is_generated_from_retard','=',True)]"/>
+            </xpath>
+
+        </field>
+    </record>
+    <!-- Form -->
+    <record id="view_credits_order_form_inherited" model="ir.ui.view">
+        <field name="name">sn_sales.commandes.form</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="20" />
+        <field name="inherit_id" ref="sn_sales.view_commande_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='commande_lines']" position="attributes">
+                <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tva_exist']" position="attributes">
+                <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
+                <!-- <attribute name="options" >{"always_reload": True}</attribute>                     -->
+            </xpath>
+            <xpath expr="//field[@name='tva_taux']" position="attributes">
+                <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='remise_exist']" position="attributes">
+                <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='remise_methode']" position="attributes">
+                <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='remise_applied_on']" position="attributes">
+                <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
+            </xpath>
+            <!-- <xpath expr="//field[@name='remise_taux']" position="attributes">
+                    <field name="aksats_adad" invisible="1"/>
+                    <attribute name="attrs" >{'readonly':[('aksats_adad','>',0)]}  </attribute>
+                </xpath>
+                <xpath expr="//field[@name='remise_mta']" position="attributes">
+                    <field name="aksats_adad" invisible="1"/>
+                    <attribute name="attrs" >{'readonly':[('aksats_adad','>',0)]}  </attribute>
+                </xpath>
+                   -->
+            <xpath expr="//button[@name='print_commande']" position="replace">
+                <button name="print_engagement" string="Imprimer Engagement" type="object"
+                    class="oe_highlight btn-print" icon="fa-print"
+                    attrs="{'invisible':[('name','=','/')]}"
+                    />
+                <field name="aksats_adad" invisible="1"/>
+                <button name="action_generate" class="oe_highlight btn-warning"
+                    string="Génerer les Aksats" type="object"
+                    attrs="{'invisible':['|','|','|',
+                            ('name','=','/'),
+                            ('month_number','=',0),
+                            ('aksats_adad','>',0),
+                            ('state','in',['confirmed']),]}"
+                    />
+                <button name="print_avancements" string="Imprimer Avancements" type="object"
+                    class="oe_highlight btn-print" icon="fa-print"
+                    attrs="{'invisible':[('name','=','/')]}"
+                    />
+            </xpath>
+            <!--             <xpath expr="//div[@class='oe_button_box']" position="inside">-->
+            <!--                <button attrs="{'invisible':[('aksats_image','=',0)]}" name="go2aksats" type="object"-->
+            <!--                    class="my_btn_box oe_stat_button btn_aksats" icon="fa-file">-->
+            <!--                        Aksats 00000-->
+            <!--                </button>-->
+            <!--            </xpath>-->
+            <xpath expr="//div[@id='partner']" position="after">
+                <div class="row">
+                    <field name="aksats_adad" invisible="1"/>
+                    <field name="aksats_touched" invisible="1"/>
+                    <div class="col-md-4 text-right">
+                        <label for="contrat"/>
+                    </div>
+                    <div class="col-md-3">
+                    <field name="is_generated_from_retard" force_save='1' invisible="1" />
+                    <field name="retard_source_id" force_save='1' invisible="1" />
+                    <field name="retard_source_name" force_save='1' invisible="1" />
+                        <field class="my-form-control" name="contrat" required="1"
+                            options='{"no_open": True, "no_create": True}'
+                            attrs="{'readonly': [('aksats_adad','!=',0)]}"/>
+                    </div>
+                    <div class="col-md-1"
+                        style="padding-right: 0px; text-align: right;    line-height: 28px; font-weight: bold">
+                        J:
+                    </div>
+                    <div class="col-md-1">
+                        <field name="jour" class="jour" />
+                    </div>
+                </div>
+
+            </xpath>
+            <xpath expr="//div[@id='panel_left']" position="inside">
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        <label for="confirmation_date" />
+                    </div>
+                    <div class="col-md-4">
+
+                        <field class="my-form-control" name="confirmation_date"/>
+                    </div>
+                    <div class="col-md-4"
+                        attrs="{'invisible':['|',('state','!=','confirmed'),('creation_date','!=','confirmation_date')]}">
+                        (
+                        <field class="uncover" name="creation_date" readonly="1"/>
+                        )
+                    </div>
+                </div>
+
+                <div class="row" id="user_id">
+                    <div class="col-md-4 text-right">
+                        <label for="user_id"/>
+                    </div>
+                    <div class="col-md-7">
+                        <field class="my-form-control" name="user_id"
+                            attrs="{'readonly':[('commande_lines_count', '>', 0)]}"
+                            options="{'no_open': True,}"/>
+                    </div>
+                </div>
+
+            </xpath>
+
+            <xpath expr="//div[@id='panel_right']" position="replace">
+
+                <field name="special" invisible="1" />
+
+                <div class="col-md-6" id="panel_right" attrs="{ 'invisible': [('special','=',True)]   }">
+                    <div class="row">
+                        <div class="col-md-6 text-right">
+                            <label for="amount_ttc_sec"/>
+                        </div>
+                        <div class="col-md-4 text-right">
+                            <field class="my-form-control" name="amount_ttc_sec"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-right">
+                            <label for="date_start"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="date_start" required="1"
+                                attrs="{'readonly':[('aksats_adad','>',0)]}"/>
+                        </div>
+                    </div>
+                    <div id="month_number" class="row">
+                        <div class="col-md-6 text-right">
+                            <label for="month_number"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="month_number" required="1"
+                                attrs="{'readonly':[('aksats_adad','>',0)]}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-right">
+                            <label for="date_end"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="date_end"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-right">
+                            <label for="monthly_amount"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="monthly_amount"
+                                attrs="{'readonly':[('aksats_adad','>',0)]}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-right">
+                            <label for="retrait_number"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="retrait_number" required="1"
+                                attrs="{'readonly':[('aksats_adad','>',0)]}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-right">
+                            <label for="retrait_amount"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="retrait_amount"
+                                attrs="{'readonly':[('aksats_adad','>',0)]}"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+                <!--******************************************* RETARD State ************************************************ * -->
+            <xpath expr="//notebook" position="before">
+            <field name="is_considered_as_retard" invisible="1" />
+            <field name="is_generated_from_retard" invisible="1" />
+            <div class="row"  attrs="{'invisible':[('is_considered_as_retard','=',False),('is_generated_from_retard','=',False)]}">
+                <div class="col-md-6 text-center" style="background-color:red;color:#FFF" attrs="{'invisible':[('is_considered_as_retard','=',False)]}">
+                      Commande considéré comme Retard <br/>
+                      commande image: <field style="color:#FFF" name="retard_destination_name" readonly="1" />
+                </div>
+                <div class="col-md-6 text-center" style="background-color:green;color:#FFF" attrs="{'invisible':[('is_generated_from_retard','=',False)]}">
+                      Commande Généré depuis un Retard <br/>
+                      commande source: <field style="color:#FFF" name="retard_source_name" readonly="1" />
+                </div>
+            </div>
+            </xpath>
+
+            <xpath expr="//notebook//page[@name='lignes']" position="after">
+                <!--******************************************* AKSATS LINES ************************************************ * -->
+                <page string="Lignes Aksats">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <button name="action_generate" class="oe_highlight btn-warning"
+                                string="Génerer les Aksats" type="object"
+                                attrs="{'invisible':['|','|','|',
+                            ('name','=','/'),
+                            ('month_number','=',0),
+                            ('aksats_adad','>',0),
+                            ('state','not in',['confirmed']),]}"
+                                />
+                            <button name="delete_aksats" class="oe_highlight btn-danger"
+                                string="Supprimer les Aksats" type="object"
+                                attrs="{'invisible':['|','|','|',
+                            ('special','=',True),
+                            ('aksats_touched','=',True),
+                            ('name','=','/'),
+                            ('aksats_adad','=',0)]}"
+                                />
+                        </div>
+                        <div class="col-md-6 divprint">
+                            <button name="print_aksats" string="Imprimer Aksats" type="object"
+                                class="oe_highlight btn-print" icon="fa-print"
+                                attrs="{'invisible':['|',('name','=','/'),('special','=',True)]}"
+                                />
+                        </div>
+                    </div>
+
+                    <div class="text-center tab_infos" attrs="{'invisible': [('name','!=','/')]}">
+                        <br/>
+                        Il faut sauvgarder avant de génerer El-Aksat
+                    </div>
+                    <field name="aksats_lines" class="contour01" attrs="{'invisible': [('name','=','/')]}">
+                        <tree string="Aksats Lines" create="false" delete="false"
+                            decoration-success="avancement==nbr_echeance"
+                            decoration-primary="nbr_echeance > avancement"
+                            decoration-danger="echecs>0 or state=='terminated'" decoration-bf="True">
+                            <field name="nbr_echeance" invisible="1"/>
+                            <field name="avancement" invisible="1"/>
+                            <field name="echecs" invisible="1"/>
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="day_to_cut"/>
+                            <field name="amount"/>
+                            <field name="avancement" class="text-center"/>
+                            <field name="echecs" class="text-center"/>
+                            <field name="state" class="text-center"/>
+                        </tree>
+                        <form string="Ligne kist">
+                            <div class="text-center">
+                                <h2>
+                                    Enlèvements pour la réference
+                                    <field name="name" readonly="1"/>
+                                </h2>
+                                <br/>
+                                <field name="cuts_ids" >
+                                    <tree edit="false" create="false" delete="false"
+                                        decoration-success="c_etat=='0'" decoration-danger="c_etat!='0'"
+                                        decoration-bf="True">
+                                        <field name="c_date"/>
+                                        <field name="c_montant"/>
+                                        <field name="c_etat" string="Etat"/>
+                                    </tree>
+
+                                    <form string="Edition" create="true" delete="true" edit="true">
+                                        <sheet>
+                                            <div class="oe_title">
+                                                <label for="c_date" class="oe_edit_only" />
+                                                <field name="c_date" />
+                                            </div>
+                                            <div class="oe_title">
+                                                <label for="c_montant" class="oe_edit_only" />
+                                                <field name="c_montant" />
+                                            </div>
+                                            <div class="oe_title">
+                                                <label for="c_etat" class="oe_edit_only" />
+                                                <field name="c_etat" />
+                                            </div>
+
+                                        </sheet>
+                                    </form>
+
+                                </field>
+                            </div>
+
+
+                        </form>
+                    </field>
+                </page>
+                <page string="Déduit par mois">
+                    <div class="divprint">
+                        <button  class="oe_highlight" name="link_aksats_mois_reel" type="object">
+                            تحديث الإقتطاعات الشهرية
+                        </button>
+                        <!-- <button  class="oe_highlight" name="re_compute" type="object">
+                            إعادة الحساب الكلي
+                        </button> -->
+
+                    </div>
+
+                    <div class="text-center tab_infos" attrs="{'invisible': [('name','!=','/')]}">
+                        <br/>
+                        Il faut sauvgarder avant de génerer El-Aksat
+                    </div>
+                    <field name="aksats_mois_reel" class="contour01" attrs="{'invisible': [('name','=','/')]}">
+                        <tree string="Retraits par mois" create="false" delete="false"
+                            decoration-bf="True" default_order="mois_annee desc">
+                          
+                            <field name="mois_annee"/>
+                            <field name="mta_deduit"/>
+                        </tree>
+                      
+                    </field>
+                </page>
+
+                <!-- <field name="mta_transferred_as_retard" invisible="1" /> -->
+                <!-- <page string="Retard" attrs="{ 'invisible': [('mta_transferred_as_retard','=',0)]  }" >
+                        <field name="retard_ids" class="contour01" attrs="{'invisible': [('name','=','/')]}">
+                            <tree string="Montants en retard" create="false" delete="false"
+                                  decoration-bf="True">
+                                <field name="months_in_retard" />
+                                <field name="commande_id_generated"/>
+                                <field name="montant"/>
+                            </tree>
+
+                        </field>
+                    </page> -->
+
+            </xpath>
+            <xpath expr="//div[@id='paiements']" position="after">
+
+                <div class="row">
+                    <div class="col-md-7 title1 text-right">
+                        Total Déduit :
+                    </div>
+                    <div class="col-md-5" style="text-align:right">
+                        <field name="total_deduit" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    </div>
+                </div>
+
+                <!-- <field name="mta_transferred_as_retard" invisible="1" />
+
+                     <div class="row" attrs="{ 'invisible': [('mta_transferred_as_retard','=',0)]  }"  >
+                        <div class="col-md-7 title1 text-right">
+                            Considéré Retard :
+                        </div>
+                        <div class="col-md-5" style="text-align:right">
+                            <field name="mta_transferred_as_retard" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </div>
+                    </div> -->
+
+            </xpath>
+
+
+            <xpath expr="//field[@name='commande_lines']//tree//control//create" position="attributes">
+                <attribute name="attrs">{'invisible':[('parent.aksats_adad','>',0)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

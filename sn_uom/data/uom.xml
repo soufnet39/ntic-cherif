@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- <record id="uom_id_0" model="sn_uom.uom">
+            <field name="name">Unité</field>
+            <field name="uom_category_id">uom_cat_id_0</field>
+            <field name="type_unit">one_unit</field>
+            <field name="ratio">1.0</field>
+        </record> -->
+
+    </data>
+</odoo>

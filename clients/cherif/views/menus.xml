@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+      <!-- Hide Taxonomies menu -->
+    <record model="ir.ui.menu" id="sn_sales.taxonomies_menu">
+        <field name="groups_id" eval="[(6,0,[ref('sn_base.make_invisible')])]"/>
+    </record>
+
+</odoo>

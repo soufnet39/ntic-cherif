@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!--print proforma -->
+    <report
+            id="action_report_op_stock"
+            string="Operation Stock"
+            model="sn_sales.commandes"
+            report_type="qweb-html"
+            file="sn_stocks.report_op_stock"
+            name="sn_stocks.report_op_stock"
+            print_report_name="'Operation Stock '"
+    />
+    <report
+            id="report_stock_with_qty"
+            string="Produit avec Stock"
+            model="sn_stocks.eval_stocks"
+            report_type="qweb-html"
+            file="sn_stocks.report_stck_w_qty"
+            name="sn_stocks.report_stck_w_qty"
+            print_report_name="'Produit avec stock'"
+    />
+    <report
+            id="report_rest_stock_with_qty"
+            string="Liste des Produits"
+            model="sn_credit.wiz_rest_product"
+            report_type="qweb-html"
+            file="sn_stocks.report_rest_stck_w_qty"
+            name="sn_stocks.report_rest_stck_w_qty"
+            print_report_name="'Liste des Produits'"
+    />
+
+
+
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--Regions-->
+         <record id="region_01" model="sn_base.regions">
+            <field name="code">39</field>
+            <field name="name">Sud</field>
+        </record>
+        <record id="region_02" model="sn_base.regions">
+            <field name="code">16</field>
+            <field name="name">Nord</field>
+        </record>
+        <record id="region_03" model="sn_base.regions">
+            <field name="code">05</field>
+            <field name="name">Est</field>
+        </record>
+        <record id="region_04" model="sn_base.regions">
+            <field name="code">29</field>
+            <field name="name">Ouest</field>
+        </record>
+
+        <!--Wilayate-->
+        <!-- <record id="wilaya_1" model="sn_base.wilayates">
+            <field name="name">Alger</field>
+            <field name="code">16</field>
+            <field name="region_id" ref="region_01"/>
+        </record>
+
+        <record id="wilaya_5" model="sn_base.wilayates">
+            <field name="name">El-Oued</field>
+            <field name="code">39</field>
+            <field name="region_id" ref="region_02"/>
+        </record> -->
+
+
+    </data>
+</odoo>

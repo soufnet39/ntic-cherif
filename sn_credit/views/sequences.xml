@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="my_sequence_from_credit_view_tree" model="ir.ui.view">
+        <field name="name">My Sequences credits Tree</field>
+        <field name="model">ir.sequence</field>
+        <field name="inherit_id" ref="sn_base.my_sequence_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="company_id" string="Centre" />
+            </field>
+            <!--<xpath expr="//field[@name='code']" position="after">-->
+                <!---->
+            <!--</xpath>-->
+
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_aksats">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sn_credit.report_aksats_document" t-lang="user.lang" />
+                </t>
+            </t>
+        </template>
+
+        <template id="report_aksats_mois">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sn_credit.report_aksats_mois_document" t-lang="user.lang" />
+                </t>
+            </t>
+        </template>
+        <!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- -->
+         <template id="dibaja">
+            <h3 class="text-center mt32 mb32">
+                <span>Bon de vente à Credit</span>
+                <span>Nº:</span>
+                <span t-field="doc.name" />
+                <span t-if="doc.state =='draft'"> (Brouillon)</span>
+            </h3>
+            <div style="width:70%;margin: 0 auto">
+                <table class="table table-sm" style="margin-bottom:0">
+                    <tr>
+                        <td style="border-top:0;width:50%">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:20px"> Client: </td>
+                                    <td style="border-top:0">
+                                        <span t-field="doc.partner_id.name" />
+                                        <span t-field="doc.partner_id.prenom" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:20px"> CCP: </td>
+                                    <td style="border-top:0">
+                                        <span t-field="doc.partner_id.ccp_numero" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:20px"> Contrat: </td>
+                                    <td style="border-top:0">
+                                        <span t-field="doc.contrat" />
+                                        , Jour:
+                                        <span t-field="doc.jour" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:20px"> Daté le: </td>
+                                    <td style="border-top:0">
+                                        <span t-field="doc.confirmation_date" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="border-top:0;width:50%">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:10px"> Montant global: </td>
+                                    <td style="border-top:0;text-align:right;">
+                                        <span t-field="doc.amount_ttc" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:10px"> Date Début: </td>
+                                    <td style="border-top:0;text-align:right;">
+                                        <span t-field="doc.date_start" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:10px"> Date Fin: </td>
+                                    <td style="border-top:0;text-align:right;">
+                                        <span t-field="doc.date_end" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:10px"> Nombre des mois: </td>
+                                    <td style="border-top:0;text-align:right;">
+                                        <span t-field="doc.month_number" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:10px"> Retrait mensuel: </td>
+                                    <td style="border-top:0;text-align:right;">
+                                        <span t-field="doc.monthly_amount" t-options='{"widget": "float", "precision": 2}' />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </template>
+        <!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- -->
+        <template id="report_aksats_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':user.lang})" />
+                <t t-call="sn_credit.dibaja" />
+                <br />
+                <table class="table table-sm" style="border:1px solid grey; width:70%;margin: 0 auto">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee; font-size:11pt">
+                            <th>Réference</th>
+                            <th class="text-center">Le Jour</th>
+                            <th>Montant</th>
+                            <th class="text-center">Seccès</th>
+                            <th class="text-center">Echècs</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.aksats_lines" t-as="line">
+
+                            <tr style="border-bottom:1px solid #AAA;">
+                                <td>
+                                    <span t-field="line.name" />
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="line.day_to_cut" />
+                                </td>
+                                <td style="text-align:right;">
+                                    <span t-field="line.amount" />
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="line.c_avancement" />
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="line.c_echecs" />
+                                </td>
+
+                            </tr>
+                        </t>
+                        <tr style="font-weight:bold;border-bottom:2px solid #AAA; background-color:#eee; font-size:11pt">
+                            <td colspan="4">Total: </td>
+                            <td style="text-align:right">
+                                <span t-field="doc.amount_ttc" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <span t-field="doc.amount_ttc" />
+                <div class="oe_structure" />
+                <div class="clearfix"></div>
+
+
+            </t>
+        </template>
+        <!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- -->
+        <template id="report_aksats_mois_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':user.lang})" />
+                <t t-call="sn_credit.dibaja" />
+                <br />
+                <div style="border:1px solid grey;width:70%;margin: 0 auto">
+                    <t t-call="sn_sales.bcn_details" />
+                </div>
+                <br />
+                <h3 class="text-center">
+                Déductions
+                </h3>
+                <br />
+
+                <table class="table table-sm" style=" border:1px solid grey;width:70%;margin: 0 auto">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA;border-top:2px solid #AAA; background-color:#eee; font-size:11pt">
+                            <th class="text-left" style="width:65%;padding-left:60px">Mois</th>
+
+                            <th style="width:12%">Montant Déduit</th>
+                        </tr>
+                    </thead>
+                    <t t-set="tot" t-value="0" />
+
+                    <tbody class="sale_tbody">
+                        <t t-set="aksats_mois_reel_sorted" t-value="doc.aksats_mois_reel.sorted(key=lambda a:(a.mois_annee))" />
+                        <t t-foreach="aksats_mois_reel_sorted" t-as="line">
+                            <t t-set="tot" t-value="tot+line.mta_deduit" />
+
+                            <tr t-if="line.mta_deduit > 0" style="border-bottom:1px solid #AAA;">
+                                <td >
+                                    <span t-field="line.mois_annee" />
+                                </td>
+                                <td style="text-align:right;">
+                                    <span t-field="line.mta_deduit" t-options='{"widget": "float", "precision": 2}' />
+                                </td>
+                            </tr>
+                        </t>
+                        <tr style="border-top: 2px solid #AAA!important;">
+                            <td class="text-right">Total déduit: </td>
+                            <td style="text-align:right;">
+                                <t t-esc="tot" t-options='{"widget": "float", "precision": 2}' />
+                            </td>
+                        </tr>
+                        <tr t-if="doc.total_reglement" style="border-top: 2px solid #AAA!important;">
+                            <td class="text-right">Total avances: </td>
+                            <td style="text-align:right; ">
+                                <t t-esc="doc.total_reglement" t-options='{"widget": "float", "precision": 2}' />
+                            </td>
+                        </tr>
+                        <tr style="border-top: 2px solid #AAA!important;">
+                            <td class="text-right">Rest à payer: </td>
+                            <td style="text-align:right">
+                                <t t-esc="doc.amount_rest" t-options='{"widget": "float", "precision": 2}' />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table t-if="doc.note" class="table table-sm" style=" border:0px ;width:70%;margin: 0 auto">
+                    <tr>
+                        <td>
+                            <span t-field="doc.note" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="oe_structure" />
+                <br />
+                <br />
+
+                <table   class="table table-sm" style=" border:1px ;width:70%;margin: 0 auto">
+                    <tr>
+                        <td class='text-center'>
+                                المؤسسة غير مسؤولة عن الإقتطاعات الجزافية  300دج أو 600دج  للحسابات بدون رصيد
+                            </td>
+                    </tr>
+                    <tr>
+                        <td class='text-center'>
+                                Non responsable des déductions 300DA ou 600DA pour les comptes sans solde
+                            </td>
+                    </tr>
+                </table>
+
+            </t>
+        </template>
+    </data>
+</odoo>

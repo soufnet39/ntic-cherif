@@ -1,0 +1,15 @@
+
+.livraison .contour01{   border-radius: 4px;    padding: 4px 0; border: 2px solid red;    }
+.livraison .big-title{  color: red;   }
+
+.btn_livraison i{  color: red!important; width:25px !important   }
+.livraison .o_form_sheet{ border-top: 4px solid red!important; border-bottom: 2px solid red!important; }
+
+.livraison .tab_infos {
+    border: 2px solid red;
+    padding: 4px 0;
+    margin: 8px 0;
+    border-radius: 5px;
+    min-height:150px;
+}
+

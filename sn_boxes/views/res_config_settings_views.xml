@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sn_boxes_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.boxes</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="comptes" string="Trésorerie"
+                         data-key="sn_boxes" groups="sn_boxes.sn_boxes_manager">
+                        <div class="h1 config-big-tilte">Configuration - Trésorerie</div>
+                        <h2>Affichage des paiements</h2>
+                        <br/>
+                        <div class="row o_settings_container">
+
+                            <div class="col-md-6 o_setting_box">
+
+                                <div class="o_setting_left_pane">
+                                    <field name="show_client_payment"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="show_client_payment"/>
+                                    <div class="text-muted">
+                                        Afficher par défaut les paiements et les restes à payer avec les pièces
+                                        des ventes
+                                    </div>
+                                </div>
+                                <br/>
+
+                            </div>
+
+                            <div class="col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="show_supplier_payment"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="show_supplier_payment"/>
+                                    <div class="text-muted">
+                                        Afficher par défaut les reglements des pièces d'achats envers les fournisseurs
+                                    </div>
+                                </div>
+                                <br/>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <!--<record id="action_sn_boxes_configuration" model="ir.actions.act_window">-->
+        <!--<field name="name">Settings</field>-->
+        <!--<field name="type">ir.actions.act_window</field>-->
+        <!--<field name="res_model">res.config.settings</field>-->
+        <!--<field name="view_mode">form</field>-->
+        <!--<field name="target">inline</field>-->
+        <!--<field name="context">{'module' : 'sn_boxes'}</field>-->
+        <!--</record>-->
+
+        <!--<menuitem id="menu_sn_boxes_global_settings"-->
+        <!--name="Configuration"-->
+        <!--parent="menu_sn_boxes"-->
+        <!--sequence="20"-->
+        <!--action="action_sn_boxes_configuration"-->
+        <!--groups="base.group_system"/>-->
+    </data>
+</odoo>

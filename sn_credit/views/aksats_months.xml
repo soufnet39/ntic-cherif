@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- aksats.mois tree view -->
+    <record id="model_name_view_tree" model="ir.ui.view">
+        <field name="name">aksats.mois.view.tree</field>
+        <field name="model">sn_credit.aksats.mois_reel</field>
+        <field name="arch" type="xml">
+            <tree>
+
+            <field name="id"  />
+            <field name="mois_annee"  />
+            <field name="mta_deduit"  />
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- aksats.mois_reel action window -->
+    <record id="aksats_months_action" model="ir.actions.act_window">
+        <field name="name">aksats.mois_reel.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sn_credit.aksats.mois_reel</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+        </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="aksats_months_menu_act" action="aksats_months_action"
+        name="Aksats par mois"
+        parent="menu_credit"
+        groups="base.user_admin"
+        sequence="10"/>
+
+
+
+
+</odoo>

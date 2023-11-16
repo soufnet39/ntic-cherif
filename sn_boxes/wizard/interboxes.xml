@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sn_boxes_interboxes_form" model="ir.ui.view">
+        <field name="name">Entre Comptes</field>
+        <field name="model">sn_boxes.interboxes</field>
+        <field name="arch" type="xml">
+
+
+            <form string="Entre Comptes" >
+                <sheet>
+                    <field name="id" invisible="1"/>
+                    <field name="state" invisible="1" />
+                    <br/>
+                    <div class="row form-group">
+                        <div class="col-md-7 offset-md-3">
+                            <h1 class="text-danger">
+                               Transfert entre comptes
+                            </h1>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <br/>
+                     <div class="row form-group">
+                        <div class="col-md-4 offset-md-1 text-right ">
+                            <label class="title1" for="boxe_id_from"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="boxe_id_from"/>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <field name="sold_from"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row form-group">
+                        <div class="col-md-4 offset-md-1 text-right ">
+                            <label class="title1" for="boxe_id_to"/>
+                        </div>
+                        <div class="col-md-4">
+                            <field class="my-form-control" name="boxe_id_to"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row form-group">
+                        <div class="col-md-4 offset-md-1 text-right ">
+                            <label class="title1" for="date_transfert"/>
+                        </div>
+                        <div class="col-md-3">
+                            <field class="my-form-control" name="date_transfert"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row form-group">
+                        <div class="col-md-4 offset-md-1 text-right ">
+                            <label class="title1" for="amount"/>
+                        </div>
+                        <div class="col-md-3">
+                            <field class="my-form-control" name="amount"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row form-group">
+                        <div class="col-md-4 offset-md-1 text-right ">
+                            <label class="title1" for="note"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field class="my-form-control" name="note"/>
+                        </div>
+                    </div>
+                    <br/>
+                     <footer  attrs="{'invisible':[('state','=',True)]}">
+                       <br/>
+                         <div class="row form-group">
+                             <div class="col-md-4 offset-md-5">
+                               <button name="do_transfert" string="Lancer le transfert" type="object" class="btn-success btn-lg"/>
+                             </div>
+                         </div>
+
+                   </footer>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Action-->
+    <act_window id="sn_boxes_inter_boxes_action"
+                name="Entre Comptes"
+                res_model="sn_boxes.interboxes"
+                view_mode="form"
+                target='inline'
+                view_id="sn_boxes_interboxes_form"
+    />
+
+    <!--Menu-->
+    <menuitem action="sn_boxes_inter_boxes_action"
+              id="menu_boxes_inter_boxes"
+              name="Entre Comptes"
+              parent="menu_boxes_operations"
+              groups="sn_boxes_manager"
+              sequence="4"/>
+</odoo>

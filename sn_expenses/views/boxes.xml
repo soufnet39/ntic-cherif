@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sn_boxes_operations_form_view_inherited" model="ir.ui.view">
+        <field name="name">sn_boxes operations form inherited</field>
+        <field name="model">sn_boxes.operations</field>
+        <field name="inherit_id" ref="sn_boxes.sn_boxes_operations_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='mode']" position="after">
+                 <div class="row form-group" attrs="{'invisible':[('operation','!=','expense')]}">
+                        <div class="col-md-2 offset-md-1 text-right ">
+                            <label class="title1" for="expense_category"/>
+                        </div>
+                        <div class="col-md-6">
+                            <field class="my-form-control" name="expense_category" options="{'no_create': True}" />
+                        </div>
+                    </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

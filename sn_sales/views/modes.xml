@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TREE  Modes Paiement -->
+    <record model="ir.ui.view" id="sn_sales_mode_paiement_tree">
+        <field name="name">sn_sales.modes_paiement.tree</field>
+        <field name="model">sn_sales.modes_paiement</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+        <tree string="Modes paiement" create="true" delete="true" edit="true" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="nature"/>
+                <field name="isdefault"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ACTION Modes Paiement -->
+    <record model="ir.actions.act_window" id="mode_paiement_action" >
+        <field name="name">Modes de paiement</field>
+        <field name="res_model">sn_sales.modes_paiement</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Veuillez Ajouter votre 1er mode de paiement
+            </p>
+        </field>
+    </record>
+
+    <!-- Main menu Modes -->
+      <menuitem
+              id="menu_sn_sales_modes"
+              name="Modes"
+              parent="sn_base.menu_config"
+              sequence="11"/>
+    <!-- Menu Modes Paiement -->
+    <menuitem action="mode_paiement_action"
+              id="menu_modes_paiement"
+              name="Modes de paiement"
+              parent="menu_sn_sales_modes"
+              sequence="1" />
+
+    <!-- TREE  Méthodes de paiement -->
+    <record model="ir.ui.view" id="sn_sales_methode_paiement_tree">
+        <field name="name">sn_sales.methodes_paiement.tree</field>
+        <field name="model">sn_sales.methodes_paiement</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+        <tree string="Méthodes de paiement" create="true" delete="true" edit="true" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="isdefault"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- ACTION Methodes Paiement -->
+    <record model="ir.actions.act_window" id="methode_paiement_action" >
+        <field name="name">Méthodes de paiement</field>
+        <field name="res_model">sn_sales.methodes_paiement</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Veuillez Ajouter votre 1er méthode de paiement
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Modes Paiement -->
+    <menuitem action="methode_paiement_action"
+              id="menu_methodes_paiement"
+              name="Méthodes de paiement"
+              parent="menu_sn_sales_modes"
+              sequence="2" />
+
+    <!-- TREE  Conditions de vente -->
+    <record model="ir.ui.view" id="sn_sales_conditions_vente_tree">
+        <field name="name">sn_sales.conditions_vente.tree</field>
+        <field name="model">sn_sales.conditions_vente</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+        <tree string="Conditions de vente" create="true" delete="true" edit="true" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="isdefault"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- ACTION Conditions de vente -->
+    <record model="ir.actions.act_window" id="conditions_vente_action" >
+        <field name="name">Conditions de vente</field>
+        <field name="res_model">sn_sales.conditions_vente</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Veuillez Ajouter votre 1ere condition de vente
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Conditions de vente -->
+    <menuitem action="conditions_vente_action"
+              id="menu_conditions_vente"
+              name="Conditions de vente"
+              parent="menu_sn_sales_modes"
+              sequence="3" />
+
+    <!-- TREE  Validités des offres -->
+    <record model="ir.ui.view" id="sn_sales_validities_offre_tree">
+        <field name="name">sn_sales.validities_offre.tree</field>
+        <field name="model">sn_sales.validities_offre</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+        <tree string="Validités des offres" create="true" delete="true" edit="true" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="isdefault"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- ACTION Validités des offres -->
+    <record model="ir.actions.act_window" id="validities_offre_action" >
+        <field name="name">Validités des offres</field>
+        <field name="res_model">sn_sales.validities_offre</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Veuillez Ajouter votre 1ere Validité d'offres
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Validités des offres -->
+    <menuitem action="validities_offre_action"
+              id="menu_validities_offre"
+              name="Validités des offres"
+              parent="menu_sn_sales_modes"
+              sequence="4" />
+</odoo>

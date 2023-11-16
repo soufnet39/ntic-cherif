@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Inherits Sales Form-->
+    <record id="view_invpoces_commandes_wizard_form" model="ir.ui.view">
+        <field name="name">Etat de Vente</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="inherit_id" ref="sn_sales.view_commandes_wizard_form"/>
+        <field name="arch" type="xml">
+
+            <!-- <xpath expr="//div[@id='block1']" position="inside">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="with_facture"/>
+                    </div>
+                    <div class="col-md-10">
+                        <field name="with_facture" />
+                    </div>
+                </div>
+
+            </xpath> -->
+        </field>
+    </record>
+</odoo>

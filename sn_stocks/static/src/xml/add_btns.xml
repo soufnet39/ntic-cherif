@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+
+    <t t-extend="ListView.buttons">
+
+        <t t-jquery="div.o_list_buttons" t-operation="append">
+        <!-- <t t-log="widget"/> -->
+        <!-- widget.renderer.state.context.vv == 'smail' -->
+            <button t-if="widget.renderer.state.context.washi=='mouvements_stocks'" type="button"
+                    class="btn btn-primary oe_bon_livraison_button">
+                B. Livraison
+            </button>
+            <button t-if="widget.renderer.state.context.washi=='mouvements_stocks'" type="button"
+                    class="btn btn-primary oe_bon_reception_button">
+                B. Reception
+            </button>
+            <button t-if="widget.renderer.state.context.washi=='mouvements_stocks'" type="button"
+                    class="btn btn-primary oe_bon_sortie_button">
+                B. Sortie
+            </button>
+            <button t-if="widget.renderer.state.context.washi=='mouvements_stocks'" type="button"
+                    class="btn btn-primary oe_bon_entree_button">
+                B. d'Entrée
+            </button>
+            <button t-if="widget.renderer.state.context.washi=='mouvements_stocks'" type="button"
+                    class="btn btn-primary oe_between_stocks_button">
+                Entre Stocks
+            </button>
+          </t>
+    </t>
+
+</template>
+

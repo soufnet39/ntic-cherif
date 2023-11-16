@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Proforma-->
+        <template id="report_proforma">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sn_sales.report_proforma_document" t-lang="user.lang"/>
+                </t>
+            </t>
+        </template>
+        <template id="report_proforma_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':user.lang})"/>
+                 <div class="row" style="font-size:11pt" id='entete'>
+                    <div class="col-10 offset-md-1">
+                        <div class="row">
+                            <div class="col-2 text-right" id='client_det'>
+                                Client :
+                            </div>
+                            <div class="col-10">
+                                <span style="font-weight:bold; " t-field="doc.partner_id.name" />
+                                <t t-if="doc.partner_id.address">
+                                    <br/>
+                                    <span t-field="doc.partner_id.address" />
+                                    ,
+                                    <span t-field="doc.partner_id.wilaya_id" />
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.partner_id.reg_com">
+                            <div class="col-2" >
+                                Reg.Com :
+                            </div>
+                            <div class="col-10">
+                                <span t-field="doc.partner_id.reg_com"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.partner_id.mat_fisc">
+                            <div class="col-2" >
+                                Mat.Fisc :
+                            </div>
+                            <div class="col-10">
+                                <span t-field="doc.partner_id.mat_fisc"/>
+                            </div>
+                        </div>
+                        <div class="row" t-if="doc.partner_id.art_imp">
+                            <div class="col-2" >
+                                Art.Imp :
+                            </div>
+                            <div class="col-10" >
+                                <span t-field="doc.partner_id.art_imp"/>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <h3 class="text-center mt32 mb32" id="prfm_numero">
+                    <span style="color:black">Facture Proforma Nº:</span>
+                    <span style="color:black" t-field="doc.name"/>
+                    <span t-if="doc.state =='canceled'"> (Annulée)</span>
+                    <span t-if="doc.state=='draft'"> (Brouillon)</span>
+                </h3>
+                <table style="width:100%">
+                    <tr>
+                        <td t-if="doc.user_id" class="text-left">
+                            Suivi par : <span t-field="doc.user_id"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="doc.company_id.wilaya_id"/>
+                            le : <span t-if="doc.state == 'confirmed'" t-field="doc.confirmation_date"/><span t-if="doc.state != 'confirmed'" t-field="doc.creation_date"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="table table-sm" style="margin-bottom:0">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee; font-size:11pt">
+                            <th t-if="doc.code_article_exist" class="text-center" style="width:15%">Réference</th>
+                            <th class="text-left" style="width:45%">Désignation</th>
+                            <th class="text-center" style="width:8%" id="qty_id_title">Qte</th>
+                            <th class="text-right" style="width:12%">Prix Unt</th>
+                            <th t-if="doc.remise_exist and doc.remise_applied_on=='article'" class="text-right"
+                                style="width:12%">Remise
+                            </th>
+                            <th class="text-right" style="width:12%">Montant</th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.proforma_lines" t-as="line">
+                            <tr style="border-bottom:1px solid #AAA;"
+                                t-att-class="'bg-200 font-weight-bold' if line.display_type == 'line_section' else 'font-italic' if line.display_type == 'line_note' else ''">
+                                <t t-if="line.display_type not in ('line_section','line_note')">
+                                    <td t-if="doc.code_article_exist" class="text-center">
+                                        <span t-field="line.product_id.code"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td class="text-center" id="qty_id_value">
+                                        <span t-field="line.qty"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.price_unit"/>
+                                    </td>
+                                    <td t-if="doc.remise_exist and doc.remise_applied_on=='article'" class="text-right">
+                                        <span t-if="doc.remise_methode=='taux'" t-field="line.remise_taux"/>
+                                        <span t-if="doc.remise_methode=='mta'" t-field="line.remise_mta"/>
+
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.price_total"/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <div class="oe_structure"/>
+                <div class="clearfix">
+
+                    <div t-if="doc.remise_exist" class="row" name="total">
+                        <div t-attf-class="#{'col-5' if report_type != 'html' else 'col-sm-6 col-md-6'} ml-auto">
+                            <table class="table table-sm">
+                                <tr style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Montant HT :</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.amount_ht_before_remise"/>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Remise % :</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.remise_valeur"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.tva_exist" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Montant HT Remise :</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.amount_ht"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.tva_exist" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">TVA <span t-field="doc.tva_taux"/> % :
+                                    </td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.amount_tva"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.amount_timbre>0" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Timbre :</td>
+                                    <td style="text-align:right; border-top:0">
+                                        <span t-field="doc.amount_timbre"/>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Montant Total TTC :</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.amount_ttc"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div t-if="not doc.remise_exist" class="row" name="total">
+                        <div t-attf-class="#{'col-5' if report_type != 'html' else 'col-sm-6 col-md-6'} ml-auto">
+                            <table class="table table-sm">
+                                <tr t-if="doc.tva_exist" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Montant HT :</td>
+                                    <td style="border-top:0; text-align:right" >
+                                        <span t-field="doc.amount_ht"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.tva_exist" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">TVA <span t-field="doc.tva_taux"/> % :
+                                    </td>
+                                    <td style="text-align:right; border-top:0">
+                                        <span t-field="doc.amount_tva"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.amount_timbre>0" style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Timbre :</td>
+                                    <td style="text-align:right; border-top:0">
+                                        <span t-field="doc.amount_timbre"/>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom:1px solid #dddddd;">
+                                    <td class="text-right" style="border-top:0">Total <span t-if="doc.tva_exist">TTC</span><span t-if="not doc.tva_exist">HT</span>:</td>
+                                    <td style="border-top:0; text-align:right">
+                                        <span t-field="doc.amount_ttc"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div t-if="doc.mode_paiement_id">
+                    <span> Mode de paiement : </span> <span t-field="doc.mode_paiement_id"/>
+                </div>
+                <div t-if="doc.methode_paiement_id">
+                    <span> Méthode de paiement : </span> <span t-field="doc.methode_paiement_id"/>
+                </div>
+                <div t-if="doc.condition_vente_id">
+                    <span> Condition de vente : </span> <span t-field="doc.condition_vente_id"/>
+                </div>
+                 <div t-if="doc.validity_offre_id">
+                    <span> Validité de l'offre : </span> <span t-field="doc.validity_offre_id"/>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <span t-field="doc.note"/>
+                        <br/>
+                        <span id="arrete">
+                            <strong>Arrêtée la présente facture proforma à la somme de:</strong>
+                        </span>
+                        <br/>
+                        <t t-set="mm" t-value="doc.amount_ttc"/>
+                        <span t-esc="doc.chiflet(mm)"/>
+                    </div>
+                    <div id="cachet_pos" class="col-6">
+                    </div>
+                </div>
+
+               
+            </t>
+        </template>
+    </data>
+</odoo>

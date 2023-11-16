@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--Search-->
+    <record id="sn_purchases_suppliers_categories_search_view" model="ir.ui.view">
+        <field name="name">sn_purchases.suppliers.category.search</field>
+        <field name="model">sn_purchases.suppliers.category</field>
+        <field name="arch" type="xml">
+            <search string="Catégorie de Client">
+                <field name="name"/>
+                <separator/>
+                <filter name="filter_cat_principals" string="Catégories principals" domain="[('parent_id','=',False)]"/>
+
+                <group expand="0" name="group_by" string="Group By">
+                    <!--<filter name="group_wilaya" string="Par Wilaya" context="{'group_by': 'wilaya_id'}"/>-->
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Form-->
+    <record id="sn_purchases_suppliers_categories_form" model="ir.ui.view">
+        <field name="name">Fournisseurs Catégories</field>
+        <field name="model">sn_purchases.suppliers.category</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+
+                    <div class="oe_button_box">
+                        <button name="%(menu_ntic_suppliers_action)d" type="action"
+                                class="oe_stat_button" icon="fa-archive"
+                                context="{'search_default_tasnif': active_id}">
+                               <field name="supplier_count"  />
+                        </button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-8 offset-md-4 ">
+                            <h1 class="heading1">
+                                Catégorie des Fournisseurs
+                            </h1>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="complete_name"/>
+                        </div>
+                        <div class="col-7">
+                            <field class="my-form-control" name="complete_name" readonly="1"/>
+                        </div>
+                    </div>
+                    <br/>
+                     <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="name"/>
+                        </div>
+                        <div class="col-5">
+                            <field class="my-form-control" name="name"/>
+                        </div>
+                    </div>
+                    <br/>
+                     <div class="row">
+                        <div class="col-4 text-right">
+                            <label for="parent_id"/>
+                        </div>
+                        <div class="col-4">
+                            <field class="my-form-control" name="parent_id"/>
+                        </div>
+                    </div>
+                    <br/>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--Tree-->
+    <record id="sn_purchases_suppliers_categories_list_view" model="ir.ui.view">
+        <field name="name">sn_purchases.suppliers  category.list</field>
+        <field name="model">sn_purchases.suppliers.category</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Catégorie des Fournisseurs"  >
+                <field name="name" string="Catégorie"/>
+                <field name="parent_id" options="{'no_open': True}"/>
+                <field name="supplier_count" />
+
+            </tree>
+        </field>
+    </record>
+
+<!--KANBAN-->
+    <record id="sn_purchases_suppliers_categories_kanban_view" model="ir.ui.view">
+        <field name="name">Fournisseurs Catégories Kanban</field>
+        <field name="model">sn_purchases.suppliers.category</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="complete_name"/>
+                <field name="supplier_count"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="complete_name"/>
+                                </strong>
+                                <ul>
+                                    <li>
+                                        <strong>
+                                            Nombre des fourniseurs :
+                                            <field name="supplier_count"/>
+                                        </strong>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+<!--Action-->
+    <record id="sn_purchases_suppliers_categories_action" model="ir.actions.act_window">
+        <field name="name">Catégorie des fournisseurs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sn_purchases.suppliers.category</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="sn_purchases_suppliers_categories_search_view"/>
+        <field name="view_id" ref="sn_purchases_suppliers_categories_list_view"/>
+    </record>
+
+    <!--Menu Catégories des Fournisseurs -->
+    <menuitem action="sn_purchases_suppliers_categories_action"
+              id="menu_suppliers_categories"
+              name="Catégories Fournisseurs"
+              parent="sn_sales.menu_clients"
+
+              sequence="4"/>
+
+
+</odoo>

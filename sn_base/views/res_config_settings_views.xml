@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sn_base_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.base</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority">110</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='multi_company']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+            <xpath expr="//div[@id='statistics']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@id='iap_portal']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@id='appstore']" position="replace">
+
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="d-flex">
+                        <div class="o_setting_right_pane sn_copyright">
+                            <span class="soufnet">SoufNet</span> Company (<a hreh="http://www.soufnet.com">www.soufnet.com</a>) <br/>
+                            <span class="ntic">nTIC</span>, Solutions sur mesure
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </xpath>
+            <xpath expr="//div[@name='integration']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@id='invite_users']" position="before">
+                 <div class="h1 config-big-tilte">General Settings</div>
+                <h2>Localités</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <div class="title1">Définir les localités de travail</div>
+                            <div class="text-muted">
+                                Interviens sur les stocks, Comptes, numérotations des piecces..
+                            </div>
+                            <div class="content-group">
+                                <br/>
+                                <button name="%(menu_regions_action)d" icon="fa-arrow-right"
+                                        type="action" string="Régions"
+                                        class="btn-link"/>
+                                <br/>
+                                <button name="%(menu_wilaya_action)d" icon="fa-arrow-right"
+                                        type="action" string="Wilayates"
+                                        class="btn-link"/>
+                                <br/>
+                                <button name="%(action_ntic_communes)d" icon="fa-arrow-right"
+                                        type="action" string="Communes"
+                                        class="btn-link"/>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <div class="title1">Activités localisés dans une seule place / multi places</div>
+                            <div class="text-muted">
+                                Une grande influence sur les stocks, comptes, et autres..
+                            </div>
+                            <field name="company_places"/>
+                            <br/>
+                            <div attrs="{'invisible':[('company_places','!=','mono')]}">
+                                <span>Choisir la wilaya d'exercice</span>
+                                <br/>
+                                <field name="wilayates"
+                                       options="{'no_quick_create':True,'no_create_edit':True,'no_open':True }"/>
+                                <br/>
+                                <!-- company_wilaya_id field must be present even invisible-->
+                                <field name="company_wilaya_id" invisible="1"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

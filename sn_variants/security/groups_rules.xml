@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--  Category Name -->
+    <record id="sn_variants_access" model="ir.module.category">
+        <field name="name">uom Access</field>
+    </record>
+
+    <!--  User Group -->
+    <record id="sn_variants_user" model="res.groups">
+        <field name="name">Uom User</field>
+        <field name="category_id" ref="sn_variants_access"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Manager Group -->
+    <record id="sn_variants_manager" model="res.groups">
+        <field name="name">Uom Manager</field>
+        <field name="category_id" ref="sn_variants_access"/>
+        <field name="implied_ids" eval="[(4, ref('sn_variants_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <!-- Boss Group -->
+    <record id="sn_variants_boss" model="res.groups">
+        <field name="name">Uom Boss</field>
+        <field name="category_id" ref="sn_variants_access"/>
+        <field name="implied_ids" eval="[(4, ref('sn_variants_user')),(4, ref('sn_variants_manager'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--facture d'achat-->
+        <template id="etats_factures_achats_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sn_purchases.report_etat_factures_achat_document" t-lang="user.lang"/>
+                </t>
+            </t>
+        </template>
+        <template id="report_etat_factures_achat_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':user.lang})"/>
+                <h2 t-if="doc.etat=='supplier'" class="text-center mt32 mb32">
+                    <span>Etat <span t-field="doc.periode"/> des factures </span>
+                    <br/>
+                    <span >Fournisseur:  <span t-field="doc.supplier_id"/>
+                    </span>
+
+                </h2>
+                <h2 t-if="doc.etat=='recup'" class="text-center mt32 mb32">
+                    <span>Etat de récupération TVA d'achats</span>
+                </h2>
+                <table style="width:100%">
+                    <tr>
+                        <td class="text-left">
+
+                        </td>
+                        <td class="text-right">
+                             Le: <span t-field="doc.date_operation"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <br/>
+                <t t-set="sum_ht" t-value="0"/>
+                <t t-set="sum_tva" t-value="0"/>
+                <!-- <t t-set="sum_ttc" t-value="0"/> -->
+
+                <table class="table table-sm" style="margin-bottom:0">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee; font-size:11pt">
+                            <th class="text-center">N° fact.</th>
+                            <th class="text-center">Date</th>
+                            <th t-if="doc.etat=='recup'" class="text-center">Fournisseur</th> 
+                            <th class="text-right">Total HT</th>
+                            <th class="text-right">TVA</th>
+                            <!-- <th class="text-right">Total TTC</th> -->
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.purchases_ids" t-as="line">
+                            <tr style="border-bottom:1px solid #AAA;">
+                                <td class="text-center">
+                                    <span t-field="line.name"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="line.confirmation_date"/>
+                                </td>
+                                <td t-if="doc.etat=='recup'" class="text-center">
+                                    <span t-field="line.partner_id"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="'{:,.2f}'.format(line.amount_ht)" />
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="'{:,.2f}'.format(line.amount_tva)" />
+                                </td>
+                                <!-- <td class="text-right">
+                                    <span t-esc="'{:,.2f}'.format(line.amount_ttc)" />
+                                </td> -->
+                            </tr>
+                            <t t-set="sum_ht" t-value="sum_ht + line.amount_ht"/>
+                            <t t-set="sum_tva" t-value="sum_tva + line.amount_tva"/>
+                            <!-- <t t-set="sum_ttc" t-value="sum_ttc + line.amount_ttc"/> -->
+                        </t>
+                        <tr>
+                            <td></td>
+                            <td t-if="doc.etat=='recup'"></td>
+                            <td  class="text-right">
+                                Totaux:
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="'{:,.2f}'.format(sum_ht)"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="'{:,.2f}'.format(sum_tva)"/>
+                            </td>
+                            
+                            <!-- <td class="text-right">
+                                <span t-esc="'{:,.2f}'.format(sum_ttc)"/>
+                            </td> -->
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="oe_structure"/>
+
+            </t>
+        </template>
+    </data>
+</odoo>

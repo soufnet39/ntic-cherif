@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <!-- Inherit from sn_sales commandes -->
+         <div class="logistics" attrs="{'invisible':[('using_logistics','=',False)]}">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h3 class="text-danger">Logistics</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-right text-primary">Poids Total:</div>
+                <div class="col-md-2 text-right">
+                    <field name="total_weight"/>
+                </div>
+                <div class="col-md-1">
+                    kg
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-right text-primary">Volume Total:</div>
+                <div class="col-md-2 text-right">
+                    <field name="total_volume"/>
+                </div>
+                <div class="col-md-1">
+                    m3
+                </div>
+            </div>
+        </div>
+
+
+
+        <field name="using_logistics" invisible="1"/>
+
+
+        <xpath expr="//div[@id='op_divers']" position="inside">
+            <br/>
+            <field name="using_logistics"/>
+            <label for="using_logistics"/>
+        </xpath>
+
+
+        <!-- <field name="product_colisage" string="Colis" attrs="{'column_invisible':[('parent.using_logistics','=',False)]}"/> -->
+        <!-- <field name="product_uom" string="Unité" attrs="{'column_invisible':[('parent.uom_exist','=',False)]}"/> -->
+
+
+
+         <!-- <div class="row" attrs="{'invisible':[('parent.using_logistics','=',False)]}">
+            <div class="col-3 text-right title3">
+                colisage:
+            </div>
+
+            <div class="col-4">
+                <field class="my-form-control" name="product_colisage" options="{'no_open': True}"/>
+            </div>
+        </div> -->
+
+
+</odoo>

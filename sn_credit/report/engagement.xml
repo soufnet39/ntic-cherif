@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <template id="report_engagement">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">                    
+                    <t t-call="sn_credit.report_engagement_document" t-lang="user.lang"/>
+                </t>
+            </t>
+    </template>
+    <!-- = = = = = = = -->
+    <template id="report_engagement_document">
+            <t t-call="web.external_layout">
+
+                <table   style="font-size:11pt;width:96%;margin:0 auto" >
+                    <tr class="font-weight-bold">
+                        <td style="width:33%">إلتزام بالدفع رقم :</td>
+                        <td style="width:34%;text-align:center"> <span style="color:black" t-field="doc.name"/></td>
+                        <td style="width:34%;text-align:left">: Engagement de paiement Nº</td>
+                    </tr>
+                    <tr class="font-weight-bold">
+                        <td class="">الزبون :</td>
+                        <td style="text-align:center"> </td>
+                        <td  style="text-align:left">: Le Cient</td>
+                    </tr>
+                    <tr>
+                        <td class="">الإسم الكامل :</td>
+                        <td style="text-align:center">
+                                <span style="font-weight:bold;" t-field="doc.partner_id.name" />
+                        </td>
+                        <td style="text-align:left">: Nom complet</td>
+                    </tr>
+                     <tr>
+                        <td class="">الإسم الأصلي للمرأة :</td>
+                        <td style="text-align:center">
+                            <span style="font-weight:bold;" t-field="doc.partner_id.nom_epous" />
+                        </td>
+                        <td style="text-align:left">: Non de jeune fille</td>
+                    </tr>
+                     <tr>
+                        <td class="">تاريخ الميلاد :</td>
+                        <td style="text-align:center">
+                            <span style="font-weight:bold;" t-field="doc.partner_id.date_naissance" />
+                        </td>
+                        <td style="text-align:left">: Date de naissance</td>
+                    </tr>
+                    <tr>
+                        <td class="">مكان الميلاد :</td>
+                        <td style="text-align:center">
+                            <span style="font-weight:bold;" t-field="doc.partner_id.lieu_naissance" />
+                        </td>
+                        <td style="text-align:left">: Lieu de naissance</td>
+                    </tr>
+                    <tr>
+                        <td class="">العنوان :</td>
+                        <td style="text-align:center"><span t-field="doc.partner_id.address" /></td>
+                        <td style="text-align:left">: Adresse</td>
+                    </tr>
+                     <tr>
+                        <td class="">الولاية :</td>
+                        <td style="text-align:center">
+                               <span t-field="doc.partner_id.wilaya_id" />
+                        </td>
+                        <td style="text-align:left">: Wilaya</td>
+                    </tr>
+                    <tr>
+                        <td class="">إبن :</td>
+                        <td style="text-align:center"> <span t-field="doc.partner_id.pere" /> et <span t-field="doc.partner_id.mere" /> </td>
+                        <td style="text-align:left">: Fils/Fille de</td>
+                    </tr>
+                    <tr>
+                        <td class="">الهاتف :</td>
+                        <td style="text-align:center"> 
+                            <span t-field="doc.partner_id.phone" /> <span t-field="doc.partner_id.mobile" />
+                         </td>
+                        <td style="text-align:left">: Telephone</td>
+                    </tr>
+                    <tr>
+                        <td class="">المهنة :</td>
+                        <td style="text-align:center"> <span t-field="doc.partner_id.function" /> </td>
+                        <td style="text-align:left">: Fonction</td>
+                    </tr>
+                    <tr>
+                        <td class="">المستخدم :</td>
+                        <td style="text-align:center"> <span t-field="doc.partner_id.employeur" />  </td>
+                        <td style="text-align:left">: Employeur</td>
+                    </tr>
+                    <tr>
+                        <td class="">بطاقة هوية (ب ت/رس) رقم :</td>
+                        <td style="text-align:center"> 
+                            <span t-field="doc.partner_id.identity_card_number" />
+                        </td>
+                        <td style="text-align:left">: Pièce d'identité</td>
+                    </tr>
+                    <tr>
+                        <td class="">الصادرة في :</td>
+                        <td style="text-align:center"> 
+                            <span t-field="doc.partner_id.identity_card_date" />
+                        </td>
+                        <td style="text-align:left">: Délivré le</td>
+                    </tr>
+                    <tr>
+                        <td class="">عن :</td>
+                        <td style="text-align:center">
+                            <span t-field="doc.partner_id.identity_card_place" />
+                        </td>
+                        <td style="text-align:left">: Par</td>
+                    </tr>
+                </table>
+                <br/>
+                <table class="font-weight-bold"   style="font-size:11pt;width:96%;margin:0 auto" >
+                    <tr>
+                        <td style="width:50%">
+                            المنتجات
+                        </td>
+                         <td style="width:50%;text-align:left">
+                           : Les Produits
+                         </td>
+                     </tr>
+                </table>
+                <table border='1' style="direction:ltr; width:96%; margin:0 auto">
+                 <tbody class="sale_tbody">
+                    <tr t-foreach="doc.commande_lines" t-as="line">                        
+                        <td style="width:50%;text-align:left;padding-left:10px">  <span t-field="line.name"/> </td>
+                         <td style="width:10%;text-align:center"> <span t-field="line.qty"/> </td>
+                         <td style="text-align:right;width:20%;padding-right:10px"><span t-field="line.price_unit"/></td>
+                         <td style="text-align:right;width:20%;padding-right:10px"><span t-field="line.price_total"/></td>
+                    </tr>
+                </tbody>
+                </table>
+                <br/>
+                <table   style=" width:96%; margin:0 auto">
+                    <tr class="font-weight-bold">
+                            <td style="width:33%">وصل الطلب رقم :</td>
+                            <td style="width:34%;text-align:center"> <span style="color:black" t-field="doc.name"/></td>
+                            <td style="width:34%;text-align:left">: Element de l'engagement Nº</td>
+                    </tr>
+                    <tr>
+                            <td class="">السعر الاجمالي :</td>
+                            <td style="text-align:center"> <span t-field="doc.amount_ttc"/>  </td>
+                            <td style="text-align:left">: Montant global de l'achat</td>
+                        
+                    </tr>
+                    <tr>
+                            <td class="">مبلغ التسبيق :</td>
+                            <td style="text-align:center"> <span t-field="doc.total_reglement"/>  </td>
+                            <td style="text-align:left">: Montant global de l'achat</td>
+                        
+                    </tr>
+                    <tr>
+                            <td class="">مجموع الأقساط :</td>
+                            <td style="text-align:center"> <span t-field="doc.amount_ttc_sec"/>  </td>
+                            <td style="text-align:left">: Monsualité de l'échéance TTC</td>                        
+                    </tr>
+                     <tr>
+                            <td class="">عدد الأقساط :</td>
+                            <td style="text-align:center"> <span t-field="doc.month_number"/>  </td>
+                            <td style="text-align:left">: Apport</td>
+                        
+                    </tr>
+                     <tr>
+                            <td class="">مبلغ القسط :</td>
+                            <td style="text-align:center">                                 
+                                <span t-esc="'{:,.2f}'.format(doc.monthly_amount)"/>
+                            </td>
+                            <td style="text-align:left">: Montant de l'échéance TTC</td>
+                        
+                    </tr>
+                   
+                    <tr>
+                            <td class="">طريقة الدفع :</td>
+                            <td style="text-align:center"> PRÉLÈVEMENT CCP  </td>
+                            <td style="text-align:left">: Mode de paiement</td>                        
+                    </tr>
+                    <tr>
+                            <td class="">إقتطاع من حساب الزبون البريدي رقم :</td>
+                            <td style="text-align:center"> <span t-field="doc.partner_id.ccp_numero"/> / <span t-field="doc.partner_id.ccp_cle"/>  </td>
+                            <td style="text-align:left">: Prélèvement automatique sur le compte client</td>                        
+                    </tr>
+                    <tr>
+                            <td class="">إيدع في حساب بريدي رقم :</td>
+                            <td style="text-align:center"> <span t-field="doc.contrat.ccp_numero"/> / <span t-field="doc.contrat.ccp_cle"/>  </td>
+                            <td style="text-align:left">: Versement sur le compte</td>                        
+                    </tr>
+                    <tr>
+                            <td class="">تاريخ الدفع :</td>
+                            <td style="text-align:center"> <span t-field="doc.jour"/> من كل شهر  </td>
+                            <td style="text-align:left">: Date de paiement</td>                        
+                    </tr>
+                    <tr>
+                            <td class="">أنا الممضي أسفله السيد(ة) :</td>
+                            <td style="text-align:center"> <span t-field="doc.partner_id.name"/> </td>
+                            <td style="text-align:left">: Je sousigné Mr./Mme.</td>                        
+                    </tr>
+                </table>
+                <table style="font-size:11pt;width:96%;margin:0 auto" >
+                    <tr>
+                        <td style="width:50%">
+                            المعين أعلاه بعبارة 'زبون' أصرح أنني اطلعت على الشروط العامة بالنسبة لهذا الالتزام وقد قبلته وأشهد على صحة جميع المعلومات المقدمة للبائع
+                        </td>
+                         <td style="width:50%;text-align:left">
+                           Désigné ci-dessus par l'expression 'Client' déclaré avoire prix connaissance de conditions générales et particulières du présent engagement les acceptes et atteste de l'exactitude des informations fournis au vendeur.
+                         </td>
+                     </tr>
+                     <tr>
+                        <td>حرر بـ <span t-field="doc.confirmation_date"/> :  في:</td>
+                        <td style="text-align:left">Fait le: <span t-field="doc.confirmation_date"/>  À: </td>
+                     </tr>
+                     <tr class="font-weight-bold">
+                        <td>توقيع الزبون</td>
+                        <td style="text-align:left">Signature</td>
+                     </tr>
+                </table>
+
+
+            </t>
+    </template>  
+</data>
+</odoo>

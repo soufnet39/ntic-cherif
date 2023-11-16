@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Expenses Tree -->
+
+    <record id="ntic_expenses_tree" model="ir.ui.view">
+        <field name="name">sn_boxes.operations.tree</field>
+        <field name="model">sn_boxes.operations</field>
+        <field name="arch" type="xml">
+            <tree string="Dépenses" create="false" decoration-bf="True">
+                <field name="name"/>
+                <field name="date_action"/>
+                <field name="expense_category"/>
+                <field name="amount" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--PIVOT-->
+
+    <record id="ntic_expenses_tree_pivot" model="ir.ui.view">
+        <field name="name">sn_boxes.operations.pivot</field>
+        <field name="model">sn_boxes.operations</field>
+        <field name="arch" type="xml">
+            <pivot string="Expense Analyse"  >
+                <field name="name"/>
+                <field name="amount" />
+            </pivot>
+        </field>
+    </record>
+
+    <!--Graph -->
+
+    <record id="ntic_expenses_view_graph" model="ir.ui.view">
+        <field name="name">sn_boxes.operations.graph</field>
+        <field name="model">sn_boxes.operations</field>
+        <field name="arch" type="xml">
+            <graph string="Expenses Analysis">
+                <field name="date_action" type="col"/>
+                <field name="write_uid" type="row"/>
+                <field name="amount_done" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!--Filter -->
+
+    <record id="view_ntic_expenses_filter" model="ir.ui.view">
+        <field name="name">sn_boxes.operations.filter</field>
+        <field name="model">sn_boxes.operations</field>
+        <field name="arch" type="xml">
+            <search string="Expense">
+                <filter string="Mes Dépenses" name="Mes Depenses" domain="[('write_uid', '=', uid)]"/>
+                <filter string="Dates et périodes" name="filter_action_date" date="date_action"/>
+                <separator/>
+        
+                <group expand="0" string="Group By">
+                    <filter name="group_vendeur" string="Par Catégorie" context="{'group_by': 'expense_category'}"/>
+                    <filter name="group_vendeur" string="Par Vendeur" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_client" string="Par Client" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_boxe" string="Par Compte" context="{'group_by': 'boxe'}"/>
+                    <filter name="group_wilaya" string="Wilaya" context="{'group_by': 'wilaya'}"/>
+                    <filter string="Par Date" name="operation_in_dates" domain="[]" context="{'group_by': 'date_action'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Action-->
+
+    <record id="sn_expenses_actions_all" model="ir.actions.act_window">
+        <field name="name">Liste des Dépenses</field>
+        <field name="res_model">sn_boxes.operations</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="view_id" ref="ntic_expenses_tree"/>
+        <field name="search_view_id" ref="view_ntic_expenses_filter"/>
+        <field name="context">{'washi':'liste_depenses'}</field>
+        <field name="domain">[('operation', '=', 'expense')]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Ajouter vos premières dépenses
+            </p>
+        </field>
+    </record>
+
+    <!--Menu-->
+
+    <menuitem action="sn_expenses_actions_all"
+              id="menu_all_expenses"
+              name="Liste des Dépenses"
+              parent="menu_sn_expenses"
+              groups="sn_expenses_boss"
+              sequence="1"/>
+
+</odoo>

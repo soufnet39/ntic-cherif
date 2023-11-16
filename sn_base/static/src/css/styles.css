@@ -1,0 +1,336 @@
+.erp_name {
+  font-weight: bold;
+  font-size: 11pt;
+}
+
+.version {
+  color: silver;
+  font-size: 10pt;
+}
+
+.sn_copyright {
+  font-size: 14px;
+}
+
+.sn_copyright .soufnet {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.sn_copyright .ntic {
+  color: purple;
+  font-weight: bold;
+}
+
+.title1,
+.o_form_view .o_form_label {
+  font-size: 14px;
+  font-weight: bold;
+  color: darkslateblue;
+}
+
+.o_form_view .o_form_label {
+  margin: 0;
+}
+
+.title2 {
+  font-weight: bold;
+}
+
+.title {
+  color: red;
+  font-size: 20px;
+}
+
+.config-big-tilte {
+  color: tomato;
+  padding: 10px 30px 5px;
+  text-align: right;
+}
+
+.big_title {
+  text-align: right;
+  font-size: 30px;
+  padding-right: 200px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  border-top: 1px solid silver;
+  color: red;
+  cursor: pointer;
+}
+
+.big_title span {
+  font-size: 20px;
+  color: tomato;
+}
+
+.o_readonly_modifier {
+  color: #e8e8e8;
+}
+
+.affichage {
+  border: 0;
+  color: blueviolet;
+}
+
+.back_silver {
+  background-color: #f7f7f7;
+  padding: 15px 15px 5px;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+}
+
+.my_container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.margin20 {
+  margin: 20px 0px;
+}
+
+.o_readonly_modifier {
+  color: #000;
+}
+
+.form-control {
+  padding: 0.375rem 0.75rem !important;
+}
+
+.o_form_editable .my-form-control input,
+.o_form_editable input {
+  background-color: mintcream;
+}
+
+.o_form_readonly .my-form-control,
+.o_form_editable .my-form-control input,
+.o_form_editable input {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 2px 6px;
+  color: #1f1f1f;
+  line-height: 24px;
+}
+
+.my-form-control {
+  width: 100%;
+}
+
+.my-form-control input {
+  height: 30px;
+}
+
+.my-form-control-tags {
+  height: auto;
+  min-height: 31px;
+  padding-top: 4px;
+}
+
+.o_field_widget.o_field_many2one .o_external_button {
+  line-height: 33px;
+  margin: 0px 5px;
+  color: tomato;
+}
+
+.padtop5 {
+  padding-top: 5px;
+}
+
+.o_form_view .o_form_sheet_bg > .o_form_sheet {
+  max-width: 90%;
+}
+
+.o_field_empty {
+  display: inherit !important;
+  background-color: #f7f7f7;
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  min-height: 27px;
+}
+
+.o_menu_header_lvl_2 {
+  color: tomato !important;
+  font-weight: bold;
+  font-size: 1.08333333rem;
+}
+
+table.o_list_view .o_data_cell.o_invisible_modifier {
+  display: none !important;
+}
+
+.o_invisible_modifier {
+  display: none !important;
+}
+
+table.o_data_row .o_data_row .ntic_hidden {
+  display: none !important;
+}
+
+.ntic_hidden {
+  display: none !important;
+}
+
+.o_is_line_note {
+  background-color: #eafff2 !important;
+}
+
+.o_is_line_section {
+  background-color: #ffe4e4 !important;
+}
+
+.h3 {
+  ont-size: 1.40833333rem;
+  background-color: #adc;
+  padding: 4px 4px 4px 15px;
+  color: #212529;
+  border-radius: 4px;
+}
+
+.o_field_float,
+.o_field_integer {
+  text-align: right;
+}
+
+.bc_confirmed {
+  height: 60px;
+  width: 100px;
+  background-color: #dc3545;
+  position: absolute;
+  top: 0;
+  right: 15px;
+  z-index: 0;
+  opacity: 0.5;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  text-align: center;
+  line-height: 15px;
+}
+
+.hh4 {
+  background-color: gray;
+  padding: 4px 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.o_form_view .oe_button_box {
+  width: inherit;
+  text-align: right;
+  float: inherit;
+  margin-bottom: 4px;
+}
+
+.oe_stat_button {
+  text-align: center !important;
+  backgroud-color: #ffddd1 !important;
+}
+
+.oe_button_box .btn {
+  border-radius: 4px !important;
+  margin: 2px !important;
+}
+
+.title_p1 {
+  font-size: 14pt;
+  color: tomato;
+  border-bottom: 1px solid;
+  padding-left: 6px;
+  border-left: 5px solid #64b249;
+}
+
+.body_p1 {
+  min-height: 40px;
+}
+
+.heading1 {
+  color: tomato;
+}
+
+.pad-left-zero {
+  padding-left: 0;
+}
+
+table.o_list_view tr td:first-child,
+table.o_list_view tr th:first-child {
+  padding-left: 15px !important;
+}
+
+table.o_list_view tr td:last-child,
+table.o_list_view tr th:last-child {
+  padding-right: 15px !important;
+}
+
+.btn-print {
+  background-color: steelblue !important;
+}
+
+.btn-cancel {
+  background-color: crimson !important;
+  border-color: #8a001a !important;
+}
+
+.btn-confirm {
+  background-color: teal !important;
+}
+
+.o_form_readonly .my_field {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 2px 4px;
+  color: #1f1f1f;
+}
+
+.o_form_view .o_form_label {
+  line-height: 30px !important;
+}
+
+.pdleft10 {
+  padding-left: 10px !important;
+}
+
+.pdright10 {
+  padding-right: 10px !important;
+}
+
+.o_control_panel.o_breadcrumb_full > .breadcrumb {
+  background-color: transparent !important;
+}
+
+.form-control:focus {
+  border-color: #d7d7d7 !important;
+}
+
+.o_list_view
+  .o_list_table
+  tbody
+  > tr
+  > td:not(.o_list_record_selector).o_list_number {
+  padding-right: 8px;
+}
+
+.row-marg-righr-5 {
+  margin-right: -5px !important;
+}
+
+.header_document .o_readonly_modifier {
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  padding: 5px;
+  display: block;
+  background-color: #ffc7b0;
+}
+
+span.o_field_number {
+  text-align: right !important;
+}
+.bottom-right {
+  position: absolute;
+  bottom: 5px;
+}
+.right30px{
+    right: 30px;
+}
+.right50px{
+  right: 50px;
+}

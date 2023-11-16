@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--  =========================  -->
+
+    <record model="ir.ui.view" id="etat_104_wizard_view">
+        <field name="name">sn_invoices.etat_104.wiz.form</field>
+        <field name="model">sn_invoices.etat_104.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Etat 104">
+                <div>
+                     <h1 class="text-danger"> Etat 104</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        <label for="annee"/>:
+                    </div>
+                    <div class="col-md-8">
+                        <field name="annee" style="width:200px"/> <br/>
+                        <span class="help">Saisissez l'année, cliquez sur Entrée. pour avoir le filtrage</span>
+                    </div>
+
+                </div>
+                <notebook>
+                    <page string="Etat 104">
+                        <field name="invoices_ids">
+                            <tree>
+                                <field name="nom"/>
+                                <field name="adresse" invisible="1" />
+                                <field name="reg_com"/>
+                                <field name="mat_fisc"/>
+                                <field name="art_imp" />
+                                <field name="phone" invisible="1" />
+                                <field name="mobile" invisible="1" />
+                                <field name="ht" sum="Total HT" />
+                                <!-- <field name="timbre" /> -->
+                                <field name="tva" />
+                                <!-- <field name="ttc" /> -->
+
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+
+                <footer>
+                    <button name="print_etat_104" string="Imprimer" type="object"/> 
+                    <button name="export_xlsx_etat_104" string="Exporter Excel" type="object"/> 
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- sn_invoices.etat_104.wiz.action -->
+    <record model="ir.actions.act_window" id="etat_104_wizard_view_action">
+        <field name="name">Etat 104</field>
+        <field name="res_model">sn_invoices.etat_104.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="etat_104_wizard_view"/>
+
+    </record>
+
+    <!--    Add menu-->
+    <menuitem id="etat_104_wiz_menu" 
+    name="Etat 104" 
+    parent="sn_base.menu_halat"
+    action="etat_104_wizard_view_action"/>
+
+    <!--  raport html-pdf etat 104 -->
+    <report id="etat_104" 
+    model="sn_invoices.etat_104.wiz" 
+    string="Etat 104" 
+    name="sn_invoices.etat_104" 
+    file="sn_invoices.etat_104" 
+    paperformat="sn_base.paperformat_landscape" 
+    report_type="qweb-html" />
+
+     <!--  raport xlsx etat 104 -->
+    <report id="xlsx_etat_104" 
+    model="sn_invoices.etat_104.wiz" 
+    string="Etat 104" 
+    name="sn_invoices.xlsx_etat_104" 
+    file="sn_invoices.xlsx_etat_104" 
+    paperformat="sn_base.paperformat_landscape" 
+    report_type="xlsx" />
+
+    <!-- Template d'impression  -->
+    <template id="etat_104">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <style>
+              .table td {
+                  border-bottom: 1px solid grey;
+                  font-size:11px;
+                  padding:1px!important;
+              }
+              
+                </style>
+                <div class="page">
+                    <t t-set="doc" t-value="docs[0]" />
+                     <br/> <br/> <br/>
+                    <div class="text-center">
+                        <h2> ETAT 104 année <t t-esc="doc.annee" />
+                        </h2>
+                    </div>
+                    <br/>
+                    <t t-set="tot_ht" t-value="0" />
+                    <t t-set="tot_tva" t-value="0" />
+                    <!-- <t t-set="tot_timbre" t-value="0" /> -->
+                    <!-- <t t-set="tot_ttc" t-value="0" /> -->
+                    <table style="width:100%" class="table table-condensed">
+                        <thead>
+                            <tr style="background-color:#cecece">
+                                <th id="th1_id" style="width:20%">Client</th>
+                                <th style="width:20%" >Adresse</th>
+                                <th class="text-center">Reg.Com.</th>
+                                <th class="text-center">Mat.Fisc.</th>
+                                <th class="text-center">Art.Imp.</th>
+                                <th class="text-center">HT</th>
+                                <th class="text-center">TVA</th>
+                                <!-- <th class="text-center">Timbre</th> -->
+                                <!-- <th class="text-center">TTC</th> -->
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr t-foreach="doc.invoices_ids" t-as="l">
+                             
+                                <td class='first_td'><span t-field="l.nom"/></td>
+                                <td style="font-size:10px"><span t-field="l.adresse"/></td>
+                                <td ><span t-field="l.reg_com"/></td>
+                                <td ><span t-field="l.mat_fisc"/></td>
+                                <td >  <span t-field="l.art_imp"/> </td>
+                                <td style="text-align:right"><span t-field="l.ht"/></td>
+                                <td style="text-align:right"><span t-field="l.tva"/> </td>
+                                <!-- <td style="text-align:right"><span t-field="l.timbre"/></td> 
+                                <td style="text-align:right"><span t-field="l.ttc"/></td> -->
+
+                                <t t-set="tot_ht" t-value="tot_ht+l.ht" />
+                                <t t-set="tot_tva" t-value="tot_tva+l.tva" />
+                                <!-- <t t-set="tot_timbre" t-value="tot_timbre+l.timbre" /> -->
+                                <!-- <t t-set="tot_ttc" t-value="tot_ttc+l.ttc" /> -->
+                            </tr>
+                            <tr>
+
+                                <td colspan="6" style="text-align:right">Total:</td>
+                                <td style="text-align:right">
+                                    <span t-esc="tot_ht" t-options='{"widget": "float", "precision": 2}' />
+                                </td>
+                                <td style="text-align:right">
+                                    <span t-esc="tot_tva" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <!-- <td style="text-align:right">
+                                    <span t-esc="tot_timbre" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td style="text-align:right">
+                                    <span t-esc="tot_ttc" t-options='{"widget": "float", "precision": 2}'/>
+                                </td> -->
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

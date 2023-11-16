@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+      <!--Bon de Caisse-->
+        <template id="bon_caisse_detail">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+
+                    <h2 class="text-center">Bon de Caisse N° 
+                        <span t-field="doc.id" t-options='{"format": "99999"}'/>/
+                        <span t-field="doc.date_action" t-options='{"format": "yyyy"}'/>
+
+                        <!-- <span t-esc="str(doc.commande_id.name)[3:7]"/> -->
+
+                    </h2>
+                    <br/>
+                    <div style="margin:0 auto; width:80%;text-align:right">
+                       Date: <span t-field="doc.date_action" />
+
+                    </div>
+                    <br/>
+                    <div style="margin:0 auto; width:80%">
+                    <p style="text-indent:50px">
+                     Je sousigné Mr. 
+                        <span  t-field="doc.representant"/> 
+                        responsable de la société <span  t-field="doc.partner_id.name"/> , <br/>
+                        D'avoir reçu ce jour de Mr./Md. <span  t-field="doc.user_id.name"/>, le montant en <span  t-field="doc.mode"/>.
+                        
+                        
+                    </p>
+                    <table  style="width:100%" border="1">
+                     <thead> 
+                       <tr class="text-center">
+                       <th t-if="doc.commande_id"> n° BC</th>
+                       <th>Remarque</th>
+                       <th>Mode</th>
+                       <th>Montant</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                      <tr>
+                      <td style="text-align:center;vertical-align:top" t-if="doc.commande_id"> <span  t-field="doc.commande_id"/> </td>
+                      <td style="vertical-align:top">
+                      <span t-if="doc.commande_id">
+                        <ul>
+                         <t t-foreach="doc.commande_id.commande_lines" t-as="line">
+                            <li><t t-esc="line.product_id.code"/></li>                            
+                        </t>
+                        </ul>
+                      </span>
+                      <span t-else="">
+                       - 
+                      </span>
+                      </td>
+                      <td style="text-align:center;vertical-align:top">
+                      <span  t-field="doc.mode"/>
+                      <span t-if="doc.mode!='sold'">                      
+                      <br/>
+                       <span  t-field="doc.reference"/>
+                      </span>
+                      </td>
+                      <td style="text-align:right;vertical-align:top;padding-right:20px"><span  t-esc="'{:,.2f}'.format(doc.amount)"/> </td>
+                      </tr>
+
+                      <!-- <tr>                      
+                      <td colspan="3">Total:</td>
+                      <td></td>
+                      </tr> -->
+
+                     </tbody>
+                    </table>
+                    </div>
+                    <br/>
+
+                    <div style="margin:0 auto; width:80%">
+                       <table style="width:100%">
+                       <tr>
+                       <td  style="width:25%;text-align:center">Le Caissier</td>
+                       <td style="width:25%"></td>
+                       <td style="width:25%" ></td>
+                       <td style="width:25%;text-align:center">Le Bénéficiaire</td>
+                       </tr>
+                       </table>
+
+                    </div>
+
+
+                
+                    </t>
+                </t>
+            </t>
+        </template>
+</odoo>

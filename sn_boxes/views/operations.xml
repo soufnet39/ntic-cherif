@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Search-->
+    <record id="sn_boxes_operations_search_view" model="ir.ui.view">
+        <field name="name">sn_boxes.operations.search</field>
+        <field name="model">sn_boxes.operations</field>
+        <field name="arch" type="xml">
+            <search string="Opérations">
+
+                <field name="name" string="Motif, Client/Fourniseur" filter_domain="['|',('name', 'ilike', self), ('partner_id', 'ilike', self)]"/>
+                <field name="amount_done" string="Montant" />
+
+                <filter name="filter_locked" string="Verrouillés" domain="[('locked','=','True')]"/>
+                <filter name="filter_debit" string="Debités" domain="[('sens','=','debit')]"/>
+                <filter name="filter_credit" string="Credités" domain="[('sens','=','credit')]"/>
+                <filter name="filter_sold" string="Espèce" domain="[('mode','=','sold')]"/>
+                <filter name="filter_bank" string="Banques" domain="[('mode','=','bank')]"/>
+                <filter string="Dates et périodes" name="filter_date_action" date="date_action"/>
+
+                <separator/>
+                <!--<separator/>-->
+                <!--<field name="category_id" string="Tag" filter_domain="[('category_id','ilike', self)]"/>-->
+                <!--<field name="user_id"/>-->
+                <!--<field name="phone" filter_domain="['|',('phone','ilike',self),('mobile','=',self)]"/>-->
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="group_debit_credit" string="Débit/Credit" context="{'group_by': 'sens'}"/>
+                    <filter name="group_operation" string="Type d'operation" context="{'group_by': 'operation'}"/>
+                    <filter name="group_vendeur" string="Vendeur" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_client" string="Client" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_boxe" string="Compte" context="{'group_by': 'boxe'}"/>
+                    <filter name="group_wilaya" string="Wilaya" context="{'group_by': 'wilaya'}"/>
+                    <filter string="Par Date" name="operation_in_dates" domain="[]" context="{'group_by': 'date_action'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Graph -->
+    <record id="sn_boxes_operations_view_graph" model="ir.ui.view">
+        <field name="name">sn_boxes.operations.graph</field>
+        <field name="model">sn_boxes.operations</field>
+        <field name="arch" type="xml">
+            <graph string="Analyse des Caisses">
+                <field name="write_date" type="col"/>
+                <field name="write_uid" type="row"/>
+                <field name="amount_done" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!--PIVOT-->
+
+    <record model="ir.ui.view" id="sn_boxes_operations_pivot">
+        <field name="name">sn_boxes.operations.pivot</field>
+        <field name="model">sn_boxes.operations</field>
+        <field name="arch" type="xml">
+            <pivot string="Opérations" display_quantity="true">
+                <field name="name"/>
+                <field name="amount_done" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!--FORM -->
+    <record id="sn_boxes_operations_form_view" model="ir.ui.view">
+        <field name="name">sn_boxes.operations.form</field>
+        <field name="model">sn_boxes.operations</field>
+        <field name="arch" type="xml">
+            <form class="oe_form_configuration" create="false">
+                <sheet>
+                    <field name="sens" invisible="1"/>
+                    <field name="operation" invisible="1"/>
+
+                    <br/>
+                    <!--user_id-->
+                    <!--etat_bancaire-->
+                    <!--locked-->
+                    <div class="row form-group">
+                        <div class="col-md-6 offset-md-3">
+                            <h1>
+                                <field name="sens" readonly="1"/>
+                                (
+                                <field class="text-danger" name="operation" readonly="1"/>
+                                )
+                            </h1>
+                        </div>
+                    </div>
+
+                    <br/>
+                    <div class="row form-group">
+                        <div class="col-md-7 offset-md-1">
+                            <div class="row form-group">
+                                <div class="col-md-2 offset-md-1 text-right ">
+                                    <label class="title1" for="boxe"/>
+                                </div>
+                                <div class="col-md-9">
+                                    <field class="my-form-control" name="boxe"/>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-2 offset-md-1 text-right ">
+                                    <label class="title1" for="name"/>
+                                </div>
+                                <div class="col-md-9">
+                                    <field class="my-form-control" name="name"/>
+                                </div>
+                            </div>
+                            <div class="row form-group" attrs="{'invisible':[('operation','=','expense')]}">
+                                <div class="col-md-2 offset-md-1 text-right ">
+                                    <label class="title1" for="partner_id"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <field class="my-form-control" name="partner_id"/>
+                                </div>
+                                <div class="col-md-3">
+                                    <button name="sold_client_function" type="object"
+                                        class="btn btn-block text-center oe_stat_button">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="mode" class="row form-group">
+                                <div class="col-md-2 offset-md-1 text-right ">
+                                    <label class="title1" for="mode"/>
+                                </div>
+                                <div class="col-md-9">
+                                    <field class="my-form-control" name="mode"/>
+                                </div>
+                            </div>
+                            <div class="row form-group" attrs="{'invisible':[('mode','=','sold')]}">
+                                <div class="col-md-2 offset-md-1 text-right ">
+                                    <label class="title1" for="reference"/>
+                                </div>
+                                <div class="col-md-9">
+                                    <field class="my-form-control" name="reference"/>
+                                </div>
+                            </div>
+                            <div class="row form-group" attrs="{'invisible':[('mode','=','sold')]}">
+                                <div class="col-md-2 offset-md-1 text-right ">
+                                    <label class="title1" for="date_action"/>
+                                </div>
+                                <div class="col-md-9">
+                                    <field class="my-form-control" name="date_action"/>
+                                </div>
+                            </div>
+                            <div class="row form-group" attrs="{'invisible':[('mode','=','sold')]}">
+                                <div class="col-md-2 offset-md-1 text-right ">
+                                    <label class="title1" for="date_echeance"/>
+                                </div>
+                                <div class="col-md-9">
+                                    <field class="my-form-control" name="date_echeance"/>
+                                </div>
+                            </div>
+                            <!-- <div class="row form-group" attrs="{'invisible':[('mode','=','sold')]}">
+                                <div class="col-md-2 offset-md-1 text-right ">
+                                    <label class="title1" for="etat_bancaire"/>
+                                </div>
+                                <div class="col-md-9">
+                                    <field class="my-form-control" name="etat_bancaire"/>
+                                </div>
+                            </div> -->
+                            <div class="row form-group">
+                                <div class="col-md-2 offset-md-1 text-right ">
+                                    <label class="title1" for="date_valeur"/>
+                                </div>
+                                <div class="col-md-9">
+                                    <field class="my-form-control" name="date_valeur"/>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-2 offset-md-1 text-right ">
+                                    <label class="title1" for="amount"/>
+                                </div>
+                                <div class="col-md-9">
+                                    <field class="my-form-control" name="amount"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <button name="sold_boxe_function" type="object"
+                                class="btn btn-sold btn-block text-center oe_stat_button">
+                                <field name="sold_boxe"/>
+                            </button>
+                            <br/>
+                            <button name="print_bon_caisse" string="Imprimer Bon de Caisse" type="object"
+                                class="oe_highlight btn-print" icon="fa-print" />
+                            <br/>
+                            <br/>
+                            <br/>
+                            Géré par :
+                            <br/>
+                            <strong>
+                            <field class="text-danger" name="user_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True }"/>
+                            </strong>
+                            <br/>
+                            <br/>
+                            Représentant de la société Client:
+                            <br/>
+                            <strong>
+                            <field class="text-danger" name="representant"/>
+                            </strong>
+                        </div>
+                    </div>
+
+
+                    <!--                    <div class="row form-group">-->
+                    <!--                        <div class="col-md-2 offset-md-1 text-right ">-->
+                    <!--                            <label class="title1" for="partner_id"/>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col-md-7">-->
+                    <!--                            <field class="my-form-control" name="partner_id"/>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                <!--<div>-->
+                <!--sens:-->
+                <!--<field name="sens"/>-->
+                <!--<br/>-->
+                <!--operation:-->
+                <!--<field name="operation"/>-->
+                <!--<br/>-->
+                <!--</div>-->
+
+            </form>
+        </field>
+    </record>
+
+    <!--TREE-->
+    <record id="sn_boxes_operations_list_view" model="ir.ui.view">
+        <field name="name">sn_boxes.operations.list</field>
+        <field name="model">sn_boxes.operations</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Opérations" create="false" decoration-bf="True">
+                <field name="name"/>
+                <field name="boxe"/>
+                <field name="operation"/>
+                <field name="user_id"/>
+                <field name="mode"/>
+                <field name="date_action"/>
+                <field name="partner_id"/>
+                <field name="amount_done" sum="Somme" readonly="0"/>
+                <!-- <field name="etat_bancaire" optional="hide" /> -->
+                <!--                <field name="locked"/>-->
+                <!-- <field name="sens" string="Type"/> -->
+            </tree>
+        </field>
+    </record>
+
+
+    <!--Action-->
+    <record id="sn_boxes_operations_action" model="ir.actions.act_window">
+        <field name="name">Mouvements des Comptes</field>
+        <field name="res_model">sn_boxes.operations</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="view_id" ref="sn_boxes_operations_list_view"/>
+        <field name="search_view_id" ref="sn_boxes_operations_search_view"/>
+        <field name="context">{'washi':'mouvements_boxes','default_operation':'reception','default_sens':'credit'}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Ajouter les opérations de trésorerie
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem action="sn_boxes_operations_action"
+        id="menu_boxes_mouvements"
+        name="Mouvements des Comptes"
+        parent="menu_sn_boxes"
+        groups="sn_boxes_manager"
+        sequence="0"/>
+
+
+    <act_window id="sn_boxes_debit_form"
+        name="Encaissement"
+        res_model="sn_boxes.operations"
+        view_mode="form"
+        context="{'default_operation':'reception', 'default_sens':'credit'}"/>
+
+    <menuitem action="sn_boxes_debit_form"
+        id="menu_boxes_operations_dedit"
+        name="Encaissement"
+        parent="menu_boxes_operations"
+        groups="sn_boxes_manager"
+        sequence="2"/>
+
+    <act_window id="sn_boxes_credit_form"
+        name="Décaissement"
+        res_model="sn_boxes.operations"
+        view_mode="form"
+        context="{'default_operation':'degagement','default_sens':'debit'}"/>
+
+    <menuitem action="sn_boxes_credit_form"
+        id="menu_boxes_operations_credit"
+        string="Décaissement"
+        parent="menu_boxes_operations"
+        groups="sn_boxes_manager"
+        sequence="3"/>
+
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Tree-->
+    <record id="sn_boxes_clients" model="ir.ui.view">
+        <field name="name">Soldes des clients</field>
+        <field name="model">sn_sales.partner</field>
+        <field name="arch" type="xml">
+            <tree string="" create="false" decoration-bf="True">
+                <field name="ref"/>             
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="wilaya_id" optional="hide"/>
+                <field name="sold_client" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  SEARCH  -->
+    <record id="boxes_partner_filter" model="ir.ui.view">
+        <field name="name">sn_sales.partner.select</field>
+        <field name="model">sn_sales.partner</field>
+        <field name="arch" type="xml">
+            <search string="Search Partner">
+                <field name="name" string="Nom" />
+                <separator/>
+                <!-- <filter string="Archived" name="inactive" domain="[('active','=',False)]"/> -->
+                <filter string="Avec Solde positif" name="inactive" domain="[('sold_client','>',0)]"/>
+                <filter string="Avec Solde négatif" name="inactive" domain="[('sold_client','&lt;',0)]"/>
+                <filter string="Sans Solde" name="inactive" domain="[('sold_client','=',0)]"/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="group_wilaya" string="Wilaya" context="{'group_by': 'wilaya_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Action-->
+
+    <record id="sn_boxes_boxes_clients_action" model="ir.actions.act_window">
+        <field name="name">Soldes des Client</field>
+        <field name="res_model">sn_sales.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="sn_boxes_clients"/>
+        <field name="search_view_id" ref="boxes_partner_filter"/>
+        <field name="domain">[('is_customer','=',True)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Pas de clients !
+            </p>
+        </field>
+    </record>
+
+     <menuitem action="sn_boxes_boxes_clients_action"
+              id="menu_boxes_clients"
+              name="Soldes des Clients"
+              parent="sn_base.menu_halat"
+              groups="sn_boxes_manager"
+              sequence="3"/>
+
+</odoo>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="credits_partner_tree" model="ir.ui.view">
+        <field name="name">partner from Credit</field>
+        <field name="model">sn_sales.partner</field>
+        <field name="inherit_id" ref="sn_sales.ntic_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="prenom" />
+            </xpath>    
+            <xpath expr="//field[@name='name']" position="after">
+                 <field name="ccp_numero" />
+                 <field name="ccp_cle" />
+            </xpath>
+
+        </field>
+    </record>
+    <!--  SEARCH  -->
+    <record id="view_ntic_partner_credit_filter" model="ir.ui.view">
+        <field name="name">sn_sales.partner.select</field>
+        <field name="model">sn_sales.partner</field>
+         <field name="inherit_id" ref="sn_sales.view_ntic_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="string">Nom, Prénom, Ccp</attribute>                 
+                <attribute name="filter_domain">['|','|',('name', 'ilike', self), ('prenom', 'ilike', self), ('ccp_numero', 'ilike', self)]</attribute>                 
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="ntic_credit_partner_form" model="ir.ui.view">
+        <field name="name">Partner credits</field>
+        <field name="model">sn_sales.partner</field>
+        <field name="priority">200</field>
+        <field name="inherit_id" ref="sn_sales.sn_sales_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[@id='nom']" position="before">
+                <div class="row form-group">
+                    <div class="col-md-3 offset-md-1 text-right">                        
+                        <label for="prenom"/>:
+                    </div>
+                    <div class="col-md-8">
+                        <field class="my-form-control" name="prenom" />
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[@id='address']" position="after">
+                <div class="row form-group">
+                    <div class="col-md-3 offset-md-1 text-right">
+                        <span class="title1" >CCP</span>:
+                    </div>
+                    <div class="col-md-6">
+                        <field force_save='1' class="my-form-control" name="ccp_numero" required="1" />
+                    </div>
+                    <div class="col-md-2">
+                        <field force_save='1' class="my-form-control" name="ccp_cle"  required="1"/>
+                    </div>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+ 
+
+     <!-- Inherit From View search  -->
+         <!-- Inherit Form View to Modify it -->
+    <record id="Inherit_view_ntic_partner_filter" model="ir.ui.view">
+        <field name="name">Partner credits</field>
+        <field name="model">sn_sales.partner</field>
+        <field name="priority">201</field>
+        <field name="inherit_id" ref="sn_sales.view_ntic_partner_filter"/>
+        <field name="arch" type="xml">
+          <xpath expr="//search" position="inside">
+            <field name="ccp_numero"/>              
+          </xpath>
+
+        </field>
+    </record>
+
+</odoo>
