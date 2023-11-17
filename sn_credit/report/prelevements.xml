@@ -44,8 +44,7 @@
                                 <td> <span t-field="line.client_ccp_numero"/> </td>
                                 <td class="text-center"> <span t-field="line.client_ccp_cle"/> </td>
 
-                                <td> <span t-field="line.client_nom"/> </td>
-                                <td> <span t-field="line.client_prenom"/> </td>
+                                <td> <span t-field="line.client_nom"/> </td>                            
 
                                 <td> <span t-field="line.amount"/> </td>
 

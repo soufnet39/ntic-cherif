@@ -33,7 +33,7 @@
                                     <td class="text-right" style="border-top:0;padding-right:20px"> Client: </td>
                                     <td style="border-top:0">
                                         <span t-field="doc.partner_id.name" />
-                                        <span t-field="doc.partner_id.prenom" />
+                                      
                                     </td>
                                 </tr>
                                 <tr>

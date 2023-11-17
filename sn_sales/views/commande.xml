@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <field class="my-form-control" name="partner_id"
-                                    options='{ "no_create": True}'
+                                    options='{ "no_create": False}'
                                     context="{'default_is_customer':True}"
                                     domain="[('is_customer','=',True)]"
                                     attrs="{'required':[('operation_type','in',['command'])]}" />

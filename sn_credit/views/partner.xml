@@ -6,9 +6,9 @@
         <field name="model">sn_sales.partner</field>
         <field name="inherit_id" ref="sn_sales.ntic_partner_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="before">
+            <!-- <xpath expr="//field[@name='name']" position="before">
                 <field name="prenom" />
-            </xpath>    
+            </xpath>     -->
             <xpath expr="//field[@name='name']" position="after">
                  <field name="ccp_numero" />
                  <field name="ccp_cle" />
@@ -24,7 +24,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="attributes">
                 <attribute name="string">Nom, Prénom, Ccp</attribute>                 
-                <attribute name="filter_domain">['|','|',('name', 'ilike', self), ('prenom', 'ilike', self), ('ccp_numero', 'ilike', self)]</attribute>                 
+                <attribute name="filter_domain">['|','|',('name', 'ilike', self), ('ccp_numero', 'ilike', self)]</attribute>                 
             </xpath>
         </field>
     </record>
@@ -37,7 +37,7 @@
         <field name="inherit_id" ref="sn_sales.sn_sales_partner_form"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//div[@id='nom']" position="before">
+            <!-- <xpath expr="//div[@id='nom']" position="before">
                 <div class="row form-group">
                     <div class="col-md-3 offset-md-1 text-right">                        
                         <label for="prenom"/>:
@@ -46,7 +46,7 @@
                         <field class="my-form-control" name="prenom" />
                     </div>
                 </div>
-            </xpath>
+            </xpath> -->
             <xpath expr="//div[@id='address']" position="after">
                 <div class="row form-group">
                     <div class="col-md-3 offset-md-1 text-right">

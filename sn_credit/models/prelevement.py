@@ -16,8 +16,7 @@ def get_months():
 def get_hokool():
     return [['client_ccp_numero', 'CompteA', 'C'],
                     ['client_ccp_cle', 'Cle', 'C'],
-                    ['client_nom', 'NOM', 'C'],
-                    ['client_prenom', 'PRENOM', 'C'],
+                    ['client_nom', 'NOM', 'C'],                   
                     ['amount', 'MontantVo', 'F'],
                     ['contrat_ccp_numero', 'CompteB', 'C'],
                     ['contrat_ccp_cle', 'Cle1', 'C'],

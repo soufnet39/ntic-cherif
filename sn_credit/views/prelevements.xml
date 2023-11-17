@@ -141,7 +141,7 @@
                                     <field name="name"/>
 
                                     <field name="client_nom"/>
-                                    <field name="client_prenom"/>
+                                    <!-- <field name="client_prenom"/> -->
                                     <field name="amount" string="MontantVo" sum="Total"/>
 
                                     <field name="date_start"/>

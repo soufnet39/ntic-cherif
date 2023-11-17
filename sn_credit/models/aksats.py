@@ -40,8 +40,8 @@ class NticAksatsLines(models.Model):
     client_ccp_numero = fields.Char('CompteA', related='aksat_id.partner_id.ccp_numero')
     client_ccp_cle = fields.Char('CleA', related='aksat_id.partner_id.ccp_cle')
 
-    client_nom = fields.Char('Nom', related='aksat_id.partner_id.prenom')
-    client_prenom = fields.Char('Prénom', related='aksat_id.partner_id.name')
+    client_nom = fields.Char('Nom', related='aksat_id.partner_id.name')
+    
 
     contrat = fields.Char('Contrat', related='aksat_id.contrat.name')
     contrat_ccp_numero = fields.Char('CompteB', related='aksat_id.contrat.ccp_numero')
