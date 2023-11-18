@@ -13,6 +13,18 @@
 		</xpath>
 	</field>
 </record>
+<record id="view_commande_form_cherif2" model="ir.ui.view">
+        <field name="name">commandes</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="20" />
+        <field name="inherit_id" ref="sn_sales.view_commande_form"/>
+        <field name="groups_id" eval="[(6,0,[ref('cherif.cherif_user')])]" />
+        <field name="arch" type="xml">
+		<xpath expr="//field[@name='user_id']" position="attributes">
+			<attribute name="readonly">1</attribute>
+		</xpath>
+	</field>
+</record>
   <record id="view_commande_form_cherif" model="ir.ui.view">
         <field name="name">commandes</field>
         <field name="model">sn_sales.commandes</field>
