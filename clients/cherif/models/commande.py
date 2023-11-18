@@ -23,7 +23,8 @@ class NticCherifCommandesLines(models.Model):
         records = self.env['sn_sales.pricelist.item'].search([('product_id', '=', self.product_id.id)])
         return [ r.id for r in records] if records else False
     
-    pricelist_item_ids = fields.One2many('sn_sales.pricelist.item', 'product_id', 'Pricelist Items',store=False, default=_default_pricelist_ids)
+    # to use at purchase order
+    pricelist_item_ids = fields.One2many('sn_sales.pricelist.item', 'product_id', 'Pricelist Items',related='product_id.pricelist_item_ids',readonly=False ) #
 
 
     ########################################################

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError, ValidationError
 
 class Pricelist(models.Model):
     _name = "sn_sales.pricelist"

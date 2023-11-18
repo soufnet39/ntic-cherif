@@ -24,8 +24,8 @@
         'views/purchases.xml',
 
         'report/commandes.xml',
-        #'report/header.xml',
-        #'report/footer.xml'
+        'report/header.xml',
+        # 'report/footer.xml'
 
     ],
     'qweb': [
