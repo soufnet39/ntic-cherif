@@ -5,13 +5,7 @@
     <record id="cherif_spacial_access" model="ir.module.category">
         <field name="name">Cherif Special Access</field>
     </record>
-     <!--  User cant spacial account -->
-    <record id="cherif_special_user" model="res.groups">
-        <field name="name">Cherif cannot change price</field>
-        <field name="category_id" ref="cherif_spacial_access"/>
-        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
 
-    </record>
 
     <!-- - - - ####################################@- - - -->
 
@@ -42,6 +36,14 @@
         <field name="category_id" ref="cherif_access"/>
         <field name="implied_ids" eval="[(4, ref('cherif_user')),(4, ref('cherif_manager'))]"/>
         <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <!--  User cant spacial account -->
+    <record id="cherif_special_user" model="res.groups">
+        <field name="name">Cherif cannot change price</field>
+        <field name="category_id" ref="cherif_spacial_access"/>
+        <field name="implied_ids" eval="[(4, ref('cherif.cherif_user'))]"/>
+
     </record>
 
 </odoo>

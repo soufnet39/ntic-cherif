@@ -48,7 +48,7 @@ class NticCreditPartner2(models.Model):
         #dbs1=['oran','saida','baraki','yasmine']
         #dbs2=['mosta','blida','ouargla']
         #dbs= dbs1 if (current_db in dbs1) else dbs2 if (current_db in dbs2) else []
-        dbs= ['eloued','skikda','ouargla','chlef','constantine','oumbouaghi','soukahras']
+        dbs= ['eloued','skikda','ouargla','chlef','constantine','oumbouaghi','soukahras','cheraga']
         if (current_db in dbs) and len(dbs)>1:
             dbs.remove(current_db)
             for db in dbs:
