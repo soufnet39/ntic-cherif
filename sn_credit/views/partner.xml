@@ -24,7 +24,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="attributes">
                 <attribute name="string">Nom, Prénom, Ccp</attribute>                 
-                <attribute name="filter_domain">['|','|',('name', 'ilike', self), ('ccp_numero', 'ilike', self)]</attribute>                 
+                <attribute name="filter_domain">['|',('name', 'ilike', self), ('ccp_numero', 'ilike', self)]</attribute>                 
             </xpath>
         </field>
     </record>

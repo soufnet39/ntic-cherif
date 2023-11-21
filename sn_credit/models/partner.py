@@ -26,7 +26,7 @@ class NticCreditPartner2(models.Model):
         args = args or []
         recs = self.browse()
         if name:
-            recs = self.search((args + ['|', '|', ('name', 'ilike', name), ('ccp_numero', 'ilike', name)]),
+            recs = self.search((args + ['|', ('name', 'ilike', name), ('ccp_numero', 'ilike', name)]),
                                limit=limit)
         if not recs:
             recs = self.search([('name', operator, name)] + args, limit=limit)
