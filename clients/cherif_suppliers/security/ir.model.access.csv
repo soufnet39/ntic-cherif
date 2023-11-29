@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_suppliers,cherif_suppliers.suppliers,model_cherif_suppliers_suppliers,cherif_suppliers_access_user,1,1,0,1
+access_suppliers_achats,cherif_suppliers.suppliers_achats,model_cherif_suppliers_suppliers_achats,cherif_suppliers_access_user,1,1,1,1
+access_suppliers_reglements,cherif_suppliers.suppliers_reglements,model_cherif_suppliers_suppliers_reglements,cherif_suppliers_access_user,1,1,1,1

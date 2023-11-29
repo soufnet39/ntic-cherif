@@ -134,7 +134,8 @@ class NticCreditsCommande(models.Model):
 
     @api.onchange('contrat')
     def reaffect_nbr_months(self):
-        self.month_number = self.contrat.nbr_months
+        # the bellow line does not work with cherif ideas 
+        #self.month_number = self.contrat.nbr_months
         self.retrait_number = self.contrat.nbr_aksats
 
     @api.onchange('contrat','confirmation_date')

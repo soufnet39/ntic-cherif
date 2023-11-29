@@ -7,5 +7,6 @@ from . import commande
 from . import retards
 from . import partner
 from . import products_rest
+from . import products
 
 from . import res_config_settings

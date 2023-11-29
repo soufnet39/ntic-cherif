@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="suivi_wizard_view_form" model="ir.ui.view">
+    <field name="name">cherif_suppliers.suivi_wizard.view.form</field>
+    <field name="model">cherif_suppliers.suivi_wizard</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <form string="Suivi" >
+            <div class="row mx-2">
+              <div class="col-md-3 text-right"> 
+                <label for='last_call' />:
+              </div>     
+              <div class="col-md-8 pt-2">
+                <field name="last_call" readonly="1" />
+              </div>
+            </div>
+            <div class="row mx-2">
+              <div class="col-md-3 text-right"> 
+                <label for='related_databases' />:
+              </div>     
+              <div class="col-md-8 pt-2">
+                <field name="related_databases" readonly="1" />
+              </div>
+            </div>
+            <div class="row mx-2">
+             <field name="sync_done" invisible='1' />
+              <div class="col-md-3 text-right" attrs="{'invisible':[('sync_done', '=', True)]}"> 
+                 <button name="synca" string="Synchroniser" type="object"  class="btn-danger"  />
+              </div>              
+            </div>
+            <div class="row mx-2">
+              <div class="col-md-3 text-right"> 
+                <label for='new_operation_ids' />:
+              </div>     
+              <div class="col-md-8">
+                <field name="new_operation_ids" readonly="1">
+                <tree string='new operations' >
+                     <field name="name" />
+                     <field name="code_supplier" />
+                     <field name="name_supplier" />
+                     <field name="total_achat" />
+                </tree>
+                </field>
+              </div>
+            </div>
+
+
+             <footer class='text-right mr-3'>
+                     <button string="Cancel" special="cancel" class='btn-warning'/>
+              </footer>
+           
+        </form>
+    </field>
+</record>
+
+</odoo>

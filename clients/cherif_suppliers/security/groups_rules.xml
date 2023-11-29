@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Category Name-->
+    <record id="cherif_suppliers_access" model="ir.module.category">
+        <field name="name">Access Supppliers control</field>
+    </record>
+
+    <!--  User Group -->
+    <record id="cherif_suppliers_access_user" model="res.groups">
+        <field name="name">Supppliers Control User</field>
+        <field name="category_id" ref="cherif_suppliers_access"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+
+   
+   
+
+</odoo>

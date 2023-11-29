@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+
+    <t t-extend="ListView.buttons">
+         
+        <t t-jquery="div.o_list_buttons" t-operation="append">             
+            <button t-if="widget.renderer.state.context.washi=='recap_suppliers'"  
+                    class="btn btn-primary oe_recap_suppliers">
+                Mis à jour des opérations
+            </button>          
+          </t>
+    </t>
+
+</template>
+

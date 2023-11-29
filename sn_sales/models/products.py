@@ -9,8 +9,6 @@ class NticProduct(models.Model):
     _description = 'Ntic Product'
     #_rec_name = 'display_name'
 
-
-
     # def _get_default_uom_id(self):
     #     return self.env["sn_sales.uom"].search([], limit=1, order='id').id
 
@@ -115,5 +113,6 @@ class NticProduct(models.Model):
         if 'name' not in default:
             default['name'] = _("%s (copy)") % self.name
         return super(NticProduct, self).copy(default=default)
-
+    
+    
 

@@ -1,4 +1,4 @@
-from odoo import api, fields, models, tools
+from odoo import fields, models, tools
                  
 
 class Credit_RestProduct(models.Model):

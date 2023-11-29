@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="cherif_suppliers_tree" model="ir.ui.view">
+    <field name="name">cherif_suppliers.suppliers.tree</field>
+    <field name="model">cherif_suppliers.suppliers</field>
+    <field name="arch" type="xml">
+        <tree string="List" create='false'>
+            <field name="code_supplier" />
+            <field name="name_supplier" />            
+            <field name="total_achat" sum='Total' />            
+            <field name="total_reglement" sum='Total' />            
+            <field name="reste" sum='Total' />            
+        </tree>
+    </field>
+</record>
+
+<record id="cherif_suppliers_form" model="ir.ui.view">
+    <field name="name">cherif_suppliers.suppliers.form</field>
+    <field name="model">cherif_suppliers.suppliers</field>
+    <field name="arch" type="xml">
+        <form string="Suppliers" >
+            <sheet>
+            <div class="row">
+                <div class="col-md-3 text-right o_form_label">
+                    Fournisseur :
+                </div>
+                <div class="col-md-1 text-center pt-2">
+                <field name="code_supplier" readonly="1" />
+                </div>
+                <div class="col-md-5 text-danger h4 text-center pt-2">
+                    <field name="name_supplier" readonly="1" />
+                </div>
+            </div>
+            
+
+            <div class="row">
+             <div class="col-md-3 text-right">
+                <label for='achat_ids' />:
+             </div>
+             <div class="col-md-6">
+              <field name="achat_ids" readonly="0" >
+                <tree string="Achats" create="false">
+                     <field name="ref_achat" />
+                     <field name="date_achat" />
+                     <field name="montant_achat" sum="Total" />
+                </tree>
+                </field>
+             </div>
+            </div>
+            <div class="row">
+             <div class="col-md-3 text-right">
+                <label for='reglement_ids' />:
+             </div>
+             <div class="col-md-6">
+              <field name="reglement_ids"   >
+                <tree string="Reglements" editable="bottom" >
+                     <field name="observation" style="width:50%" />
+                     <field name="date_reglement" style="width:25%" />
+                     <field name="montant_reglement" style="width:25%" sum="Total" />
+                </tree>
+                </field>
+             </div>
+            </div>
+
+            <div class="row">
+             <div class="col-md-2  offset-md-5 text-right">
+                <label for='reste' />:
+             </div>
+                <div class="col-md-2 pt-2" style="text-align:right;">
+                    <field name="reste" class="h4" style="color:red!important" readonly="1" />
+                </div>
+            </div>
+
+                     
+                </sheet>
+        </form>
+    </field>
+</record>
+ 
+
+<record id="cherif_suppliers_action" model="ir.actions.act_window">
+    <field name="name">Suivi Fournisseurs</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">cherif_suppliers.suppliers</field>
+    <field name="context">{'washi':'recap_suppliers'}</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+         <p class="o_view_nocontent_smiling_face">
+                Veuillez Appeler les fournisseurs.
+            </p>
+    </field>
+</record>
+
+
+<menuitem 
+    id="menu_cherif_suppliers_list" 
+    action="cherif_suppliers_action"
+    name="Suivi Fournisseurs" 
+    parent="sn_sales.menu_clients" 
+    sequence="3" 
+/>
+
+  
+
+
+</odoo>
