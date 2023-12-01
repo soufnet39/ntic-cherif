@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-md-4">
                             <field class="my-form-control" name="pricelist_id" required="1" options='{"no_open": True, "no_create": True}' 
-                                attrs="{'readonly':[('aksats_adad','>',0)]}"/>
+                                attrs="{'readonly':['|',('aksats_adad','>',0),('amount_ttc','>',0)]}"/>
                         </div>
                     </div>
             </xpath>
