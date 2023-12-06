@@ -1,4 +1,5 @@
 from odoo import models, fields, api, _
+from odoo.exceptions import UserError, Warning
 
 class NticCherifCommandes(models.Model):
     _inherit = "sn_sales.commandes"
@@ -6,16 +7,24 @@ class NticCherifCommandes(models.Model):
     def _default_related_id(self):        
         first_record = self.env['sn_sales.pricelist'].search([], limit=1)
         return first_record.id if first_record else False
-    pricelist_id = fields.Many2one(comodel_name="sn_sales.pricelist", string="Price by aksat methods",default=_default_related_id)
-    
-
-        
-    
+    pricelist_id = fields.Many2one(comodel_name="sn_sales.pricelist", string="Price by aksat methods",default=_default_related_id,store=True)
+     
     @api.onchange('pricelist_id')
     def _onchange_pricelist_id(self):
         if self.pricelist_id:
             self.month_number = self.pricelist_id.numberOfMonths
+    
+    
+    # @api.model
+    # def write(self, vals):
+    #     raise UserError(_("You are not allowed to modify this record."))
 
+    #     is_purchase_user = self.env.ref("sn_purchases.sn_purchases_user", raise_if_not_found=False)
+    #     if is_purchase_user and self.state in ['confirmed','canceled']:
+    #         raise UserError(_("You are not allowed to modify this record."))
+        
+    #     return super(NticCreditsCommande, self).write(vals)
+   
 class NticCherifCommandesLines(models.Model):
     _inherit = "sn_sales.commande.lines"
 
@@ -26,7 +35,10 @@ class NticCherifCommandesLines(models.Model):
     # to use at purchase order
     pricelist_item_ids = fields.One2many('sn_sales.pricelist.item', 'product_id', 'Pricelist Items',related='product_id.pricelist_item_ids',readonly=False ) #
 
-
+    # @api.onchange('pricelist_item_ids')
+    # def _onchange_price_of_month(self):
+    #     if self.pricelist_item_ids:
+    #        self.pricelist_item_ids.fixed_price = self.pricelist_item_ids.price_of_month*2#self.pricelist_id.numberOfMonths
     ########################################################
     # overwrite sales + purchases same module        #
     ########################################################

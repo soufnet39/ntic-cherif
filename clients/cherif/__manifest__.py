@@ -25,6 +25,8 @@
 
         'report/commandes.xml',
         'report/header.xml',
+
+        'wizard/change_state.xml',
         # 'report/footer.xml'
 
     ],

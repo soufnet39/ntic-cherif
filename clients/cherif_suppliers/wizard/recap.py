@@ -61,10 +61,23 @@ class cherif_suppliers_wizard(models.TransientModel):
                                     'total_achat': row[3],
                                     'date_achat': row[4],
                                 })
+                            else:
+                                if is_there_achat[0].montant_achat != row[3]:
+                                    is_there_achat[0].montant_achat = row[3]
+                                    self.env['cherif_suppliers.suivi_details_wizard'].create({
+                                        'suivi_id': self.id,
+                                        'name': row[0],
+                                        'code_supplier': row[2],
+                                        'name_supplier': row[1],
+                                        'total_achat': row[3],
+                                        'date_achat': row[4],
+                                    })
+
             # except:
             #     print('database does %s not exist'%(db)) 
             #     continue
         
+
 
         
     class cherif_suppliers_wizard(models.TransientModel):

@@ -19,7 +19,6 @@ class Pricelist(models.Model):
     company_id = fields.Many2one('res.company', 'Company', default=lambda self: self.env['res.company']._company_default_get('sn_sales.pricelist'))
    
     sequence = fields.Integer(default=10)
-    # region_ids = fields.Many2many('sn_base.regions', 'region_pricelist_rel', 'pricelist_id', 'sn_base_regions_id', string='Regions')
 
 
 

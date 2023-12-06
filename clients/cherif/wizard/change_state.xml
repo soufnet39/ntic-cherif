@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="view_cherif_commandes_states_wizard_form" model="ir.ui.view">
+    <field name="name">cherif.commandes_states_wizard.form</field>
+    <field name="model">cherif.commandes_states_wizard</field>
+    <field name="arch" type="xml">
+        <form>
+           <div class='row'>
+                <div class="col-md-4 text-right">
+                    <label  for="new_state"  />:
+                </div>
+                <div class="col-md-4 text-right">
+                    <field name="new_state"/>
+                </div>
+
+            </div>
+            <footer>
+                <button string="Change State" type="object" name="change_state" class="btn-primary"/>
+                <button string="Cancel" class="btn-secondary" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+
+
+ <act_window id="action_change_order_state_wizard"
+        name="Change Commande State"
+        binding_model="sn_sales.commandes"
+        res_model="cherif.commandes_states_wizard"
+        view_mode="form" target="new"
+        groups="cherif.cherif_boss"
+        />
+</odoo>

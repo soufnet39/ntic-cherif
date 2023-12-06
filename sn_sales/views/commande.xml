@@ -65,11 +65,11 @@
             <form string="Commande" class="o_sale_order commande">
                 <header>
                     <button name="print_commande" string="Aperçu" type="object" class="oe_highlight btn-print" icon="fa-print" attrs="{'invisible':['|',('name','=','/')]}" />
-                    <button name="action_confirm" class="oe_highlight btn-confirm" string="Confirmer" type="object" attrs="{'invisible':['|',('name','=','/'),('state','in',['confirmed','canceled'])]}" />
+                    <button name="action_confirm" class="oe_highlight btn-confirm" string="Confirmer" type="object" groups='sn_sales.sn_sales_manager' attrs="{'invisible':['|',('name','=','/'),('state','in',['confirmed','canceled'])]}" />
 
-                    <button name="action_draft" class="oe_highlight" string="Remettre en état brouillon" type="object" states="canceled"/>
+                    <button name="action_draft" class="oe_highlight" string="Remettre en état brouillon" type="object" states="canceled" groups='sn_sales.sn_sales_manager'/>
 
-                    <field name="state" widget="statusbar"/>
+                    <field name="state" widget="statusbar" />
                 </header>
 
                 <sheet>

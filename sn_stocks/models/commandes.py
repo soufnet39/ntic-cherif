@@ -1,5 +1,5 @@
 from odoo import models, fields, api, _
-from odoo.exceptions import AccessError, UserError, RedirectWarning, ValidationError, Warning
+from odoo.exceptions import  UserError, Warning
 
 doc_types= {
         'livraison': 'BL',

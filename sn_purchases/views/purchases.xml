@@ -138,7 +138,6 @@
                         <!--******************************************* ORDER LINE ************************************************ * -->
                         <page name="lignes" string="Lignes d'achat">
                             <field name="commande_lines" widget="section_and_note_one2many" mode="tree" class="contour01" context="{'default_remise_mta':remise_mta,'default_remise_taux':remise_taux}">
-
                                 <tree string="Achats Order Lines" decoration-bf="True">
                                     <control>
                                         <create string="Ajouter une ligne"/>
@@ -244,7 +243,7 @@
                                 </form>
                             </field>
                         </page>
-                        <page string="Opérations">
+                        <page string="Opérations" id="operations">
                             <div id="operations" class="row tab_infos">
                                 <div class="col-md-4" style="border-right:1px solid #dedede">
                                     <h4 class="hh4">Annulation</h4>
@@ -260,7 +259,7 @@
                                 </div>
                             </div>
                         </page>
-                        <page string="Options">
+                        <page string="Options" id="options">
                             <div id="information" class="row tab_infos">
                                 <div class="col-md-4" style="border-right:1px solid #dedede">
                                     <h4 class="hh4">TVA</h4>
@@ -348,7 +347,7 @@
 
                     </notebook>
                     <!--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- -->
-                    <div class="row">
+                    <div id="tail" class="row">
                         <div class="col-md-7">
 
                             <div class="row">
@@ -489,5 +488,10 @@
 
 
     <!--Main menu Achats-->
-    <menuitem id="menu_orders_tree" action="purchases_orders_action" name="Achats" parent="sn_sales.menu_sn_sales" groups="sn_purchases_manager" sequence="2"/>
+    <menuitem id="menu_orders_tree" 
+        action="purchases_orders_action" 
+        name="Achats" 
+        parent="sn_sales.menu_sn_sales" 
+        groups="sn_purchases_user" 
+        sequence="2"/>
 </odoo>

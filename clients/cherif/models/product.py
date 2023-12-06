@@ -8,6 +8,6 @@ class NticCherifProduct(models.Model):
     @api.depends('pricelist_item_ids')
     def _compute_displayed_tags(self):
         for record in self:
-            tags = record.pricelist_item_ids.mapped('fixed_price')  # Extract 'name' field from related records
-            formatted_tags = '  ,  '.join('{:,.2f}'.format(item) for item in tags)  # Join the extracted names
+            tags = record.pricelist_item_ids.mapped(lambda r:'{1:,.2f}:[{0:.0f}]'.format(r.pricelist_id.numberOfMonths,r.fixed_price))  
+            formatted_tags = '  ,  '.join(tags)  # Join the extracted names
             record.displayed_tags = formatted_tags

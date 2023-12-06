@@ -572,7 +572,7 @@
     </record>
 
     <!--Main menu proforma-->
-    <menuitem id="menu_proformas_tree" action="proformas_tree_action" name="Proformas" parent="menu_sn_sales" sequence="4"/>
+    <!-- <menuitem id="menu_proformas_tree" action="proformas_tree_action" name="Proformas" parent="menu_sn_sales" sequence="4"/> -->
 
     <!--Vente form action -->
     <!--<act_window id="sn_sales_proforma_form_action"-->

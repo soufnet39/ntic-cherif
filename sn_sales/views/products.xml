@@ -239,7 +239,7 @@
         id="menu_products"
         name="Produits"
         parent="menu_sn_sales"
-        groups="sn_sales_manager"
+        groups="sn_sales_user"
         sequence="6"/>
 
     <!--Menu liste Products-->
@@ -247,7 +247,7 @@
         id="menu_all_product"
         name="Liste Produits"
         parent="menu_products"
-        groups="sn_sales_manager"
+        groups="sn_sales_user"
         sequence="3"/>
 
 

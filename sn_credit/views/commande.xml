@@ -89,14 +89,14 @@
                     attrs="{'invisible':[('name','=','/')]}"
                     />
                 <field name="aksats_adad" invisible="1"/>
-                <button name="action_generate" class="oe_highlight btn-warning"
+                <!-- <button name="action_generate" class="oe_highlight btn-warning"
                     string="Génerer les Aksats" type="object"
                     attrs="{'invisible':['|','|','|',
                             ('name','=','/'),
                             ('month_number','=',0),
                             ('aksats_adad','>',0),
                             ('state','in',['confirmed']),]}"
-                    />
+                    /> -->
                 <button name="print_avancements" string="Imprimer Avancements" type="object"
                     class="oe_highlight btn-print" icon="fa-print"
                     attrs="{'invisible':[('name','=','/')]}"
