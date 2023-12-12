@@ -11,3 +11,5 @@ class NticCherifProduct(models.Model):
             tags = record.pricelist_item_ids.mapped(lambda r:'{1:,.2f}:[{0:.0f}]'.format(r.pricelist_id.numberOfMonths,r.fixed_price))  
             formatted_tags = '  ,  '.join(tags)  # Join the extracted names
             record.displayed_tags = formatted_tags
+
+   

@@ -15,6 +15,7 @@
                 <field name="amount_ttc" string="Montant" />
                 <!-- <filter name="filter_draft" help="Brouillons" domain="[('state','=','draft')]"/> -->
                 <filter name="filter_canceled" help="Commandes Annulées" domain="[('state','=','canceled')]"/>
+                <filter name="filter_canceled" help="Commandes Brouillons" domain="[('state','=','draft')]"/>
                 <filter string="Dates et périodes" name="filter_create_date" date="confirmation_date"/>
                 <group expand="0" name="group_by" string="Group By">
                     <filter name="group_user_id" string="Par Vendeur" context="{'group_by': 'user_id'}"/>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="black_list_wizard_view_form" model="ir.ui.view">
+    <field name="name">cherif.black_list_wizard.view.form</field>
+    <field name="model">cherif.black_list_wizard</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <form string="Suivi" >
+            <!-- <div class="row mx-2">
+              <div class="col-md-3 text-right"> 
+                <label for='call_done' />:
+              </div>     
+              <div class="col-md-8 pt-2">
+                <field name="call_done" readonly="1" />
+              </div>
+            </div> -->
+            <div class="row mx-2">
+              <div class="col-md-3 text-right"> 
+                <label for='related_databases' />:
+              </div>     
+              <div class="col-md-8 pt-2">
+                <field name="related_databases" readonly="1" />
+              </div>
+            </div>
+            <div class="row mx-2">
+             <field name="call_done" invisible='1' />
+              <div class="col-md-3 text-right" attrs="{'invisible':[('call_done', '=', True)]}"> 
+                 <button name="call_them" string="Synchroniser" type="object"  class="btn-danger"  />
+              </div>              
+            </div>
+            <div class="row mx-2">
+              <div class="col-md-3 text-right"> 
+                <label for='new_black_clients_ids' />:
+              </div>     
+              <div class="col-md-8">
+                <field name="new_black_clients_ids" readonly="1">
+                <tree  >
+                        <field name="name" />
+                        <field name="ccp_numero" />            
+                        <field name="ccp_cle" />            
+                        <field name="wilaya"  />            
+                        <field name="user"  />            
+                        <field name="create_date" optional="hide" /> 
+                </tree>
+                </field>
+              </div>
+            </div>
+
+
+             <footer class='text-right mr-3'>
+                     <button string="Cancel" special="cancel" class='btn-warning'/>
+              </footer>
+           
+        </form>
+    </field>
+</record>
+
+</odoo>

@@ -15,27 +15,28 @@
     'summary': 'Gestion Commercial Created by Smail in Nov 2023',
     'data': [
         'security/groups_rules.xml',
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/products.xml',
         'views/menus.xml',
         'views/commandes.xml',
         'views/partner.xml',
         'views/pricelist.xml',
         'views/purchases.xml',
+        'views/black_list.xml',
 
         'report/commandes.xml',
         'report/header.xml',
 
         'wizard/change_state.xml',
+        'wizard/add_btn.xml',
+        'wizard/black_list.xml',
+
+
         # 'report/footer.xml'
 
     ],
-    'qweb': [
+    'qweb': ['static/src/xml/add_btn.xml'],
 
-    
-       
-         
-    ],
 
     'installable': True,
     'application': True,

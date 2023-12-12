@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="cherif_black_list_tree" model="ir.ui.view">
+    <field name="name">cherif.black_list.tree</field>
+    <field name="model">cherif.black_list</field>
+    <field name="arch" type="xml">
+        <tree string="List" export_xlsx="false" import="false" >
+           
+            <field name="name" />
+            <field name="ccp_numero" />            
+            <field name="ccp_cle" />            
+            <field name="wilaya"  />            
+            <field name="user"  />            
+            <field name="create_date" optional="hide" />            
+        </tree>
+    </field>
+</record>
+
+<record id="cherif_black_list_view_form" model="ir.ui.view">
+    <field name="name">cherif.black_list.view.form</field>
+    <field name="model">cherif.black_list</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+                <div class="row">
+                  <div class="col-md-4 text-right">
+                      <label for="name" />
+                  </div>
+                  <div class="col-md-5 " >
+                      <field name="name" class="my-form-control" />
+                  </div>
+               </div>
+                <div class="row">
+                  <div class="col-md-4 text-right">
+                      <label for="ccp_numero" />
+                  </div>
+                  <div class="col-md-2 " >
+                      <field name="ccp_numero" class="my-form-control" />
+                  </div>
+                 
+               </div>
+                <div class="row">
+                  <div class="col-md-4 text-right">
+                      <label for="ccp_cle" />
+                  </div>
+                  <div class="col-md-1 " >
+                      <field name="ccp_cle" class="my-form-control" />
+                  </div>
+                </div>
+       
+            </sheet>
+        </form>
+    </field>
+</record>
+ <!--Search-->
+    <record id="cherif_black_list_search" model="ir.ui.view">
+        <field name="name">Search Black List</field>
+        <field name="model">cherif.black_list</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Black">
+                <!-- <filter name="filter_canceled" help="Commandes Brouillons" domain="[('state','=','draft')]"/> -->
+                <filter string="Dates et périodes" name="filter_create_date" date="create_date"/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="group_wilaya" string="Par Wilaya" context="{'group_by': 'wilaya'}"/>
+                    <filter name="group_user" string="Par Agent" context="{'group_by': 'user'}"/>                    
+                </group>
+            </search>
+        </field>
+    </record>
+
+<record id="cherif_black_list_action" model="ir.actions.act_window">
+    <field name="name">Liste Noire</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">cherif.black_list</field>
+    <field name="search_view_id" ref="cherif_black_list_search"/>
+    <field name="context">{'washi':'black_list'}</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+         <p class="o_view_nocontent_smiling_face">
+                Ajoutez Votre 1er client à la liste noire .
+            </p>
+    </field>
+</record>
+
+
+<menuitem 
+    id="menu_cherif_black_list" 
+    action="cherif_black_list_action"
+    name="Liste Noire" 
+    parent="sn_sales.menu_clients"
+    groups="cherif.cherif_user"
+    sequence="4" 
+/>
+
+</odoo>

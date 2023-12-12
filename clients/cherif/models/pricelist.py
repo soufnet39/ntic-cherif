@@ -8,6 +8,15 @@ class NticCherifPriceList(models.Model):
 class NticCherifPriceListItem(models.Model):
     _inherit = "sn_sales.pricelist.item"
 
-    price_of_month = fields.Float('Prix du mois', store=False ) 
+    price_of_month = fields.Float('Prix du mois') 
+    @api.onchange('price_of_month')
+    def _onchange_price_of_month(self):
+        
+        if self.price_of_month:
+            self.fixed_price = self.price_of_month * self.pricelist_id.numberOfMonths
+        else:
+            self.fixed_price = 0.0
+
+   
 
     
