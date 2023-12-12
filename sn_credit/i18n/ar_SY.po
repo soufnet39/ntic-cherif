@@ -202,7 +202,7 @@ msgstr "‫<span class=\"title1\">مجمد:</span>"
 #. module: sn_credit
 #: model_terms:ir.ui.view,arch_db:sn_credit.ntic_credit_partner_form
 msgid "<span class=\"title1\">CCP</span>:"
-msgstr "‫<span class=\"title1\">ح ج ب</span>:"
+msgstr "<span class=\"title1\">ح ج ب</span>:"
 
 #. module: sn_credit
 #: model_terms:ir.ui.view,arch_db:sn_credit.sn_credit_cuts_form
@@ -383,7 +383,7 @@ msgstr "البائع CCP"
 #. module: sn_credit
 #: model_terms:ir.ui.view,arch_db:sn_credit.dibaja
 msgid "CCP:"
-msgstr "‫Ccp:"
+msgstr "ح ج ب:"
 
 #. module: sn_credit
 #: model:ir.model.fields,field_description:sn_credit.field_sn_sales_commandes__aksats_touched
@@ -1312,7 +1312,7 @@ msgstr "طلبيات البيع Ntic"
 #: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__ccp_numero
 #: model:ir.model.fields,field_description:sn_credit.field_sn_sales_partner__ccp_numero
 msgid "Numéro CCP"
-msgstr "رقم CCP"
+msgstr "رقم ح ج ب"
 
 #. module: sn_credit
 #: model:ir.model.fields,field_description:sn_credit.field_sn_credit_prelevements__closed_on_idfact

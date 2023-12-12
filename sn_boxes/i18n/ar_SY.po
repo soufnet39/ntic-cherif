@@ -23,11 +23,11 @@ msgid ""
 "<br/>\n"
 "                            <span>Il faut sauvgarder la commande avant tout paiement</span>"
 msgstr ""
-"‫<br>\n"
-"‬\n"
-"‏‫‬\n"
-"‬\n"
-"‫‏‫                            <span>يجب حفظ الطلبية قبل أي تسديد</span>"
+"<br>\n"
+"\n"
+"\n"
+"\n"
+"                            <span>يجب حفظ الطلبية قبل أي تسديد</span>"
 
 #. module: sn_boxes
 #: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_form_view
@@ -45,29 +45,29 @@ msgid ""
 "                                de Compte trésorerie\n"
 "                            </span>"
 msgstr ""
-"‫<span class=\"oe_edit_only\" attrs=\"{'invisible':[('id', '=', False)]}\">\n"
-"‬\n"
-"‫                                تحرير\n"
-"‬\n"
-"‏‫                            </span>\n"
-"‬\n"
-"‏‫                            <span attrs=\"{'invisible':[('id', '!=', False)]}\">\n"
-"‬\n"
-"‫                                انشاء\n"
-"‬\n"
-"‏‫                            </span>\n"
-"‬\n"
-"‏‫                            <span class=\"oe_read_only\">\n"
-"‬\n"
-"‫                               عرض\n"
-"‬\n"
-"‏‫                            </span>\n"
-"‬\n"
-"‏‫                            <span>\n"
-"‬\n"
-"‫                                الحساب المالي\n"
-"‬\n"
-"‏‫                            </span>"
+"<span class=\"oe_edit_only\" attrs=\"{'invisible':[('id', '=', False)]}\">\n"
+"\n"
+"                                تحرير\n"
+"\n"
+"                            </span>\n"
+"\n"
+"                            <span attrs=\"{'invisible':[('id', '!=', False)]}\">\n"
+"\n"
+"                                انشاء\n"
+"\n"
+"                            </span>\n"
+"\n"
+"                            <span class=\"oe_read_only\">\n"
+"\n"
+"                               عرض\n"
+"\n"
+"                            </span>\n"
+"\n"
+"                            <span>\n"
+"\n"
+"                                الحساب المالي\n"
+"\n"
+"                            </span>"
 
 #. module: sn_boxes
 #: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__purchase
@@ -331,7 +331,7 @@ msgstr "آسف، لا يمكن صرف قيمة أكثر من مجموع الحس
 #: code:addons/sn_boxes/wizard/interboxes.py:0
 #, python-format
 msgid "Desole, On peut pas transferer une somme plus que le sold du compte source."
-msgstr "‫آسف، لا يمكن تحويل قيمة أكثر من مجموع الحساب المصدر."
+msgstr "آسف، لا يمكن تحويل قيمة أكثر من مجموع الحساب المصدر."
 
 #. module: sn_boxes
 #: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__display_name
@@ -664,7 +664,7 @@ msgstr "التسديدات"
 #. module: sn_boxes
 #: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_form_boxes
 msgid "Paiements:"
-msgstr "‫التسديدات:"
+msgstr ":التسديدات"
 
 #. module: sn_boxes
 #: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_boxes_search_view
@@ -700,7 +700,7 @@ msgstr "مدفوع"
 #. module: sn_boxes
 #: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_boxes__rib
 msgid "RIB"
-msgstr "‫RIB"
+msgstr "RIB"
 
 #. module: sn_boxes
 #: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__reference
@@ -819,7 +819,7 @@ msgstr "مجموع المدفوعات"
 #. module: sn_boxes
 #: model_terms:ir.ui.view,arch_db:sn_boxes.view_commande_form_boxes
 msgid "Total Réglements"
-msgstr "‫مجموع المدفوغات"
+msgstr "مجموع المدفوعات"
 
 #. module: sn_boxes
 #: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__transfer
@@ -851,7 +851,7 @@ msgstr "نوع العملية"
 #. module: sn_boxes
 #: model:ir.model.fields,help:sn_boxes.field_sn_boxes_operations__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr "‪نوع النشاط الاستثنائي المسجل."
+msgstr "نوع النشاط الاستثنائي المسجل"
 
 #. module: sn_boxes
 #: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__message_unread
@@ -867,7 +867,7 @@ msgstr "عدد الرسائل الجديدة"
 #: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__user_id
 #: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
 msgid "Vendeur"
-msgstr "‪البائع"
+msgstr "البائع"
 
 #. module: sn_boxes
 #: model:ir.model.fields,field_description:sn_boxes.field_sn_boxes_operations__locked
@@ -877,7 +877,7 @@ msgstr "مقفل"
 #. module: sn_boxes
 #: model_terms:ir.ui.view,arch_db:sn_boxes.sn_boxes_operations_search_view
 msgid "Verrouillés"
-msgstr "‫مقفلة"
+msgstr "مقفلة"
 
 #. module: sn_boxes
 #: model:ir.model.fields.selection,name:sn_boxes.selection__sn_boxes_operations__operation__versement

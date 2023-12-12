@@ -2769,7 +2769,7 @@ msgstr "المجموع"
 #: model:ir.model.fields,field_description:sn_sales.field_sn_sales_commandes__amount_ttc_sec
 #: model:ir.model.fields,field_description:sn_sales.field_sn_sales_proformas__amount_ttc
 msgid "Total TTC"
-msgstr "المجموع TTC:"
+msgstr "المجموع:"
 
 #. module: sn_sales
 #: model_terms:ir.ui.view,arch_db:sn_sales.bcn_totaux
@@ -2777,7 +2777,7 @@ msgstr "المجموع TTC:"
 #: model_terms:ir.ui.view,arch_db:sn_sales.view_commande_form
 #: model_terms:ir.ui.view,arch_db:sn_sales.view_proforma_form
 msgid "Total TTC:"
-msgstr "المجموع TTC:"
+msgstr "المجموع:"
 
 #. module: sn_sales
 #: model_terms:ir.ui.view,arch_db:sn_sales.bcn_totaux
