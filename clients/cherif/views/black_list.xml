@@ -11,7 +11,8 @@
             <field name="ccp_numero" />            
             <field name="ccp_cle" />            
             <field name="wilaya"  />            
-            <field name="user"  />            
+            <field name="agent"  />            
+            <field name="motif"  />            
             <field name="create_date" optional="hide" />            
         </tree>
     </field>
@@ -48,6 +49,14 @@
                       <field name="ccp_cle" class="my-form-control" />
                   </div>
                 </div>
+                 <div class="row">
+                  <div class="col-md-4 text-right">
+                      <label for="motif" />
+                  </div>
+                  <div class="col-md-5 " >
+                      <field name="motif" class="my-form-control" />
+                  </div>
+                </div>
        
             </sheet>
         </form>
@@ -63,7 +72,7 @@
                 <filter string="Dates et périodes" name="filter_create_date" date="create_date"/>
                 <group expand="0" name="group_by" string="Group By">
                     <filter name="group_wilaya" string="Par Wilaya" context="{'group_by': 'wilaya'}"/>
-                    <filter name="group_user" string="Par Agent" context="{'group_by': 'user'}"/>                    
+                    <filter name="group_agent" string="Par Agent" context="{'group_by': 'agent'}"/>                    
                 </group>
             </search>
         </field>

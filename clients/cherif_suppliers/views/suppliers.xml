@@ -54,11 +54,40 @@
              </div>
              <div class="col-md-6">
               <field name="reglement_ids"   >
-                <tree string="Reglements" editable="bottom" >
-                     <field name="observation" style="width:50%" />
-                     <field name="date_reglement" style="width:25%" />
-                     <field name="montant_reglement" style="width:25%" sum="Total" />
+                <tree string="Reglements"  >
+                     <field name="observation"   />
+                     <field name="date_reglement"   />
+                     <field name="montant_reglement"  sum="Total" />
                 </tree>
+                <form>
+                 <div class="row">
+                  <div class="col-md-4 text-right">
+                      <label for="observation" />
+                  </div>
+                  <div class="col-md-5 " >
+                      <field name="observation" class="my-form-control" />
+                  </div>
+               </div>
+                <div class="row">
+                  <div class="col-md-4 text-right">
+                      <label for="date_reglement" />
+                  </div>
+                  <div class="col-md-5 " >
+                      <field name="date_reglement" class="my-form-control" />
+                  </div>
+               </div>
+                <div class="row">
+                  <div class="col-md-4 text-right">
+                      <label for="montant_reglement" />
+                  </div>
+                  <div class="col-md-5 " >
+                      <field name="montant_reglement" class="my-form-control" />
+                  </div>
+               </div>
+                
+
+                      
+                </form>
                 </field>
              </div>
             </div>

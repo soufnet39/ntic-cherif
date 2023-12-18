@@ -27,6 +27,14 @@
                                     <field class="my-form-control" name="days_omitted_before"/>
                                 </div>
                             </div>
+                             <div class="row form-group">
+                                <div class="col-md-6 offset-md-1 text-right ">
+                                    <label for="let_duplicate_client_one_time" />
+                                </div>
+                                <div class="col-md-1">
+                                    <field class="my-form-control" name="let_duplicate_client_one_time"/>
+                                </div>
+                            </div>
 
 
                     

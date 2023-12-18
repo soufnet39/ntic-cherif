@@ -12,14 +12,14 @@ class NticCreditPartner2(models.Model):
     _sql_constraints = [
         ('ccp_unique', 'unique(ccp_numero,ccp_cle)', 'Les comptes CCP doivent être uniques!'),
     ]
+   
 
     #def name_get(self):
     @api.depends('name',  'ccp_numero')
-    def _compute_display_name(self):        
+    def _compute_display_name(self):
         #result = []
         for account in self:
             account.display_name = (account.name or '') + ' ' +  (account.ccp_numero or '')
-            
 
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
@@ -35,12 +35,24 @@ class NticCreditPartner2(models.Model):
     @api.model
     def create(self, vals):         
         if vals.get('ccp_numero'):
-            self.verifa(vals['ccp_numero'])            
-        return super(NticCreditPartner2, self).create(vals) 
+            vals['ccp_numero'] = str(int(vals.get('ccp_numero')))
+            canDuplicate = self.env['ir.config_parameter'].sudo().get_param('sn_credit.let_duplicate_client_one_time')
+            if not canDuplicate :
+                self.verifa(vals['ccp_numero'])   
+            else:
+                self.env['ir.config_parameter'].with_user(True).set_param('sn_credit.let_duplicate_client_one_time', False)
+                         
+        return super(NticCreditPartner2, self).create(vals)
    
     def write(self, vals):  
         if vals.get('ccp_numero'):
-            self.verifa(vals['ccp_numero'])   
+            vals['ccp_numero'] = str(int(vals.get('ccp_numero')))
+            canDuplicate = self.env['ir.config_parameter'].sudo().get_param('sn_credit.let_duplicate_client_one_time')
+            if not canDuplicate:
+                self.verifa(vals['ccp_numero']) 
+            else:
+                self.env['ir.config_parameter'].with_user(True).set_param('sn_credit.let_duplicate_client_one_time', False)
+  
         return super(NticCreditPartner2, self).write(vals) 
 
     def verifa(self,ccp):
@@ -54,16 +66,17 @@ class NticCreditPartner2(models.Model):
             dbs.remove(current_db)
             for db in dbs:
                 conn_string="dbname='%s' host='db' user=odoo password='odoo' port=5432"
-                # try:
-                with psycopg2.connect(conn_string%(db)) as connection:
-                    cur = connection.cursor()
-                    cur.execute("SELECT * FROM public.sn_sales_partner where ccp_numero='%s'"%(ccp))
-                    rows = cur.fetchall()
-                    if rows:
-                        raise UserError(_('Ce code CCP exist déjà à :%s'%(db))) 
-                # except:
-                #     print('database does %s not exist'%(db)) 
-                #     loop
+                try:
+                    with psycopg2.connect(conn_string%(db)) as connection:
+                        cur = connection.cursor()
+                        cur.execute("SELECT * FROM public.sn_sales_partner where ccp_numero='%s'"%(ccp))
+                        rows = cur.fetchall()
+                        if rows:
+                            raise UserError(_('Ce code CCP exist déjà à :%s'%(db))) 
+                except:
+                    print('database does %s not exist'%(db)) 
+                    continue
+                    
         return True
 
     

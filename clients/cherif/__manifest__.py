@@ -28,14 +28,14 @@
         'report/header.xml',
 
         'wizard/change_state.xml',
-        'wizard/add_btn.xml',
-        'wizard/black_list.xml',
+        # 'wizard/add_btn.xml',
+        # 'wizard/black_list.xml',
 
 
         # 'report/footer.xml'
 
     ],
-    'qweb': ['static/src/xml/add_btn.xml'],
+    'qweb': [],
 
 
     'installable': True,

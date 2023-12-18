@@ -35,10 +35,11 @@ class NticCherifCommandesLines(models.Model):
     # to use at purchase order
     pricelist_item_ids = fields.One2many('sn_sales.pricelist.item', 'product_id', 'Pricelist Items',related='product_id.pricelist_item_ids',readonly=False ) #
 
-    # @api.onchange('pricelist_item_ids')
-    # def _onchange_price_of_month(self):
+    # @api.onchange('pricelist_item_ids.price_of_month')
+    # def _onchange_price_of_month(self,vals):
+    #     raise UserError(vals)
     #     if self.pricelist_item_ids:
-    #        self.pricelist_item_ids.fixed_price = self.pricelist_item_ids.price_of_month*2#self.pricelist_id.numberOfMonths
+    #         self.pricelist_item_ids.fixed_price = self.pricelist_item_ids.price_of_month*2#self.pricelist_id.numberOfMonths
     ########################################################
     # overwrite sales + purchases same module        #
     ########################################################
