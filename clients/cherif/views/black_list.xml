@@ -97,9 +97,9 @@
     id="menu_cherif_black_list" 
     action="cherif_black_list_action"
     name="Liste Noire" 
-    parent="sn_sales.menu_clients"
+    parent="sn_sales.menu_sn_sales"
     groups="cherif.cherif_user"
-    sequence="4" 
+    sequence="40" 
 />
 
 </odoo>
