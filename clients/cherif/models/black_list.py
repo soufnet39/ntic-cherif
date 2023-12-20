@@ -1,4 +1,4 @@
-from odoo import models, fields,api
+from odoo import models, fields,api,_
 from odoo.exceptions import UserError
 import psycopg2
 
@@ -13,7 +13,10 @@ class NticCherifBlackList(models.Model):
     wilaya = fields.Char(string="Wilaya",readonly=True)
     motif = fields.Char(string="Motif",)
     agent   = fields.Char(string="Agent",readonly=True)
-
+    _sql_constraints = [
+        ('ccp_unique', 'unique(ccp_numero,ccp_cle)', _('Les comptes CCP doivent être uniques même à la list noire!')),
+    ]
+    
     @api.model
     def create(self, vals):         
         vals['ccp_numero'] = str(int(vals.get('ccp_numero')))

@@ -13,30 +13,22 @@ class NticCherifSuppliers(models.Model):
 
     achat_ids = fields.One2many('cherif_suppliers.suppliers_achats', 'supplier_id', string='Achats')  
     reglement_ids = fields.One2many('cherif_suppliers.suppliers_reglements', 'supplier_id', string='Réglements')    
-    total_achat = fields.Float('Total Achats', compute='_compute_total_achats', digits="montant",store=True,readonly=True )
-    total_reglement = fields.Float('Total Réglements', compute='_compute_total_reglements', digits="montant",store=True,readonly=True)
-    reste = fields.Float('Reste à régler', compute='_compute_reste', digits="montant",store=True,readonly=True)
+    total_achat = fields.Float('Total Achats', compute='_compute_total', digits="montant",store=True,readonly=True )
+    total_reglement = fields.Float('Total Réglements', compute='_compute_total', digits="montant",store=True,readonly=True)
+    reste = fields.Float('Reste à régler', compute='_compute_total', digits="montant")
 
-    @api.depends('achat_ids')
-    def _compute_total_achats(self):
+    @api.depends('achat_ids.montant_achat','reglement_ids.montant_reglement')
+    def _compute_total(self):
         for suplier in self:
-            tot = 0
+            tot_ach = 0
             for achat in suplier.achat_ids:
-                tot += achat.montant_achat
-            suplier.total_achat = tot
-
-    @api.depends('reglement_ids')
-    def _compute_total_reglements(self):
-        for suplier in self:
-            tot = 0
+                tot_ach += achat.montant_achat
+            suplier.total_achat = tot_ach
+            tot_reg = 0
             for reglement in suplier.reglement_ids:
-                tot += reglement.montant_reglement
-            suplier.total_reglement = tot
-
-    @api.depends('total_achat','total_reglement')
-    def _compute_reste(self):
-        for suplier in self:
-            suplier.reste = suplier.total_achat - suplier.total_reglement
+                tot_reg += reglement.montant_reglement
+            suplier.total_reglement = tot_reg
+            suplier.reste = tot_ach - tot_reg
 
 
 class NticCherifSuppliersAchat(models.Model):
