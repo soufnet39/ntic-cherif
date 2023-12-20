@@ -1,5 +1,7 @@
 from odoo import  fields, models, _
 import psycopg2
+from odoo.exceptions import UserError
+
 
 class cherif_suppliers_wizard(models.TransientModel):
     _name = "cherif_suppliers.suivi_wizard"
@@ -32,6 +34,7 @@ class cherif_suppliers_wizard(models.TransientModel):
                     """)
                     rows = cur.fetchall()
                     for row in rows:
+                        
                         res=  self.env['cherif_suppliers.suppliers'].search([('code_supplier','=',row[2])])
                         if not res:
                             supl_id = self.env['cherif_suppliers.suppliers'].create({
@@ -62,8 +65,9 @@ class cherif_suppliers_wizard(models.TransientModel):
                                     'date_achat': row[4],
                                 })
                             else:
-                                if is_there_achat[0].montant_achat != row[3]:
+                                if is_there_achat[0].montant_achat != row[3] or is_there_achat[0].supplier_id.id != res[0].id:   
                                     is_there_achat[0].montant_achat = row[3]
+                                    is_there_achat[0].supplier_id = res[0].id
                                     self.env['cherif_suppliers.suivi_details_wizard'].create({
                                         'suivi_id': self.id,
                                         'name': row[0],
