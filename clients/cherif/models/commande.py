@@ -15,6 +15,15 @@ class NticCherifCommandes(models.Model):
             self.month_number = self.pricelist_id.numberOfMonths
     
     
+    def unlink(self):
+        # import wdb; wdb.set_trace()
+
+        if self.env.user.has_group('sn_sales.sn_sales_user'):
+            raise UserError(_("Vous n'êtes pas autorisé de supprimer ce bon. consulter votre responsable."))
+        return super(NticCherifCommandes, self).unlink()
+
+    
+
     # @api.model
     # def write(self, vals):
     #     raise UserError(_("You are not allowed to modify this record."))
