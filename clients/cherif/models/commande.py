@@ -18,7 +18,7 @@ class NticCherifCommandes(models.Model):
     def unlink(self):
         # import wdb; wdb.set_trace()
 
-        if self.env.user.has_group('sn_sales.sn_sales_user'):
+        if not self.env.user.has_group('sn_sales.sn_sales_manager'):
             raise UserError(_("Vous n'êtes pas autorisé de supprimer ce bon. consulter votre responsable."))
         return super(NticCherifCommandes, self).unlink()
 
