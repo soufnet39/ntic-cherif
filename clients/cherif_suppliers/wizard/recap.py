@@ -66,8 +66,8 @@ class cherif_suppliers_wizard(models.TransientModel):
                                 })
                             else:
                                 if is_there_achat[0].montant_achat != row[3] or is_there_achat[0].supplier_id.id != res[0].id:   
-                                    is_there_achat[0].montant_achat = row[3]
-                                    is_there_achat[0].supplier_id = res[0].id
+                                    is_there_achat[0].update({'montant_achat' : row[3],'supplier_id' : res[0].id})
+                                    
                                     self.env['cherif_suppliers.suivi_details_wizard'].create({
                                         'suivi_id': self.id,
                                         'name': row[0],

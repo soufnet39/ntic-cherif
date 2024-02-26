@@ -1,5 +1,6 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, Warning
+import datetime
 
 class NticCherifCommandes(models.Model):
     _inherit = "sn_sales.commandes"

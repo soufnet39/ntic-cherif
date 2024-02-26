@@ -14,7 +14,20 @@
         </tree>
     </field>
 </record>
+    <!--Search  -->
+    <record id="cherif_suppliers_search" model="ir.ui.view">
+        <field name="name">cherif suppliers search</field>
+        <field name="model">cherif_suppliers.suppliers</field>
+        <field name="arch" type="xml">
+            <search string="Search Supplier">         
+                <field name="name_supplier" string="Code, Nom" filter_domain="['|',('name_supplier', 'ilike', self), ('code_supplier', 'ilike', self)]"/>
+                <group expand="0" name="group_by" string="Group By">
+                </group>
+            </search>
+        </field>
+    </record>
 
+<!-- FORM -->
 <record id="cherif_suppliers_form" model="ir.ui.view">
     <field name="name">cherif_suppliers.suppliers.form</field>
     <field name="model">cherif_suppliers.suppliers</field>

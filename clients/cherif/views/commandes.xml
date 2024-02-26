@@ -54,4 +54,17 @@
 	    </field>
 </record>
 
+  <!--Search-->
+    <record id="cherif_sn_credit_search" model="ir.ui.view">
+        <field name="name">Search in Sales</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="inherit_id" ref="sn_credit.sn_sales_order_credit_search"/>
+        <field name="arch" type="xml">           
+            <xpath expr="//filter[@name='filter_complet']" position="before">
+                <filter name="today_cmds" help="Commandes d'aujourd'hui" domain="[('confirmation_date','=',datetime.datetime.now())]"/>
+                <filter name="yesterday_cmds" help="Commandes d'hier" domain="[('confirmation_date','=',datetime.datetime.now()-datetime.timedelta(days=1))]"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>

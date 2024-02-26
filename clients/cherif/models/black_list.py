@@ -8,6 +8,7 @@ class NticCherifBlackList(models.Model):
     _order = 'create_date asc'
 
     name = fields.Char('Client',required=True)
+    card_id = fields.Char('Identité')
     ccp_numero = fields.Char(string="CCP",required=True )
     ccp_cle    = fields.Char(string="Clé",required=True)
     wilaya = fields.Char(string="Wilaya",readonly=True)
