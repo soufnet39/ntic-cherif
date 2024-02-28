@@ -84,3 +84,12 @@ class NticCherifCommandesLines(models.Model):
         self.price_unit=price
         self.price_list_libelle=libelle
         self.name = self.product_id.name
+
+    @api.onchange('pricelist_item_ids')
+    def _onchange_price_of_month(self):           
+        # import wdb; wdb.set_trace()
+        self.pricelist_item_ids.fixed_price = self.pricelist_item_ids.price_of_month*self.pricelist_item_ids.pricelist_id.numberOfMonths
+        # if self.price_of_month:
+        #     self.fixed_price = self.price_of_month * 10 #self.pricelist_id.numberOfMonths
+        # else:
+        #     self.fixed_price = 0.0
