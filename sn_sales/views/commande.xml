@@ -161,7 +161,7 @@
                                         <create string="Ajouter une section" context="{'default_display_type': 'line_section'}"/> -->
                                     </control>
 
-                                    <field name="recno" style="width:34px; text-align: center!important" attrs="{'column_invisible':[('parent.display_recno','=',False)]}" />
+                                    <!-- <field name="recno" style="width:34px; text-align: center!important" attrs="{'column_invisible':[('parent.display_recno','=',False)]}" /> -->
                                     <field name="sequence" widget="handle" style="text-align: center!important"/>
                                     <field name="product_code" string="Réf." attrs="{'column_invisible':[('parent.code_article_exist','=',False)]}"/>
                                     <field name="name" widget="html" />

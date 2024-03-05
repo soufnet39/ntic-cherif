@@ -13,7 +13,7 @@ class Pricelist(models.Model):
 
     name = fields.Char('Libellé', required=True, translate=True)
     active = fields.Boolean('Active', default=True)
-    item_ids = fields.One2many('sn_sales.pricelist.item', 'pricelist_id', 'Pricelist Items',  copy=True, default=_get_default_item_ids)
+    item_ids = fields.One2many('sn_sales.pricelist.item', 'pricelist_id', 'Pricelist Items',  copy=True) #, default=_get_default_item_ids
 
     # must be declared in security part
     company_id = fields.Many2one('res.company', 'Company', default=lambda self: self.env['res.company']._company_default_get('sn_sales.pricelist'))
@@ -30,7 +30,6 @@ class PricelistItem(models.Model):
 
     pricelist_id = fields.Many2one('sn_sales.pricelist', 'Libellé de prix', index=True, ondelete='cascade')
     product_id = fields.Many2one(
-         'sn_sales.product', 'Product', ondelete='cascade',
+         'sn_sales.product', 'Product',
           help="Specify a product. Keep empty otherwise.")
-    min_quantity = fields.Integer('Min. Quantity', default=0,)    
     fixed_price = fields.Float('Prix', )

@@ -17,6 +17,7 @@
                                   <tree editable="bottom">
                                     <field name="pricelist_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True }"                             />
                                     <field name="price_of_month"/>
+                                    <field name="taux"/>
                                     <field name="fixed_price"/>
                                 </tree>
                             </field>

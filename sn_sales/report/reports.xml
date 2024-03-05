@@ -22,6 +22,7 @@
             name="sn_sales.report_commande"
             print_report_name="'Commande - %s' % (object.name)"
     />
+    <!--print many commande -->
     <report
             id="action_report_commandes_list"
             string="Commandes list"

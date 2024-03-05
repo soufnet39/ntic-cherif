@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//tree/field[@name='name']" position="after">
                 <field name="numberOfMonths"/>
+                <field name="taux"/>
             </xpath>        
         </field>
     </record>

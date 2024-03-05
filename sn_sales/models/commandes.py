@@ -82,13 +82,6 @@ class NticSaleCommande(models.Model):
 
 
 
-    # @api.depends('price_unit' , 'qty','remise_taux','tva_exist', 'tva_taux') #'product_uom_qty'
-    # def _compute_amount(self):
-    #     for line in self:
-    #         if line.display_type not in ['line_section','line_note']:
-    #             price = line.price_unit * (1 - (line.remise_taux or 0.0) / 100.0)
-    #             mta = line.qty * price
-    #             line.update({'price_total': mta})
 
     proforma_origin = fields.Integer(string='Proforma en relation',copy=False, default=0, readonly=True )
 
@@ -329,7 +322,7 @@ class NticSaleCommandeLines(models.Model):
     name = fields.Text(string='Désignation', required=True)
 
     sequence = fields.Integer(string='Sequence', default=10)
-    recno = fields.Integer(string='N', ) # compute="recnologie"
+    # recno = fields.Integer(string='N', )  
 
     price_unit = fields.Float('Prix Unit.', required=True,  default=0.0,
                               digits="montant",
@@ -372,14 +365,7 @@ class NticSaleCommandeLines(models.Model):
     #                      'unique(product_id)',
     #                      'Duplicate products in order line not allowed !')]
 
-    # @api.onchange('sequence')
-    # def recnologie(self):
-    #     if self.commande_id.display_recno:
-    #         for rec in self.commande_id.commande_lines:
-    #             i = 0                
-    #             if rec.display_type not in ['line_section','line_note']:
-    #                 i = i + 1
-    #             rec.recno= i
+    
 
     ##########################
     # overwitten in purchase #
@@ -406,9 +392,4 @@ class NticSaleCommandeLines(models.Model):
         self.price_list_libelle=libelle
         self.name = self.product_id.name
 
-    ###########################################
-    # overwitten  at zine module if installed #
-    ###########################################
-    # @api.onchange('price_unit')
-    # def confirm_price_unit_changing(self):
-    #     self.price_touched= self.price_unit!=self.product_id.default_price
+   
