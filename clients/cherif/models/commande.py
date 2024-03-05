@@ -78,16 +78,8 @@ class NticCherifCommandesLines(models.Model):
         if self.commande_id.operation_type=='purchase':            
             if len(self.pricelist_item_ids) == 0:
                 return    
-            old_ids = self._origin.pricelist_item_ids
-            if len(old_ids) != len(self.pricelist_item_ids):
-                return
-            for idx in range(len(self.pricelist_item_ids)):
-                old = old_ids[idx]
-                new = self.pricelist_item_ids[idx]
-                if new.fixed_price == old.fixed_price and new.price_of_month == old.price_of_month and new.taux == old.taux and new.pricelist_id.id == old.pricelist_id.id  :
-                    continue
-                self.pricelist_item_ids[idx].fixed_price = self.pricelist_item_ids[idx].price_of_month*self.pricelist_item_ids[idx].pricelist_id.numberOfMonths
-    
+            for rec in self.pricelist_item_ids:
+                rec.fixed_price = rec.price_of_month*rec.pricelist_id.numberOfMonths
     @api.onchange('price_unit')
     def _on_change_price_unite(self):
         if self.commande_id.operation_type=='purchase':

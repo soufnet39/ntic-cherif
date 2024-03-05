@@ -11,9 +11,3 @@ class NticCherifPriceListItem(models.Model):
 
     price_of_month = fields.Float('Prix du mois') 
     taux = fields.Integer('Taux %', default=50)
-        
-   
-
-   
-
-    
