@@ -65,9 +65,7 @@ class NticCherifCommandesLines(models.Model):
                 for prix in self.product_id.pricelist_item_ids:
                     if prix.pricelist_id.id == self.commande_id.pricelist_id.id:
                         price = prix.fixed_price
-                        libelle= prix.pricelist_id.name       
-                
-        
+                        libelle= prix.pricelist_id.name  
 
         self.price_unit=price
         self.price_list_libelle=libelle
@@ -80,10 +78,21 @@ class NticCherifCommandesLines(models.Model):
                 return    
             for rec in self.pricelist_item_ids:
                 rec.fixed_price = rec.price_of_month*rec.pricelist_id.numberOfMonths
+
     @api.onchange('price_unit')
     def _on_change_price_unite(self):
-        if self.commande_id.operation_type=='purchase':
+        if self.commande_id.operation_type=='purchase' and not self.env.context.get('first_time',False):            
+            context = dict(self.env.context)
+            context.update({'first_time': False})
+            self.product_id.purchase_price = self.price_unit
             for rec in self.pricelist_item_ids:
                 rec.fixed_price = self.price_unit*(1+rec.taux/100)
                 if rec.pricelist_id.numberOfMonths!=0:
                     rec.price_of_month = rec.fixed_price/rec.pricelist_id.numberOfMonths 
+
+    @api.onchange('product_id')
+    def purchase_price_changed(self):
+        if self.commande_id.operation_type=='purchase':
+           self.product_id.purchase_price = self.price_unit
+           context = dict(self.env.context)
+           context.update({'first_time': True})
