@@ -50,7 +50,6 @@ class NticCherifCommandesLines(models.Model):
     def affect_name_to_designation(self):
         if not self.product_id.id:
             return
-
         price = 0
         libelle = ''
         if self.commande_id.tarification=='standard' and self.commande_id.operation_type=='purchase':
@@ -73,7 +72,7 @@ class NticCherifCommandesLines(models.Model):
 
     @api.onchange('pricelist_item_ids')
     def _onchange_price_of_month(self):  
-        if self.commande_id.operation_type=='purchase':            
+        if self.commande_id.operation_type=='purchase' and self.price_unit>0:        
             if len(self.pricelist_item_ids) == 0:
                 return    
             for rec in self.pricelist_item_ids:
@@ -81,18 +80,12 @@ class NticCherifCommandesLines(models.Model):
 
     @api.onchange('price_unit')
     def _on_change_price_unite(self):
-        if self.commande_id.operation_type=='purchase' and not self.env.context.get('first_time',False):            
-            context = dict(self.env.context)
-            context.update({'first_time': False})
+        if self.commande_id.operation_type=='purchase' and self.price_unit>0:
             self.product_id.purchase_price = self.price_unit
             for rec in self.pricelist_item_ids:
                 rec.fixed_price = self.price_unit*(1+rec.taux/100)
                 if rec.pricelist_id.numberOfMonths!=0:
                     rec.price_of_month = rec.fixed_price/rec.pricelist_id.numberOfMonths 
 
-    @api.onchange('product_id')
-    def purchase_price_changed(self):
-        if self.commande_id.operation_type=='purchase':
-           self.product_id.purchase_price = self.price_unit
-           context = dict(self.env.context)
-           context.update({'first_time': True})
+ 
+                

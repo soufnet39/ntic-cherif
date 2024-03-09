@@ -1,0 +1,13 @@
+UPDATE public.sn_sales_product AS prd
+SET purchase_price = prc.price_unit
+FROM (
+    SELECT sq.product_id, sq.maxid, cl.price_unit
+    FROM (
+        SELECT product_id, MAX(id) AS maxid
+        FROM public.sn_sales_commande_lines
+        WHERE operation_type = 'purchase'
+        GROUP BY product_id
+    ) AS sq
+    LEFT JOIN public.sn_sales_commande_lines cl ON cl.id = sq.maxid
+) AS prc
+WHERE prd.id = prc.product_id;
