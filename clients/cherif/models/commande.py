@@ -59,6 +59,9 @@ class NticCherifCommandesLines(models.Model):
             price = self.product_id.purchase_price
             self.price_changed = False
             self.price_touched = False
+            
+            
+            
         if self.commande_id.tarification=='standard' and self.commande_id.operation_type=='command':
             if self.product_id.pricelist_item_ids:         
                 for prix in self.product_id.pricelist_item_ids:
@@ -70,22 +73,30 @@ class NticCherifCommandesLines(models.Model):
         self.price_list_libelle=libelle
         self.name = self.product_id.name
 
-    @api.onchange('pricelist_item_ids')
+
+    @api.onchange('pricelist_item_ids')    
     def _onchange_price_of_month(self):  
-        if self.commande_id.operation_type=='purchase' and self.price_unit>0:        
+        if self.commande_id.operation_type=='purchase' and self.price_changed:        
             if len(self.pricelist_item_ids) == 0:
                 return    
             for rec in self.pricelist_item_ids:
-                rec.fixed_price = rec.price_of_month*rec.pricelist_id.numberOfMonths
+                if rec.pricelist_id.numberOfMonths!=0 and rec.price_of_month>0:
+                    rec.fixed_price = rec.price_of_month*rec.pricelist_id.numberOfMonths
+                elif rec.pricelist_id.numberOfMonths!=0 and rec.fixed_price>0:
+                    rec.price_of_month = rec.fixed_price/rec.pricelist_id.numberOfMonths
 
+        
+    
     @api.onchange('price_unit')
-    def _on_change_price_unite(self):
-        if self.commande_id.operation_type=='purchase' and self.price_unit>0:
-            self.product_id.purchase_price = self.price_unit
-            for rec in self.pricelist_item_ids:
-                rec.fixed_price = self.price_unit*(1+rec.taux/100)
-                if rec.pricelist_id.numberOfMonths!=0:
-                    rec.price_of_month = rec.fixed_price/rec.pricelist_id.numberOfMonths 
+    def on_change_price_unite(self):
+            if self.product_id and self.commande_id.operation_type=='purchase'  :
+                self.product_id.purchase_price = self.price_unit                
+                if self.price_changed:
+                    for rec in self.pricelist_item_ids:
+                        rec.fixed_price = self.price_unit*(1+rec.taux/100)
+                        if rec.pricelist_id.numberOfMonths!=0:
+                            rec.price_of_month = rec.fixed_price/rec.pricelist_id.numberOfMonths 
+                self.price_changed = True
 
  
                 
