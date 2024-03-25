@@ -44,12 +44,9 @@
                 </field>
               </div>
             </div>
-
-
              <footer class='text-right mr-3'>
                      <button string="Cancel" special="cancel" class='btn-warning'/>
-              </footer>
-           
+              </footer>           
         </form>
     </field>
 </record>

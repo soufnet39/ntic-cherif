@@ -21,6 +21,7 @@
         'wizard/recap.xml',
 
         'wizard/add_btn.xml',
+        'wizard/search_client.xml',
       
 
     ],

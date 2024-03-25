@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="search_client_view_form" model="ir.ui.view">
+    <field name="name">cherif_suppliers.search_client.view.form</field>
+    <field name="model">cherif_suppliers.search_client</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <form>
+                <div class="text-center">                
+                  <label for='name2search' />
+                </div>     
+                <div class="text-center" style="margin:10px auto; width:200px" >
+                   <field name="name2search" />
+                </div>
+                <div class="text-center">
+                   <button name="look4client" string="Rechercher" type="object"  class="btn-danger"  />
+                </div>
+                <br/>
+                <field name="client_ids" readonly='1'>
+                    <tree >
+                        <field name="filiale" />
+                        <field name="cmd_name" />
+                        <field name="client_name" />
+                        <field name="mta" />
+                        <field name="cmd_date" />
+                    </tree>
+                </field>
+
+            
+        </form>
+
+    </field>
+
+</record>
+
+<record id="cherif_search_client_action" model="ir.actions.act_window">
+    <field name="name">Reherche Client</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">cherif_suppliers.search_client</field>
+    <field name="view_mode">form</field>
+   
+</record>
+
+<menuitem 
+    id="menu_cherif_search_client" 
+    action="cherif_search_client_action"
+    name="Recherche Client" 
+    parent="sn_sales.menu_clients" 
+    sequence="4" 
+/>
+
+</odoo>
