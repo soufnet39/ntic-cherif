@@ -21,6 +21,7 @@
                     <tree >
                         <field name="filiale" />
                         <field name="cmd_name" />
+                        <field name="client_ccp" />
                         <field name="client_name" />
                         <field name="mta" />
                         <field name="cmd_date" />
