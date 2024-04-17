@@ -108,7 +108,7 @@
                         </t>
                     </tbody>
                 </table>
-                <div class="oe_structure"/>
+                <div class="oe_structure mt-2"/>
                 <div class="clearfix">
 
                     <div t-if="doc.remise_exist" class="row" name="total">

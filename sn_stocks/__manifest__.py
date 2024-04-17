@@ -35,6 +35,7 @@
         'report/stocks.xml',
         'report/rest_stocks.xml',
         'report/reports.xml',
+        'report/purchase.xml',
 
         'views/res_config_settings_views.xml',
 

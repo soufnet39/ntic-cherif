@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+
+    <template id="cherif_report_purchase_document_inherited" name="credits styling" 
+                inherit_id="sn_purchases.report_purchase_document">
+                    <xpath expr="//th[@id='qty_id_title']" position="after">
+                        <th t-if="doc.show_reste" class="text-center" style="width:8%" >Reste</th>
+                    </xpath>
+
+                    <xpath expr="//td[@id='qty_id_value']" position="after">
+                            <td t-if="doc.show_reste"  class="text-center" id="qty_id_value">
+                                        <span t-field="line.qte_disponible"/>
+                            </td>
+                    </xpath>
+    </template>
+</odoo>
