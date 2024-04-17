@@ -20,3 +20,26 @@ var ComplementMenu = UserMenu.include({
   });
 return ComplementMenu;
 });
+
+odoo.define('sn_base.WebClient', function (require) {
+
+  "use strict";
+  
+      var AbstractWebClient = require('web.AbstractWebClient');
+  
+      AbstractWebClient = AbstractWebClient.include({
+  
+          start: function (parent) {
+  
+              var ee= require('web.session');
+              this.set('title_part', {"zopenerp": ee.db.charAt(0).toUpperCase() + ee.db.slice(1)
+             });
+              
+  
+              this._super(parent);
+  
+          },
+  
+      });
+  
+  });

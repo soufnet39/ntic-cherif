@@ -100,8 +100,62 @@ class Ntic2Commande_stock(models.Model):
     ], default='one', required=True, store=True)
     region = fields.Char(string="Region", related='stock_id.region_id.name', store=True)
     wilaya = fields.Char(string="Wilaya", related='stock_id.wilaya_id.name', store=True)
+    show_reste = fields.Boolean(string="Afficher le reste", default=False, ) 
+    
+    def action_calcule_stock(self):
+        self.show_reste=True
+        for line in self.commande_lines:
+            qtys_in_same_stock = self.env['sn_sales.commande.lines'].search(
+                        [('stock_id', '=', self.stock_id.id),
+                        ('product_id', '=', line.product_id.id)])
+            qtys =  sum(r.qty_stock for r in qtys_in_same_stock)
+            line.qte_disponible=qtys            
+    def action_hide_reste(self):
+         self.show_reste=False 
+    def transfer_reste(self):
+        self.show_reste=False          
+        filb_values =[]
+        for line in self.commande_lines:
+            qtys_in_same_stock = self.env['sn_sales.commande.lines'].search(
+                        [('stock_id', '=', self.stock_id.id),
+                        ('product_id', '=', line.product_id.id)])
+            qtys =  sum(r.qty_stock for r in qtys_in_same_stock)            
+            if qtys > 0:
+                filb_values.append(
+                    (0, 0, {'name': line.name,
+                               'product_id': line.product_id.id,
+                               'sequence': line.sequence,
+                               'price_unit': line.price_unit,                               
+                               'product_code': line.product_code,
+                               'qty': qtys,                               
+                               'display_type': line.display_type,
+                               }))
 
+        ctx={
+                'default_document_type': 'sortie',
+                'default_creation_date': fields.Date.today(),
+                'default_user_id': self.user_id.id,
+                'default_reference': "Reste du bon d'achat N:"+self.name,
+                
+                'default_company_id': self.company_id.id,
+                'default_stock_id': self.stock_id.id,
+                
+                'default_commande_lines': filb_values,                
+                
+            }
 
+        form_view_id = self.env.ref('sn_stocks.stocks_operation_form').ids
+        return {
+            'views': [[form_view_id, 'form']],
+            'name': '/',
+            'view_mode': 'form',
+            'view_id': form_view_id,
+            'res_model': 'sn_sales.commandes',
+            'type': 'ir.actions.act_window',
+            'target': 'current',
+            'context': ctx,
+        }
+           
     @api.depends('operation')
     def _stk_neg(self):
         self.stock_negatif=self.env["ir.config_parameter"].sudo().get_param("sn_stocks.stock_negatif")
@@ -216,8 +270,6 @@ class Ntic2CommandeLines_Stock(models.Model):
     # qte modified on source : =1 -> if stock can be negatif, =0 -> if stock cannot be negatif
     #qty = fields.Float(string='Qte.', digits="Quantity", default=lambda self: 1.0 if self.env["ir.config_parameter"].sudo().get_param("sn_stocks.stock_negatif") else 0.0 )
     
-     
-
     @api.depends('qty')
     def _calculate_qty_stock(self):
             for rec in self:  

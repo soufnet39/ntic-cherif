@@ -20,7 +20,11 @@
         <field name="priority" eval="99"/>
         <field name="inherit_id" ref="sn_purchases.purchases_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+              <button name="transfer_reste" string="Purge le Reste" type="object" class="oe_highlight"  attrs="{'invisible':['|',('name','=','/'),('show_reste','=',False)]}" />
+            </xpath>
             <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <field name='show_reste' invisible="1"/>
                 <button name="go2piece" type="object"
                     attrs="{'invisible': [('operation','in',('/',''))]}"
                     context="{'piece':'reception'}"
@@ -62,16 +66,30 @@
                     {'default_remise_mta':remise_mta,'default_remise_taux':remise_taux,'default_stock_id':stock_id }
                 </attribute>
             </xpath>
-            <!-- <xpath expr="//tree/field[@name='qty']" position="after">
-                <field name="qty_done" invisible="1"   />
+            <xpath expr="//tree/field[@name='qty']" position="after">
+                <field name="qte_disponible" string="Reste" attrs="{'column_invisible': [('parent.show_reste','=',False)]}" />
             </xpath>
-             <xpath expr="//div[@id='add_article']" position="after">
-                <field name="qty_done" invisible="1"  />
-            </xpath> -->
-
             <xpath expr="//div[@id='adding_article']" position="attributes">
                 <attribute name="class">col-md-8</attribute>
                 <attribute name="attrs">{'invisible': [('stock_id','=',False)] }</attribute>
+            </xpath>
+
+             <xpath expr="//div[@id='operations']" position="inside">
+                <div class="col-md-4" style="border-right:1px solid #dedede" id="annulation">
+                    <h4 class="hh4">Calcule Stock</h4>
+                    <hr/>
+                    <div class="text-center">
+                        <button name="action_calcule_stock" class="oe_highlight btn-convert"
+                            string="Calcule le reste en stock" type="object"
+                            attrs="{'invisible':['|','|',('name','=','/'),('state','in',['draft','canceled']),('show_reste','=',True)]}"
+                            />
+                            <button name="action_hide_reste" class="oe_highlight btn-warning"
+                            string="Cacher le reste en stock" type="object"
+                            attrs="{'invisible':[('show_reste','=',False)]}"
+                            />
+                    </div>
+                </div>
+
             </xpath>
 
             <xpath expr="//div[@id='adding_article']" position="after">
