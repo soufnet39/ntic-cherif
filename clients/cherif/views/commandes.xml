@@ -32,9 +32,11 @@
         <field name="priority" eval="20" />
         <field name="inherit_id" ref="sn_sales.view_commande_form"/>
         <!-- <field name="groups_id" eval="[(6,0,[ref('cherif.cherif_user')])]" /> -->
-
+        
         <field name="arch" type="xml">
+           
             <xpath expr="//div[@id='month_number']" position="before">
+             <field name="after24hours"  invisible='1' />
              <div  class="row">
                         <div class="col-md-6 text-right">
                             <label class="text-danger" for="month_number"/>
@@ -45,13 +47,70 @@
                         </div>
                     </div>
             </xpath>
+
             <xpath expr="//div[@id='month_number']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
 
-            <!-- <xpath expr="//div[@id='adding_article_first']" position="after">
-            </xpath> -->
+             <xpath expr="//div[@id='operations']" position="inside">
+                <div class="col-md-4" style="border-right:1px solid" groups='cherif.cherif_boss' >
+                    <h4 class="hh4">Condanation</h4>
+                    <hr/>
+                    <div class="text-center">
+                        <button name="make_it_over24hours" class="oe_highlight btn-danger" string="Condanner le bon" type="object" attrs="{'invisible':[('after24hours','=',True)]}" />
+                        <button name="make_it_not_over24hours" class="oe_highlight btn-danger" string="Libérer le bon" type="object" attrs="{'invisible':[('after24hours','=',False)]}" />
+                        
+                    </div>
+                </div>
+
+            </xpath>
 	    </field>
+</record>
+
+<record id="view_commande_form_cherif2" model="ir.ui.view">
+        <field name="name">commandes</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="21" />
+        <field name="inherit_id" ref="sn_sales.view_commande_form"/>
+        <field name="groups_id" eval="[(6,0,[ref('cherif.cherif_24_hours_close')])]" />
+
+        <field name="arch" type="xml">
+            <xpath  expr="//sheet//div[@name='button_box']"  position='inside' >
+                <button attrs="{'invisible':[('after24hours','=',False)]}" class="my_btn_box bg-danger text-white" disabled='1' >
+                    Bon condamné <br/> Voir l'Admin pour l'ouvrir
+                </button>
+            </xpath>
+             
+            <xpath  expr="//field[@name='commande_lines']"  position='attributes' >
+                 <attribute name="attrs">{'readonly':[('after24hours','=',True)]}</attribute>
+            </xpath>
+            <xpath  expr="//field[@name='partner_id']"  position='attributes' >
+                 <attribute name="attrs">{'readonly':[('after24hours','=',True)]}</attribute>
+            </xpath>
+             <xpath  expr="//field[@name='contrat']"  position='attributes' >
+                 <attribute name="attrs">{'readonly':[('after24hours','=',True)]}</attribute>
+            </xpath>
+             <xpath  expr="//field[@name='confirmation_date']"  position='attributes' >
+                 <attribute name="attrs">{'readonly':[('after24hours','=',True)]}</attribute>
+            </xpath>
+             <xpath  expr="//field[@name='date_start']"  position='attributes' >
+                 <attribute name="attrs">{'readonly':[('after24hours','=',True)]}</attribute>
+            </xpath>
+             <xpath  expr="//field[@name='monthly_amount']"  position='attributes' >
+                 <attribute name="attrs">{'readonly':[('after24hours','=',True)]}</attribute>
+            </xpath>
+             <xpath  expr="//field[@name='date_start']"  position='attributes' >
+                 <attribute name="attrs">{'readonly':[('after24hours','=',True)]}</attribute>
+            </xpath>
+             <xpath  expr="//field[@name='retrait_number']"  position='attributes' >
+                 <attribute name="attrs">{'readonly':[('after24hours','=',True)]}</attribute>
+            </xpath>
+             <xpath  expr="//field[@name='retrait_amount']"  position='attributes' >
+                 <attribute name="attrs">{'readonly':[('after24hours','=',True)]}</attribute>
+            </xpath>            
+        </field>
+        
+        
 </record>
 
   <!--Search-->

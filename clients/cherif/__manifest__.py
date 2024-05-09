@@ -28,15 +28,10 @@
         'report/header.xml',
 
         'wizard/change_state.xml',
-        # 'wizard/add_btn.xml',
-        # 'wizard/black_list.xml',
-
-
+        'data/scheduler.xml',
         # 'report/footer.xml'
-
     ],
     'qweb': [],
-
 
     'installable': True,
     'application': True,

@@ -216,41 +216,19 @@ class Ntic2Commande_stock(models.Model):
         if vals.get('document_type'):
             dt= doc_types[vals['document_type']]
 
-            seq = self.env['ir.config_parameter'].with_user(True).get_param('sn_sales.sequences') or 'global'
-            if seq == 'stock' or seq == 'wilaya' or seq == 'region':
-                if not vals.get('stock_id'):
-                    raise UserError('Vous devez selectionner un stock!')
-                if seq == 'stock':
-                    itscod = str(self.env['sn_stocks.stocks'].browse(vals.get('stock_id')).id)
-                if seq == 'wilaya':
-                    itscod = self.env['sn_stocks.stocks'].browse(vals.get('stock_id')).wilaya_id.read()[0]['code']
-                if seq == 'region':
-                    itscod = self.env['sn_stocks.stocks'].browse(vals.get('stock_id')).region_id.read()[0]['code']
-                gwr = dt+ '_' +seq + '_' + itscod
-                next_one = self.env['ir.sequence'].get(gwr)
-                if not next_one:
-                    dict = {"prefix": dt+seq[0].upper() + itscod + '/',
-                            "code": gwr,
-                            "name": gwr + '_sequencer',
-                            "active": True,
-                            "padding": 4,
-                            "implementation": "standard",
-                            }
-                    self.env['ir.sequence'].create(dict)
-                    next_one = self.env['ir.sequence'].next_by_code(gwr)
-            else:
-                gwr = vals['document_type']
-                next_one = self.env['ir.sequence'].get(gwr)
-                if not next_one:
-                    dict = {"prefix": dt + '/',
-                            "code": gwr,
-                            "name": gwr + '_sequencer',
-                            "active": True,
-                            "padding": 4,
-                            "implementation": "standard",
-                            }
-                    self.env['ir.sequence'].create(dict)
-                    next_one = self.env['ir.sequence'].next_by_code(gwr)
+           
+            gwr = vals['document_type']
+            next_one = self.env['ir.sequence'].get(gwr)
+            if not next_one:
+                dict = {"prefix": dt + '/',
+                        "code": gwr,
+                        "name": gwr + '_sequencer',
+                        "active": True,
+                        "padding": 4,
+                        "implementation": "standard",
+                        }
+                self.env['ir.sequence'].create(dict)
+                next_one = self.env['ir.sequence'].next_by_code(gwr)
 
             vals['operation'] = next_one
 

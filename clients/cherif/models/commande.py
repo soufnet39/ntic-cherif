@@ -9,6 +9,13 @@ class NticCherifCommandes(models.Model):
         first_record = self.env['sn_sales.pricelist'].search([], limit=1)
         return first_record.id if first_record else False
     pricelist_id = fields.Many2one("sn_sales.pricelist", string="Price by aksat methods",default=_default_related_id,store=True) #
+    after24hours = fields.Boolean('After24Hours')
+
+    
+    def check24hours(self):        
+            yesterday = fields.datetime.now() - datetime.timedelta(days=1)
+            records_to_update = self.env['sn_sales.commandes'].search(['&',('create_date', '<', yesterday),('amount_ttc','!=',0)])
+            records_to_update.write({'after24hours': True})
      
     @api.onchange('pricelist_id')
     def _onchange_pricelist_id(self):
@@ -23,16 +30,11 @@ class NticCherifCommandes(models.Model):
 
     
 
-    # @api.model
-    # def write(self, vals):
-    #     raise UserError(_("You are not allowed to modify this record."))
+    def make_it_over24hours(self):
+        self.after24hours=True
+    def make_it_not_over24hours(self):
+        self.after24hours=False
 
-    #     is_purchase_user = self.env.ref("sn_purchases.sn_purchases_user", raise_if_not_found=False)
-    #     if is_purchase_user and self.state in ['confirmed','canceled']:
-    #         raise UserError(_("You are not allowed to modify this record."))
-        
-    #     return super(NticCreditsCommande, self).write(vals)
-   
 class NticCherifCommandesLines(models.Model):
     _inherit = "sn_sales.commande.lines"
 

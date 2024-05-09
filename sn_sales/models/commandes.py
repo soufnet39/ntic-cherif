@@ -255,7 +255,6 @@ class NticSaleCommande(models.Model):
 
     @api.model
     def create(self, vals):
-        #vals['commande_lines'][0][2]['price_changed']
         if 'commande_lines' in vals.keys():
             for line in vals['commande_lines']:
                 if 'price_changed' in line[2].keys() and line[2]['price_changed']:
@@ -287,18 +286,8 @@ class NticSaleCommande(models.Model):
                 self.env['ir.sequence'].create(dict)
                 next_one=self.env['ir.sequence'].next_by_code(gwr)
             vals['name'] = next_one
-            record = super(NticSaleCommande, self).create(vals)
-
-            if vals['operation_type']=='command':
-                proforma_original = self.env.context.get('default_proforma_origin')
-                if record and proforma_original and proforma_original>0:
-                    prf = self.env['sn_sales.proformas'].search( [('id', '=', proforma_original)] )
-                    if prf:
-                        prf.update({'commande_image':record.id})
-
-            return record
-        else:
-            return super(NticSaleCommande, self).create(vals)
+            
+        return super(NticSaleCommande, self).create(vals)
 # ########################################################################################################################
 # ########################################################################################################################
 # ########################################################################################################################
