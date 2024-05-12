@@ -26,6 +26,8 @@
 
         'report/commandes.xml',
         'report/header.xml',
+        'report/reports.xml',
+        'report/purchase.xml',
 
         'wizard/change_state.xml',
         'data/scheduler.xml',

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Achat-->
+        <template id="report_purchase_with_sales_price">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="cherif.report_purchase_with_sales_price_document" t-lang="user.lang"/>
+                </t>
+            </t>
+        </template>
+        <template id="report_purchase_with_sales_price_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':user.lang})"/>
+                 <table style="width:100%">
+                        <tr>
+                            <td style="width:5%" ></td>
+                            <td style="width:95%">
+                                <table style="font-size:11pt">
+                                    <tr>
+                                        <td style="min-width:100px; vertical-align:top;text-align:right;padding:3px 5px 0">Fournisseur :</td>
+                                        <td>
+                                            <span style="font-weight:bold; font-size:13pt"  t-field="doc.partner_id.name" />
+                                            <t t-if="doc.partner_id.address">
+                                                    <br/>
+                                                    <span t-field="doc.partner_id.address" />
+                                                    <span t-field="doc.partner_id.wilaya_id" />
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.partner_id.reg_com">
+                                        <td style="text-align:right;padding-right:5px">Reg.Com :</td>
+                                        <td ><span t-field="doc.partner_id.reg_com"/></td>
+                                    </tr>
+                                    <tr t-if="doc.partner_id.mat_fisc">
+                                        <td style="text-align:right;padding-right:5px">Mat.Fisc :</td>
+                                        <td><span t-field="doc.partner_id.mat_fisc"/></td>
+                                    </tr>
+                                    <tr t-if="doc.partner_id.art_imp">
+                                        <td style="text-align:right;padding-right:5px">Art.Imp :</td>
+                                        <td><span t-field="doc.partner_id.art_imp"/></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                <h2 class="text-center mt32 mb32">
+                    <span style="color:black;">Achat Nº:</span>
+                    <span style="color:black;" t-field="doc.name"/>
+                    <span t-if="doc.state =='canceled'"> (Annulée)</span>
+                    <span t-if="doc.state =='draft'"> (Brouillon)</span>
+                </h2>
+                <table style="width:100%">
+                    <tr>
+                        <td t-if="doc.user_id" class="text-left">
+                            Suivi par : <span t-field="doc.user_id"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="doc.company_id.wilaya_id"/> le :
+                            <span t-if="doc.state == 'confirmed'" t-field="doc.confirmation_date"  />
+                            <span t-if="doc.state != 'confirmed'" t-field="doc.creation_date"  />
+                         </td>
+                    </tr>
+                </table>
+
+                <table class="table table-sm" style="margin-bottom:0">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee; font-size:11pt">
+                            <th t-if="doc.code_article_exist" class="text-center" style="width:15%">Réference</th>
+                            <th  style="width:45%">Désignation</th>
+                            <th class="text-center" style="width:5%" >Qte</th>
+                            <th> 
+                               <table   style="width:100%;margin-right:40px ">
+                                 <tr >
+                                   <td style='border-top: 0;width:40%'> Prix </td>
+                                   <td style='border-top: 0;width:20%'> Nbr Mois </td>
+                                   <td style='border-top: 0;width:40%'> Kist </td>
+                                 </tr>
+                               </table>
+                             </th>                            
+                           
+
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.commande_lines" t-as="line">
+                            <tr style="border-bottom:1px solid #AAA;"
+                                t-att-class="'bg-200 font-weight-bold' if line.display_type == 'line_section' else 'font-italic' if line.display_type == 'line_note' else ''">
+                                <t t-if="not line.display_type">
+                                    <td t-if="doc.code_article_exist" class="text-center">
+                                        <span t-field="line.product_id.code"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td class="text-center" id="qty_id_value">
+                                        <span t-field="line.qty"/>
+                                    </td>
+                                    <td >
+                                <table style="width:100%;margin-right:40px">
+                                    <t t-foreach="line.product_id.pricelist_item_ids" t-as="prdline">
+                                     <tr>
+                                        <td style='border-top: 0;width:40%'>                                           
+                                          <t t-esc="'{:,.2f}'.format(prdline.fixed_price)"/>
+                                         </td>
+                                          <td style='border-top: 0;width:20%'> 
+                                           <span t-field="prdline.pricelist_id"/>
+                                         </td>
+                                          <td style='border-top: 0;width:40%'>                                            
+                                            <t t-esc="'{:,.2f}'.format(prdline.price_of_month)"/>
+                                         </td>
+                                    </tr>       
+                                </t>
+                                  
+                                
+                               </table>
+                                </td>                                    
+                                   
+                                </t>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <div class="oe_structure mt-2"/> 
+                <div>
+                    <span t-field="doc.note"/>
+                </div>
+               
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -35,6 +35,11 @@ class NticCherifCommandes(models.Model):
     def make_it_not_over24hours(self):
         self.after24hours=False
 
+    def print_with_sales_price(self):
+        return self.env.ref('cherif.action_report_purchase_with_sales_price').report_action(self)
+
+
+
 class NticCherifCommandesLines(models.Model):
     _inherit = "sn_sales.commande.lines"
 

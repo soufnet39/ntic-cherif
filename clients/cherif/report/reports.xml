@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+      <!--print purchase -->
+    <report
+            id="action_report_purchase_with_sales_price"
+            string="Achat et vente"
+            model="sn_sales.commandes"
+            report_type="qweb-html"
+            file="cherif.report_purchase_with_sales_price"
+            name="cherif.report_purchase_with_sales_price"
+            print_report_name="'Achat Avec prix de vente'"
+    />
+
+     <!--Etats de factures -->
+    <report
+            id="action_etats_achats_report"
+            string="Etat de Factures d'achat"
+            model="sn_purchases.purchases.wiz1"
+            report_type="qweb-html"
+            file="sn_purchases.etats_factures_achats_report"
+            name="sn_purchases.etats_factures_achats_report"
+            print_report_name="'Etats de Factures d\'achat'"
+            paperformat="sn_base.paperformat_landscape"
+    />
+
+
+</odoo>

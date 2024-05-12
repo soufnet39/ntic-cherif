@@ -41,6 +41,9 @@
             <xpath expr="//div[@id='tail']" position="attributes">
                <attribute name="groups">sn_purchases.sn_purchases_manager</attribute>
             </xpath>
+            <xpath expr="//header" position="inside">
+               <button name="print_with_sales_price" string="Imprimer avec prix de vente" type="object" class="oe_highlight btn-print" icon="fa-print" attrs="{'invisible':['|',('name','=','/')]}" />
+            </xpath>
 
            
             
