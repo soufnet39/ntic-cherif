@@ -60,9 +60,9 @@ class NticCherifCommandesLines(models.Model):
         price = 0
         libelle = ''
         if self.commande_id.tarification=='standard' and self.commande_id.operation_type=='purchase':
-            ids = [ x.product_id.id for x  in self.commande_id.commande_lines]
-            if len(list(set(ids))) < len(ids):
-                raise Warning(_("Ce produit est déjà affecté à cette commande."))
+            # ids = [ x.product_id.id for x  in self.commande_id.commande_lines]
+            # if self.product_id.id in ids[:-1]:
+            #     raise Warning(_("Ce produit est déjà affecté à cette commande."))
             price = self.product_id.purchase_price
             self.price_changed = False
             self.price_touched = False
@@ -91,7 +91,6 @@ class NticCherifCommandesLines(models.Model):
                     rec.fixed_price = rec.price_of_month*rec.pricelist_id.numberOfMonths
                 elif rec.pricelist_id.numberOfMonths!=0 and rec.fixed_price>0:
                     rec.price_of_month = rec.fixed_price/rec.pricelist_id.numberOfMonths
-
         
     
     @api.onchange('price_unit')
