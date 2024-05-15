@@ -22,7 +22,23 @@ class NticCherifCommandes(models.Model):
         if self.pricelist_id:
             self.month_number = self.pricelist_id.numberOfMonths
     
-    
+        
+    def write(self, vals):   
+            if 'commande_lines' in vals.keys():
+               
+                # listnodouble=[]
+                # for rec in self.commande_lines.product_id.ids:
+                #   if rec in listnodouble:
+                #     raise UserError(_("Il exist un article en double")) 
+                #   else:
+                #     listnodouble.append(rec) 
+
+                for line in vals['commande_lines']: 
+                    if line[2]!=False and line[2]['price_total'] == 0:
+                        raise UserError(_("Vous ne pouvez pas ajouter une ligne avec un prix OU quantité nulle"))
+                return super(NticCherifCommandes, self).write(vals)
+
+
     def unlink(self):
         if not self.env.user.has_group('sn_sales.sn_sales_manager'):
             raise UserError(_("Vous n'êtes pas autorisé de supprimer ce bon. consulter votre responsable."))

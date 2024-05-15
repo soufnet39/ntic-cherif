@@ -54,9 +54,6 @@ class wiz_tardations(models.TransientModel):
 
         self.retards_ids = tmp_lines
 
-
-
-
 class retardsWiz(models.TransientModel):
     _name = 'sn_credit.retards.wiz'
     _description = 'Retards cases temporaire'
@@ -97,10 +94,8 @@ class retardsWiz(models.TransientModel):
                                'qty': 1,
                                'price_unit': selected_montant,
                                'sequence': 10,
-                               'price_total': selected_montant,
-                            #    'remise_taux': line.remise_taux,
-                            #    'remise_mta': line.remise_mta,
-                               }
+                               'price_total': selected_montant                        
+                        }
 
         ctx={
                 'default_partner_id': selected_partner_id,

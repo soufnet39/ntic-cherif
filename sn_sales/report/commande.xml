@@ -64,10 +64,6 @@
                         <th style="width:45%">Désignation</th>
                         <th class="text-center" style="width:8%" id="qty_id_title">Qte</th>
                         <th style="text-align:right;width:12%">Prix Unt</th>
-                        <th t-if="doc.remise_exist and doc.remise_applied_on=='article'" style="text-align:right;width:12%">
-                            <span>Remise</span>
-                            <t t-set="colspan_percentage" t-value="colspan_percentage+12"/>
-                        </th>
                         <th style="text-align:right;width:12%">Montant</th>
 
                     </tr>
@@ -91,11 +87,7 @@
                                 <td style="text-align:right;">
                                     <span t-field="line.price_unit"/>
                                 </td>
-                                <td t-if="doc.remise_exist and doc.remise_applied_on=='article'" style="text-align:right;">
-                                    <span t-if="doc.remise_methode=='taux'" t-field="line.remise_taux"/>
-                                    <span t-if="doc.remise_methode=='mta'" t-field="line.remise_mta"/>
-
-                                </td>
+                                
                                 <td style="text-align:right;">
                                     <span t-field="line.price_total"/>
                                 </td>
@@ -119,51 +111,14 @@
             <!-- <div class="row" name="total">
                 <div t-attf-class="#{'col-5' if report_type != 'html' else 'col-sm-6 col-md-6'} ml-auto"> -->
                     <table name="total" class="table table-sm" id="toto" style="font-size:14px">
-                        <tr   t-if="doc.remise_exist" >
-                            <td  class="text-right" style="border-top:0">Montant HT :</td>
-                            <td style="text-align:right;border-top:0;border-bottom:1px solid #dddddd;">
-                                <span t-field="doc.amount_ht_before_remise"/>
-                            </td>
-                        </tr>
-                        <tr t-if="doc.remise_exist" >
-                            <td class="text-right" style="border-top:0">Remise % :</td>
-                            <td style="text-align:right;border-top:0;border-bottom:1px solid #dddddd;">
-                                <span t-field="doc.remise_valeur"/>
-                            </td>
-                        </tr>
-                        <tr t-if="doc.remise_exist and doc.tva_exist" >
-                            <td class="text-right" style="border-top:0">Montant HT Remise :</td>
-                            <td style="text-align:right;border-top:0;border-bottom:1px solid #dddddd;">
-                                <span t-field="doc.amount_ht"/>
-                            </td>
-                        </tr>
-                        <tr t-if="doc.remise_exist and doc.tva_exist" >
-                            <td class="text-right" style="border-top:0;">
-                                TVA
-                                <span t-field="doc.tva_taux"/>
-                                % :
-                            </td>
-                            <td style="text-align:right; border-top:0;border-bottom:1px solid #dddddd;">
-                                <span t-field="doc.amount_tva"/>
-                            </td>
-                        </tr>
-                        <tr t-if="doc.remise_exist" >
-                            <td class="text-right" style="border-top:0">Montant Total TTC :</td>
-                            <td style="text-align:right;border-top:0;border-bottom:1px solid #dddddd;">
-                                <span t-field="doc.amount_ttc"/>
-                            </td>
-                        </tr>
-
-                        <!-- CASE REMISE DOES NOT EXIST   -->
-
-                        <tr t-if="not doc.remise_exist and doc.tva_exist" >
+                        <tr t-if="doc.tva_exist" >
                             <td t-attf-style="width:{{ colspan_percentage  }}%"
                              class="text-right" style="border-top:0">Montant HT :</td>
                             <td style="text-align:right;border-top:0;border-bottom:1px solid #dddddd;width:12%">
                                 <span t-field="doc.amount_ht"/>
                             </td>
                         </tr>
-                        <tr t-if="not doc.remise_exist and doc.tva_exist" >
+                        <tr t-if="doc.tva_exist" >
                             <td class="text-right" style="border-top:0">
                                 TVA
                                 <span t-field="doc.tva_taux"/>
@@ -173,7 +128,7 @@
                                 <span t-field="doc.amount_tva"/>
                             </td>
                         </tr>
-                        <tr t-if="not doc.remise_exist" >
+                        <tr  >
                             <td  t-attf-style="width:{{ colspan_percentage  }}%" class="text-right" style="border-top:0">Total TTC:</td>
                             <td style="text-align:right;border-top:0;border-bottom:1px solid #dddddd;width:12%">
                                 <span t-field="doc.amount_ttc"/>
