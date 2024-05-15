@@ -65,24 +65,7 @@
             <xpath expr="//field[@name='tva_taux']" position="attributes">
                 <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
             </xpath>
-            <xpath expr="//field[@name='remise_exist']" position="attributes">
-                <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
-            </xpath>
-            <xpath expr="//field[@name='remise_methode']" position="attributes">
-                <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
-            </xpath>
-            <xpath expr="//field[@name='remise_applied_on']" position="attributes">
-                <attribute name="attrs">{'readonly':[('aksats_adad','>',0)]}</attribute>
-            </xpath>
-            <!-- <xpath expr="//field[@name='remise_taux']" position="attributes">
-                    <field name="aksats_adad" invisible="1"/>
-                    <attribute name="attrs" >{'readonly':[('aksats_adad','>',0)]}  </attribute>
-                </xpath>
-                <xpath expr="//field[@name='remise_mta']" position="attributes">
-                    <field name="aksats_adad" invisible="1"/>
-                    <attribute name="attrs" >{'readonly':[('aksats_adad','>',0)]}  </attribute>
-                </xpath>
-                   -->
+           
             <xpath expr="//button[@name='print_commande']" position="replace">
                 <button name="print_engagement" string="Imprimer Engagement" type="object"
                     class="oe_highlight btn-print" icon="fa-print"

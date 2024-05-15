@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="sn_purchases.purchases_form"/>
 
         <field name="arch" type="xml">
-                <xpath expr="//div[@id='total']" position="after">
+            <xpath expr="//div[@id='total']" position="after">
                     <div class="row">
                         <div class="col-3 text-right title3">
                             Prix de vente :
@@ -20,18 +20,16 @@
                                     <field name="taux"/>
                                     <field name="fixed_price"/>
                                 </tree>
-                            </field>
-                                
+                            </field>                                
                         </div>
                     </div>
-                </xpath>
+            </xpath>
             <xpath expr="//notebook//page[@id='options']" position="attributes">
                 <attribute name="groups">sn_purchases.sn_purchases_manager</attribute>
             </xpath>
             <xpath expr="//notebook//page[@id='operations']" position="attributes">
                 <attribute name="groups">sn_purchases.sn_purchases_manager</attribute>
             </xpath>
-            
             <xpath expr="//field[@name='commande_lines']//tree/field[@name='price_unit']" position="attributes">
             <attribute name="groups">sn_purchases.sn_purchases_manager</attribute>
             </xpath>
@@ -44,9 +42,6 @@
             <xpath expr="//header" position="inside">
                <button name="print_with_sales_price" string="Imprimer avec prix de vente" type="object" class="oe_highlight btn-print" icon="fa-print" attrs="{'invisible':['|',('name','=','/')]}" />
             </xpath>
-
-           
-            
         </field>
     </record>
 </odoo>

@@ -42,38 +42,18 @@ class NticSaleCommande(models.Model):
         for rec in self:
             rec.display_date= rec.confirmation_date if rec.state=='confirmed' else rec.creation_date
 
-    @api.depends('commande_lines.price_total','remise_exist','remise_applied_on', 'remise_methode','remise_taux','remise_mta', 'tva_exist', 'tva_taux')
+    @api.depends('commande_lines.price_total', 'tva_exist', 'tva_taux')
     def _amount_all(self):
         for commande in self:
-            amount_ht = amount_tva = remise_valeur = amount_ht_before_remise = 0.0
-
+            amount_ht = amount_tva  =  0.0
             for line in commande.commande_lines:
                 if line.display_type not in ['line_section','line_note']:
-                    amount_ht_before_remise += line.price_total
-                    if commande.remise_exist and commande.remise_applied_on=='article':
-                        if commande.remise_methode == 'taux':
-                            amount_ht += line.price_total*(1-line.remise_taux/100)
-                            remise_valeur += line.price_total*line.remise_taux/100
-                        if commande.remise_methode == 'mta':
-                            amount_ht += line.price_total-line.remise_mta
-                            remise_valeur += line.remise_mta
-                    if commande.remise_exist and commande.remise_applied_on=='global' or not commande.remise_exist:
-                        amount_ht += line.price_total
-
-            if commande.remise_exist and commande.remise_applied_on == 'global':
-                if commande.remise_methode == 'taux':
-                    remise_valeur = amount_ht * commande.remise_taux/100
-                    amount_ht = amount_ht-remise_valeur
-                if commande.remise_methode == 'mta':
-                    remise_valeur = commande.remise_mta
-                    amount_ht=amount_ht-remise_valeur
+                   amount_ht += line.price_total
 
             if commande.tva_exist:
                 amount_tva = amount_ht * (commande.tva_taux / 100)
 
             commande.update({
-                'remise_valeur': remise_valeur,
-                'amount_ht_before_remise': amount_ht_before_remise,
                 'amount_ht': amount_ht,
                 'amount_tva': amount_tva,
                 'amount_ttc': amount_ht + amount_tva ,
@@ -381,4 +361,4 @@ class NticSaleCommandeLines(models.Model):
         self.price_list_libelle=libelle
         self.name = self.product_id.name
 
-   
+  

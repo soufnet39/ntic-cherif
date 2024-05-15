@@ -34,8 +34,7 @@
             </xpath>
             <xpath expr="//field[@name='commande_lines']" position="attributes">
                 <attribute name="context">
-                    {'default_remise_mta':remise_mta,'default_remise_taux':remise_taux,
-                    'default_stock_id':stock_id }
+                    {'default_stock_id':stock_id }
                 </attribute>
             </xpath>
                     
