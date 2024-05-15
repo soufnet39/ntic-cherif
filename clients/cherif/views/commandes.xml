@@ -67,7 +67,7 @@
 	    </field>
 </record>
 
-<record id="view_commande_form_cherif2" model="ir.ui.view">
+<record id="view_commande_form_cherif22" model="ir.ui.view">
         <field name="name">commandes</field>
         <field name="model">sn_sales.commandes</field>
         <field name="priority" eval="21" />
