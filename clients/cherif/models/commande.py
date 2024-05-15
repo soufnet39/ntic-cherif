@@ -10,7 +10,6 @@ class NticCherifCommandes(models.Model):
         return first_record.id if first_record else False
     pricelist_id = fields.Many2one("sn_sales.pricelist", string="Price by aksat methods",default=_default_related_id,store=True) #
     after24hours = fields.Boolean('After24Hours')
-
     
     def check24hours(self):        
             yesterday = fields.datetime.now() - datetime.timedelta(days=1)
@@ -22,7 +21,6 @@ class NticCherifCommandes(models.Model):
         if self.pricelist_id:
             self.month_number = self.pricelist_id.numberOfMonths
     
-        
     def write(self, vals):   
             if 'commande_lines' in vals.keys():
                
