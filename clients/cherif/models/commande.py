@@ -36,7 +36,7 @@ class NticCherifCommandes(models.Model):
                 for line in vals['commande_lines']: 
                     if line[2]!=False and line[2]['price_total'] == 0:
                         raise UserError(_("Vous ne pouvez pas ajouter une ligne avec un prix OU quantité nulle"))
-                return super(NticCherifCommandes, self).write(vals)
+            return super(NticCherifCommandes, self).write(vals)
 
 
     def unlink(self):
