@@ -44,4 +44,33 @@
             </xpath>
         </field>
     </record>
+
+    <record id="view_purchses_form_cherif2" model="ir.ui.view">
+        <field name="name">purchases</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="23" />
+        <field name="inherit_id" ref="sn_purchases.purchases_form"/>
+        <field name="groups_id" eval="[(6,0,[ref('cherif.cherif_24_hours_close')])]" />
+
+        <field name="arch" type="xml">
+           
+             
+            <xpath  expr="//field[@name='commande_lines']"  position='attributes' >
+                 <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath  expr="//field[@name='partner_id']"  position='attributes' >
+                 <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath  expr="//field[@name='confirmation_date']"  position='attributes' >
+                 <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath  expr="//field[@name='ref_facture_achat_source']"  position='attributes' >
+                 <attribute name="readonly">1</attribute>
+            </xpath>
+            
+                  
+        </field>
+        
+        
+</record>
 </odoo>
