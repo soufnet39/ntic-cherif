@@ -7,6 +7,7 @@ class NticCherifCommandes(models.Model):
 
     def _default_related_id(self):        
         first_record = self.env['sn_sales.pricelist'].search([], limit=1)
+        self.month_number = first_record.numberOfMonths
         return first_record.id if first_record else False
     pricelist_id = fields.Many2one("sn_sales.pricelist", string="Price by aksat methods",default=_default_related_id,store=True) #
     after24hours = fields.Boolean('After24Hours')
