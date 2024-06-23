@@ -14,6 +14,7 @@ class search_client_wizard(models.TransientModel):
 
         dbs=self.env['ir.config_parameter'].sudo().get_param('related_databases')
         databases = dbs.split(',')
+        self.client_ids.unlink()
         for db in databases:
             # conn_string="dbname='%s' host='localhost' user=smail password='root' port=5432"
             conn_string="dbname='%s' host='db' user=odoo password='odoo' port=5432"
@@ -28,8 +29,6 @@ class search_client_wizard(models.TransientModel):
                     """, ('%' + self.name2search.lower() + '%', '%' + self.name2search + '%'))
                 rows = cur.fetchall()
                 if len(rows)>0:
-                    self.client_ids.unlink()
-                    
                     for row in rows:
                         self.env['cherif_suppliers.search_client.details'].create({
                             'search_id': self.id,
