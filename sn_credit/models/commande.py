@@ -260,6 +260,9 @@ class NticCreditsCommande(models.Model):
         return self.env.ref('sn_credit.action_report_aksats').report_action(self)
     def print_avancements(self):
         return self.env.ref('sn_credit.action_report_aksats_mois').report_action(self)
+    def print_bl(self):
+        return self.env.ref('sn_credit.action_report_bl').report_action(self)
+
 
     @api.model
     def create(self, vals):

@@ -84,6 +84,10 @@
                     class="oe_highlight btn-print" icon="fa-print"
                     attrs="{'invisible':[('name','=','/')]}"
                     />
+                <button name="print_bl" string="Imprimer bon livraison" type="object"
+                    class="oe_highlight btn-print" icon="fa-print"
+                    attrs="{'invisible':[('name','=','/')]}"
+                    />
             </xpath>
             <!--             <xpath expr="//div[@class='oe_button_box']" position="inside">-->
             <!--                <button attrs="{'invisible':[('aksats_image','=',0)]}" name="go2aksats" type="object"-->

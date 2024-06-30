@@ -16,6 +16,13 @@
                 </t>
             </t>
         </template>
+        <template id="report_bl">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sn_credit.report_bl_document" t-lang="user.lang" />
+                </t>
+            </t>
+        </template>
         <!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- -->
          <template id="dibaja">
             <h3 class="text-center mt32 mb32">
@@ -232,6 +239,113 @@
                     </tr>
                 </table>
 
+            </t>
+        </template>
+             <template id="report_bl_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':user.lang})" />
+                
+                <h3 class="text-center mt32 mb32">
+                <span>Bon de Livraison</span>
+                <span>Nº:</span>
+                <span t-field="doc.name" />
+                <span t-if="doc.state =='draft'"> (Brouillon)</span>
+            </h3>
+            <div style="width:70%;margin: 0 auto">
+                <table class="table table-sm" style="margin-bottom:0">
+                    <tr>
+                        <td style="border-top:0;width:50%">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:20px"> Client: </td>
+                                    <td style="border-top:0">
+                                        <span t-field="doc.partner_id.name" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:20px"> CCP: </td>
+                                    <td style="border-top:0">
+                                        <span t-field="doc.partner_id.ccp_numero" /> - <span t-field="doc.partner_id.ccp_cle" />
+                                    </td>
+                                </tr>
+                                
+                                
+                            </table>
+                        </td>
+                        <td style="border-top:0;width:50%">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-right:20px"> Daté le: </td>
+                                    <td style="border-top:0">
+                                        <span t-field="doc.confirmation_date" />
+                                    </td>
+                                </tr>                                
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+                <br />
+            <div style="border:1px solid grey;width:70%;margin: 0 auto">
+                <t t-set="colspan_percentage" t-value="65"/>  
+                 <table class="table table-sm" style="margin-bottom:0">
+                    <thead>
+                        <tr style="border-bottom:2px solid #AAA; background-color:#eee; font-size:11pt">
+                        
+                            <th t-if="doc.code_article_exist" class="text-center" style="width:15%">
+                                <span>Réference</span>
+                                <t t-set="colspan_percentage" t-value="colspan_percentage+15"/>
+                            </th>
+                            <th style="width:45%">Désignation</th>
+                            <th class="text-center" style="width:8%" id="qty_id_title">Qte</th>
+                        
+
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.commande_lines" t-as="line">
+                            <tr style="border-bottom:1px solid #AAA; font-size:13px" t-att-class="'bg-200 font-weight-bold' if line.display_type == 'line_section' else 'font-italic' if line.display_type == 'line_note' else ''">
+                                <t t-if="line.display_type not in ('line_section','line_note')">
+                                    
+                                    <td t-if="doc.code_article_exist" class="text-center">
+                                        <span t-field="line.product_id.code"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td class="text-center" id="qty_id_value">
+                                        <span t-field="line.qty"/>
+                                    </td>
+                                
+                                    
+                                
+                                </t>
+                                <t t-if="line.display_type == 'line_section' or line.display_type == 'line_note'">
+                                    <td colspan="99">
+                                        <span t-raw="line.name"/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </t>
+
+                    </tbody>
+                 </table>
+                  </div>
+                    <br/>
+             <br/>
+                  <table class="table table-sm" style="border:0;width:70%;margin: 0 auto">
+                 <tr>
+                    <td style="width:50%">
+                    </td>
+                    <td style="width:50%; text-align:center">
+                         Le Client  
+                    </td>
+                 </tr>
+                 </table>
+            
+           
+                
             </t>
         </template>
     </data>

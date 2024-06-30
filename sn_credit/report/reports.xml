@@ -23,6 +23,17 @@
             print_report_name="'Avancements - %s' % (object.name)"
     />
 
+    <!--print bon de livraison -->
+    <report
+            id="action_report_bl"
+            string="Bon de livraison"
+            model="sn_sales.commandes"
+            report_type="qweb-html"
+            file="sn_credit.report_bl"
+            name="sn_credit.report_bl"
+            print_report_name="'Bon de livraison - %s' % (object.name)"
+    />
+
     <!--print Prelevements -->
     <report
             id="action_report_prelevements"
