@@ -252,38 +252,50 @@
                 <span t-if="doc.state =='draft'"> (Brouillon)</span>
             </h3>
             <div style="width:70%;margin: 0 auto">
-                <table class="table table-sm" style="margin-bottom:0">
-                    <tr>
-                        <td style="border-top:0;width:50%">
+                        <table style="width:100%">
+                                <tr>
+                                    <td class="text-right" style="width:80%;border-top:0;padding-left:20px"> Daté le: </td>
+                                    <td style="border-top:0">
+                                        <span t-field="doc.confirmation_date" />
+                                    </td>
+                                </tr>                                
+                        </table>
+                
                             <table style="width:100%">
                                 <tr>
-                                    <td class="text-right" style="border-top:0;padding-right:20px"> Client: </td>
+                                    <td class="text-right" style="border-top:0;padding-left:20px;width:25%"> Client: </td>
                                     <td style="border-top:0">
                                         <span t-field="doc.partner_id.name" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-right" style="border-top:0;padding-right:20px"> CCP: </td>
+                                    <td class="text-right" style="border-top:0;padding-left:20px"> CCP: </td>
                                     <td style="border-top:0">
                                         <span t-field="doc.partner_id.ccp_numero" /> - <span t-field="doc.partner_id.ccp_cle" />
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td class="text-right" style="border-top:0;padding-left:20px"> بطاقة هوية رقم: </td>
+                                    <td style="border-top:0">
+                                        <span t-field="doc.partner_id.identity_card_number" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="border-top:0;padding-left:20px"> الصادرة عن: </td>
+                                    <td style="border-top:0">
+                                        <span t-field="doc.partner_id.identity_card_place" />
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td class="text-right" style="border-top:0;padding-left:20px"> الصادرة في: </td>
+                                    <td style="border-top:0">
+                                         <span t-field="doc.partner_id.identity_card_date" />
                                     </td>
                                 </tr>
                                 
                                 
                             </table>
-                        </td>
-                        <td style="border-top:0;width:50%">
-                            <table style="width:100%">
-                                <tr>
-                                    <td class="text-right" style="border-top:0;padding-right:20px"> Daté le: </td>
-                                    <td style="border-top:0">
-                                        <span t-field="doc.confirmation_date" />
-                                    </td>
-                                </tr>                                
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                
             </div>
 
                 <br />
@@ -335,11 +347,17 @@
                     <br/>
              <br/>
                   <table class="table table-sm" style="border:0;width:70%;margin: 0 auto">
+                  <tr>
+                    <td colspan="2" style="text-align:center">
+ أقر أنا الموقع أدناه، بأنني قد استلمت البضاعة المذكورة أعلاه بحالتها السليمة وعددها الكامل٫  وأبرئ ذمة الممون من أي مسؤولية تتعلق بحالة البضاعة أو كميتها أو جودتها بعد هذا الاستلام.
+                    </td>
+                  </tr>
                  <tr>
                     <td style="width:50%">
                     </td>
                     <td style="width:50%; text-align:center">
-                         Le Client  
+                      <br/> 
+                      إمضاء الزبون
                     </td>
                  </tr>
                  </table>

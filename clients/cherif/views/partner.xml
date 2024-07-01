@@ -20,7 +20,7 @@
                                 <label for="date_naissance"/>
                         </div>
                         <div class="col-md-4">
-                            <field class="my-form-control" name="date_naissance"/>
+                            <field class="my-form-control" name="date_naissance" required="1"/>
                         </div>                         
                     </div>
                     <div class="row form-group">
@@ -68,7 +68,7 @@
                             <label for="identity_card_number"/>
                         </div>
                         <div class="col-md-7">
-                            <field class="form-control" name="identity_card_number"/>
+                            <field class="form-control" name="identity_card_number"  required='1'/>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -76,7 +76,7 @@
                             <label for="identity_card_date"/>
                         </div>
                         <div class="col-md-4">
-                            <field class="my-form-control" name="identity_card_date"/>
+                            <field class="my-form-control" name="identity_card_date" required='1'/>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -84,7 +84,7 @@
                             <label for="identity_card_place"/>
                         </div>
                         <div class="col-md-7">
-                            <field class="form-control" name="identity_card_place"/>
+                            <field class="form-control" name="identity_card_place"  required='1'/>
                         </div>
                     </div>
                 </xpath>
