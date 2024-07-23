@@ -72,7 +72,7 @@
    
 
   <!-- HIDE SUPER USER FROM LIST OF USERS -->
-    <record id="action_res_users" model="ir.actions.act_window">
+    <record id="base.action_res_users" model="ir.actions.act_window">
             <field name="name">Users2</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.users</field>
@@ -83,13 +83,13 @@
             <field name="context">{'search_default_no_share': 1}</field>
             <field name="help">Create and manage users that will connect to the system. Users can be deactivated should there be a period of time during which they will/should not connect to the system. You can assign them groups in order to give them specific access to the applications they need to use in the system.</field>
         </record>
-         
+        
      <menuitem id="menu_sn_base_users"
             name="Utilisateurs"
             parent="menu_config"
             sequence="2"
             action="base.action_res_users"
-            groups="sn_base.sn_base_big_boss"/>
+            groups="sn_base_big_boss"/>
     <!-- = = = = = = = = = -->
 
 </odoo>
