@@ -38,5 +38,12 @@
         <field name="implied_ids" eval="[(4, ref('sn_base_user')),(4, ref('sn_base_manager'))]"/>
         <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
     </record>
+     <!-- Boss Group -->
+    <record id="sn_base_big_boss" model="res.groups">
+        <field name="name">Base App Big Boss</field>
+        <field name="category_id" ref="sn_base_access"/>
+        <field name="implied_ids" eval="[(4, ref('sn_base_user')),(4, ref('sn_base_manager')),(4, ref('sn_base_boss'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
 
 </odoo>
