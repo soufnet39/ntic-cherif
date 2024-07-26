@@ -19,6 +19,8 @@
     <record id="cherif_product_form_inherited" model="ir.ui.view">
         <field name="name">sn_sales.product.inherit.view.form</field>
         <field name="model">sn_sales.product</field>
+        <field name="priority" eval="20" />
+
         <field name="inherit_id" ref="sn_sales.ntic_product_form"/>
         <field name="arch" type="xml">
 
@@ -67,4 +69,23 @@
             
         </field>
     </record>
+
+ <record id="cherif_product_form_inherited2" model="ir.ui.view">
+         <field name="name">sn_sales.product.inherit.view.form</field>
+        <field name="model">sn_sales.product</field>
+        <field name="inherit_id" ref="sn_sales.ntic_product_form"/>
+        <field name="priority" eval="23" />
+        <field name="groups_id" eval="[(6,0,[ref('cherif.cherif_24_hours_close')])]" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="attributes" >
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='pricelist_item_ids']" position="attributes" >
+                <attribute name="readonly">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+
 </odoo>
