@@ -31,7 +31,6 @@
         <field name="model">sn_sales.commandes</field>
         <field name="priority" eval="20" />
         <field name="inherit_id" ref="sn_sales.view_commande_form"/>
-        <!-- <field name="groups_id" eval="[(6,0,[ref('cherif.cherif_user')])]" /> -->
         
         <field name="arch" type="xml">
            
@@ -47,11 +46,14 @@
                         </div>
                     </div>
             </xpath>
+            <xpath expr="//div[@id='adding_article']//field[@name='product_id']" position="attributes">
+                <attribute name="options">{'no_open': True,'no_create_edit':True}</attribute>                
+		    </xpath>
 
             <xpath expr="//div[@id='month_number']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-
+ 
              <xpath expr="//div[@id='operations']" position="inside">
                 <div class="col-md-4" style="border-right:1px solid" groups='cherif.cherif_boss' >
                     <h4 class="hh4">Condanation</h4>

@@ -21,7 +21,16 @@ class NticCherifCommandes(models.Model):
     def _onchange_pricelist_id(self):
         if self.pricelist_id:
             self.month_number = self.pricelist_id.numberOfMonths
-    
+
+    @api.model
+    def create(self, vals):   
+        if 'commande_lines' in vals.keys():
+                for line in vals['commande_lines']: 
+                    if line[2]!=False and 'price_total' in line[2].keys():
+                         if line[2]['price_total'] == 0:
+                            raise UserError(_("Vous ne pouvez pas ajouter une ligne avec un prix OU quantité nulle"))
+        return super(NticCherifCommandes, self).create(vals)
+             
     def write(self, vals):   
             if 'commande_lines' in vals.keys():
                
@@ -65,13 +74,19 @@ class NticCherifCommandesLines(models.Model):
     
     # to use at purchase order
     pricelist_item_ids = fields.One2many('sn_sales.pricelist.item', 'product_id', 'Pricelist Items',related='product_id.pricelist_item_ids',readonly=False ) #
-
+    price2show = fields.Float('prix', compute="prepare_price2show")
+    display_date = fields.Date(related='commande_id.display_date')
     ########################################################
     # overwrite sales + purchases same module        #
     ########################################################
+    @api.depends('price_unit')
+    def prepare_price2show(self):
+        for rec in self:
+            rec.price2show= rec.price_unit if rec.operation_type=='command' else 0.0
     @api.onchange('product_id')
     def affect_name_to_designation(self):
         if not self.product_id.id:
+
             return
         price = 0
         libelle = ''

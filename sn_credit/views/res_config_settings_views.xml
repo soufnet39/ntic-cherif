@@ -19,14 +19,14 @@
                         <h2>Parametres</h2>
                         <br/>
                     <br/>
-                            <div class="row form-group">
+                            <!-- <div class="row form-group">
                                 <div class="col-md-6 offset-md-1 text-right ">
                                     <label for="days_omitted_before" />
                                 </div>
                                 <div class="col-md-1">
                                     <field class="my-form-control" name="days_omitted_before"/>
                                 </div>
-                            </div>
+                            </div> -->
                              <div class="row form-group">
                                 <div class="col-md-6 offset-md-1 text-right ">
                                     <label for="let_duplicate_client_one_time" />
@@ -35,10 +35,6 @@
                                     <field class="my-form-control" name="let_duplicate_client_one_time"/>
                                 </div>
                             </div>
-
-
-                    
-
 
                     </div>
                 </xpath>
@@ -54,11 +50,11 @@
             <field name="context">{'module' : 'sn_credit'}</field>
         </record>
 
-        <!--<menuitem id="menu_sn_credit_global_settings"-->
-                  <!--name="Configuration"-->
-                  <!--parent="menu_sn_credit"-->
-                  <!--sequence="20"-->
-                  <!--action="action_sn_credit_configuration"-->
-                  <!--groups="base.group_system"/>-->
+        <!-- <menuitem id="menu_sn_credit_global_settings"
+                  name="Configuration credit"
+                  parent="sn_base.menu_config"
+                  sequence="20"
+                  action="action_sn_credit_configuration"
+                  groups="sn_credit.sn_credit_boss"/> -->
     </data>
 </odoo>

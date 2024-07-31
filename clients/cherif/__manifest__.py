@@ -23,6 +23,7 @@
         'views/pricelist.xml',
         'views/purchases.xml',
         'views/black_list.xml',
+        'views/etatstocks.xml',
 
         'report/commandes.xml',
         'report/header.xml',
