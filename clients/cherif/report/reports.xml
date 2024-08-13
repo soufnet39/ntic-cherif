@@ -25,15 +25,5 @@
             paperformat="sn_base.paperformat_landscape"
     />
 
-     <report
-            id="product_monthly_price_report"
-            string="Product price"
-            model="cherif.impressionprix.detail"
-            report_type="qweb-html"
-            file="cherif.product_monthly_price_documents"
-            name="cherif.product_monthly_price_documents"
-            print_report_name="'Prix - %s' % (object.product_name)"
-    />
-
 
 </odoo>

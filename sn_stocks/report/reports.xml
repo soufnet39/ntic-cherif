@@ -21,7 +21,7 @@
             name="sn_stocks.report_stck_w_qty"
             print_report_name="'Produit avec stock'"
     />
-    <!-- <report
+    <report
             id="report_rest_stock_with_qty"
             string="Liste des Produits"
             model="sn_credit.wiz_rest_product"
@@ -29,7 +29,7 @@
             file="sn_stocks.report_rest_stck_w_qty"
             name="sn_stocks.report_rest_stck_w_qty"
             print_report_name="'Liste des Produits'"
-    /> -->
+    />
 
 
 

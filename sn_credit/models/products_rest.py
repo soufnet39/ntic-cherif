@@ -16,7 +16,7 @@ class Credit_RestProduct(models.Model):
         tools.drop_view_if_exists(self.env.cr, self._table)
         self.env.cr.execute('''
             CREATE OR REPLACE VIEW %s AS (
-            select  pp.product_id as id, pp.name, t.qty_calc,pp.price 
+            select row_number() OVER () as id, pp.product_id, pp.name, t.qty_calc,pp.price 
           from ( 
           select ccp.id as product_id,ccp.name, CASE WHEN ccp.default_price IS NULL THEN 0 ELSE ccp.default_price END as price
             from sn_sales_product as ccp            

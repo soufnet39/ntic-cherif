@@ -25,8 +25,6 @@
                         <field name="client_name" />
                         <field name="mta" />
                         <field name="cmd_date" />
-                        <field name="month_number" />
-                        <field name="monthly_amount" />
                     </tree>
                 </field>
 

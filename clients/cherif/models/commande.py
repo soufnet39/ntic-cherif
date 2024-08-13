@@ -74,14 +74,19 @@ class NticCherifCommandesLines(models.Model):
     
     # to use at purchase order
     pricelist_item_ids = fields.One2many('sn_sales.pricelist.item', 'product_id', 'Pricelist Items',related='product_id.pricelist_item_ids',readonly=False ) #
+    price2show = fields.Float('prix', compute="prepare_price2show")
     display_date = fields.Date(related='commande_id.display_date')
     ########################################################
     # overwrite sales + purchases same module        #
     ########################################################
-
+    @api.depends('price_unit')
+    def prepare_price2show(self):
+        for rec in self:
+            rec.price2show= rec.price_unit if rec.operation_type=='command' else 0.0
     @api.onchange('product_id')
     def affect_name_to_designation(self):
         if not self.product_id.id:
+
             return
         price = 0
         libelle = ''
@@ -107,28 +112,28 @@ class NticCherifCommandesLines(models.Model):
         self.name = self.product_id.name
 
 
-    # @api.onchange('pricelist_item_ids')    
-    # def _onchange_price_of_month(self):  
-    #     if self.commande_id.operation_type=='purchase' and self.price_changed:        
-    #         if len(self.pricelist_item_ids) == 0:
-    #             return    
-    #         for rec in self.pricelist_item_ids:
-    #             if rec.pricelist_id.numberOfMonths!=0 and rec.price_of_month>0:
-    #                 rec.fixed_price = rec.price_of_month*rec.pricelist_id.numberOfMonths
-    #             elif rec.pricelist_id.numberOfMonths!=0 and rec.fixed_price>0:
-    #                 rec.price_of_month = rec.fixed_price/rec.pricelist_id.numberOfMonths
+    @api.onchange('pricelist_item_ids')    
+    def _onchange_price_of_month(self):  
+        if self.commande_id.operation_type=='purchase' and self.price_changed:        
+            if len(self.pricelist_item_ids) == 0:
+                return    
+            for rec in self.pricelist_item_ids:
+                if rec.pricelist_id.numberOfMonths!=0 and rec.price_of_month>0:
+                    rec.fixed_price = rec.price_of_month*rec.pricelist_id.numberOfMonths
+                elif rec.pricelist_id.numberOfMonths!=0 and rec.fixed_price>0:
+                    rec.price_of_month = rec.fixed_price/rec.pricelist_id.numberOfMonths
         
     
-    # @api.onchange('price_unit')
+    @api.onchange('price_unit')
     def on_change_price_unite(self):
             if self.product_id and self.commande_id.operation_type=='purchase'  :
                 self.product_id.purchase_price = self.price_unit                
-                #if self.price_changed:
-                for rec in self.pricelist_item_ids:
+                if self.price_changed:
+                    for rec in self.pricelist_item_ids:
                         rec.fixed_price = self.price_unit*(1+rec.taux/100)
                         if rec.pricelist_id.numberOfMonths!=0:
                             rec.price_of_month = rec.fixed_price/rec.pricelist_id.numberOfMonths 
-                #self.price_changed = True
+                self.price_changed = True
 
  
                 

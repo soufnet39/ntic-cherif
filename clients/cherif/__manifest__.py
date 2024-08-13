@@ -27,12 +27,10 @@
 
         'report/commandes.xml',
         'report/header.xml',
-        'report/products.xml',
         'report/reports.xml',
         'report/purchase.xml',
 
         'wizard/change_state.xml',
-        'wizard/print_prices.xml',
         'data/scheduler.xml',
         # 'report/footer.xml'
     ],

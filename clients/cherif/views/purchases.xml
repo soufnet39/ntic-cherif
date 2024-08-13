@@ -8,15 +8,13 @@
 
         <field name="arch" type="xml">
             <xpath expr="//div[@id='total']" position="after">
-                <button name="on_change_price_unite" type="object" groups="sn_base.sn_base_big_boss" class="oe_highlight bg-danger" >
-                    C.G
-                </button>
-                    <div class="row">                        
-                        <div class="col-12">
+                    <div class="row">
+                        <div class="col-3 text-right title3">
+                            Prix de vente :
+                        </div>
+                        <div class="col-8">
                             <field class="my-form-control" name="pricelist_item_ids">
                                   <tree editable="bottom">
-                                    <button name="calcul_price_on_ref" string='C' type="object" class="oe_highlight bg-danger" groups="sn_base.sn_base_big_boss"  context="{'parent_price_unit': parent.price_unit}" />
-                                    <button name="calcul_price" string='C' type="object" class="oe_highlight" groups="sn_base.sn_base_big_boss" />
                                     <field name="pricelist_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True }"                             />
                                     <field name="price_of_month"/>
                                     <field name="taux"/>
