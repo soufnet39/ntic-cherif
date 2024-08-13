@@ -7,9 +7,9 @@
         <field name="inherit_id" ref="sn_stocks.etatstocks_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//tree/field[@name='commande_id']" position="after">
-                <field name="display_date"  optional="hide"   />
+                <field name="display_date"  optional="show"   />
                 <field name="partner_id"/>
-                <field name="price2show"   />
+                <field name="price_unit"   />
             </xpath>
         </field>
     </record> 

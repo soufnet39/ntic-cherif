@@ -20,16 +20,13 @@ class Pricelist(models.Model):
    
     sequence = fields.Integer(default=10)
 
-
-
 class PricelistItem(models.Model):
     _name = "sn_sales.pricelist.item"
     _description = "Pricelist Item"
     _order = "id desc"
 
-
     pricelist_id = fields.Many2one('sn_sales.pricelist', 'Libellé de prix', index=True, ondelete='cascade')
     product_id = fields.Many2one(
          'sn_sales.product', 'Product',
           help="Specify a product. Keep empty otherwise.")
-    fixed_price = fields.Float('Prix', )
+    fixed_price = fields.Float('Prix')

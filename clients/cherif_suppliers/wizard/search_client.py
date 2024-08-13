@@ -22,7 +22,7 @@ class search_client_wizard(models.TransientModel):
             with psycopg2.connect(conn_string%(db)) as connection:
                 cur = connection.cursor()
                 cur.execute("""
-                    SELECT cmd.name, cmd.confirmation_date as dte,clnt.name, clnt.ccp_numero,cmd.amount_ttc FROM public.sn_sales_commandes as cmd 
+                    SELECT cmd.name, cmd.confirmation_date as dte,clnt.name, clnt.ccp_numero,cmd.amount_ttc,cmd.month_number ,cmd.monthly_amount  FROM public.sn_sales_commandes as cmd 
                     left join public.sn_sales_partner as clnt 
                     on cmd.partner_id=clnt.id
                     where cmd.operation_type = 'command' and (lower(clnt.name) LIKE %s OR clnt.ccp_numero LIKE %s) 
@@ -37,7 +37,9 @@ class search_client_wizard(models.TransientModel):
                             'cmd_date': row[1],
                             'client_name': row[2],
                             'client_ccp': row[3],
-                            'mta': row[4]
+                            'mta': row[4],
+                            'month_number': row[5],
+                            'monthly_amount': row[6]
                         })                    
 
 
@@ -52,6 +54,8 @@ class search_client_details_wizard(models.TransientModel):
     client_ccp= fields.Char('CCP')
     mta= fields.Float('Montant', digits="montant")
     cmd_date= fields.Date('Date')
+    month_number=fields.Integer('Nbr Mois')
+    monthly_amount =fields.Float('Par Mois', digits="montant")
        
     
 
