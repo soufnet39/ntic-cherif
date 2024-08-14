@@ -9,7 +9,7 @@
             <xpath expr="//tree/field[@name='commande_id']" position="after">
                 <field name="display_date"  optional="hide"   />
                 <field name="partner_id"/>
-                <field name="price2show"   />
+                <field name="price_unit"   />
             </xpath>
         </field>
     </record> 

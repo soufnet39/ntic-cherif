@@ -74,15 +74,11 @@ class NticCherifCommandesLines(models.Model):
     
     # to use at purchase order
     pricelist_item_ids = fields.One2many('sn_sales.pricelist.item', 'product_id', 'Pricelist Items',related='product_id.pricelist_item_ids',readonly=False ) #
-    price2show = fields.Float('prix', compute="prepare_price2show")
     display_date = fields.Date(related='commande_id.display_date')
     ########################################################
     # overwrite sales + purchases same module        #
     ########################################################
-    @api.depends('price_unit')
-    def prepare_price2show(self):
-        for rec in self:
-            rec.price2show= rec.price_unit if rec.operation_type=='command' else 0.0
+    
     @api.onchange('product_id')
     def affect_name_to_designation(self):
         if not self.product_id.id:

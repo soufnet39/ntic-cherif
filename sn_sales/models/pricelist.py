@@ -16,11 +16,8 @@ class Pricelist(models.Model):
     item_ids = fields.One2many('sn_sales.pricelist.item', 'pricelist_id', 'Pricelist Items',  copy=True) #, default=_get_default_item_ids
 
     # must be declared in security part
-    company_id = fields.Many2one('res.company', 'Company', default=lambda self: self.env['res.company']._company_default_get('sn_sales.pricelist'))
-   
+    company_id = fields.Many2one('res.company', 'Company', default=lambda self: self.env['res.company']._company_default_get('sn_sales.pricelist')) 
     sequence = fields.Integer(default=10)
-
-
 
 class PricelistItem(models.Model):
     _name = "sn_sales.pricelist.item"
@@ -32,4 +29,4 @@ class PricelistItem(models.Model):
     product_id = fields.Many2one(
          'sn_sales.product', 'Product',
           help="Specify a product. Keep empty otherwise.")
-    fixed_price = fields.Float('Prix', )
+    fixed_price = fields.Float('Prix')
