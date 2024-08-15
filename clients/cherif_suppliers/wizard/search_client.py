@@ -16,8 +16,8 @@ class search_client_wizard(models.TransientModel):
         databases = dbs.split(',')
         self.client_ids.unlink()
         for db in databases:
-            conn_string="dbname='%s' host='localhost' user=smail password='root' port=5432"
-            # conn_string="dbname='%s' host='db' user=odoo password='odoo' port=5432"
+            # conn_string="dbname='%s' host='localhost' user=smail password='root' port=5432"
+            conn_string="dbname='%s' host='db' user=odoo password='odoo' port=5432"
             # try:
             with psycopg2.connect(conn_string%(db)) as connection:
                 cur = connection.cursor()
