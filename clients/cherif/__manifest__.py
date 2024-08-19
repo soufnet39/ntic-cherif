@@ -30,9 +30,11 @@
         'report/products.xml',
         'report/reports.xml',
         'report/purchase.xml',
+        'report/etats_ventes.xml',
 
         'wizard/change_state.xml',
         'wizard/print_prices.xml',
+        'wizard/etats_ventes.xml',
         'data/scheduler.xml',
         # 'report/footer.xml'
     ],

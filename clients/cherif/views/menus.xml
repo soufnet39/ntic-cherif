@@ -4,5 +4,8 @@
     <record model="ir.ui.menu" id="sn_sales.taxonomies_menu">
         <field name="groups_id" eval="[(6,0,[ref('sn_base.make_invisible')])]"/>
     </record>
+     <record model="ir.ui.menu" id="sn_sales.menu_commandes_wiz">
+        <field name="groups_id" eval="[(6,0,[ref('sn_base.make_invisible')])]"/>
+    </record>
 
 </odoo>

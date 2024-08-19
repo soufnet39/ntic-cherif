@@ -1623,11 +1623,6 @@ msgid "Nombre aksats"
 msgstr ""
 
 #. module: sn_credit
-#: model:ir.model.fields,field_description:sn_credit.field_res_config_settings__days_omitted_before
-msgid "Nombre de jour non considéré avant declaration"
-msgstr "عدد الأيام غير المعتدة قبل الإعلان"
-
-#. module: sn_credit
 #: model:ir.model.fields,field_description:sn_credit.field_sn_credit_contrats__nbr_months
 msgid "Nombre de mois proposé"
 msgstr "عدد اللأشهر الم"

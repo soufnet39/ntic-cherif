@@ -33,5 +33,17 @@
             name="cherif.product_monthly_price_documents"
             print_report_name="'Prix - %s' % (object.product_name)"
     />
+    <!--Etats des commandes lines -->
+    <report
+            id="commandes_lines_report"
+            string="Etat de Ventes"
+            model="cherif.commandes.wiz1"
+            report_type="qweb-html"
+            file="cherif.cherif_etats_ventes_report"           
+            name="cherif.cherif_etats_ventes_report"
+            print_report_name="'Etats de ventes'"
+           
+    />
+     <!-- paperformat="sn_base.paperformat_landscape" -->
 
 </odoo>
