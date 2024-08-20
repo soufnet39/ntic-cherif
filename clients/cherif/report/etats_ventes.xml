@@ -4,23 +4,39 @@
     <template id="cherif_etats_ventes_report">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
-                <t t-call="cherif.report_etat_vente_document" t-lang="user.lang"/>
+                <t t-call="web.external_layout">
+                   
+                    <div class="page">
+                    <div class="">
+                        <h3 class="text-center mt32">
+                        <span id="main_title" >
+                            <span>Etat <span t-if="doc.periode!='interval'" t-field="doc.periode"/> des Ventes </span>
+                        </span>                
+                        <t t-if="doc.periode=='mois'"> - <span t-field="doc.mois" /> <span t-field="doc.annee" />  </t>
+                    
+                        <span t-if="doc.periode=='interval'">Interval: <span t-field="doc.date_debut"/> - <span t-field="doc.date_fin"/> 
+                        </span>
+                        </h3>
+                    </div>
+                    
+                    <br/>
+                            <t t-call="cherif.report_etat_vente_document" t-lang="user.lang"/>
+                    </div>
+
+                    <div class="">                        
+                        <div class="text-right">
+                            <span class="page"/> / <span class="topage"/>
+                        </div>                        
+                    </div>
+                </t>
             </t>
+            
         </t>
     </template>
     <template id="report_etat_vente_document">
-        <t t-call="web.internal_layout">
             <t t-set="doc" t-value="doc.with_context({'lang':user.lang})"/>
-            <h3 class="text-center mt32">
-                <span id="main_title" >
-                    <span>Etat <span t-if="doc.periode!='interval'" t-field="doc.periode"/> des Ventes </span>
-                </span>                
-                <t t-if="doc.periode=='mois'"> ( <span t-field="doc.mois" /> ) </t>
-               
-                <span t-if="doc.periode=='interval'">Interval: <span t-field="doc.date_debut"/> - <span t-field="doc.date_fin"/> 
-                </span>
-            </h3>
-            <br/>
+           
+            
             <t t-set="sum_ttc" t-value="0"/>
             <table class="table table-sm" style="border:1px solid; width:100%; font-size:13px; direction:ltr" id="main_table">
                 <thead>
@@ -32,36 +48,36 @@
                     </tr>
                 </thead>
                 <tbody class="sale_tbody">
-                    <t t-foreach="doc.commandes_lines_ids" t-as="line">
+                    <t t-foreach="doc.lines_ids" t-as="line">
                         <tr style="border-bottom:1px solid #AAA;" class="main_tr">
                             <td  class="text-right">
                                 <span t-field="line.name"/>
                             </td>                           
                             <td  class="text-left">
-                                <span t-field="line.price_unit"/>
+                                <span t-esc="'{:,.2f}'.format(line.price_unit)" />
                             </td>
                             <td class="text-center">                                
                                 <span t-field="line.qty"/>
                             </td>
                              <td class="text-left">                                
-                                <span t-field="line.price_total"/>
+                                <span t-esc="'{:,.2f}'.format(line.montant)" />
                             </td>
                         </tr>
-                        <t t-set="sum_ttc" t-value="sum_ttc + line.price_total"/>
+                        <t t-set="sum_ttc" t-value="sum_ttc + line.montant"/>
                     </t>
                     <tr style="border-top:1px solid #000; font-weight:bold">
-                        <td id="first_td"></td>
                         <td ></td>
-                        <td class="text-right">
+                        <td ></td>
+                        <td class="text-left">
                                 Totaux:
                         </td>
-                        <td class="text-right" id="totalttc">                                
+                        <td class="text-left" id="totalttc">                                
                                 <span t-esc="'{:,.2f}'.format(sum_ttc)"/>                            
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <div class="oe_structure"/>
-        </t>
+           
+        
     </template>
 </odoo>

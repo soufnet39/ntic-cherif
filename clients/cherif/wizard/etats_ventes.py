@@ -51,7 +51,7 @@ class wiz_commandes(models.TransientModel):
         default=_default_year,
         required=True
         )
-    commandes_lines_ids = fields.Many2many('sn_sales.commande.lines',  string='Lignes de Commandes de Ventes', compute="get_commandes_lines")
+    lines_ids = fields.One2many('cherif.commandes.wiz1.lines', 'wiz_id' , string='Lignes de Ventes', readonly=True)
     
     date_operation = fields.Date(
         string='Date',
@@ -59,12 +59,13 @@ class wiz_commandes(models.TransientModel):
     )
 
     @api.onchange( 'periode', 'mois', 'annee')
-    def clear_commandes_lines_ids(self):
-        self.commandes_lines_ids=[]
+    def clear_lines_ids(self):
+        self.lines_ids=[]
 
     ######################
    
     def get_commandes_lines(self):
+        self.lines_ids=[]
         yr= int(self.annee)
         conditions=[('operation_type','=','command'),('state','not in',['canceled'])]
 
@@ -84,8 +85,29 @@ class wiz_commandes(models.TransientModel):
             
         commandes_ids = self.env['sn_sales.commandes'].search(conditions).ids
         if commandes_ids:
-            self.commandes_lines_ids = self.env['sn_sales.commande.lines'].search([('commande_id','in',commandes_ids)])
-
+            gr = self.env['sn_sales.commande.lines'].read_group(
+                [('commande_id', 'in', commandes_ids)],  
+                fields=['name','price_unit:avg' , 'qty:sum','price_total:sum'], 
+                groupby=['name','price_unit']  
+            )
+           
+            filb_values = [(0, 0, {
+                               'name': group['name'],
+                               'price_unit': group['price_unit'],
+                               'qty': group['qty'],
+                               'montant': group['price_total']                        
+                               }) for group in gr]
+            self.lines_ids = filb_values
 
     def print_etats_commandes_lines(self):
         return self.env.ref('cherif.commandes_lines_report').report_action(self)
+
+class wiz_commandes_lines(models.TransientModel):
+        _name = "cherif.commandes.wiz1.lines"
+
+        wiz_id = fields.Many2one('cherif.commandes.wiz1', string='Etat en relation')
+       
+        name = fields.Char('Article' )
+        price_unit = fields.Float(string="CCP" , digits="montant" )
+        qty    = fields.Integer(string="Qte." )
+        montant = fields.Float(string="Total", digits="montant" )

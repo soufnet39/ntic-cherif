@@ -78,13 +78,13 @@
                     </div>
                     <notebook>
                         <page string="Commandes">
-                            <field name="commandes_lines_ids" mode="tree">
+                            <field name="lines_ids" mode="tree">
                                 <tree string="Lines" decoration-bf="True">
                                     <field name="name" string="Article" />
                                     <!-- <field name="confirmation_date" string="Date" />                                     -->
                                     <field name="price_unit" string="Prix.U"  />
                                     <field name="qty" string="Qte."  />
-                                    <field name="price_total" string="Prix" sum="Montant" />
+                                    <field name="montant"  sum="Montant" />
                                 </tree>
                             </field>
                         </page>
