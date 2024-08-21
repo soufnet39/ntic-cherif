@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <!-- Form view for wizard -->
-    <record model="ir.ui.view" id="cherif_commandes_wizard_form">
-        <field name="name">Etat de Vente</field>
-        <field name="model">cherif.commandes.wiz1</field>
+    <record model="ir.ui.view" id="cherif_achats_wizard_form">
+        <field name="name">Etat de achat</field>
+        <field name="model">cherif.achats.wiz1</field>
         <field name="type">form</field>
 
         <field name="arch" type="xml">
-            <form string="Etats de Ventes" create="false" delete="false" edit="true">
-                
+            <form string="Etats d'achats" create="false" delete="false" edit="true">
+               
                 <sheet>
                 <div class="h1 text-center text-danger py-3 mb-3">
-                  Etat de ventes
+                  Etat d'achats
                 </div>
                     <div class="row">
                         <div class="col-md-7" id="block1">
@@ -64,8 +64,8 @@
                         </div>
                         <div class="col-md-5" style="padding:20px 50px">
                             
-                            <button class="btn btn-primary btn-block" name="get_commandes_lines" type="object">Filtration</button>
-                            <button class="btn btn-primary btn-block" name="print_etats_commandes_lines" type="object">Impression</button>
+                            <button class="btn btn-primary btn-block" name="get_achats_lines" type="object">Filtration</button>
+                            <button class="btn btn-primary btn-block" name="print_etats_achats_lines" type="object">Impression</button>
                           <br/>
                             <div class="row">
                                     <div class="col-md-6 text-right">
@@ -78,7 +78,7 @@
                             </div>
                     </div>
                     <notebook>
-                        <page string="Commandes">
+                        <page string="achats">
                             <field name="lines_ids" mode="tree">
                                 <tree string="Lines" decoration-bf="True">
                                     <field name="name" string="Article" />
@@ -97,20 +97,20 @@
         </field>
     </record>
 
-    <!-- Etat des ventes action -->
-    <record model="ir.actions.act_window" id="cherif_etat_ventes">
-        <field name="name">Etat de Ventes</field>
-        <field name="res_model">cherif.commandes.wiz1</field>
+    <!-- Etat des achats action -->
+    <record model="ir.actions.act_window" id="cherif_etat_achats">
+        <field name="name">Etat d'achats</field>
+        <field name="res_model">cherif.achats.wiz1</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="cherif_commandes_wizard_form"/>
+        <field name="view_id" ref="cherif_achats_wizard_form"/>
         <field name="target">current</field>
     </record>
 
-    <!-- menu Etats de Ventes--> 
+    <!-- menu Etats de achats--> 
     <!-- Must have the same id to overwrite the same menu in sn_sales -->
-    <menuitem id="menu_commandes_wiz"
-        action="cherif_etat_ventes"
-        name="Etat de Ventes"
+    <menuitem id="menu_achats_wiz"
+        action="cherif_etat_achats"
+        name="Etat d'chats"
         parent="sn_base.menu_halat"
         groups="cherif_boss"
         sequence="1"/>
