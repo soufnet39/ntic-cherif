@@ -52,7 +52,7 @@
             report_type="qweb-html"
             file="cherif.cherif_etats_achats_report"           
             name="cherif.cherif_etats_achats_report"
-            print_report_name="'Etats d'achats'"
+            print_report_name="'Etats d achats'"
            
     />
 
