@@ -56,8 +56,17 @@
                                 <div class="col-md-2">
                                     <label for="annee"/>
                                 </div>
-                                <div class="col-md-10">
+                                <div class="col-md-3">
                                     <field name="annee" />
+                                </div>
+                            </div>
+
+                            <div  class="row">
+                                <div class="col-md-2">
+                                    <label for="show_prices"/>
+                                </div>
+                                <div class="col-md-2">
+                                    <field name="show_prices" />
                                 </div>
                             </div>
                             
@@ -78,19 +87,19 @@
                             </div>
                     </div>
                     <notebook>
-                        <page string="achats">
+                        <page string="Achats">
                             <field name="lines_ids" mode="tree">
                                 <tree string="Lines" decoration-bf="True">
                                     <field name="name" string="Article" />
                                     <!-- <field name="confirmation_date" string="Date" />                                     -->
-                                    <field name="price_unit" string="Prix.U"  />
+                                    <field attrs="{ 'column_invisible': [('parent.show_prices','=','no')] }"
+                                    name="price_unit" string="Prix.U"  />                                   
                                     <field name="qty" string="Qte."  />
-                                    <field name="montant"  sum="Montant" />
+                                    <field  attrs="{ 'column_invisible': [('parent.show_prices','=','no')] }" name="montant"  sum="Montant" />
                                 </tree>
                             </field>
                         </page>
-                        <page string="Options Impression">
-                        </page>
+                       
                     </notebook>
                 </sheet>
             </form>

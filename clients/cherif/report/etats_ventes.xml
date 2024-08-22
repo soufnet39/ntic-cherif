@@ -42,9 +42,9 @@
                 <thead>
                     <tr style="border-bottom:2px solid #AAA;border-top:1px solid #AAA; background-color:#eee; font-size:11pt">
                         <th class="text-right">Article</th>
-                        <th id="daty" class="text-left">Prix Unit.</th>
+                        <th t-if="doc.show_prices=='yes'" class="text-left">Prix Unit.</th>
                         <th class="text-center">Qte.</th>
-                        <th class="text-left">Total</th>
+                        <th t-if="doc.show_prices=='yes'" class="text-left">Montant</th>
                     </tr>
                 </thead>
                 <tbody class="sale_tbody">
@@ -53,19 +53,19 @@
                             <td  class="text-right">
                                 <span t-field="line.name"/>
                             </td>                           
-                            <td  class="text-left">
+                            <td t-if="doc.show_prices=='yes'"  class="text-left">
                                 <span t-esc="'{:,.2f}'.format(line.price_unit)" />
                             </td>
                             <td class="text-center">                                
                                 <span t-field="line.qty"/>
                             </td>
-                             <td class="text-left">                                
+                             <td t-if="doc.show_prices=='yes'" class="text-left">                                
                                 <span t-esc="'{:,.2f}'.format(line.montant)" />
                             </td>
                         </tr>
                         <t t-set="sum_ttc" t-value="sum_ttc + line.montant"/>
                     </t>
-                    <tr style="border-top:1px solid #000; font-weight:bold">
+                    <tr t-if="doc.show_prices=='yes'" style="border-top:1px solid #000; font-weight:bold">
                         <td ></td>
                         <td ></td>
                         <td class="text-left">

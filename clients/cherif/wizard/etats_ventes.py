@@ -57,6 +57,13 @@ class wiz_commandes(models.TransientModel):
         string='Date',
         default=fields.Date.context_today,
     )
+    show_prices = fields.Selection(
+        string='Afficher les prix',
+        selection=[('yes', 'Oui'),('no', 'Non')],
+        default='yes',
+        required=True
+        )
+
 
     @api.onchange( 'periode', 'mois', 'annee')
     def clear_lines_ids(self):
