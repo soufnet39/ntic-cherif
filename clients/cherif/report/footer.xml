@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<data>
-<template id="my_footer" inherit_id="web.external_layout_standard">
+   <template id="my_footer" inherit_id="web.external_layout_standard">
+      <xpath expr="//div/div[hasclass('text-center')]" position="replace">
+      </xpath>
 
+     </template>
+
+        
+<!--
   <xpath expr="//div/div[hasclass('text-center')]" position="replace">
 
           <div t-attf-class="footer">
@@ -10,9 +15,6 @@
           </div>
 
 
-  </xpath>
+  </xpath> -->
 
-</template>
-
-</data>
-</odoo> 
+</odoo>  

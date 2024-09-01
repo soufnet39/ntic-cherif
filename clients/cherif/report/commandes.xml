@@ -4,4 +4,40 @@
         <xpath expr="//table[@id='versement_details']" position="replace">
         </xpath>
     </template>
+ 
+    <template id="cherif_header" name="cherif header">
+        <div class="text-center h2">
+                    <t t-set="cname" t-value="doc.contrat.comp_name or env.company.name " />
+                    <t t-esc="cname"  />
+             </div>
+              <div class="text-center h4" t-if='doc.contrat.comp_address or env.company.street'>
+                    <t t-set="caddress" t-value="doc.contrat.comp_address or env.company.street" />
+                    <t t-esc="caddress"  />
+             </div>
+               <div class="text-center h5" t-if='doc.contrat.comp_phone or env.company.phone'> 
+                    <t t-set="cphone" t-value="doc.contrat.comp_phone or env.company.phone" />
+                    <t t-esc="cphone"  />
+             </div>
+             <hr/>
+    </template>
+
+
+    <template id="cherif_credit_report_aksats_document" name="cherif header" inherit_id="sn_credit.dibaja">
+           <xpath expr="//div[@id='cherif_header']" position="replace">
+               <t t-call="cherif.cherif_header"/>
+           </xpath>            
+    </template>
+        <template id="cherif_credit_report_engagement_document" name="cherif header2" inherit_id="sn_credit.report_engagement_document">
+           <xpath expr="//div[@id='cherif_header']" position="replace">
+               <t t-call="cherif.cherif_header"/>
+           </xpath>   
+    </template>
+    <template id="cherif_credit_report_bl_document" name="cherif header2" inherit_id="sn_credit.report_bl_document">
+     <xpath expr="//div[@id='cherif_header']" position="replace">
+               <t t-call="cherif.cherif_header"/>
+           </xpath>  
+    </template>
+
+        
+
 </odoo>

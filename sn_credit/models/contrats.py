@@ -18,6 +18,9 @@ class NticContrats(models.Model):
         comodel_name='res.users' ,domain="[('is_company', '=', False)]"  )
     ccp_numero =  fields.Char('Numéro CCP', )
     ccp_cle =  fields.Char('Clé CCP', )
+    comp_name = fields.Char('Nom Société')
+    comp_address = fields.Char('Adresse')
+    comp_phone = fields.Char('Numéro télephone')
 
     _sql_constraints = [
         ('contrat_uniq', 'unique(name,company_id)', 'Le nom du contrat doit être unique dans le même centre!'),

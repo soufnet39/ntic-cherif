@@ -38,7 +38,7 @@
         'wizard/etats_ventes.xml',
         'wizard/etats_achats.xml',
         'data/scheduler.xml',
-        # 'report/footer.xml'
+        'report/footer.xml'
     ],
     'qweb': [],
 

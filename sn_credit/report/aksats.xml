@@ -25,10 +25,12 @@
         </template>
         <!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- -->
          <template id="dibaja">
+            <div id='cherif_header'> : : : </div>
+
             <h3 class="text-center mt32 mb32">
                 <span>Bon de vente à Credit</span>
                 <span>Nº:</span>
-                <span t-field="doc.name" />
+                <span t-field="doc.name" /> 
                 <span t-if="doc.state =='draft'"> (Brouillon)</span>
             </h3>
             <div style="width:70%;margin: 0 auto">
@@ -105,7 +107,7 @@
         </template>
         <!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- -->
         <template id="report_aksats_document">
-            <t t-call="web.external_layout">
+            <t t-call="web.external_layout">               
                 <t t-set="doc" t-value="doc.with_context({'lang':user.lang})" />
                 <t t-call="sn_credit.dibaja" />
                 <br />
@@ -244,7 +246,7 @@
              <template id="report_bl_document">
             <t t-call="web.external_layout">
                 <t t-set="doc" t-value="doc.with_context({'lang':user.lang})" />
-                
+                <div id="cherif_header"></div>
                 <h3 class="text-center mt32 mb32">
                 <span>Bon de Livraison</span>
                 <span>Nº:</span>

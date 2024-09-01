@@ -17,6 +17,7 @@
                 <field name="description"/>
                 <field name="ccp_numero"/>
                 <field name="ccp_cle"/>
+                <field name="comp_name"/>
                 <field name="users_ids"   widget="many2many_tags" />
 
             </tree>
@@ -88,6 +89,30 @@
                         </div>
                         <div class="col-md-2">
                             <field class="my-form-control" name="ccp_cle"/>
+                        </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-md-4 text-right">
+                            <label for="comp_name"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field class="my-form-control" name="comp_name"/>
+                        </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-md-4 text-right">
+                            <label for="comp_address"/>
+                        </div>
+                        <div class="col-md-5">
+                            <field class="my-form-control" name="comp_address"/>
+                        </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-md-4 text-right">
+                            <label for="comp_phone"/>
+                        </div>
+                        <div class="col-md-3">
+                            <field class="my-form-control" name="comp_phone"/>
                         </div>
                     </div>
                     <div class="row">
