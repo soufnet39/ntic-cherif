@@ -10,11 +10,11 @@
                     <t t-set="cname" t-value="doc.contrat.comp_name or env.company.name " />
                     <t t-esc="cname"  />
              </div>
-              <div class="text-center h4" t-if='doc.contrat.comp_address or env.company.street'>
+              <div class="text-center h6" t-if='doc.contrat.comp_address or env.company.street'>
                     <t t-set="caddress" t-value="doc.contrat.comp_address or env.company.street" />
                     <t t-esc="caddress"  />
              </div>
-               <div class="text-center h5" t-if='doc.contrat.comp_phone or env.company.phone'> 
+               <div class="text-center h6" t-if='doc.contrat.comp_phone or env.company.phone'> 
                     <t t-set="cphone" t-value="doc.contrat.comp_phone or env.company.phone" />
                     <t t-esc="cphone"  />
              </div>
