@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--facture d'achat-->
+    <template id="cherif_etat_stock_ctrl_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                   
+                    <div class="page">
+                    <div class="">
+                        <h3 class="text-center mt32">
+
+                           <span>Etat de stock mensuel </span>
+                            <br/>
+                         Avant le 01 <span t-field="doc.mois" /> <span t-field="doc.annee" />                     
+
+                        </h3>
+                    </div>
+                    
+                    <br/>
+                            <t t-call="cherif.report_stock_ctrl_document" t-lang="user.lang"/>
+                    </div>
+
+                    <div class="">                        
+                        <div class="text-right">
+                            <span class="page"/> / <span class="topage"/>
+                        </div>                        
+                    </div>
+                </t>
+            </t>
+            
+        </t>
+    </template>
+    <template id="report_stock_ctrl_document">
+            <t t-set="doc" t-value="doc.with_context({'lang':user.lang})"/>
+           
+            
+            
+            <table class="table table-sm" style="border:1px solid; width:100%; font-size:13px; direction:ltr" id="main_table">
+                <thead>
+                    <tr style="border-bottom:2px solid #AAA;border-top:1px solid #AAA; background-color:#eee; font-size:11pt">
+                        <th class="text-right">Article</th>
+                        <th class="text-center">Qte.</th>
+                    </tr>
+                </thead>
+                <tbody class="sale_tbody">
+                    <t t-foreach="doc.lines_ids" t-as="line">
+                        <tr style="border-bottom:1px solid #AAA;" class="main_tr">
+                            <td  class="text-right">
+                                <span t-field="line.name"/>
+                            </td>                           
+                           
+                            <td class="text-center">                                
+                                <span t-field="line.qty"/>
+                            </td>
+                            
+                        </tr>
+
+                    </t>
+                   
+                </tbody>
+            </table>
+           
+        
+    </template>
+</odoo>

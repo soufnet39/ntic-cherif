@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form view Ctrl -->
+    <record model="ir.ui.view" id="cherif_product_rest_ctrl">
+        <field name="name">Etat de stock</field>
+        <field name="model">cherif.product_rest_ctrl</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Etats de Ventes" create="false" delete="false" edit="true">
+                <sheet>
+                <div class="h1 text-center text-danger py-3 mb-3">
+                  Etat de stock mensuel
+                </div>
+                    <div class="row">
+                        <div class="col-md-7" >                            
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="mois"/>
+                                </div>
+                                <div class="col-md-10">
+                                    <field  name="mois" />
+                                </div>
+                            </div>                     
+                            <div  class="row">
+                                <div class="col-md-2">
+                                    <label for="annee"/>
+                                </div>
+                                <div class="col-md-3">
+                                    <field name="annee" />
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-5" style="padding:20px 50px">
+                            
+                            <button class="btn btn-primary btn-block" name="faltara" type="object">Filtration</button>
+                            <button class="btn btn-primary btn-block" name="print_etat_stock_ctrl" type="object">Impression</button>
+                          <br/>
+                            <!-- <div class="row">
+                                    <div class="col-md-6 text-right">
+                                        <span class="o_form_label">Date de document: </span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <field name="date_operation" />
+                                    </div>
+                                </div>-->
+                        </div> 
+                    </div>
+                    <notebook>
+                        <page string="Stocks">
+                            <field name="lines_ids" mode="tree" readonly='1'>
+                                <tree string="Lines" decoration-bf="True">
+                                    <field name="name" string="Article" />
+                                    <field name="qty" string="Qte."  />
+                                </tree>
+                            </field>
+                        </page>
+                      
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Etat des ventes action -->
+    <record model="ir.actions.act_window" id="cherif_etat_stock_ctrl">
+        <field name="name">Etat de stock</field>
+        <field name="res_model">cherif.product_rest_ctrl</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="cherif_product_rest_ctrl"/>
+        <field name="target">current</field>
+    </record>
+
+    <!-- menu Etats de Ventes--> 
+    <!-- Must have the same id to overwrite the same menu in sn_sales -->
+    <menuitem id="menu_etat_stock_ctrl"
+        action="cherif_etat_stock_ctrl"
+        name="Etat de Stock mensuel"
+        parent="sn_base.menu_halat"
+        groups="cherif_boss"
+        sequence="1" />
+</odoo>

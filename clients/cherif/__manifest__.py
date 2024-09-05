@@ -32,11 +32,13 @@
         'report/purchase.xml',
         'report/etats_ventes.xml',
         'report/etats_achats.xml',
+        'report/etats_stock_ctrl.xml',
 
         'wizard/change_state.xml',
         'wizard/print_prices.xml',
         'wizard/etats_ventes.xml',
         'wizard/etats_achats.xml',
+        'wizard/etat_stock_ctrl.xml',
         'data/scheduler.xml',
         'report/footer.xml'
     ],
