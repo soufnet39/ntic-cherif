@@ -11,7 +11,8 @@ class wiz_commandes(models.TransientModel):
         return str(now.year)
 
    
-    
+    contrat_ids = fields.Many2many(comodel_name="sn_credit.contrats", string="Contrat", required=True )
+
     periode = fields.Selection(
         string='Période',
         selection=[('mois', 'Mensuel'), ('annuel', 'Annuel'),('interval', 'Interval'),('global', 'Global')],
@@ -74,7 +75,7 @@ class wiz_commandes(models.TransientModel):
     def get_commandes_lines(self):
         self.lines_ids=[]
         yr= int(self.annee)
-        conditions=[('operation_type','=','command'),('state','not in',['canceled'])]
+        conditions=[('operation_type','=','command'),('state','not in',['canceled']),('contrat', 'in', self.contrat_ids.ids)]
 
       
         if self.periode=='mois':
@@ -104,6 +105,9 @@ class wiz_commandes(models.TransientModel):
                                'qty': group['qty'],
                                'montant': group['price_total']                        
                                }) for group in gr]
+
+            self.lines_ids = [(5, 0, 0)]  # to empty records first
+
             self.lines_ids = filb_values
 
     def print_etats_commandes_lines(self):

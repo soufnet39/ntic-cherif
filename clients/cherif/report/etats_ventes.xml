@@ -16,6 +16,7 @@
                     
                         <span t-if="doc.periode=='interval'">Interval: <span t-field="doc.date_debut"/> - <span t-field="doc.date_fin"/> 
                         </span>
+                        <br/> Contrats: <span t-field="doc.contrat_ids"/>
                         </h3>
                     </div>
                     

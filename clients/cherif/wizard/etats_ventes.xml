@@ -7,16 +7,13 @@
         <field name="type">form</field>
 
         <field name="arch" type="xml">
-            <form string="Etats de Ventes" create="false" delete="false" edit="true">
-                
+            <form string="Etats de Ventes" create="false" delete="false" edit="true">                
                 <sheet>
                 <div class="h1 text-center text-danger py-3 mb-3">
                   Etat de ventes
                 </div>
                     <div class="row">
                         <div class="col-md-7" id="block1">
-                           
-                           
                             <div class="row">
                                 <div class="col-md-2">
                                     <label for="periode"/>
@@ -61,6 +58,15 @@
                                 </div>
                             </div>
 
+                             <div  class="row">
+                                <div class="col-md-2">
+                                    <label for="contrat_ids"/>
+                                </div>
+                                <div class="col-md-8">
+                                    <field class="my-form-control" name="contrat_ids"
+                                   widget="many2many_tags" options="{'no_create': True}"/>
+                                </div>
+                            </div>
                              <div  class="row">
                                 <div class="col-md-2">
                                     <label for="show_prices"/>
