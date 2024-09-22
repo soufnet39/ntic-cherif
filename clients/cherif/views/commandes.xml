@@ -47,7 +47,8 @@
                     </div>
             </xpath>
             <xpath expr="//div[@id='adding_article']//field[@name='product_id']" position="attributes">
-                <attribute name="options">{'no_open': True,'no_create_edit':True}</attribute>                
+                <attribute name="options">{'no_open': True, 'no_create': True}</attribute>  
+                
 		    </xpath>
 
             <xpath expr="//div[@id='month_number']" position="attributes">
