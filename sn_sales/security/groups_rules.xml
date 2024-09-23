@@ -17,32 +17,14 @@
         <field name="name">Vente Manager</field>
         <field name="category_id" ref="sn_sales_access"/>
         <field name="implied_ids" eval="[(4, ref('sn_sales_user'))]"/>
-        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
     </record>
 
     <!--Boss Group-->
     <record id="sn_sales_boss" model="res.groups">
         <field name="name">Vente Boss</field>
         <field name="category_id" ref="sn_sales_access"/>
-        <!--  -->
-        <field name="implied_ids" eval="[(4, ref('sn_sales_user')),(4, ref('sn_sales_manager'))]"/>
+        <field name="implied_ids" eval="[(4, ref('sn_sales_manager'))]"/>
         <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
     </record>
-
-    <!-- Rules Rules Rules Rules Rules Rules Rules Rules Rules Rules Rules Rules -->
-
-    <!--    <record model="ir.rule" id="sale_product_rule_boss">-->
-    <!--        <field name="name">Product multi-company boss</field>-->
-    <!--        <field name="model_id" ref="model_sn_sales_product"/>-->
-    <!--        <field name="global" eval="True"/>-->
-    <!--        <field name="groups" eval="[(4, ref('sn_sales.sn_sales_boss'))]"/>-->
-    <!--        <field name="domain_force">['|',('company_id','=',False),('company_id','=',[user.company.id])]</field>-->
-    <!--        <field name="perm_create" eval="1" />-->
-    <!--        <field name="perm_write"  eval="1" />-->
-    <!--        <field name="perm_read"   eval="1" />-->
-    <!--        <field name="perm_unlink" eval="1" />-->
-    <!--    </record>-->
-
- 
 
 </odoo>
