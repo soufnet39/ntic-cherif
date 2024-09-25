@@ -1,4 +1,5 @@
 from odoo import models, fields, tools,api
+from odoo.exceptions import UserError
 
 class NticCommandes_purchases(models.Model):
     _inherit = "sn_sales.commandes"
@@ -7,9 +8,28 @@ class NticCommandes_purchases(models.Model):
     # tarification_supplier = fields.Selection('Tarification', related='partner_id_suppliers.tarification')
 
     ref_facture_achat_source = fields.Char(string="Num. Réference"    )
+
+    def unlink(self):
+        for record in self:
+            if record.operation_type == 'purchase' and  self.env.user.has_group('sn_purchases.sn_purchases_manager'):                                                                                              
+                raise UserError("Vous ne pouvez pas supprimer un enregistrement d'achat.")
+        return super(NticCommandes_purchases, self).unlink()
+    
+    def write(self,vals):
+        if self.operation_type == 'purchase' and  self.env.user.has_group('sn_purchases.sn_purchases_manager'):                                                                                              
+                raise UserError("Vous ne pouvez pas editer un enregistrement d'achat.")
+        return super(NticCommandes_purchases, self).write(vals)
+
+    @api.model
+    def create(self, vals):
+        if self.operation_type == 'purchase' and  self.env.user.has_group('sn_purchases.sn_purchases_manager'):                                                                                              
+                raise UserError("Vous ne pouvez pas créer un enregistrement d'achat.")
+        return super(NticCommandes_purchases, self).create(vals)
+
  
     def print_purchase(self):
         return self.env.ref('sn_purchases.action_report_purchase').report_action(self)
+    
 
 class NticAchatCommandesLines(models.Model):
     _inherit = "sn_sales.commande.lines"

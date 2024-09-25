@@ -16,13 +16,21 @@
     <field name="name">Purchases Manager</field>
     <field name="category_id"        ref="sn_purchases_access"/>
     <field name="implied_ids"        eval="[(4, ref('sn_purchases_user'))]"/>
-    <field name="users"              eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
   </record>
    <record id="sn_purchases_boss" model="res.groups">
     <field name="name">Purchases Boss</field>
     <field name="category_id"        ref="sn_purchases_access"/>
-    <field name="implied_ids"        eval="[(4, ref('sn_purchases_user')),(4, ref('sn_purchases_manager'))]"/>
+    <field name="implied_ids"        eval="[(4, ref('sn_purchases_user'))]"/>
     <field name="users"              eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
   </record>
+
+    <!--  Rule to restrict delete for purchases -->
+  <!-- <record id="restrict_delete_purchases" model="ir.rule">
+        <field name="name">Restrict Delete Purchases</field>
+        <field name="model_id" ref="model_sn_sales_commandes"/> 
+        <field name="groups" eval="[(4, ref('sn_purchases_manager'))]"/> 
+        <field name="domain_force">[('operation_type', '=', 'command')]</field>
+        <field name="perm_unlink" eval="1"/> 
+    </record> -->
 
 </odoo>
