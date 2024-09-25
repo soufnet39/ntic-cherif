@@ -15,7 +15,8 @@
   <record id="sn_purchases_manager" model="res.groups">
     <field name="name">Purchases Manager</field>
     <field name="category_id"        ref="sn_purchases_access"/>
-    <field name="implied_ids"        eval="[(4, ref('sn_purchases_user'))]"/>
+    <!-- to let hme alone -->
+    <!-- <field name="implied_ids"        eval="[(4, ref('sn_purchases_user'))]"/> -->
   </record>
    <record id="sn_purchases_boss" model="res.groups">
     <field name="name">Purchases Boss</field>
