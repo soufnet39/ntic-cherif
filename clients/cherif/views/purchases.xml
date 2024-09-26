@@ -25,19 +25,19 @@
                     </div>
             </xpath>
             <xpath expr="//notebook//page[@id='options']" position="attributes">
-                <attribute name="groups">sn_purchases.sn_purchases_manager</attribute>
+                <attribute name="groups">sn_purchases.sn_purchases_manager,sn_purchases.sn_purchases_boss</attribute>
             </xpath>
             <xpath expr="//notebook//page[@id='operations']" position="attributes">
-                <attribute name="groups">sn_purchases.sn_purchases_manager</attribute>
+                <attribute name="groups">sn_purchases.sn_purchases_manager,sn_purchases.sn_purchases_boss</attribute>
             </xpath>
             <xpath expr="//field[@name='commande_lines']//tree/field[@name='price_unit']" position="attributes">
-            <attribute name="groups">sn_purchases.sn_purchases_manager</attribute>
+            <attribute name="groups">sn_purchases.sn_purchases_manager,sn_purchases.sn_purchases_boss</attribute>
             </xpath>
             <xpath expr="//field[@name='commande_lines']//tree/field[@name='price_total']" position="attributes">
-            <attribute name="groups">sn_purchases.sn_purchases_manager</attribute>
+            <attribute name="groups">sn_purchases.sn_purchases_manager,sn_purchases.sn_purchases_boss</attribute>
             </xpath>
             <xpath expr="//div[@id='tail']" position="attributes">
-               <attribute name="groups">sn_purchases.sn_purchases_manager</attribute>
+               <attribute name="groups">sn_purchases.sn_purchases_manager,sn_purchases.sn_purchases_boss</attribute>
             </xpath>
             <xpath expr="//header" position="inside">
                <button name="print_with_sales_price" string="Imprimer avec prix de vente" type="object" class="oe_highlight btn-print" icon="fa-print" attrs="{'invisible':['|',('name','=','/')]}" />
