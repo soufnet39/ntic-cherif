@@ -125,6 +125,7 @@
             <xpath expr="//filter[@name='filter_complet']" position="before">
                 <filter name="today_cmds" help="Commandes d'aujourd'hui" domain="[('confirmation_date','=',datetime.datetime.now())]"/>
                 <filter name="yesterday_cmds" help="Commandes d'hier" domain="[('confirmation_date','=',datetime.datetime.now()-datetime.timedelta(days=1))]"/>
+                <filter name="lastweek_cmds" help="Commandes dérniere semaine" domain="[('confirmation_date','>',datetime.datetime.now()-datetime.timedelta(days=7))]"/>
             </xpath>
         </field>
     </record>

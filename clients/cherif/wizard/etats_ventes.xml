@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-md-7" id="block1">
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-2 text-right">
                                     <label for="periode"/>
                                 </div>
                                 <div class="col-md-10">
@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <div attrs="{'invisible': [('periode','!=','mois')]}" class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-2 text-right">
                                     <label for="mois"/>
                                 </div>
                                 <div class="col-md-10">
@@ -50,7 +50,7 @@
                     
                      
                             <div attrs="{'invisible': ['|',('periode','=','global'),('periode','=','interval')]}" class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-2 text-right">
                                     <label for="annee"/>
                                 </div>
                                 <div class="col-md-3">
@@ -59,7 +59,7 @@
                             </div>
 
                              <div  class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-2 text-right">
                                     <label for="contrat_ids"/>
                                 </div>
                                 <div class="col-md-8">
@@ -68,11 +68,18 @@
                                 </div>
                             </div>
                              <div  class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-2  text-right">
                                     <label for="show_prices"/>
                                 </div>
                                 <div class="col-md-2">
                                     <field name="show_prices" />
+                                </div>
+                           
+                                <div class="col-md-2 text-right">
+                                    <label for="show_achat"/>
+                                </div>
+                                <div class="col-md-2">
+                                    <field name="show_achat" />
                                 </div>
                             </div>
                             
@@ -97,6 +104,8 @@
                             <field name="lines_ids" mode="tree">
                                 <tree string="Lines" decoration-bf="True">
                                     <field name="name" string="Article" />
+                                    <field attrs="{ 'column_invisible': [('parent.show_achat','=','no')] }" name="price_achat"  />
+
                                     <!-- <field name="confirmation_date" string="Date" />                                     -->
                                     <field attrs="{ 'column_invisible': [('parent.show_prices','=','no')] }" name="price_unit" string="Prix.U"  />
                                     <field name="qty" string="Qte."  />

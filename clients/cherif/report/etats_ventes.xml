@@ -43,7 +43,8 @@
                 <thead>
                     <tr style="border-bottom:2px solid #AAA;border-top:1px solid #AAA; background-color:#eee; font-size:11pt">
                         <th class="text-right">Article</th>
-                        <th t-if="doc.show_prices=='yes'" class="text-left">Prix Unit.</th>
+                        <th t-if="doc.show_achat=='yes'" class="text-left">Prix Achat</th>
+                        <th t-if="doc.show_prices=='yes'" class="text-left">Prix V. Unit.</th>
                         <th class="text-center">Qte.</th>
                         <th t-if="doc.show_prices=='yes'" class="text-left">Montant</th>
                     </tr>
@@ -54,6 +55,9 @@
                             <td  class="text-right">
                                 <span t-field="line.name"/>
                             </td>                           
+                            <td t-if="doc.show_achat=='yes'"  class="text-left">
+                                <span t-esc="'{:,.2f}'.format(line.price_achat)" />
+                            </td>
                             <td t-if="doc.show_prices=='yes'"  class="text-left">
                                 <span t-esc="'{:,.2f}'.format(line.price_unit)" />
                             </td>
@@ -67,6 +71,7 @@
                         <t t-set="sum_ttc" t-value="sum_ttc + line.montant"/>
                     </t>
                     <tr t-if="doc.show_prices=='yes'" style="border-top:1px solid #000; font-weight:bold">
+                        <td t-if="doc.show_achat=='yes'"></td>
                         <td ></td>
                         <td ></td>
                         <td class="text-left">

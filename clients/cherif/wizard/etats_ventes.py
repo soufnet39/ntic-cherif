@@ -59,9 +59,15 @@ class wiz_commandes(models.TransientModel):
         default=fields.Date.context_today,
     )
     show_prices = fields.Selection(
-        string='Afficher les prix',
+        string='Afficher vente',
         selection=[('yes', 'Oui'),('no', 'Non')],
         default='yes',
+        required=True
+        )
+    show_achat = fields.Selection(
+        string='Afficher achat',
+        selection=[('yes', 'Oui'),('no', 'Non')],
+        default='no',
         required=True
         )
 
@@ -96,15 +102,42 @@ class wiz_commandes(models.TransientModel):
             gr = self.env['sn_sales.commande.lines'].read_group(
                 [('commande_id', 'in', commandes_ids)],  
                 fields=['name','price_unit:avg' , 'qty:sum','price_total:sum'], 
-                groupby=['name','price_unit']  
-            )
+                groupby=['name','price_unit'] )
            
+
+            qr='''            
+                    select * from
+                    (select product_id,name from  sn_sales_commande_lines 
+                    where commande_id in '''
+            qr += str(tuple(commandes_ids))
+            qr += '''group by name,product_id) as prd
+                    LEFT JOIN (
+                        select product_id,avg(price_unit) as price_avg from sn_sales_commande_lines  
+                        where operation_type='purchase'  group by product_id
+                        )as avrprc on prd.product_id=avrprc.product_id
+                    '''  
+            
+            self.env.cr.execute(qr)
+            lines = self.env.cr.fetchall()
+
+            for grl in gr:
+                grl['price_achat']=0.0
+                for ll in lines:
+                    if grl['name'] == ll[1]:
+                        grl['price_achat']=ll[3]
+
+
+
             filb_values = [(0, 0, {
                                'name': group['name'],
+                               'price_achat':group['price_achat'],
                                'price_unit': group['price_unit'],
                                'qty': group['qty'],
-                               'montant': group['price_total']                        
-                               }) for group in gr]
+                               'montant': group['price_total']    
+                            #    'name': group[1],
+                            #    'price_unit': group[2],                             
+                            #    'montant': group[3]                        
+                               }) for group in gr]  # gr
 
             self.lines_ids = [(5, 0, 0)]  # to empty records first
 
@@ -119,6 +152,7 @@ class wiz_commandes_lines(models.TransientModel):
         wiz_id = fields.Many2one('cherif.commandes.wiz1', string='Etat en relation')
        
         name = fields.Char('Article' )
-        price_unit = fields.Float(string="CCP" , digits="montant" )
+        price_achat = fields.Float(string="Prix Achat" , digits="montant" )
+        price_unit = fields.Float(string="Prix Vente" , digits="montant" )
         qty    = fields.Integer(string="Qte." )
         montant = fields.Float(string="Total", digits="montant" )
