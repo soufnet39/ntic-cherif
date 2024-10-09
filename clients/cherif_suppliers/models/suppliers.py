@@ -37,6 +37,8 @@ class NticCherifSuppliersAchat(models.Model):
     supplier_id = fields.Many2one('cherif_suppliers.suppliers', string='Fournisseur Ref',
                                 ondelete='cascade',
                                 index=True,copy=False, readonly=True)
+    name_supplier = fields.Char(related='supplier_id.name_supplier',store=True)
+
     ref_achat = fields.Char('Numéro Facture')
     date_achat = fields.Date('Date Facture')
     montant_achat =  fields.Float("Montant", digits="montant")

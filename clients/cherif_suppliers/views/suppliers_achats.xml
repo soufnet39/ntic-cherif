@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <!-- Tree -->
+    <record id="cherif_suppliers_achats_tree" model="ir.ui.view">
+        <field name="name">cherif_suppliers.suppliers.tree</field>
+        <field name="model">cherif_suppliers.suppliers_achats</field>
+        <field name="arch" type="xml">
+            <tree string="List" create='false'>
+                <field name="ref_achat" />
+                <field name="name_supplier" />
+                <field name="date_achat" />            
+                <field name="montant_achat" sum='Total' />                         
+            </tree>
+        </field>
+    </record>
+   <!-- Search -->
+    <record id="cherif_suppliers_achats_search" model="ir.ui.view">
+        <field name="name">cherif suppliers search</field>
+        <field name="model">cherif_suppliers.suppliers_achats</field>
+        <field name="arch" type="xml">
+            <search string="Search Supplier">         
+                 <group expand="0" name="group_by" string="Group By">
+                    <filter name="group_supplier" string="Par Fourniseur" context="{'group_by': 'name_supplier'}"/>                    
+                    <filter name="group_date_achat" string="Par Date" domain="[]" context="{'group_by': 'date_achat'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Grah -->
+    <record id="suppliers_achats_view_graph" model="ir.ui.view">
+        <field name="name">suppliers achat graph</field>
+        <field name="model">cherif_suppliers.suppliers_achats</field>
+        <field name="arch" type="xml">
+            <graph string="Analyse des achats">
+                <field name="write_date" type="col"/>
+                <field name="write_uid" type="row"/>            
+            </graph>
+        </field>
+    </record>
+
+   <!-- Action -->
+    <record id="cherif_ssuppliers_achats_action" model="ir.actions.act_window">
+    <field name="name">Suivi Achat Fournisseurs</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">cherif_suppliers.suppliers_achats</field>
+    <field name="view_mode">tree,search,graph</field>
+    <field name="help" type="html">
+         <p class="o_view_nocontent_smiling_face">
+                Veuillez Appeler les Achats des fournisseurs.
+            </p>
+    </field>
+</record>
+
+<!-- Menu  -->
+<menuitem 
+    id="menu_cherif_suppliers_achats_list" 
+    action="cherif_ssuppliers_achats_action"
+    name="Suivi détaillé des Achats " 
+    parent="sn_sales.menu_clients" 
+    sequence="3" 
+/>
+
+
+</odoo>

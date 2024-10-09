@@ -201,7 +201,7 @@
               id="menu_all_fournisseurs"
               name="Fournisseurs"
               parent="sn_sales.menu_clients"
-              groups="sn_purchases_manager"
+              groups="sn_purchases_boss,sn_purchases_manager"
               sequence="2"/>
 
 </odoo>

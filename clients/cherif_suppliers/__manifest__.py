@@ -18,6 +18,7 @@
         'security/ir.model.access.csv',
 
         'views/suppliers.xml',
+        'views/suppliers_achats.xml',
         'wizard/recap.xml',
 
         'wizard/add_btn.xml',
