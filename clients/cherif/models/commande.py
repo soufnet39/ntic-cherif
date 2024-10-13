@@ -14,8 +14,8 @@ class NticCherifCommandes(models.Model):
     
     def check24hours(self):        
             yesterday = fields.datetime.now() - datetime.timedelta(days=1)
-            records_to_update = self.env['sn_sales.commandes'].search(['&',('create_date', '<', yesterday),('amount_ttc','!=',0)])
-            records_to_update.write({'after24hours': True})
+            records_to_update = self.env['sn_sales.commandes'].search([('create_date', '<', yesterday),('amount_ttc','!=',0),('after24hours','=',False),('operation_type','=','command')])
+            records_to_update.update({'after24hours': True})
      
     @api.onchange('pricelist_id')
     def _onchange_pricelist_id(self):
