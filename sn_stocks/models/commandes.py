@@ -54,6 +54,8 @@ class Ntic2Commande_stock(models.Model):
     def _calcule_nbr_stocks(self):
         for rec in self:
             rec.len_stock_id=len(rec.user_id.stock_ids)
+    def _get_stock_domain(self):
+        return [('id', 'in', self.user_id.stock_ids.ids)]
 
     @api.onchange('user_id')    #, 'from_one_many_stock'
     def filtra_stocks(self):
@@ -73,7 +75,7 @@ class Ntic2Commande_stock(models.Model):
     confirmation_date = fields.Date( default=_default_confirmation_date) # inherited form sn_sales
     stock_negatif = fields.Boolean(string="Stock exist",compute="_stk_neg" )
 
-    stock_id = fields.Many2one('sn_stocks.stocks')
+    stock_id = fields.Many2one('sn_stocks.stocks', domain=_get_stock_domain)
 
     len_stock_id = fields.Integer('Nombre de stocks',
             compute='_calcule_nbr_stocks',
