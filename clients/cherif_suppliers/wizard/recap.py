@@ -21,7 +21,9 @@ class cherif_suppliers_wizard(models.TransientModel):
 
         # List of databases to sync
         databases = self.related_databases.split(',')
+        # databases = ['eloued']  # For testing purpose, remove this line when you're ready to sync all databases
         for db in databases:
+            # conn_string="dbname='%s' host='localhost' user=smail password='root' port=5432"
             conn_string="dbname='%s' host='db' user=odoo password='odoo' port=5432"
             # try:
             with psycopg2.connect(conn_string%(db)) as connection:

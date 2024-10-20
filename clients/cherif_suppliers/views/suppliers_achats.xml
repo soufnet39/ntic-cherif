@@ -18,7 +18,8 @@
         <field name="name">cherif suppliers search</field>
         <field name="model">cherif_suppliers.suppliers_achats</field>
         <field name="arch" type="xml">
-            <search string="Search Supplier">         
+            <search string="Search Supplier">      
+                 <field name="ref_achat" string="Numeéro de facture" filter_domain="[('ref_achat', 'ilike', self)]"/>
                  <group expand="0" name="group_by" string="Group By">
                     <filter name="group_supplier" string="Par Fourniseur" context="{'group_by': 'name_supplier'}"/>                    
                     <filter name="group_date_achat" string="Par Date" domain="[]" context="{'group_by': 'date_achat'}"/>

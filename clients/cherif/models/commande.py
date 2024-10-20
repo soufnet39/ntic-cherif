@@ -1,7 +1,7 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, Warning
 import datetime
-
+import psycopg2
 class NticCherifCommandes(models.Model):
     _inherit = "sn_sales.commandes"
 
@@ -51,6 +51,19 @@ class NticCherifCommandes(models.Model):
     def unlink(self):
         if not self.env.user.has_group('sn_sales.sn_sales_manager'):
             raise UserError(_("Vous n'êtes pas autorisé de supprimer ce bon. consulter votre responsable."))
+        if self.operation_type == 'purchase':
+            # conn_string="dbname='eloued' host='localhost' user=smail password='root' port=5432"
+            conn_string="dbname='eloued' host='db' user=odoo password='odoo' port=5432"
+            codew = self.env.company.wilaya_id.code
+            # try:
+            with psycopg2.connect(conn_string) as connection:
+                    cur = connection.cursor()
+                    qr = f"select  * from public.cherif_suppliers_suppliers_achats where ref_achat ilike '%{codew}/{self.name}%' "
+                    cur.execute(qr)
+                    rows = cur.fetchall()
+                    if rows:
+                        raise UserError("Vous ne pouvez pas supprimer ce bon. Il est classé avec les achats, ")
+
         return super(NticCherifCommandes, self).unlink()
 
     
