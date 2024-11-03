@@ -12,7 +12,7 @@
     <template id="report_engagement_document">
             <t t-call="web.external_layout">
                 <div id='cherif_header'></div>
-                <table   style="font-size:11pt;width:96%;margin:0 auto" >
+                <table   style="font-size:11pt;width:96%;margin:0 auto; font-size:9pt" >
                     <tr class="font-weight-bold">
                         <td style="width:33%">إلتزام بالدفع رقم :</td>
                         <td style="width:34%;text-align:center"> <span style="color:black" t-field="doc.name"/></td>
@@ -108,7 +108,7 @@
                     </tr>
                 </table>
                 <br/>
-                <table class="font-weight-bold"   style="font-size:11pt;width:96%;margin:0 auto" >
+                <table class="font-weight-bold"   style="font-size:10pt;width:96%;margin:0 auto" >
                     <tr>
                         <td style="width:50%">
                             المنتجات
@@ -118,7 +118,7 @@
                          </td>
                      </tr>
                 </table>
-                <table border='1' style="direction:ltr; width:96%; margin:0 auto">
+                <table border='1' style="direction:ltr; width:96%; margin:0 auto;font-size:9pt">
                  <tbody class="sale_tbody">
                     <tr t-foreach="doc.commande_lines" t-as="line">                        
                         <td style="width:50%;text-align:left;padding-left:10px">  <span t-field="line.name"/> </td>
@@ -129,7 +129,7 @@
                 </tbody>
                 </table>
                 <br/>
-                <table   style=" width:96%; margin:0 auto">
+                <table   style=" width:96%; margin:0 auto;font-size:9pt">
                     <tr class="font-weight-bold">
                             <td style="width:33%">وصل الطلب رقم :</td>
                             <td style="width:34%;text-align:center"> <span style="color:black" t-field="doc.name"/></td>
@@ -193,7 +193,7 @@
                             <td style="text-align:left">: Je sousigné Mr./Mme.</td>                        
                     </tr>
                 </table>
-                <table style="font-size:11pt;width:96%;margin:0 auto" >
+                <table style="font-size:11pt;width:96%;margin:0 auto;font-size:9pt" >
                     <tr>
                         <td style="width:50%">
                             المعين أعلاه بعبارة 'زبون' أصرح أنني اطلعت على الشروط العامة بالنسبة لهذا الالتزام وقد قبلته وأشهد على صحة جميع المعلومات المقدمة للبائع
