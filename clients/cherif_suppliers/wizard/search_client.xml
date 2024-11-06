@@ -49,7 +49,7 @@
     id="menu_cherif_search_client" 
     action="cherif_search_client_action"
     name="Recherche Client" 
-    parent="sn_sales.menu_sn_sales" 
+    parent="sn_sales.menu_clients" 
     sequence="4" 
 />
 
