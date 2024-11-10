@@ -24,6 +24,7 @@
         'views/purchases.xml',
         'views/black_list.xml',
         'views/etatstocks.xml',
+        'views/dossierorg.xml',
 
         'report/commandes.xml',
         'report/header.xml',

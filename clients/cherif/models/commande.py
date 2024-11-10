@@ -11,7 +11,10 @@ class NticCherifCommandes(models.Model):
         return first_record.id if first_record else False
     pricelist_id = fields.Many2one("sn_sales.pricelist", string="Price by aksat methods",default=_default_related_id,store=True) #
     after24hours = fields.Boolean('After24Hours')
-    
+    dossier_org = fields.Many2one("cherif.dossierorg", string="Dossier origine", default=lambda self: self._get_default_db()) 
+                                  
+    def _get_default_db(self):
+        return self.env['cherif.dossierorg'].search([('dossier_id','=',self.pool.db_name)], limit=1).id
     def check24hours(self):        
             yesterday = fields.datetime.now() - datetime.timedelta(days=1)
             records_to_update = self.env['sn_sales.commandes'].search([('create_date', '<', yesterday),('amount_ttc','!=',0),('after24hours','=',False),('operation_type','=','command')])

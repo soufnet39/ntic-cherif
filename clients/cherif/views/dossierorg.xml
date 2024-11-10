@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="cherif_dossierorg_tree" model="ir.ui.view">
+    <field name="name">cherif.dossierorg.tree</field>
+    <field name="model">cherif.dossierorg</field>
+    <field name="arch" type="xml">
+        <tree string="List"  editable="bottom" >           
+            <field name="dossier_id" />
+            <field name="name" />                 
+        </tree>
+    </field>
+</record>
+
+<record id="cherif_dossierorg_action" model="ir.actions.act_window">
+    <field name="name">Liste Noire</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">cherif.dossierorg</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+         <p class="o_view_nocontent_smiling_face">
+                Ajoutez Votre 1er client à la liste noire .
+            </p>
+    </field>
+</record>
+
+
+<menuitem 
+    id="menu_cherif_dossierorg" 
+    action="cherif_dossierorg_action"
+    name="Filiales" 
+    parent="sn_base.menu_config"
+    groups="base.user_admin"
+    sequence="41" 
+/>
+
+</odoo>
