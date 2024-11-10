@@ -6,6 +6,7 @@
     <field name="model">cherif.dossierorg</field>
     <field name="arch" type="xml">
         <tree string="List"  editable="bottom" >           
+            <field name="sequence" widget="handle"/>
             <field name="dossier_id" />
             <field name="name" />                 
         </tree>
@@ -13,13 +14,13 @@
 </record>
 
 <record id="cherif_dossierorg_action" model="ir.actions.act_window">
-    <field name="name">Liste Noire</field>
+    <field name="name">Filials</field>
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">cherif.dossierorg</field>
     <field name="view_mode">tree,form</field>
     <field name="help" type="html">
          <p class="o_view_nocontent_smiling_face">
-                Ajoutez Votre 1er client à la liste noire .
+                Ajoutez Votre 1er client à la Filials .
             </p>
     </field>
 </record>
