@@ -30,7 +30,7 @@
                     <label for="dossier_org"/>
                 </div>
                 <div class="col-md-7">
-                    <field class="my-form-control" name="dossier_org" required='1' attrs="{'readonly':[('commande_lines_count', '&gt;', 0)]}" options="{'no_open': True,'no_create': True}"/>
+                    <!-- <field class="my-form-control" name="dossier_org" required='1' attrs="{'readonly':[('commande_lines_count', '&gt;', 0)]}" options="{'no_open': True,'no_create': True}"/> -->
                 </div>
             </div>
         </xpath>
