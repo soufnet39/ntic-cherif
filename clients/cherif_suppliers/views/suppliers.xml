@@ -34,6 +34,24 @@
     <field name="arch" type="xml">
         <form string="Suppliers" >
             <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button name="%(cherif_suppliers.action_report_supplier_achats)d" 
+                        type="action" 
+                        class="oe_stat_button"
+                        icon="fa-print">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_text">Imprimer<br/>Achats</span>
+                    </div>
+                </button>
+                <button name="%(cherif_suppliers.action_report_supplier_reglements)d" 
+                        type="action" 
+                        class="oe_stat_button"
+                        icon="fa-print">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_text">Imprimer<br/>Règlements</span>
+                    </div>
+                </button>
+            </div>
             <div class="row">
                 <div class="col-md-3 text-right o_form_label">
                     Fournisseur :

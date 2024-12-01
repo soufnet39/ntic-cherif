@@ -1,6 +1,7 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 import psycopg2
+
 class NticCherifCommande(models.Model):
     _inherit = "sn_sales.partner"
     
@@ -15,6 +16,14 @@ class NticCherifCommande(models.Model):
     identity_card_number = fields.Char(string="Pièce d'identité n°")
     identity_card_date = fields.Date(string="PI délivré le")
     identity_card_place = fields.Char(string="PI délivré à")
+    
+    commandes_ids = fields.One2many('sn_sales.commandes','partner_id')
+    commandes_count = fields.Integer(string='Nombre de commandes', compute='_compute_commandes_count', store=True)
+    
+    @api.depends('commandes_ids')
+    def _compute_commandes_count(self):
+        for partner in self:
+            partner.commandes_count = len(partner.commandes_ids)
 
     # function:     // overwrite already existing funtion in sn_credit
     def verifa(self,ccp):
@@ -40,4 +49,3 @@ class NticCherifCommande(models.Model):
                 #     print('database does %s not exist'%(db)) 
                 #     loop
         return True
-

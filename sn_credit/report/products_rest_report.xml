@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_products_rest">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Liste des Produits en Stock</h2>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th class="text-center">Quantité</th>
+                                <th>Prix</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="docs" t-as="o">
+                                <td><span t-field="o.name"/></td>
+                                <td class="text-center"><span t-field="o.qty_calc"/></td>
+                                <td><span t-field="o.prices"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_products_rest" model="ir.actions.report">
+        <field name="name">Liste des Produits en Stock</field>
+        <field name="model">sn_credit.wiz_rest_product</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">sn_credit.report_products_rest</field>
+        <field name="report_file">sn_credit.report_products_rest</field>
+        <field name="binding_model_id" ref="model_sn_credit_wiz_rest_product"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -6,23 +6,37 @@ class Credit_RestProduct(models.Model):
     _description = "product with stock"
     _auto = False
 
-    company_id = fields.Integer('company' )
+    # company_id = fields.Integer('company' )
     product_id = fields.Integer("Product ID")
     name = fields.Char("Nom")
     qty_calc = fields.Integer(string='Qte.')
-    price = fields.Float('Prix')
+    prices = fields.Char('Prix', help='List of all prices for this product')
 
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
-        self.env.cr.execute('''
+        self.env.cr.execute("""
             CREATE OR REPLACE VIEW %s AS (
-            select  pp.product_id as id, pp.name, t.qty_calc,pp.price 
-          from ( 
-          select ccp.id as product_id,ccp.name, CASE WHEN ccp.default_price IS NULL THEN 0 ELSE ccp.default_price END as price
-            from sn_sales_product as ccp            
-          ) as pp 
-            INNER JOIN 
-            (select product_id, sum(qty_stock) as qty_calc from sn_sales_commande_lines  
-            group by product_id having sum(qty_stock)>0 ) as t on pp.product_id=t.product_id
-            )''' % (self._table)
+            SELECT 
+                pp.product_id as id, 
+                pp.product_id, 
+                pp.name, 
+                t.qty_calc,
+                string_agg(
+                    CONCAT('[', CAST(pl."numberOfMonths" AS VARCHAR), '] ', to_char(p.fixed_price, 'FM999,999,999.00')),
+                    ', ' ORDER BY p.fixed_price
+                ) as prices
+            FROM ( 
+                SELECT ccp.id as product_id, ccp.name
+                FROM sn_sales_product as ccp    
+	          ) as pp 
+            INNER JOIN (
+                SELECT product_id, sum(qty_stock) as qty_calc 
+                FROM sn_sales_commande_lines  
+                GROUP BY product_id 
+                HAVING sum(qty_stock) > 0
+            ) as t ON pp.product_id = t.product_id
+            LEFT JOIN sn_sales_pricelist_item p ON pp.product_id = p.product_id
+            LEFT JOIN sn_sales_pricelist pl ON p.pricelist_id = pl.id
+            GROUP BY pp.product_id, pp.name, t.qty_calc
+            )""" % (self._table)
         )

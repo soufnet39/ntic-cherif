@@ -22,6 +22,7 @@
         'security/ir.model.access.csv',
 
         'report/styling.xml',
+        'report/products_rest_report.xml',
         'report/prelevements.xml',
         'report/cuts.xml',
         'report/aksats.xml',

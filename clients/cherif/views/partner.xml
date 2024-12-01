@@ -4,8 +4,20 @@
         <field name="name">Partners</field>
         <field name="model">sn_sales.partner</field>
         <field name="priority" eval="20" />
-        <field name="inherit_id" ref="sn_sales.sn_sales_partner_form"/>	    
+        <field name="inherit_id" ref="sn_credit.ntic_credit_partner_form"/>	    
         <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('commandes_count', '>', 0)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="commandes_count" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='ccp_numero']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('commandes_count', '>', 0)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='ccp_cle']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('commandes_count', '>', 0)]}</attribute>
+                </xpath>
                 <xpath expr="//div[@id='tarification']" position="replace">
                 </xpath>
                 <xpath expr="//div[@id='list_prix']" position="replace">
@@ -16,6 +28,7 @@
                 </xpath>
                 <xpath expr="//div[@id='proid']" position="replace">
                     <div class="row form-group">
+                       
                         <div class="col-md-3 offset-md-1 text-right">
                                 <label for="date_naissance"/>
                         </div>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_supplier_reglements">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h3>Liste des Règlements - <span t-field="docs.name_supplier"/></h3>
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <strong>Code:</strong> <span t-field="docs.code_supplier"/>
+                        </div>
+                    </div>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Observation</th>
+                                <th>Date</th>
+                                <th>Montant</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="docs.reglement_ids" t-as="reglement">
+                                <td><span t-field="reglement.observation"/></td>
+                                <td><span t-field="reglement.date_reglement"/></td>
+                                <td>
+                                    <span t-field="reglement.montant_reglement" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-right"><strong>Total:</strong></td>
+                                <td >
+                                    <strong><span t-field="docs.total_reglement" /></strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_supplier_reglements" model="ir.actions.report">
+        <field name="name">Liste des Règlements</field>
+        <field name="model">cherif_suppliers.suppliers</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">cherif_suppliers.report_supplier_reglements</field>
+        <field name="report_file">cherif_suppliers.report_supplier_reglements</field>
+        <field name="binding_model_id" ref="model_cherif_suppliers_suppliers"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

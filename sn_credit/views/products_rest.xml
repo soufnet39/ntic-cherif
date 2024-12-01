@@ -9,7 +9,7 @@
              <tree string="" decoration-bf="True">
                 <field name="name"/>
                 <field name="qty_calc"/>
-                <!-- <field name="price"/> -->
+                <field name="prices"/>
             </tree>
         </field>
     </record>
