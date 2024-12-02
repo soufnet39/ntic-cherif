@@ -51,6 +51,14 @@
                         <span class="o_stat_text">Imprimer<br/>Règlements</span>
                     </div>
                 </button>
+                <button name="%(cherif_suppliers.action_report_supplier_combined)d" 
+                        type="action" 
+                        class="oe_stat_button"
+                        icon="fa-print">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_text">Imprimer<br/>Tout</span>
+                    </div>
+                </button>
             </div>
             <div class="row">
                 <div class="col-md-3 text-right o_form_label">

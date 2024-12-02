@@ -18,6 +18,7 @@
         'security/ir.model.access.csv',
         'report/supplier_achats_report.xml',
         'report/supplier_reglements_report.xml',
+        'report/supplier_combined_report.xml',
         'views/suppliers.xml',
         'views/suppliers_achats.xml',
         'wizard/recap.xml',

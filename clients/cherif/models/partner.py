@@ -19,11 +19,18 @@ class NticCherifCommande(models.Model):
     
     commandes_ids = fields.One2many('sn_sales.commandes','partner_id')
     commandes_count = fields.Integer(string='Nombre de commandes', compute='_compute_commandes_count', store=True)
+    _is_cherif_boss = fields.Boolean(compute='_compute_is_cherif_boss')
     
     @api.depends('commandes_ids')
     def _compute_commandes_count(self):
         for partner in self:
             partner.commandes_count = len(partner.commandes_ids)
+
+    @api.depends_context('uid')
+    def _compute_is_cherif_boss(self):
+        is_boss = self.env.user.has_group('cherif.cherif_boss')
+        for partner in self:
+            partner._is_cherif_boss = is_boss
 
     # function:     // overwrite already existing funtion in sn_credit
     def verifa(self,ccp):

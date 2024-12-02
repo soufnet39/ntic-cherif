@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_supplier_combined">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <!-- Include Achats Report -->
+                    <t t-call="cherif_suppliers.report_supplier_achats"/>
+                    
+                    <!-- Add page break -->
+                    <p style="page-break-before: always;"/>
+                    
+                    <!-- Include Reglements Report -->
+                    <t t-call="cherif_suppliers.report_supplier_reglements"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_supplier_combined" model="ir.actions.report">
+        <field name="name">Liste des Achats et Règlements</field>
+        <field name="model">cherif_suppliers.suppliers</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">cherif_suppliers.report_supplier_combined</field>
+        <field name="report_file">cherif_suppliers.report_supplier_combined</field>
+        <field name="binding_model_id" ref="model_cherif_suppliers_suppliers"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
