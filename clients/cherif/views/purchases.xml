@@ -30,12 +30,12 @@
             <xpath expr="//notebook//page[@id='operations']" position="attributes">
                 <attribute name="groups">sn_purchases.sn_purchases_manager,sn_purchases.sn_purchases_boss</attribute>
             </xpath>
-            <xpath expr="//field[@name='commande_lines']//tree/field[@name='price_unit']" position="attributes">
+            <!-- <xpath expr="//field[@name='commande_lines']//tree/field[@name='price_unit']" position="attributes">
             <attribute name="groups">sn_purchases.sn_purchases_manager,sn_purchases.sn_purchases_boss</attribute>
             </xpath>
             <xpath expr="//field[@name='commande_lines']//tree/field[@name='price_total']" position="attributes">
             <attribute name="groups">sn_purchases.sn_purchases_manager,sn_purchases.sn_purchases_boss</attribute>
-            </xpath>
+            </xpath> -->
             <xpath expr="//div[@id='tail']" position="attributes">
                <attribute name="groups">sn_purchases.sn_purchases_manager,sn_purchases.sn_purchases_boss</attribute>
             </xpath>
