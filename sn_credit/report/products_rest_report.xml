@@ -11,6 +11,7 @@
                                 <th>Produit</th>
                                 <th class="text-center">Quantité</th>
                                 <th>Prix</th>
+                                <th>Prix par mois</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -18,6 +19,7 @@
                                 <td><span t-field="o.name"/></td>
                                 <td class="text-center"><span t-field="o.qty_calc"/></td>
                                 <td><span t-field="o.prices"/></td>
+                                <td><span t-field="o.prix_mois"/></td>
                             </tr>
                         </tbody>
                     </table>

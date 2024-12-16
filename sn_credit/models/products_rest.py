@@ -11,6 +11,7 @@ class Credit_RestProduct(models.Model):
     name = fields.Char("Nom")
     qty_calc = fields.Integer(string='Qte.')
     prices = fields.Char('Prix', help='List of all prices for this product')
+    prix_mois = fields.Char('PrixMois', help='List of all prices for this product')
 
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
@@ -24,7 +25,11 @@ class Credit_RestProduct(models.Model):
                 string_agg(
                     CONCAT('[', CAST(pl."numberOfMonths" AS VARCHAR), '] ', to_char(p.fixed_price, 'FM999,999,999.00')),
                     ', ' ORDER BY p.fixed_price
-                ) as prices
+                ) as prices,
+				string_agg(
+                    CONCAT('[', CAST(pl."numberOfMonths" AS VARCHAR), '] ', to_char(p.price_of_month, 'FM999,999,999.00')),
+                    ', ' ORDER BY p.price_of_month
+                ) as prix_mois
             FROM ( 
                 SELECT ccp.id as product_id, ccp.name
                 FROM sn_sales_product as ccp    

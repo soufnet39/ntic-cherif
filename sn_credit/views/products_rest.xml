@@ -10,6 +10,7 @@
                 <field name="name"/>
                 <field name="qty_calc"/>
                 <field name="prices"/>
+                <field name="prix_mois"/>
             </tree>
         </field>
     </record>
