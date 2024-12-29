@@ -20,6 +20,8 @@ class NticCherifCommande(models.Model):
     commandes_ids = fields.One2many('sn_sales.commandes','partner_id')
     commandes_count = fields.Integer(string='Nombre de commandes', compute='_compute_commandes_count', store=True)
     _is_cherif_boss = fields.Boolean(compute='_compute_is_cherif_boss')
+    # can_buy_more ie can buy an other time 
+    can_buy_more = fields.Boolean(string='Peut acheter une autre fois', default=False)
     
     @api.depends('commandes_ids')
     def _compute_commandes_count(self):
@@ -56,3 +58,11 @@ class NticCherifCommande(models.Model):
                 #     print('database does %s not exist'%(db)) 
                 #     loop
         return True
+    def let_him_buy_more(self):
+        self.can_buy_more = True
+        return True
+    def stop_buy_more(self):
+        self.can_buy_more = False
+        
+    
+   

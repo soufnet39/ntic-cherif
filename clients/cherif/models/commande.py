@@ -77,7 +77,12 @@ class NticCherifCommandes(models.Model):
     def print_with_sales_price(self):
         return self.env.ref('cherif.action_report_purchase_with_sales_price').report_action(self)
 
-
+    @api.onchange('partner_id')
+    def _partner_changed(self):
+        if self.partner_id:
+            if not (self.partner_id.can_buy_more or False):
+                raise UserError(_("Ce client ne peut pas acheter une autre fois"))                
+                
 
 class NticCherifCommandesLines(models.Model):
     _inherit = "sn_sales.commande.lines"
