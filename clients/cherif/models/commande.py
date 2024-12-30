@@ -33,8 +33,9 @@ class NticCherifCommandes(models.Model):
         return super(NticCherifCommandes, self).create(vals)
              
     def write(self, vals):   
-            if 'commande_lines' in vals.keys():
-               
+            if self.operation_type == 'command' and self.partner_id.can_buy_more==True:
+                self.partner_id.update({'can_buy_more':False})
+            if 'commande_lines' in vals.keys():               
                 # listnodouble=[]
                 # for rec in self.commande_lines.product_id.ids:
                 #   if rec in listnodouble:
