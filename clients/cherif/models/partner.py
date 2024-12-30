@@ -21,7 +21,7 @@ class NticCherifCommande(models.Model):
     commandes_count = fields.Integer(string='Nombre de commandes', compute='_compute_commandes_count', store=True)
     _is_cherif_boss = fields.Boolean(compute='_compute_is_cherif_boss')
     # can_buy_more ie can buy an other time 
-    can_buy_more = fields.Boolean(string='Peut acheter une autre fois', default=False)
+    can_buy_more = fields.Boolean(string='Peut acheter une autre fois', default=True)
     
     @api.depends('commandes_ids')
     def _compute_commandes_count(self):
