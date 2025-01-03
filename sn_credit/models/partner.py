@@ -40,18 +40,21 @@ class NticCreditPartner2(models.Model):
             if not canDuplicate :
                 self.verifa(vals['ccp_numero'])   
             else:
-                self.env['ir.config_parameter'].with_user(True).set_param('sn_credit.let_duplicate_client_one_time', False)
+                if vals['ccp_numero']==self.env['ir.config_parameter'].sudo().get_param('sn_credit.let_duplicate_client_ccp'):
+                    self.env['ir.config_parameter'].with_user(True).set_param('sn_credit.let_duplicate_client_one_time', False)
                          
         return super(NticCreditPartner2, self).create(vals)
    
     def write(self, vals):  
         if vals.get('ccp_numero'):
+            
             vals['ccp_numero'] = str(int(vals.get('ccp_numero')))
             canDuplicate = self.env['ir.config_parameter'].sudo().get_param('sn_credit.let_duplicate_client_one_time')
             if not canDuplicate:
                 self.verifa(vals['ccp_numero']) 
             else:
-                self.env['ir.config_parameter'].with_user(True).set_param('sn_credit.let_duplicate_client_one_time', False)
+                if vals['ccp_numero']==self.env['ir.config_parameter'].sudo().get_param('sn_credit.let_duplicate_client_ccp'):
+                   self.env['ir.config_parameter'].with_user(True).set_param('sn_credit.let_duplicate_client_one_time', False)
   
         return super(NticCreditPartner2, self).write(vals) 
 

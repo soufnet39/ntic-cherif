@@ -104,14 +104,11 @@
                 </xpath>
                 <xpath expr="//field[@name='comment']"  position="after">
                     <br/>
-                    <div groups="sn_base.sn_base_big_boss">
+                    <div groups="sn_base.sn_base_big_boss,cherif.cherif_spacial_access_mostafa_user">
                         <h3 class="h3">Permissions</h3>
                         <br/>
                         <!-- add button -->
                         <field name="can_buy_more" invisible="1" />
-
-                      
-
                         <button 
                             attrs="{'invisible':[('can_buy_more', '=', True)]}"
                             name="let_him_buy_more" 

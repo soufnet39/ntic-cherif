@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     
-    <!--  Category special group -->
+    <!--  Category special mosttafa like -->
+    <record id="cherif_spacial_access_mostafa" model="ir.module.category">
+        <field name="name">Cherif Special Access as Mostafa</field>
+    </record>
+        <!--  User cant spacial account -->
+    <record id="cherif_spacial_access_mostafa_user" model="res.groups">
+        <field name="name">Cherif as Moatafa</field>
+        <field name="category_id" ref="cherif_spacial_access_mostafa"/>
+        <field name="implied_ids" eval="[(4, ref('cherif.cherif_user'))]"/>
+
+    </record>
+     <!--  Category special group -->
     <record id="cherif_spacial_access" model="ir.module.category">
         <field name="name">Cherif Special Access</field>
     </record>
@@ -22,7 +33,6 @@
         <field name="category_id" ref="cherif_24_hours_close_access"/>
 
     </record>
-
 
     <!-- - - - ####################################@- - - -->
 
