@@ -104,7 +104,7 @@
                 </xpath>
                 <xpath expr="//field[@name='comment']"  position="after">
                     <br/>
-                    <div groups="sn_base.sn_base_big_boss,cherif.cherif_spacial_access_mostafa_user">
+                    <div groups="sn_base.sn_base_big_boss,cherif.cherif_can_switch_client">
                         <h3 class="h3">Permissions</h3>
                         <br/>
                         <!-- add button -->

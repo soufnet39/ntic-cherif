@@ -42,6 +42,8 @@ class NticCreditPartner2(models.Model):
             else:
                 if vals['ccp_numero']==self.env['ir.config_parameter'].sudo().get_param('sn_credit.let_duplicate_client_ccp'):
                     self.env['ir.config_parameter'].with_user(True).set_param('sn_credit.let_duplicate_client_one_time', False)
+                else:
+                    self.verifa(vals['ccp_numero'])    
                          
         return super(NticCreditPartner2, self).create(vals)
    
@@ -55,6 +57,8 @@ class NticCreditPartner2(models.Model):
             else:
                 if vals['ccp_numero']==self.env['ir.config_parameter'].sudo().get_param('sn_credit.let_duplicate_client_ccp'):
                    self.env['ir.config_parameter'].with_user(True).set_param('sn_credit.let_duplicate_client_one_time', False)
+                else:
+                   self.verifa(vals['ccp_numero'])
   
         return super(NticCreditPartner2, self).write(vals) 
 

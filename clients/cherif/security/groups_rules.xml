@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     
-    <!--  Category special mosttafa like -->
-    <record id="cherif_spacial_access_mostafa" model="ir.module.category">
-        <field name="name">Cherif Special Access as Mostafa</field>
+    <!--  Category  Can switch client -->
+    <record id="cherif_access_switch_client" model="ir.module.category">
+        <field name="name">Switch Client</field>
     </record>
         <!--  User cant spacial account -->
-    <record id="cherif_spacial_access_mostafa_user" model="res.groups">
-        <field name="name">Cherif as Moatafa</field>
-        <field name="category_id" ref="cherif_spacial_access_mostafa"/>
-        <field name="implied_ids" eval="[(4, ref('cherif.cherif_user'))]"/>
+    <record id="cherif_can_switch_client" model="res.groups">
+        <field name="name">Can switch client</field>
+        <field name="category_id" ref="cherif_access_switch_client"/>
 
     </record>
      <!--  Category special group -->
