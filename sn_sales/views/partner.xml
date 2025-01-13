@@ -12,6 +12,8 @@
                 <field name="phone" optional="hide"/>
                 <field name="email" optional="hide"/>
                 <field name="wilaya_id" optional="hide"/>
+                <field name="create_date" optional="hide" widget="date"/>
+                <field name="create_uid" optional="hide"/>
 
             </tree>
         </field>

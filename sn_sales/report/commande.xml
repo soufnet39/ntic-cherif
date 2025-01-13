@@ -7,12 +7,13 @@
             <div class='text-center h3'> Filiale  <t t-esc="docs.env.cr.dbname.capitalize()"/>            
              </div>
 
-                <table class="table" style="margin-bottom:0">
+                <table class="table" style="margin-bottom:0" id="table_1">
                     <thead>                        
                         <tr style="border-bottom:2px solid #AAA; background-color:#eee;">
                             <th style="width:10% text-center">N</th>                            
                             <th style="width:20%">Réf.</th>                            
-                            <th style="width:20%">Date</th>
+                            <th style="width:20%" id='th_date'>Date</th>
+                           
                             <th >Client</th>
                             <th >Montant</th>
                             <th >Par mois</th>
@@ -28,7 +29,8 @@
                     <tr>
                         <td class="text-center" ><t t-esc="recno"/>  </td>
                         <td> <t t-esc="doc.name"/> </td>
-                        <td> <t t-esc="doc.confirmation_date"/> </td>
+                        <td id="td_date"> <t t-esc="doc.confirmation_date"/> </td>
+
                         <td> <t t-esc="doc.partner_id.name"/> </td>
                         <td> <t t-esc="'{:,.2f}'.format(doc.amount_ttc)"/> </td>
                         <td> <t t-esc="'{:,.2f}'.format(doc.monthly_amount)"/> </td>

@@ -40,9 +40,17 @@
         'wizard/etats_ventes.xml',
         'wizard/etats_achats.xml',
         'wizard/etat_stock_ctrl.xml',
+        
+
         'data/scheduler.xml',
-        'report/footer.xml'
+        'report/footer.xml',
+        'report/dossier_org.xml'
     ],
+    'assets': {
+    'web.assets_backend': [
+        'cherif/static/src/js/script.js',
+    ],
+     },
     'qweb': [],
 
     'installable': True,

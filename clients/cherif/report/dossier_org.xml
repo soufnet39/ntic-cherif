@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>       
+        <template id="sn_sales_report_commandes_list_inherited" name="credits styling" inherit_id="sn_sales.report_commandes_list">
+
+            <xpath expr="//table[@id='table_1']//th[@id='th_date']" position="after">
+                <th>Dossier Org </th>
+            </xpath>
+            <xpath expr="//table[@id='table_1']//td[@id='td_date']" position="after">
+                <th><t t-esc="doc.dossier_org.name"/> </th>
+            </xpath>
+        </template>
+    </data>
+</odoo>
