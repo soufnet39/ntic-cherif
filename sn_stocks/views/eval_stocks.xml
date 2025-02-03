@@ -9,10 +9,11 @@
             <tree string="Etat de stocks" create="false">
                 <field name="product_id"  invisible="1" />
                 <field name="name"/>
+                <field name="stock_id"  optional="hide"/>
                 <field name="qty_calc" />
                 <field name="price_avg" />
                 <field name="montant" sum="Total" />
-                <field name="company_id" string="Unité" optional="hide" />
+                
             </tree>
         </field>
     </record>
@@ -28,7 +29,7 @@
                 <filter name="qty_eq_zero" string="Quantité nulle" domain="[('qty_calc','=', 0)]"/>
                 <filter name="qty_gt_zero" string="Quantité non nulle" domain="[('qty_calc','>', 0)]"/>
                 <group expand="0" name="group_by" string="Group By">
-                     <filter name="group_unity" string="Par Unité" context="{'group_by': 'company_id'}"/>
+                     <filter name="stock_grouping" string="Par Stock" context="{'group_by': 'stock_id'}"/>
                      <filter name="group_product" string="Par Produit" context="{'group_by': 'product_id'}"/>
                 </group>
             </search>
