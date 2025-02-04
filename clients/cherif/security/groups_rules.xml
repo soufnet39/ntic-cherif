@@ -32,6 +32,16 @@
         <field name="category_id" ref="cherif_24_hours_close_access"/>
 
     </record>
+     <!--  Category 24 hours close group -->
+    <record id="cherif_overpass_clients_access" model="ir.module.category">
+        <field name="name">Cherif and Clients</field>
+    </record>
+        <!--  cherif_24_hours_close -->
+    <record id="cherif_overpass_clients" model="res.groups">
+        <field name="name">Cherif Overpass Clients</field>
+        <field name="category_id" ref="cherif_overpass_clients_access"/>
+
+    </record>
 
     <!-- - - - ####################################@- - - -->
 

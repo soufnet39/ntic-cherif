@@ -80,7 +80,7 @@ class NticCherifCommandes(models.Model):
 
     @api.onchange('partner_id')
     def _partner_changed(self):
-        if self.operation_type == 'command':
+        if self.operation_type == 'command' and not self.env.user.has_group('cherif.cherif_overpass_clients'):
             if self.partner_id:
                 if not (self.partner_id.can_buy_more or False):
                     raise UserError(_("Ce client ne peut pas acheter une autre fois"))                
