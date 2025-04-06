@@ -20,9 +20,11 @@ class NticCherifCommande(models.Model):
     commandes_ids = fields.One2many('sn_sales.commandes','partner_id')
     commandes_count = fields.Integer(string='Nombre de commandes', compute='_compute_commandes_count', store=True)
     _is_cherif_boss = fields.Boolean(compute='_compute_is_cherif_boss')
-    # can_buy_more ie can buy an other time 
+    # can_buy_more : can the same client buy an other time 
     can_buy_more = fields.Boolean(string='Peut acheter une autre fois', default=True)
-    
+    # sensitive data state is: [false:read only / true:writable] (name, ccp_numero, ccp_cle)
+    # the default state is True, this can be changed to False by the admin or if the last command of this client deppassed 24 hours
+    sensitive_data_state_is_changeable = fields.Boolean(string='Sensitive Data State', default=True)
     @api.depends('commandes_ids')
     def _compute_commandes_count(self):
         for partner in self:

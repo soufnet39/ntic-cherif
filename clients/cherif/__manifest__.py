@@ -16,6 +16,8 @@
     'data': [
         'security/groups_rules.xml',
         'security/ir.model.access.csv',
+
+        'views/website_template.xml',
         'views/products.xml',
         'views/menus.xml',
         'views/commandes.xml',

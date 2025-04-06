@@ -13,11 +13,16 @@ class NticCherifCommandes(models.Model):
     after24hours = fields.Boolean('After24Hours')
     dossier_org = fields.Many2one("cherif.dossierorg", string="Dossier origine") 
                                   
-    def check24hours(self):        
+    def check24hours(self):  # this function is fired only from schedeled action       
             yesterday = fields.datetime.now() - datetime.timedelta(days=1)
             records_to_update = self.env['sn_sales.commandes'].search([('create_date', '<', yesterday),('amount_ttc','!=',0),('after24hours','=',False),('operation_type','=','command')])
-            records_to_update.update({'after24hours': True})
-     
+            clients_ids = []
+            for rec in records_to_update:
+                clients_ids.append(rec.partner_id.id)
+                rec.partner_id.update({'sensitive_data_state_is_changeable':False})
+                rec.after24hours = True
+            # update the client table set sensitive_data_state_is_changeable to False where id not in clients_ids and sensitive_data_state_is_changeable is True
+            self.env['sn_sales.partner'].search([('id', 'not in', clients_ids),('sensitive_data_state_is_changeable','=',True)]).update({'sensitive_data_state_is_changeable':False})
     @api.onchange('pricelist_id')
     def _onchange_pricelist_id(self):
         if self.pricelist_id:

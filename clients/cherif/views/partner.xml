@@ -7,17 +7,18 @@
         <field name="inherit_id" ref="sn_credit.ntic_credit_partner_form"/>	    
         <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="attributes">
-                    <attribute name="attrs">{'readonly': ['&amp;', ('commandes_count', '>', 0), '!', ('_is_cherif_boss', '=', True)]}</attribute>
+                    <attribute name="attrs">{'readonly': [('commandes_count', '&gt;', 0),('_is_cherif_boss', '=', False),('sensitive_data_state_is_changeable', '=', False)]}</attribute>
                 </xpath>
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="commandes_count" invisible="1"/>
                     <field name="_is_cherif_boss" invisible="1"/>
+                    <field name="sensitive_data_state_is_changeable" invisible="1"/>
                 </xpath>
                 <xpath expr="//field[@name='ccp_numero']" position="attributes">
-                    <attribute name="attrs">{'readonly': ['&amp;', ('commandes_count', '>', 0), '!', ('_is_cherif_boss', '=', True)]}</attribute>
+                    <attribute name="attrs">{'readonly': [('commandes_count', '&gt;', 0), ('_is_cherif_boss', '=', False),('sensitive_data_state_is_changeable', '=', False)]}</attribute>
                 </xpath>
                 <xpath expr="//field[@name='ccp_cle']" position="attributes">                    
-                    <attribute name="attrs">{'readonly': ['&amp;', ('commandes_count', '>', 0), '!', ('_is_cherif_boss', '=', True)]}</attribute>
+                    <attribute name="attrs">{'readonly': [('commandes_count', '&gt;', 0), ('_is_cherif_boss', '=', False ),('sensitive_data_state_is_changeable', '=', False)]}</attribute>
                 </xpath>
                 <xpath expr="//div[@id='tarification']" position="replace">
                 </xpath>
