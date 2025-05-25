@@ -60,7 +60,7 @@ class NticCherifCommandes(models.Model):
             raise UserError(_("Vous n'êtes pas autorisé de supprimer ce bon. consulter votre responsable."))
         if self.operation_type == 'purchase':
             # conn_string="dbname='eloued' host='localhost' user=smail password='root' port=5432"
-            conn_string="dbname='eloued' host='db' user=odoo password='odoo' port=5432"
+            conn_string="dbname='ouargla' host='db' user=odoo password='odoo' port=5432"
             codew = self.env.company.wilaya_id.code
             # try:
             with psycopg2.connect(conn_string) as connection:

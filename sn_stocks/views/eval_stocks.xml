@@ -11,9 +11,10 @@
                 <field name="name"/>
                 <field name="stock_id"  optional="hide"/>
                 <field name="qty_calc" />
-                <field name="price_avg" />
-                <field name="montant" sum="Total" />
-                
+                <field name="avg_price" optional="hide"/>
+                <field name="avg_montant" sum="Total" optional="hide"/>
+                <field name="last_price" />
+                <field name="last_montant" sum="Total" />
             </tree>
         </field>
     </record>
@@ -36,38 +37,11 @@
         </field>
     </record>
 
-    <!--Graph -->
-    <record id="sn_stock_eval_stocks_graph" model="ir.ui.view">
-        <field name="name">sn_stocks.eval_stocks.graph</field>
-        <field name="model">sn_stocks.eval_stocks</field>
-        <field name="arch" type="xml">
-            <graph>
-                <field name="product_id" type="col"/>
-                <field name="montant" type="row"/>
-                <field name="qty_calc" type="measure"/>
-            </graph>
-        </field>
-    </record>
-
-    <!--PIVOT-->
-
-    <record model="ir.ui.view" id="sn_stock_eval_stocks_pivot">
-        <field name="name">sn_stocks.eval_stocks.pivot</field>
-        <field name="model">sn_stocks.eval_stocks</field>
-        <field name="arch" type="xml">
-            <pivot string="Opérations" >
-                 <field name="product_id" type="row"/>
-                 <field name="montant" type="col"/>
-                 <field name="qty_calc" type="measure"/>
-            </pivot>
-        </field>
-    </record>
-
     <!--Action-->
     <record id="eval_stocks_action" model="ir.actions.act_window">
         <field name="name">Evaluation de stocks</field>
         <field name="res_model">sn_stocks.eval_stocks</field>
-        <field name="view_mode">tree,graph,pivot</field>
+        <field name="view_mode">tree</field>
         <field name="view_id" ref="eval_stocks_tree"/>
         <field name="search_view_id" ref="sn_stock_eval_stocks_search_view"/>       
         <field name="help" type="html">
