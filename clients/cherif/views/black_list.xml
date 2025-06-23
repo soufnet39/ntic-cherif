@@ -13,7 +13,7 @@
             <field name="wilaya"  />            
             <field name="agent"  />            
             <field name="motif"  />            
-            <field name="create_date" optional="hide" />            
+            <field name="create_date" optional="show" />            
         </tree>
     </field>
 </record>

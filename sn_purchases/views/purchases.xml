@@ -235,7 +235,55 @@
                                         <button name="action_cancel" string="Annuller la facture d'achat" type="object" states="confirmed" class="oe_highlight btn-cancel"/>
                                     </div>
                                 </div>
+                                <div class="col-md-4" style="border-right:1px solid #dedede">
+                                    <h4 class="hh4">Remise</h4>
+                                    <hr/>
+                                    <field name="remise_exist"/>
+                                    <label for="remise_exist"/>
+    
+                                    <div class="content-group" attrs="{'invisible': [('remise_exist','=',False)]}">
+                                        <div class="row">
+                                            <div class="col-md-7 text-right">
+                                                <label for="remise_methode"/>
+                                                :
+                                            </div>
+                                            <div class="col-md-5" style="text-align:right">
+                                                <field class="form-control" name="remise_methode"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-7 text-right">
+                                                <label for="remise_applied_on"/>
+                                                :
+                                            </div>
+                                            <div class="col-md-5" style="text-align:right">
+                                                <field class="form-control" name="remise_applied_on"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" attrs="{'invisible': ['|',('remise_methode','=','mta'),('remise_applied_on','=','article')]}">
+                                            <div class="col-md-7 text-right">
+                                                <label for="remise_taux"/>
+                                                :
+                                            </div>
+                                            <div class="col-md-5" style="text-align:right">
+                                                <field class="my-form-control" name="remise_taux"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" attrs="{'invisible': ['|',('remise_methode','=','taux'),('remise_applied_on','=','article')]}">
+                                            <div class="col-md-7 text-right">
+                                                <label for="remise_mta"/>
+                                                :
+                                            </div>
+                                            <div class="col-md-5" style="text-align:right">
+                                                <field class="my-form-control" name="remise_mta"/>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+    
+                                </div>
                             </div>
+                            
                         </page>
                         <page string="Options" id="options">
                             <div id="information" class="row tab_infos">
@@ -297,8 +345,52 @@
 
                         </div>
                         <div class="col-md-5 totaux" id="totaux">
+                            <div attrs="{'invisible': [('remise_exist','=',False)]}">
+                                <div class="row">
+                                    <div class="col-md-7 text-right">
+                                        <label class="text-danger" for="amount_ht_before_remise"/>
+                                        :
+                                    </div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_ht_before_remise" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 text-right">
+                                        <label class="text-danger" for="remise_valeur"/>
+                                        :
+                                    </div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="remise_valeur" />
+                                    </div>
+                                </div>
+                                <div class="row" attrs="{'invisible': [('tva_exist','=',False)]}">
+                                    <div class="col-md-7 title1 text-danger text-right">Montant HT Remise :</div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_ht" />
+                                    </div>
+                                </div>
+                                <div class="row" attrs="{'invisible': [('tva_exist','=',False)]}">
+                                    <div class="col-md-7 title1 text-danger text-right">
+                                        TVA
+                                        <field readonly="1" force_save="1" name="tva_taux"/>
+                                        % :
+                                    </div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_tva" />
+                                    </div>
+                                </div>
+                                  
+                                <div class="row" >
+                                    <div class="col-md-7 title1 text-danger text-right">Montant Total TTC :</div>
+                                    <div class="col-md-5" style="text-align:right">
+                                        <field name="amount_ttc" />
+                                    </div>
+                                </div>
+                            </div>
 
-                            <div >
+
+                            <div attrs="{'invisible': [('remise_exist','=',True)]}">
 
                                 <div class="row" attrs="{'invisible': [('tva_exist','=',False)]}">
                                     <div class="col-md-7 text-right">

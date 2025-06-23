@@ -31,11 +31,14 @@ class NticCherifBlackList(models.Model):
         if (current_db in dbs) and len(dbs)>1:
             dbs.remove(current_db)
             for db in dbs:
+                # conn_string="dbname='%s' host='localhost' user=smail password='root' port=5432"
                 conn_string="dbname='%s' host='db' user=odoo password='odoo' port=5432"
                 # try:
                 with psycopg2.connect(conn_string%(db)) as connection:
                     cur = connection.cursor()
-                    cur.execute("INSERT into public.cherif_black_list (name,ccp_numero,ccp_cle,wilaya,motif,agent) VALUES ('%s','%s','%s','%s','%s','%s')"%(vals['name'],vals['ccp_numero'],vals['ccp_cle'],vals['wilaya'],vals['motif'],vals['agent']))
+                    from datetime import datetime
+                    current_datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                    cur.execute("INSERT into public.cherif_black_list (name,ccp_numero,ccp_cle,wilaya,motif,agent,create_date) VALUES ('%s','%s','%s','%s','%s','%s','%s')"%(vals['name'],vals['ccp_numero'],vals['ccp_cle'],vals['wilaya'],vals['motif'],vals['agent'],current_datetime))
                     # raise UserError(_('Error lors de l insersion à:%s'%(db))) 
 
         return super(NticCherifBlackList, self).create(vals)
