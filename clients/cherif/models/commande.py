@@ -56,7 +56,7 @@ class NticCherifCommandes(models.Model):
 
 
     def unlink(self):
-        if not self.env.user.has_group('sn_sales.sn_sales_manager'):
+        if not self.env.user.has_group('sn_sales.sn_sales_manager') and self.after24hours:
             raise UserError(_("Vous n'êtes pas autorisé de supprimer ce bon. consulter votre responsable."))
         if self.operation_type == 'purchase':
             # conn_string="dbname='eloued' host='localhost' user=smail password='root' port=5432"
