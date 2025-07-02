@@ -277,7 +277,8 @@ class NticCreditsCommande(models.Model):
         return self.env.ref('sn_credit.action_report_engagement').report_action(self)
     
     # @api.multi
-    def unlink(self):
+    def unlink(self,let_it_be_deleted=True):
+       
         
         cr_grp_u_id = self.env.ref("sn_credit.sn_credit_user", raise_if_not_found=False)
         cr_grp_m_id = self.env.ref("sn_credit.sn_credit_manager", raise_if_not_found=False)
@@ -286,8 +287,8 @@ class NticCreditsCommande(models.Model):
 
         user_groups = self.env.user.groups_id  # Retrieve the groups of the current user
         is_simple_credit_user  = cr_grp_u_id in user_groups and cr_grp_m_id not in user_groups and cr_grp_b_id not in user_groups
-        if is_simple_credit_user and self.state in ['confirmed','canceled']:       
-            raise UserError(_('Vous ne pouvez pas supprimer une facture Confirmée ou Annulée, seulement en état Brouillon'))  
+        if is_simple_credit_user and self.state in ['confirmed','canceled'] and not let_it_be_deleted:       
+            raise UserError(_('Vous ne pouvez pas supprimer un bon Confirmé ou Annulé, seulement en état Brouillon'))  
 
         
         return super(NticCreditsCommande, self).unlink()

@@ -71,7 +71,7 @@ class NticCherifCommandes(models.Model):
                     if rows:
                         raise UserError("Vous ne pouvez pas supprimer ce bon. Il est classé avec les achats, ")
 
-        return super(NticCherifCommandes, self).unlink()
+        return super(NticCherifCommandes, self).unlink(not self.after24hours)
 
     
 

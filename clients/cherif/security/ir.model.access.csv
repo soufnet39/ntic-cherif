@@ -1,4 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
+
 access_dossierorg,cherif.dossierorg,model_cherif_dossierorg,cherif_user,1,1,1,1
-access_black_list,cherif.black_list,model_cherif_black_list,cherif_user,1,1,1,1
+
+access_black_list,cherif.black_list,model_cherif_black_list,cherif_user,1,0,1,0
+access_black_list2,cherif.black_list,model_cherif_black_list,cherif_manager,1,1,1,1
