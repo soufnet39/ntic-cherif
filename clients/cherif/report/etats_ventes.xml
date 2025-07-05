@@ -13,10 +13,10 @@
                             <span>Etat <span t-if="doc.periode!='interval'" t-field="doc.periode"/> des Ventes </span>
                         </span>                
                         <t t-if="doc.periode=='mois'"> - <span t-field="doc.mois" /> <span t-field="doc.annee" />  </t>
-                    
+                        <t t-if="doc.periode=='semestre'"> - <span t-field="doc.semestre" /> <span t-field="doc.annee" />  </t> 
                         <span t-if="doc.periode=='interval'">Interval: <span t-field="doc.date_debut"/> - <span t-field="doc.date_fin"/> 
                         </span>
-                        <br/> Contrats: <span t-field="doc.contrat_ids"/>
+                        <br/>Filiale: <span t-field="doc.db_name"/>,  Contrats: <span t-field="doc.contrat_ids"/>
                         </h3>
                     </div>
                     
