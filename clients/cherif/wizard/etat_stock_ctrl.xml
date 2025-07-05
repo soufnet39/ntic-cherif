@@ -8,8 +8,8 @@
         <field name="arch" type="xml">
             <form string="Etats de Ventes" create="false" delete="false" edit="true">
                 <sheet>
-                <div class="h1 text-center text-danger py-3 mb-3">
-                  Etat de stock mensuel
+                <div class="h1 text-center text-danger py-3 mb-3" style="direction: ltr;">
+                  Etat de stock mensuel, Filiale: <field  name="db_name" />
                 </div>
                     <div class="row">
                         <div class="col-md-7" >                            

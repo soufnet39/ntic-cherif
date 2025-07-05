@@ -10,7 +10,7 @@
                     <div class="">
                         <h3 class="text-center mt32">
 
-                           <span>Etat de stock mensuel </span>
+                           <span>Etat de stock mensuel </span>, Filiale: <span t-field="doc.db_name" />
                             <br/>
                          Avant le 01 <span t-field="doc.mois" /> <span t-field="doc.annee" />                     
 

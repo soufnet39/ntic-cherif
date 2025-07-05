@@ -10,8 +10,8 @@
             <form string="Etats d'achats" create="false" delete="false" edit="true">
                
                 <sheet>
-                <div class="h1 text-center text-danger py-3 mb-3">
-                  Etat d'achats
+                <div class="h1 text-center text-danger py-3 mb-3" style="direction: ltr;">
+                  Etat d'achats, Filiale: <field  name="db_name" />
                 </div>
                     <div class="row">
                         <div class="col-md-7" id="block1">
@@ -50,7 +50,14 @@
                                     <field attrs="{ 'required': [('periode','=','mois')] }" name="mois" />
                                 </div>
                             </div>
-                    
+                            <div attrs="{'invisible': [('periode','!=','semestre')]}" class="row">
+                                <div class="col-md-2 text-right">
+                                    <label for="semestre"/>
+                                </div>
+                                <div class="col-md-10">
+                                    <field attrs="{ 'required': [('periode','=','semestre')] }" name="semestre" />
+                                </div>
+                            </div>
                      
                             <div attrs="{'invisible': ['|',('periode','=','global'),('periode','=','interval')]}" class="row">
                                 <div class="col-md-2">

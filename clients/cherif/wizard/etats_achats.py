@@ -14,7 +14,7 @@ class wiz_achats(models.TransientModel):
     
     periode = fields.Selection(
         string='Période',
-        selection=[('mois', 'Mensuel'), ('annuel', 'Annuel'),('interval', 'Interval'),('global', 'Global')],
+        selection=[('mois', 'Mensuel'),('semestre', 'Semestriel'), ('annuel', 'Annuel'),('interval', 'Interval'),('global', 'Global')],
         default='mois', required = True )
     
     date_debut = fields.Date(
@@ -43,7 +43,10 @@ class wiz_achats(models.TransientModel):
             ('11', 'Novembre'),
             ('12', 'Décembre')]
         )
-    
+    semestre = fields.Selection(
+        string='Semestre',
+        selection=[('1', '1er Semestre'), ('2', '2em Semestre')]
+        )
 
     annee = fields.Selection(
         string='Année',
@@ -63,6 +66,8 @@ class wiz_achats(models.TransientModel):
         default='yes',
         required=True
         )
+    db_name = fields.Char(string="Database", readonly=True, default=lambda self: self.pool.db_name.title(), store=False)
+
 
     @api.onchange( 'periode', 'mois', 'annee')
     def clear_lines_ids(self):
@@ -80,6 +85,10 @@ class wiz_achats(models.TransientModel):
             ms=int(self.mois)
             conditions.append(('confirmation_date','>=',datetime.datetime(yr, ms, 1).strftime('%Y-%m-%d')))
             conditions.append(('confirmation_date','<=',(datetime.datetime(yr, ms, 1)+relativedelta(months=+1,days=-1) ).strftime('%Y-%m-%d')))
+        if self.periode=='semestre':
+            sm=int(self.semestre)
+            conditions.append(('confirmation_date','>=',datetime.datetime(yr, (sm-1)*6+1, 1)))
+            conditions.append(('confirmation_date','<=',(datetime.datetime(yr, (sm-1)*6+6, 1, 1)+relativedelta(months=+1,days=-1) )))
         if self.periode=='annuel':
             conditions.append(('confirmation_date','>=',datetime.datetime(yr, 1, 1)))
             conditions.append(('confirmation_date','<=',datetime.datetime(yr, 12, 31)))

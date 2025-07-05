@@ -34,6 +34,7 @@ class CherifRestProductCtrl(models.TransientModel):
              default=_default_month,
              required=True
         )
+ 
     annee = fields.Selection(
         string='Année',
         selection=[('2023', 2023),('2024', 2024),('2025', 2025),('2026', 2026)],
@@ -41,6 +42,7 @@ class CherifRestProductCtrl(models.TransientModel):
         required=True
         )
     lines_ids = fields.One2many('cherif.product_rest_ctrl_detail',"rest_ctrl_id", string='details' )
+    db_name = fields.Char(string="Database", readonly=True, default=lambda self: self.pool.db_name.title(), store=False)
 
     def faltara(self):
             self.lines_ids = [(5,0,0)]        

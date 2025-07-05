@@ -75,12 +75,6 @@ class wiz_commandes(models.TransientModel):
         )
     db_name = fields.Char(string="Database", readonly=True, default=lambda self: self.pool.db_name.title(), store=False)
 
-    # @api.depends()
-    # def _compute_db_name(self):
-    #     db_name =  self.pool.db_name
-    #     for record in self:
-    #         record.db_name = db_name.title()
-
 
     @api.onchange( 'periode', 'mois', 'annee')
     def clear_lines_ids(self):
