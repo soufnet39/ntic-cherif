@@ -40,6 +40,7 @@ class NticCherifSuppliersAchat(models.Model):
     name_supplier = fields.Char(related='supplier_id.name_supplier',store=True)
 
     ref_achat = fields.Char('Numéro Facture')
+    filiale = fields.Char('Filiale')
     date_achat = fields.Date('Date Facture')
     montant_achat =  fields.Float("Montant", digits="montant")
 

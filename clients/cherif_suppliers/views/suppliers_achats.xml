@@ -8,6 +8,7 @@
             <tree string="List" create='false'>
                 <field name="ref_achat" />
                 <field name="name_supplier" />
+                <field name="filiale" />
                 <field name="date_achat" />            
                 <field name="montant_achat" sum='Total' />                         
             </tree>
@@ -22,6 +23,7 @@
                  <field name="ref_achat" string="Numeéro de facture" filter_domain="[('ref_achat', 'ilike', self)]"/>
                  <group expand="0" name="group_by" string="Group By">
                     <filter name="group_supplier" string="Par Fourniseur" context="{'group_by': 'name_supplier'}"/>                    
+                    <filter name="group_filiale" string="Par Filiale" context="{'group_by': 'filiale'}"/>                    
                     <filter name="group_date_achat" string="Par Date" domain="[]" context="{'group_by': 'date_achat'}"/>
                 </group>
             </search>
