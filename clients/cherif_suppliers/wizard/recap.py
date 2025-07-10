@@ -23,8 +23,8 @@ class cherif_suppliers_wizard(models.TransientModel):
         databases = self.related_databases.split(',')
         # databases = ['eloued']  # For testing purpose, remove this line when you're ready to sync all databases
         for db in databases:
-            # conn_string="dbname='%s' host='localhost' user=smail password='root' port=5432"
-            conn_string="dbname='%s' host='db' user=odoo password='odoo' port=5432"
+            conn_string="dbname='%s' host='localhost' user=smail password='root' port=5432"
+            # conn_string="dbname='%s' host='db' user=odoo password='odoo' port=5432"
             # try:
             with psycopg2.connect(conn_string%(db)) as connection:
                     cur = connection.cursor()
@@ -47,7 +47,8 @@ class cherif_suppliers_wizard(models.TransientModel):
                                 'supplier_id': supl_id.id,
                                 'ref_achat': row[0],
                                 'montant_achat': row[3],
-                                'date_achat': row[4]
+                                'date_achat': row[4],
+                                'filiale': db
                             })
                         else:
                             is_there_achat = self.env['cherif_suppliers.suppliers_achats'].search([('ref_achat','=',row[0])])
@@ -56,7 +57,8 @@ class cherif_suppliers_wizard(models.TransientModel):
                                     'supplier_id': res[0].id,
                                     'ref_achat': row[0],
                                     'montant_achat': row[3],
-                                    'date_achat': row[4]
+                                    'date_achat': row[4],
+                                    'filiale': db
                                 })
                                 self.env['cherif_suppliers.suivi_details_wizard'].create({
                                     'suivi_id': self.id,
@@ -65,6 +67,7 @@ class cherif_suppliers_wizard(models.TransientModel):
                                     'name_supplier': row[1],
                                     'total_achat': row[3],
                                     'date_achat': row[4],
+                                    'filiale': db
                                 })
                             else:
                                 if is_there_achat[0].montant_achat != row[3] or is_there_achat[0].supplier_id.id != res[0].id:   
@@ -77,6 +80,7 @@ class cherif_suppliers_wizard(models.TransientModel):
                                         'name_supplier': row[1],
                                         'total_achat': row[3],
                                         'date_achat': row[4],
+                                        'filiale': db
                                     })
 
             # except:
@@ -96,6 +100,7 @@ class cherif_suppliers_wizard(models.TransientModel):
         name_supplier = fields.Char('Nom Fournisseur')        
         total_achat = fields.Float('Total Achats', digits="montant")
         date_achat = fields.Date('Date',)
+        filiale = fields.Char('Filiale')
 
         
 
