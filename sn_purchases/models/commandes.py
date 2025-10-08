@@ -11,7 +11,7 @@ class NticCommandes_purchases(models.Model):
 
     def unlink(self):
         for record in self:
-            if record.operation_type == 'purchase' and  self.env.user.has_group('sn_purchases.sn_purchases_manager'):                                                                                              
+            if record.operation_type == 'purchase' and  not self.env.user.has_group('sn_purchases.sn_purchases_boss'):                                                                                              
                 raise UserError("Vous ne pouvez pas supprimer un enregistrement d'achat.")
         return super(NticCommandes_purchases, self).unlink()
     
