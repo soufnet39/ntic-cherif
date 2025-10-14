@@ -60,7 +60,7 @@ class NticCherifCommandes(models.Model):
             raise UserError(_("Vous n'êtes pas autorisé de supprimer ce bon. consulter votre responsable."))
         if self.operation_type == 'purchase':
             # double check if the user is in the boss group(exists already in purchases module)
-            if not self.env.user.has_group('sn_purchases.sn_sales_boss'):
+            if not self.env.user.has_group('sn_purchases.sn_purchases_boss'):
                 raise UserError(_("Vous n'êtes pas autorisé de supprimer ce bon d'achat. consulter le responsable."))
             conn_string="dbname='eloued' host='localhost' user=smail password='root' port=5432"
             conn_string="dbname='eloued' host='db' user=odoo password='odoo' port=5432"
