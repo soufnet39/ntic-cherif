@@ -53,7 +53,7 @@ class NticAksatsMonthsLines(models.Model):
                         product_id,
                         write_date,
                         price_unit,
-                        ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY write_date DESC) AS rn
+                        ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY commande_id DESC) AS rn
                     FROM sn_sales_commande_lines
                     WHERE operation_type = 'purchase' 
                 ) AS ranked

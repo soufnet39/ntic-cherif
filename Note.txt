@@ -11,3 +11,82 @@ FROM (
     LEFT JOIN public.sn_sales_commande_lines cl ON cl.id = sq.maxid
 ) AS prc
 WHERE prd.id = prc.product_id;
+
+=======================================================
+
+UPDATE  public.cherif_suppliers_suppliers_achats
+set filiale = CASE SUBSTRING(ref_achat FROM 1 FOR 3)
+    WHEN '02/' THEN 'chlef'
+    WHEN '04/' THEN 'oumbouaghi'
+	WHEN '05/' THEN 'batna'
+	WHEN '16/' THEN 'cheraga'
+	WHEN '16B' THEN 'babezzouar'
+	WHEN '16S' THEN 'sorecal'
+	WHEN '21/' THEN 'skikda'
+	WHEN '22/' THEN 'belabbes'
+	WHEN '23/' THEN 'annaba'
+	WHEN '24/' THEN 'guelma'	
+	WHEN '25/' THEN 'constantine'	
+	WHEN '27/' THEN 'mostaghanem'	
+	WHEN '30/' THEN 'ouargla'	
+	WHEN '31/' THEN 'oran'	
+	WHEN '39/' THEN 'eloued'	
+	WHEN '392' THEN 'eloued2'	
+	WHEN '41/' THEN 'soukahras'	
+	WHEN '42/' THEN 'tipaza'	
+    ELSE filiale  -- keep current value if no match
+END;
+=========================================
+
+SELECT cmd.name,cmd.confirmation_date,p.name client ,ctr.name as contra,cmdl.name as designation,cmdl.qty as qte,cmdl.price_total as prix FROM public.sn_sales_commandes cmd
+left join public.sn_sales_commande_lines cmdl on cmdl.commande_id=cmd.id
+left join public.sn_sales_partner p on p.id=cmd.partner_id
+left join public.sn_credit_contrats ctr on ctr.id = cmd.contrat
+where      cmd.state='confirmed' 
+      and  cmd.operation_type='command' 
+	  and EXTRACT(MONTH FROM cmd.confirmation_date) IN (4, 5, 6) add year and not null
+ORDER BY cmd.id ASC 
+
+===========================================================
+Achat entre le 01/07/2025 et le15/07/2025
+
+SELECT cmd.name as achat,cmd.confirmation_date as date,cmdl.name as article,cmdl.qty,cmdl.price_total as prix FROM public.sn_sales_commandes as cmd
+left join public.sn_sales_commande_lines as cmdl on cmd.id=cmdl.commande_id
+WHERE cmd.operation_type = 'purchase'
+  AND cmd.state NOT IN ('canceled')
+  AND cmd.confirmation_date >= DATE '2025-07-01'
+  AND cmd.confirmation_date <= DATE '2025-07-10';
+
+===========================================================
+# Vente 
+===========================================================
+
+SELECT  cmd.name as  vente,cmd.confirmation_date as date,cmdl.name as article,cmdl.qty,cmdl.price_total as prix  FROM public.sn_sales_commandes as cmd
+left join public.sn_sales_commande_lines as cmdl on cmd.id=cmdl.commande_id
+where  cmd.state NOT IN ('canceled') AND cmd.operation_type = 'command'
+  AND cmd.confirmation_date >= DATE '2025-11-11'
+  AND cmd.confirmation_date <= DATE '2025-11-30'
+  AND cmdl.price_total IS NOT NULL
+  order by cmd.name
+
+===========================================================
+# stock des produits avant le 31/01/2026
+
+  SELECT 
+		pp.product_id as id, 		
+		pp.name as produit, 
+		t.qty_calc as Qte
+	FROM ( 
+		SELECT ccp.id as product_id, ccp.name
+		FROM sn_sales_product as ccp    
+	  ) as pp 
+	INNER JOIN (
+		SELECT product_id, sum(qty_stock) as qty_calc 
+		FROM sn_sales_commande_lines  
+	 	where create_date <= DATE '2026-01-31'
+		GROUP BY product_id 	   
+		HAVING sum(qty_stock) > 0
+	) as t ON pp.product_id = t.product_id
+	
+	GROUP BY pp.product_id, pp.name, t.qty_calc
+    ORDER BY pp.name
