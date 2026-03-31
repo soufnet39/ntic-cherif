@@ -20,20 +20,31 @@ class cherif_suppliers_wizard(models.TransientModel):
 
 
         # List of databases to sync
+
         databases = self.related_databases.split(',')
-        # databases = ['eloued']  # For testing purpose, remove this line when you're ready to sync all databases
+        # databases = ['eloued','ouargla','nouhstock']  # For testing purpose, remove this line when you're ready to sync all databases
         for db in databases:
-            # conn_string="dbname='%s' host='localhost' user=smail password='root' port=5432"
+            # conn_string = "dbname='%s' host='localhost' user=smail password='root' port=5432"            
             conn_string="dbname='%s' host='db' user=odoo password='odoo' port=5432"
-            # try:
-            with psycopg2.connect(conn_string%(db)) as connection:
+            qry = """ select concat(w.code,'/',p.name) as name,f.name as supplier ,f.ref, p.amount_ttc,p.confirmation_date as date From (SELECT name,company_id,partner_id,amount_ttc,confirmation_date  FROM public.sn_sales_commandes  where operation_type='purchase') p
+                        left join public.res_company rc on rc.id = p.company_id
+                        left join public.sn_base_wilayates w on rc.wilaya_id =w.id
+                        left join public.sn_sales_partner f on f.id=p.partner_id
+                    """
+            if db == 'nouhstock':
+                # conn_string = "dbname='%s' host='localhost' user=smail password='root' port=5432"
+                conn_string="dbname='%s' host='172.17.0.1' user=odoo password='odoo' port=5433"
+                qry = """
+                        select concat('HMD/',p.name) as name,f.name as supplier ,f.ref, p.amount_ttc,p.confirmation_date as date From (SELECT name,company_id,supplier_id,amount_ttc,confirmation_date  FROM public.sn_sales_commandes  where operation_type='purchase') p
+                        left join public.res_company rc on rc.id = p.company_id
+                        left join public.sn_purchases_suppliers f on f.id=p.supplier_id
+                    """
+
+            try:               
+                with psycopg2.connect(conn_string%(db)) as connection:
                     cur = connection.cursor()
-                    cur.execute("""
-                    select concat(w.code,'/',p.name) as name,f.name as supplier ,f.ref, p.amount_ttc,p.confirmation_date as date From (SELECT name,company_id,partner_id,amount_ttc,confirmation_date  FROM public.sn_sales_commandes  where operation_type='purchase') p
-                    left join public.res_company rc on rc.id = p.company_id
-                    left join public.sn_base_wilayates w on rc.wilaya_id =w.id
-                    left join public.sn_sales_partner f on f.id=p.partner_id
-                    """)
+
+                    cur.execute(qry)
                     rows = cur.fetchall()
                     for row in rows:
                         
@@ -83,9 +94,9 @@ class cherif_suppliers_wizard(models.TransientModel):
                                         'filiale': db
                                     })
 
-            # except:
-            #     print('database does %s not exist'%(db)) 
-            #     continue
+            except:
+                print('database does %s not exist'%(db))                 
+                continue
         
 
 
