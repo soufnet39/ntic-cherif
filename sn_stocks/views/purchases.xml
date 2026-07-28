@@ -21,16 +21,13 @@
         <field name="inherit_id" ref="sn_purchases.purchases_form"/>
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
-              <button name="transfer_reste" string="Purge le Reste" type="object" class="oe_highlight"  attrs="{'invisible':['|',('name','=','/'),('show_reste','=',False)]}" />
+                <button name="transfer_reste" string="Purge le Reste" type="object" class="oe_highlight" attrs="{'invisible':['|',('name','=','/'),('show_reste','=',False)]}" />
             </xpath>
             <xpath expr="//div[@class='oe_button_box']" position="inside">
                 <field name='show_reste' invisible="1"/>
-                <button name="go2piece" type="object"
-                    attrs="{'invisible': [('operation','in',('/',''))]}"
-                    context="{'piece':'reception'}"
-                    class="oe_stat_button" icon="fa-archive">
+                <!-- <button name="go2piece" type="object" attrs="{'invisible': [('operation','in',('/',''))]}" context="{'piece':'reception'}" class="oe_stat_button" icon="fa-archive">
                     <field name="operation" readonly="1" />
-                </button>
+                </button> -->
             </xpath>
             <xpath expr="//div[@id='user_id']" position="after">
                 <field name="len_stock_id" invisible="1" />
@@ -51,9 +48,7 @@
                                 <span class="title1">Stock</span>
                             </div>
                             <div class="col-md-7">
-                                <field name="stock_id" class="my-form-control" force_save="1"
-                                    attrs="{'readonly':[('commande_lines_count', '>', 0)]}"
-                                    options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}"/>
+                                <field name="stock_id" class="my-form-control" force_save="1" attrs="{'readonly':[('commande_lines_count', '>', 0)]}" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}"/>
                             </div>
                         </div>
 
@@ -74,19 +69,13 @@
                 <attribute name="attrs">{'invisible': [('stock_id','=',False)] }</attribute>
             </xpath>
 
-             <xpath expr="//div[@id='operations']" position="inside">
+            <xpath expr="//div[@id='operations']" position="inside">
                 <div class="col-md-4" style="border-right:1px solid #dedede" id="annulation">
                     <h4 class="hh4">Calcule Stock</h4>
                     <hr/>
                     <div class="text-center">
-                        <button name="action_calcule_stock" class="oe_highlight btn-convert"
-                            string="Calcule le reste en stock" type="object"
-                            attrs="{'invisible':['|','|',('name','=','/'),('state','in',['draft','canceled']),('show_reste','=',True)]}"
-                            />
-                            <button name="action_hide_reste" class="oe_highlight btn-warning"
-                            string="Cacher le reste en stock" type="object"
-                            attrs="{'invisible':[('show_reste','=',False)]}"
-                            />
+                        <button name="action_calcule_stock" class="oe_highlight btn-convert" string="Calcule le reste en stock" type="object" attrs="{'invisible':['|','|',('name','=','/'),('state','in',['draft','canceled']),('show_reste','=',True)]}" />
+                        <button name="action_hide_reste" class="oe_highlight btn-warning" string="Cacher le reste en stock" type="object" attrs="{'invisible':[('show_reste','=',False)]}" />
                     </div>
                 </div>
 
@@ -115,7 +104,7 @@
         </field>
     </record>
 
-     <!--Inherits purchases Search-->
+    <!--Inherits purchases Search-->
     <record id="sn_stocks_purchases_order_search" model="ir.ui.view">
         <field name="name">Purchases Search</field>
         <field name="model">sn_sales.commandes</field>
