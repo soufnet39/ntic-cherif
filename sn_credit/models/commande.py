@@ -276,6 +276,9 @@ class NticCreditsCommande(models.Model):
     def print_engagement(self):        
         return self.env.ref('sn_credit.action_report_engagement').report_action(self)
     
+    def print_contrat(self):        
+        return self.env.ref('sn_credit.action_report_contrat').report_action(self)
+    
     # @api.multi
     def unlink(self,let_it_be_deleted=True):
        

@@ -27,6 +27,7 @@
         'report/cuts.xml',
         'report/aksats.xml',
         'report/engagement.xml',
+        'report/contrat.xml',
         'report/reports.xml',
         'report/commandes.xml',
         'report/retards.xml',

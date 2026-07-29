@@ -68,6 +68,7 @@
 
             <xpath expr="//button[@name='print_commande']" position="replace">
                 <button name="print_engagement" string="Imprimer Engagement" type="object" class="oe_highlight btn-print" icon="fa-print" attrs="{'invisible':[('name','=','/')]}" />
+                <button name="print_contrat" string="Imprimer Contrat" type="object" class="oe_highlight btn-print" icon="fa-print" attrs="{'invisible':[('name','=','/')]}" />
                 <field name="aksats_adad" invisible="1"/>
                 <!-- <button name="action_generate" class="oe_highlight btn-warning" string="Génerer les Aksats" type="object" attrs="{'invisible':['|','|','|', ('name','=','/'), ('month_number','=',0),
                             ('aksats_adad','>',0),

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_contrat">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sn_credit.report_contrat_document" t-lang="user.lang"/>
+                </t>
+            </t>
+        </template>
+        <!-- = = = = = = = -->
+        <template id="report_contrat_document">
+            <div style="direction: rtl">
+
+                <t t-call="web.external_layout">
+                    <div class="h3 text-center">
+                عقد البيع والإلتزام بالدفع بالتقسيط 
+                    </div>
+                    <div class="text-center" style="width:96%; margin:0 auto;">
+
+                        <div>
+                            <span>أنا الممضي أسفله السيد(ة) : </span>
+                            <span style="font-weight:bold;" t-esc="doc.partner_id.name" />
+                        </div>
+                        <div>
+                            <span>رقم بطاقة التعريف : </span>
+                            <span style="font-weight:bold;" t-esc="doc.partner_id.identity_card_number" />
+                            <span>الصادرة في : </span>
+                            <span style="font-weight:bold;" t-esc="doc.partner_id.identity_card_date" />
+                        </div>
+                        <div>
+                            <span>صاحب الحساب البريدي : </span>
+                            <span style="font-weight:bold;" t-esc="doc.partner_id.ccp_numero" />
+                            <span>مفتاح  </span>
+                            <span style="font-weight:bold;" t-esc="doc.partner_id.ccp_cle" />
+                        </div>
+                        <div>
+                            <span>أشهد أني مدان بمبلغ إجمالي مقدر بـ : </span>
+                            <span style="font-weight:bold;" t-field="doc.amount_ttc_sec"/>
+ دج 
+                            <span> مستوجب التسديد لمدة : </span>
+                            <span style="font-weight:bold;" t-field="doc.month_number"/>
+                            <span> شهرا </span>
+                        </div>
+                        <div>
+                            <span>بمبلغ شهري قدره : </span>
+                            <span style="font-weight:bold;" t-field="doc.monthly_amount"/>
+ دج
+                            <span>بداية من شهر : </span>
+                            <span style="font-weight:bold;" t-field="doc.date_start" t-options='{"format": "MM - yyyy"}'/>
+                        </div>
+                        <div>
+                        *يهدف هذا العقد إلى  تحديد  شرط البيع و الدفع بأقساط بين 
+                            <span style="font-weight:bold;" t-field="doc.contrat.comp_name"/>
+                        (البائع) و المشتري  المذكور اسمه أعلاه.
+                        </div>
+
+                    </div>
+
+
+                    <br/>
+                    <table style="border-collapse: collapse; width:96%; margin:0 auto;font-size:9pt; text-align:right">
+                        <tr>
+                            <td style="width:50%;vertical-align:top;border: 1px solid #333;padding: 10px;">
+                                <h6>إلتزامات البائع :</h6>
+                                <ol>
+                                    <li>يتم إستلام المنتوج بعد تجريبه في الحال، في نقطة البيع.</li>
+                                    <li>في حال التصريح بعيب في منتوج من طرف المشتري يدخل ضمن الشروط والمدة القانونية للضمان، فإن المسؤولية تكون على عاتق مصلحة ما بعد البيع للشركة المصنعة للمنتوج المباع.</li>
+                                    <li>يتم استبدال المنتوج في حالة استلام تقرير من قبل مصلحة خدمة ما بعد البيع لدى الشركة المصنعة (المنتوج المعيب).</li>
+                                </ol>
+                                <h6>إلتزامات المشتري:</h6>
+                                <ol>
+                                    <li>المشتري ملزم بموجب هذا الالتزام بدفع المبلغ الإجمالي حسب الاقتطاعات المتفق عليها شهريا.</li>
+                                    <li>ترك المبلغ المطلوب تسديده شهريا في الحساب البريدي في ميعاده المحدد وبصفة منتظمة.</li>
+                                    <li>عدم تغيير وغلق الحساب البريدي المصرح به للمؤسسة.</li>
+                                </ol>
+                                <h6>أحكام خاصة:</h6>
+                                <ol>
+                                    <li>في حالة عدم وجود القسط الشهري المتفق عليه في رصيده سوف يقتطع عند دفع راتب الزبون في الحساب البريدي لأكثر من قسط حسب عدد الأقساط السابقة المفترض تسديدها والمتفق عليها بين البائع والزبون.</li>
+                                    <li>الشركة غير مسؤولة على الاقتطاع الجزافي من طرف مصلحة البريد والمقدر ب 300 دج أو 600 دج للزبون الذي لا يترك قيمة القسط الشهري المتفق عليه.</li>
+                                    <li>في حالة تقديم وثائق غير مطابقة أو التوقف عن العمل أو حساب محظور، المشتري ملزم بدفع الأقساط المتبقية بطريقة مباشرة في حساب الشركة مع إحضار وصل الدفع. وفي حالة عدم التزام المعني بهذا الإجراء سوف يتم متابعته قضائيا.</li>
+                                    <li>في حالة وفاة المشتري قبل تسديد الأقساط المترتبة عليه فإن تسديدها يرجع على عاتق ورثته وذوي الحقوق طبقا للقانون.</li>
+                                </ol>
+                            </td>
+                            <td style="width:50%; vertical-align:top;border: 1px solid #333;padding: 10px;">
+                                <h6>حل النزاعات:</h6>
+                                <ol>
+                                    <li>يتم فسخ العقد في حالة عدم صحة المعلومات المقدمة للبائع من طرف المشتري وكذا في حال عدم تسديد الأقساط في الآجال المحددة.</li>
+                                    <li>في حالة عدم تسديد المبلغ المستحق للشركة لعدم وجود رصيد في الحسا
+                                    ب البريدي مدة ثلاثة أشهر متتالية، يرسل بعدها إعذار من قبل محامي الشركة، قبل المتابعة القضائية طبقا للقانون دون المساس بحق البائع في التعويض أو تأسيسها كطرف مدني أي ضحية.</li>
+                                    <li>أي نزاع ينشأ عن تنفيذ هذا العقد بين الأطراف المتعاقدة يكون من اختصاص محكمة مقر المؤسسة (البائع) التي يؤول لها اختصاص لتقديم الضحية (البائع) طلباته كطرف مدني.</li>
+                                    <li>كل المصاريف الناتجة عن تحصيل مبالغ الأقساط المتأخرة الدفع كتكاليف الإجراءات القانونية، الرسوم، المصاريف القضائية، الدعاوى، أتعاب المحامي تكون على عاتق المشتري.</li>
+                                </ol>
+                                <hr/>
+                                <div class="text-center" style="font-size:10pt;">
+                                حسابات المؤسسة التي يمكن الاقتطاع بها
+                                    <br/>
+                                    <span style="font-weight:bold;" t-field="doc.contrat.comp_name"/>
+                                    <br/>
+                                    <span style="font-weight:bold;" t-field="doc.contrat.ccp_numero"/>
+                                        مفتاح                                    <span style="font-weight:bold;" t-field="doc.contrat.ccp_cle"/>
+                                    <br/>
+                                    تم قراءة وفهم هذا العقد فهما جيدا والتوقيع عليه.
+                                    <br/>
+                                    إمضاء وبصمة المعني(ة) بالأمر:  
+
+                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="text-center" style="font-weight:bold;font-size:10pt;">
+ التسمية التجارية :  
+                        <span style="font-weight:bold;" t-field="doc.contrat.comp_name"/>
+                        <br/>
+ العنوان  :  
+                        <span style="font-weight:bold;" t-field="doc.contrat.comp_address"/>
+                    </div>
+
+
+
+                </t>
+            </div>
+        </template>
+    </data>
+</odoo>
