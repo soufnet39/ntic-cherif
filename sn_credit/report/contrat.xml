@@ -13,7 +13,7 @@
             <div style="direction: rtl">
 
                 <t t-call="web.external_layout">
-                    <div class="h3 text-center">
+                    <div class="h4 text-center">
                 عقد البيع والإلتزام بالدفع بالتقسيط 
                     </div>
                     <div class="text-center" style="width:96%; margin:0 auto;">
@@ -51,7 +51,7 @@
                         </div>
                         <div>
                         *يهدف هذا العقد إلى  تحديد  شرط البيع و الدفع بأقساط بين 
-                            <span style="font-weight:bold;" t-field="doc.contrat.comp_name"/>
+                            <span style="font-weight:bold;" t-field="doc.company_id.name"/>
                         (البائع) و المشتري  المذكور اسمه أعلاه.
                         </div>
 
@@ -95,29 +95,26 @@
                                 <div class="text-center" style="font-size:10pt;">
                                 حسابات المؤسسة التي يمكن الاقتطاع بها
                                     <br/>
-                                    <span style="font-weight:bold;" t-field="doc.contrat.comp_name"/>
+                                    <span style="font-weight:bold;" t-field="doc.company_id.name"/>
                                     <br/>
-                                    <span style="font-weight:bold;" t-field="doc.contrat.ccp_numero"/>
-                                        مفتاح                                    <span style="font-weight:bold;" t-field="doc.contrat.ccp_cle"/>
+                                    <span style="font-weight:bold;" t-field="doc.company_id.street2"/>
+                                        
                                     <br/>
                                     تم قراءة وفهم هذا العقد فهما جيدا والتوقيع عليه.
                                     <br/>
                                     إمضاء وبصمة المعني(ة) بالأمر:  
 
                                 </div>
-
                             </td>
                         </tr>
                     </table>
                     <div class="text-center" style="font-weight:bold;font-size:10pt;">
  التسمية التجارية :  
-                        <span style="font-weight:bold;" t-field="doc.contrat.comp_name"/>
+                        <span style="font-weight:bold;" t-field="doc.company_id.name"/>
                         <br/>
  العنوان  :  
-                        <span style="font-weight:bold;" t-field="doc.contrat.comp_address"/>
+                        <span style="font-weight:bold;" t-field="doc.company_id.street"/>
                     </div>
-
-
 
                 </t>
             </div>
