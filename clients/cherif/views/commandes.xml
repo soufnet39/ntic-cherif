@@ -45,6 +45,10 @@
         <field name="inherit_id" ref="sn_sales.view_commande_form"/>
         
         <field name="arch" type="xml">
+            <xpath expr="//sheet//div[@name='button_box']" position="inside">
+                <field name="cmd_traited" invisible="1"/>
+                <widget style="margin-top:0" name="web_ribbon" title="Traité" bg_color="bg-success" attrs="{'invisible': [('cmd_traited', '=', False)]}"/>
+            </xpath>
            
             <xpath expr="//div[@id='month_number']" position="before">
              <field name="after24hours"  invisible='1' />
@@ -138,11 +142,35 @@
                 <filter name="today_cmds" help="Commandes d'aujourd'hui" domain="[('confirmation_date','=',datetime.datetime.now())]"/>
                 <filter name="yesterday_cmds" help="Commandes d'hier" domain="[('confirmation_date','=',datetime.datetime.now()-datetime.timedelta(days=1))]"/>
                 <filter name="lastweek_cmds" help="Commandes dérniere semaine" domain="[('confirmation_date','>',datetime.datetime.now()-datetime.timedelta(days=7))]"/>                
+                <separator/>
+                <filter name="cmd_not_traited" string="Commandes non Traités" help="Commandes non Traités" domain="[('cmd_traited', '=', False)]"/>
+                <filter name="cmd_traited" string="Commandes Traités" help="Commandes Traités" domain="[('cmd_traited', '=', True)]"/>
+                <separator/>
                 <group expand="0" name="group_by" string="Group By">
                     <filter name="group_dosier_org" string="Par dossier original" context="{'group_by': 'dossier_org'}"/>
+                    <filter name="group_cmd_traited" string="Par Traitement" context="{'group_by': 'cmd_traited'}"/>
                 </group>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inherit Commandes Tree View to add Traiter button -->
+    <record id="view_commande_tree_cherif" model="ir.ui.view">
+        <field name="name">sn_sales.commandes.tree.cherif</field>
+        <field name="model">sn_sales.commandes</field>
+        <field name="priority" eval="25"/>
+        <field name="inherit_id" ref="sn_credit.view_commande_boxes_tree_sn_credit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-success">cmd_traited == True</attribute>
+                <attribute name="decoration-danger">(amount_rest == amount_ttc) and not cmd_traited</attribute>
+            </xpath>
+            <xpath expr="//tree" position="inside">
+                <field name="cmd_traited" invisible="1"/>
+                <button name="set_cmd_traited" type="object" string="Traité" class="oe_highlight" groups="cherif.cherif_responsable_traitement_dossiers" attrs="{'invisible': [('cmd_traited', '=', True)]}"/>
             </xpath>
         </field>
     </record>
 
 </odoo>
+
+ 

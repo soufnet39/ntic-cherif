@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    
+
     <!--  Category  Can switch client -->
     <record id="cherif_access_switch_client" model="ir.module.category">
         <field name="name">Switch Client</field>
     </record>
-        <!--  User cant spacial account -->
+    <!--  User cant spacial account -->
     <record id="cherif_can_switch_client" model="res.groups">
         <field name="name">Can switch client</field>
         <field name="category_id" ref="cherif_access_switch_client"/>
 
     </record>
-     <!--  Category special group -->
+    <!--  Category special group -->
     <record id="cherif_spacial_access" model="ir.module.category">
         <field name="name">Cherif Special Access</field>
     </record>
-        <!--  User cant spacial account -->
+    <!--  User cant spacial account -->
     <record id="cherif_special_user" model="res.groups">
         <field name="name">Cherif cannot change price</field>
         <field name="category_id" ref="cherif_spacial_access"/>
@@ -26,17 +26,17 @@
     <record id="cherif_24_hours_close_access" model="ir.module.category">
         <field name="name">Cherif 24 Hours Close</field>
     </record>
-        <!--  cherif_24_hours_close -->
+    <!--  cherif_24_hours_close -->
     <record id="cherif_24_hours_close" model="res.groups">
         <field name="name">Cherif 24 Hours Close</field>
         <field name="category_id" ref="cherif_24_hours_close_access"/>
 
     </record>
-     <!--  Category 24 hours close group -->
+    <!--  Category cherif_overpass_clients -->
     <record id="cherif_overpass_clients_access" model="ir.module.category">
         <field name="name">Cherif and Clients</field>
     </record>
-        <!--  cherif_24_hours_close -->
+    <!--  cherif_overpass_clients -->
     <record id="cherif_overpass_clients" model="res.groups">
         <field name="name">Cherif Overpass Clients</field>
         <field name="category_id" ref="cherif_overpass_clients_access"/>
@@ -56,7 +56,8 @@
         <field name="category_id" ref="cherif_access"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
-    
+
+
 
     <!-- Manager Group -->
     <record id="cherif_manager" model="res.groups">
@@ -73,5 +74,22 @@
         <field name="implied_ids" eval="[(4, ref('cherif_manager'))]"/>
         <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
     </record>
+    <record id="cherif_client_searcher" model="res.groups">
+        <field name="name">Cherif Client Searcher</field>
+        <field name="category_id" ref="cherif_access"/>
+        <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> -->
+    </record>
+        <!-- Category Traitement de dossiers -->
+    <record id="cherif_traitement_dossiers_access" model="ir.module.category">
+        <field name="name">Traitement de dossiers</field>
+    </record>
+
+    <!-- Standalone Group: Responsable de traitement de dossiers -->
+    <record id="cherif_responsable_traitement_dossiers" model="res.groups">
+        <field name="name">Responsable de traitement de dossiers</field>
+        <field name="category_id" ref="cherif_traitement_dossiers_access"/>
+    </record>
+
+    <!-- - - - ####################################@- - - -->
 
 </odoo>

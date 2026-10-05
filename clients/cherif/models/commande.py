@@ -12,6 +12,15 @@ class NticCherifCommandes(models.Model):
     pricelist_id = fields.Many2one("sn_sales.pricelist", string="Price by aksat methods",default=_default_related_id,store=True) #
     after24hours = fields.Boolean('After24Hours')
     dossier_org = fields.Many2one("cherif.dossierorg", string="Dossier origine") 
+    cmd_traited = fields.Boolean('Traited',default=False)
+
+    def set_cmd_traited(self, cmd_ids=None):
+        records = self.browse(cmd_ids) if cmd_ids else self
+        records.write({'cmd_traited': True})
+        return True
+
+    def make_it_traited(self):
+        return self.set_cmd_traited()
                                   
     def check24hours(self):  # this function is fired only from schedeled action       
             yesterday = fields.datetime.now() - datetime.timedelta(days=1)
@@ -62,7 +71,7 @@ class NticCherifCommandes(models.Model):
             # double check if the user is in the boss group(exists already in purchases module)
             if not self.env.user.has_group('sn_purchases.sn_purchases_boss'):
                 raise UserError(_("Vous n'êtes pas autorisé de supprimer ce bon d'achat. consulter le responsable."))
-            conn_string="dbname='eloued' host='localhost' user=smail password='root' port=5432"
+            # conn_string="dbname='eloued' host='localhost' user=smail password='root' port=5432"
             conn_string="dbname='eloued' host='db' user=odoo password='odoo' port=5432"
             codew = self.env.company.wilaya_id.code
             # try:
