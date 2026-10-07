@@ -49,6 +49,16 @@
                 <field name="cmd_traited" invisible="1"/>
                 <widget style="margin-top:0" name="web_ribbon" title="Traité" bg_color="bg-success" attrs="{'invisible': [('cmd_traited', '=', False)]}"/>
             </xpath>
+            <xpath expr="//page//div[@id='operations']" position="inside">
+                    <div class="col-md-4" style="border-right:1px solid #dedede" id="annulation">
+                            <h4 class="hh4">Traitement</h4>
+                            <hr/>
+                            <div class="text-center">                                
+                                <field name="cmd_traited" invisible="1"/>
+                                <button attrs="{'invisible': [('cmd_traited', '=', False)]}" name="cancel_traitement" string="Considérer non traité" type="object"  class="oe_highlight btn-success"/>
+                            </div>
+                    </div>
+            </xpath>
            
             <xpath expr="//div[@id='month_number']" position="before">
              <field name="after24hours"  invisible='1' />
@@ -63,8 +73,7 @@
                     </div>
             </xpath>
             <xpath expr="//div[@id='adding_article']//field[@name='product_id']" position="attributes">
-                <attribute name="options">{'no_open': True, 'no_create': True}</attribute>  
-                
+                <attribute name="options">{'no_open': True, 'no_create': True}</attribute>                  
 		    </xpath>
 
             <xpath expr="//div[@id='month_number']" position="attributes">
@@ -166,7 +175,7 @@
             </xpath>
             <xpath expr="//tree" position="inside">
                 <field name="cmd_traited" invisible="1"/>
-                <button name="set_cmd_traited" type="object" string="Traité" class="oe_highlight" groups="cherif.cherif_responsable_traitement_dossiers" attrs="{'invisible': [('cmd_traited', '=', True)]}"/>
+                <button name="make_it_traited" type="object" string="Traité" class="oe_highlight" groups="cherif.cherif_responsable_traitement_dossiers" attrs="{'invisible': [('cmd_traited', '=', True)]}"/>
             </xpath>
         </field>
     </record>

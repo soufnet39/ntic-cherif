@@ -14,13 +14,16 @@ class NticCherifCommandes(models.Model):
     dossier_org = fields.Many2one("cherif.dossierorg", string="Dossier origine") 
     cmd_traited = fields.Boolean('Traited',default=False)
 
-    def set_cmd_traited(self, cmd_ids=None):
+    def set_cmd_traited(self, cmd_ids=None, etat=False):
         records = self.browse(cmd_ids) if cmd_ids else self
-        records.write({'cmd_traited': True})
+        records.write({'cmd_traited': etat})
         return True
 
+    def cancel_traitement(self):
+        return self.set_cmd_traited(etat=False)
+
     def make_it_traited(self):
-        return self.set_cmd_traited()
+        return self.set_cmd_traited(etat=True)
                                   
     def check24hours(self):  # this function is fired only from schedeled action       
             yesterday = fields.datetime.now() - datetime.timedelta(days=1)
