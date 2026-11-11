@@ -33,7 +33,7 @@ class cherif_suppliers_wizard(models.TransientModel):
                     """
             if db == 'nouhstock':
                 # conn_string = "dbname='%s' host='localhost' user=smail password='root' port=5432"
-                conn_string="dbname='%s' host='172.17.0.1' user=odoo password='odoo' port=5433"
+                # conn_string="dbname='%s' host='172.17.0.1' user=odoo password='odoo' port=5433"
                 qry = """
                         select concat('HMD/',p.name) as name,f.name as supplier ,f.ref, p.amount_ttc,p.confirmation_date as date From (SELECT name,company_id,supplier_id,amount_ttc,confirmation_date  FROM public.sn_sales_commandes  where operation_type='purchase') p
                         left join public.res_company rc on rc.id = p.company_id
